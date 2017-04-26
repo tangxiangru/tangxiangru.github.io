@@ -247,6 +247,132 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/关于git的几点/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/26/关于git的几点/" itemprop="url">
+                  关于git的几点
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T19:56:31+08:00">
+                2017-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="关于git的几点"><a href="#关于git的几点" class="headerlink" title="关于git的几点"></a>关于git的几点</h1><h2 id="配置Configuring-a-remote-for-a-fork"><a href="#配置Configuring-a-remote-for-a-fork" class="headerlink" title="配置Configuring a remote for a fork"></a>配置Configuring a remote for a fork</h2><p> 查看远程状态：<figure class="highlight plain"><figcaption><span>remote -v```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">添加一个将被同步给 fork 远程的上游仓库：```git remote add upstream</div><div class="line">https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git</div></pre></td></tr></table></figure></p>
+<p>再次查看状态确认是否配置成功:<figure class="highlight plain"><figcaption><span>remote -v```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">***</div><div class="line">## 同步Syncing a fork</div><div class="line">从上游仓库 fetch 分支和提交点，传送到本地，并会被存储在一个本地分支 upstream/master :```git fetch upstream</div></pre></td></tr></table></figure></p>
+<p>切换到本地主分支(如果不在的话) :<figure class="highlight plain"><figcaption><span>checkout master```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">把 upstream/master 分支合并到本地 master 上，这样就完成了同步，并且不会丢掉本地修改的内容:</div><div class="line">```git merge upstream/master</div></pre></td></tr></table></figure></p>
+<p>如果想更新到 GitHub 的 fork 上:<figure class="highlight plain"><figcaption><span>push origin master```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">***</div><div class="line">## Git 如何 clone 非 master 分支的代码</div><div class="line">查看所有分支:```git branch -a</div></pre></td></tr></table></figure></p>
+<p>查看远程分支:<figure class="highlight plain"><figcaption><span>branch -r ```</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">然后:```git checkout dev-branch</div></pre></td></tr></table></figure></p>
+<p>另一种方法：在本地先建立一个分支（名称和远程的想要同步的分支名称一样），再切换到这个分支，然后<code>git pull</code>一下按提示来做：<code>git branch --set-upstream-to=origin/devbranch</code>，然后最后<code>git pull</code>一下</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/23/读被伤害与侮辱的人们/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -733,7 +859,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
