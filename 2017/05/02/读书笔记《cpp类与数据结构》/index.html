@@ -1,0 +1,670 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="读书笔记《cpp类与数据结构》比大话数据结构更适合数据结构的入门
+什么是类结构体和类结构体和数组最大的区别就是数据成员可以拥有不同的类型，结构体一个是可以储存信息记录，另一个就是用来为数据结构本身创造构建块。数组不能赋值给数组但是结构体的对象可以复制给同一结构体的另一个对象
+类一个类生成很多个对象（私有：数据成员、公用：函数成员）封装encapsulation：对象内部的数据只能由对象本身访问类接">
+<meta property="og:type" content="article">
+<meta property="og:title" content="读书笔记《cpp类与数据结构》">
+<meta property="og:url" content="http://yoursite.com/2017/05/02/读书笔记《cpp类与数据结构》/index.html">
+<meta property="og:site_name" content="TANGXR">
+<meta property="og:description" content="读书笔记《cpp类与数据结构》比大话数据结构更适合数据结构的入门
+什么是类结构体和类结构体和数组最大的区别就是数据成员可以拥有不同的类型，结构体一个是可以储存信息记录，另一个就是用来为数据结构本身创造构建块。数组不能赋值给数组但是结构体的对象可以复制给同一结构体的另一个对象
+类一个类生成很多个对象（私有：数据成员、公用：函数成员）封装encapsulation：对象内部的数据只能由对象本身访问类接">
+<meta property="og:updated_time" content="2017-05-02T07:25:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="读书笔记《cpp类与数据结构》">
+<meta name="twitter:description" content="读书笔记《cpp类与数据结构》比大话数据结构更适合数据结构的入门
+什么是类结构体和类结构体和数组最大的区别就是数据成员可以拥有不同的类型，结构体一个是可以储存信息记录，另一个就是用来为数据结构本身创造构建块。数组不能赋值给数组但是结构体的对象可以复制给同一结构体的另一个对象
+类一个类生成很多个对象（私有：数据成员、公用：函数成员）封装encapsulation：对象内部的数据只能由对象本身访问类接">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/05/02/读书笔记《cpp类与数据结构》/"/>
+
+
+
+
+
+  <title> 读书笔记《cpp类与数据结构》 | TANGXR </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">TANGXR</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/读书笔记《cpp类与数据结构》/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANGXR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TANGXR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                读书笔记《cpp类与数据结构》
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T15:21:38+08:00">
+                2017-05-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="读书笔记《cpp类与数据结构》"><a href="#读书笔记《cpp类与数据结构》" class="headerlink" title="读书笔记《cpp类与数据结构》"></a>读书笔记《cpp类与数据结构》</h1><p>比大话数据结构更适合数据结构的入门</p>
+<h2 id="什么是类"><a href="#什么是类" class="headerlink" title="什么是类"></a>什么是类</h2><h3 id="结构体和类"><a href="#结构体和类" class="headerlink" title="结构体和类"></a>结构体和类</h3><h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p>和数组最大的区别就是数据成员可以拥有不同的类型，结构体一个是可以储存信息记录，另一个就是用来为数据结构本身创造构建块。数组不能赋值给数组但是结构体的对象可以复制给同一结构体的另一个对象</p>
+<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>一个类生成很多个对象（私有：数据成员、公用：函数成员）<br>封装encapsulation：对象内部的数据只能由对象本身访问<br>类接口class interface：对象的共用部分当做程序和对象数据之间的接口<br>类接口好处：修改量减少</p>
+<h3 id="类的实现implementation"><a href="#类的实现implementation" class="headerlink" title="类的实现implementation"></a>类的实现implementation</h3><p>类包含两个文件：说明文件和实现文件</p>
+<h4 id="说明文件"><a href="#说明文件" class="headerlink" title="说明文件"></a>说明文件</h4><p>名称：“类名.h”<br>class 类名{public：……private：……}；</p>
+<h4 id="实现文件"><a href="#实现文件" class="headerlink" title="实现文件"></a>实现文件</h4><p>名称：“类名.cpp”</p>
+<p>#inlude “类名.h”<br>void 类名::函数名（）{}；<br>……<br>两点：<br>从对象的函数返回的时，对象将保留它的数据成员的当前值<br>类的所有函数都可以使用类定义中声明的数据成员。主程序不能使用私有数据成员。</p>
+<h3 id="要记得测试类"><a href="#要记得测试类" class="headerlink" title="要记得测试类"></a>要记得测试类</h3><p>为每个类编写测试驱动程序<br>注：把函数定义放到类中<br>结构和类的区别：结构不指明的话默认为公用，类则默认为私有</p>
+<h2 id="重载运算符和类模板"><a href="#重载运算符和类模板" class="headerlink" title="重载运算符和类模板"></a>重载运算符和类模板</h2><p>函数的名称必须使用关键字operator，后面跟被重载运算符的符号<br>当左操作数是结构的一个对象的时候，就会为这个对象调用该函数<br>一般不用==测试两个结构体是否相等<br>当左操作数不是对象，右操作数是对象时，最好将函数定义直接放在结构体定义的下方，但是与结构体中函数定义两点不同<br>一、这个函数定义不属于对象二、不认为结构体拥有该函数（访问方式）</p>
+<p>当左操作数为类的对象，函数原型位于类定义的公用部分；当左操作数不是而右操作数是类的对象，函数原型位于类定义的下面 </p>
+<p>类模板：生成类的蓝图<br>template <class datatype=""></class></p>
+<h2 id="const限定符和构造函数"><a href="#const限定符和构造函数" class="headerlink" title="const限定符和构造函数"></a>const限定符和构造函数</h2><p>使用const有多个方面的好处<br>参数传递方式概括：函数中的对象需要修改的时，用传址方式，对象的改变映射到调用函数中；用传值方式则不会映射到调用函数中；函数中的对象不需要改变就用传常址<br>构造函数通常用来初始化私有类的数据成员</p>
+<h2 id="指针和动态数组"><a href="#指针和动态数组" class="headerlink" title="指针和动态数组"></a>指针和动态数组</h2><h2 id="array类"><a href="#array类" class="headerlink" title="array类"></a>array类</h2><h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><h2 id="数据结构的方法（数组、链表）"><a href="#数据结构的方法（数组、链表）" class="headerlink" title="数据结构的方法（数组、链表）"></a>数据结构的方法（数组、链表）</h2><h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h2 id="散列表、双向链表"><a href="#散列表、双向链表" class="headerlink" title="散列表、双向链表"></a>散列表、双向链表</h2><h2 id="优先级队列（树、堆）"><a href="#优先级队列（树、堆）" class="headerlink" title="优先级队列（树、堆）"></a>优先级队列（树、堆）</h2><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h2 id="二叉树和图"><a href="#二叉树和图" class="headerlink" title="二叉树和图"></a>二叉树和图</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/02/编程语言之美/" rel="next" title="编程语言之美">
+                <i class="fa fa-chevron-left"></i> 编程语言之美
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="TANGXR" />
+          <p class="site-author-name" itemprop="name">TANGXR</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#读书笔记《cpp类与数据结构》"><span class="nav-number">1.</span> <span class="nav-text">读书笔记《cpp类与数据结构》</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是类"><span class="nav-number">1.1.</span> <span class="nav-text">什么是类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构体和类"><span class="nav-number">1.1.1.</span> <span class="nav-text">结构体和类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#结构体"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">结构体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#类"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类的实现implementation"><span class="nav-number">1.1.2.</span> <span class="nav-text">类的实现implementation</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明文件"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">说明文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#实现文件"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">实现文件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#要记得测试类"><span class="nav-number">1.1.3.</span> <span class="nav-text">要记得测试类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#重载运算符和类模板"><span class="nav-number">1.2.</span> <span class="nav-text">重载运算符和类模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#const限定符和构造函数"><span class="nav-number">1.3.</span> <span class="nav-text">const限定符和构造函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指针和动态数组"><span class="nav-number">1.4.</span> <span class="nav-text">指针和动态数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#array类"><span class="nav-number">1.5.</span> <span class="nav-text">array类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合"><span class="nav-number">1.6.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据结构的方法（数组、链表）"><span class="nav-number">1.7.</span> <span class="nav-text">数据结构的方法（数组、链表）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#栈和队列"><span class="nav-number">1.8.</span> <span class="nav-text">栈和队列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.9.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链表"><span class="nav-number">1.10.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#散列表、双向链表"><span class="nav-number">1.11.</span> <span class="nav-text">散列表、双向链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优先级队列（树、堆）"><span class="nav-number">1.12.</span> <span class="nav-text">优先级队列（树、堆）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#递归"><span class="nav-number">1.13.</span> <span class="nav-text">递归</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#排序算法"><span class="nav-number">1.14.</span> <span class="nav-text">排序算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二叉树和图"><span class="nav-number">1.15.</span> <span class="nav-text">二叉树和图</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">TANGXR</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
