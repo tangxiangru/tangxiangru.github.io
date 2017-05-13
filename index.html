@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Startseite
+            Home
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archiv
+            Archives
           </a>
         </li>
       
@@ -237,6 +237,155 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/nlp入门笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANGXR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TANGXR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/14/nlp入门笔记/" itemprop="url">
+                  nlp入门笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T03:01:53+08:00">
+                2017-05-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h2><p>自动机 形式逻辑 统计机器学习汉语语言学 形式语法理论</p>
+<h2 id="语言资源"><a href="#语言资源" class="headerlink" title="语言资源"></a>语言资源</h2><p>语料库 词典</p>
+<h2 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h2><p>汉字编码词法分析 句法分析 语义分析 文本生成 语音识别</p>
+<h2 id="应用系统"><a href="#应用系统" class="headerlink" title="应用系统"></a>应用系统</h2><p>文本分类和聚类 信息检索和过滤 信息抽取问答系统拼音汉字转换系统 机器翻译 新信息检测</p>
+<h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><h2 id="数据稀疏与平滑技术"><a href="#数据稀疏与平滑技术" class="headerlink" title="数据稀疏与平滑技术"></a>数据稀疏与平滑技术</h2><p>大规模数据统计方法与有限的训练语料之间必然产生数据稀疏问题，导致零概率问题，符合经典的zip’f定律。如IBM, Brown：366M英语语料训练trigram，在测试语料中，有14.7%的trigram和2.2%的bigram在训练语料中未出现。</p>
+<p>数据稀疏问题定义：“The problem of data sparseness, alsoknown as the zero-frequency problem ariseswhen analyses contain configurations thatnever occurred in the training corpus. Then it isnot possible to estimate probabilities from observedfrequencies, and some other estimation schemethat can generalize (that configurations) from thetraining data has to be used. —— Dagan”。</p>
+<p>人们为理论模型实用化而进行了众多尝试与努力，诞生了一系列经典的平滑技术，它们的基本思想是“降低已出现n-gram条件概率分布，以使未出现的n-gram条件概率分布非零”，且经数据平滑后一定保证概率和为1，详细如下：</p>
+<h1 id="Add-one（Laplace）-Smoothing"><a href="#Add-one（Laplace）-Smoothing" class="headerlink" title="Add-one（Laplace） Smoothing"></a>Add-one（Laplace） Smoothing</h1><p>加一平滑法，又称拉普拉斯定律，其保证每个n-gram在训练语料中至少出现1次，以bigram为例，公式如图：</p>
+<p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9b313c968494a4c21e2eef796f9d70b0/54fbb2fb43166d2202f3c80d452309f79152d2a7.jpg" alt=""><br>其中，V是所有bigram的个数。</p>
+<h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><p>其基本思想是利用频率的类别信息对频率进行平滑。调整出现频率为c的n-gram频率为c*：<br>直接的改进策略就是“对出现次数超过某个阈值的gram，不进行平滑，阈值一般取8~10”，其他方法请参见“Simple Good-Turing”。</p>
+<h1 id="InterpolationSmoothing"><a href="#InterpolationSmoothing" class="headerlink" title="InterpolationSmoothing"></a>InterpolationSmoothing</h1><p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike60%2C5%2C5%2C60%2C20/sign=1006482284d6277ffd1f3a6a49517455/55e736d12f2eb9380c57a66bd6628535e5dd6f75.jpg" alt=""><br>不管是Add-one，还是Good Turing平滑技术，对于未出现的n-gram都一视同仁，难免存在不合理（事件发生概率存在差别），所以这里再介绍一种线性插值平滑技术，其基本思想是将高阶模型和低阶模型作线性组合，利用低元n-gram模型对高元n-gram模型进行线性插值。因为在没有足够的数据对高元n-gram模型进行概率估计时，低元n-gram模型通常可以提供有用的信息。公式如下如下<br><img src="https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=27986ea8a28b87d6444fa34d6661435d/203fb80e7bec54e7a255c687ba389b504ec26aea.jpg" alt=""></p>
+<p>扩展方式（上下文相关）为如右图</p>
+<p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike60%2C5%2C5%2C60%2C20/sign=7f677694fbdcd100d991f07313e22c75/f603918fa0ec08fa159dcf3e5aee3d6d54fbda8e.jpg" alt=""></p>
+<p>λs可以通过EM算法来估计，具体步骤如下:</p>
+<p>首先，确定三种数据：Training data、Held-out data和Test data；<br>然后，根据Training data构造初始的语言模型，并确定初始的λs（如均为1）；<br>最后，基于EM算法迭代地优化λs，使得Held-out data概率（如下式）最大化。</p>
+<h1 id="处理工具"><a href="#处理工具" class="headerlink" title="处理工具"></a>处理工具</h1><h2 id="OpenNLP"><a href="#OpenNLP" class="headerlink" title="OpenNLP"></a>OpenNLP</h2><p>OpenNLP是一个基于Java机器学习工具包，用于处理自然语言文本。支持大多数常用的 NLP 任务，例如：标识化、句子切分、部分词性标注、名称抽取、组块、解析等。</p>
+<h2 id="FudanNLP"><a href="#FudanNLP" class="headerlink" title="FudanNLP"></a>FudanNLP</h2><p>FudanNLP主要是为中文自然语言处理而开发的工具包，也包含为实现这些任务的机器学习算法和数据集。本工具包及其包含数据集使用LGPL3.0许可证。开发语言为Java。<br>功能：</p>
+<ol>
+<li>文本分类 新闻聚类</li>
+<li>中文分词 词性标注 实体名识别 关键词抽取 依存句法分析 时间短语识别</li>
+<li>结构化学习 在线学习 层次分类 聚类 精确推理<h2 id="语言技术平台-LTP"><a href="#语言技术平台-LTP" class="headerlink" title="语言技术平台(LTP)"></a>语言技术平台(LTP)</h2></li>
+</ol>
+<p>语言技术平台（Language Technology Platform，LTP）是哈工大社会计算与信息检索研究中心历时十年开发的一整套中文语言处理系统。LTP制定了基于XML的语言处理结果表示，并在此基础上提供了一整套自底向上的丰富而且高效的中文语言处理模块（包括词法、句法、语义等6项中文处理核心技术），以及基于动态链接库（Dynamic Link Library, DLL）的应用程序接口，可视化工具，并且能够以网络服务（Web Service）的形式进行使用。</p>
+<p><img src="http://i4.buimg.com/588926/6f0af510d4e89c01.jpg" alt=""></p>
+<h1 id="自然语言处理技术难点"><a href="#自然语言处理技术难点" class="headerlink" title="自然语言处理技术难点"></a>自然语言处理技术难点</h1><h2 id="单词-的边界界定"><a href="#单词-的边界界定" class="headerlink" title="单词 的边界界定"></a>单词 的边界界定</h2><p>在口语中，词与词之间通常是连贯的，而界定字词边界通常使用的办法是取用能让给定的上下文最为通顺且在文法上无误的一种最佳组合。在书写上，汉语也没有词与词之间的边界。<br>词义的消歧</p>
+<p>许多字词不单只有一个意思，因而我们必须选出使句意最为通顺的解释。</p>
+<h2 id="句法-的模糊性"><a href="#句法-的模糊性" class="headerlink" title="句法 的模糊性"></a>句法 的模糊性</h2><p>自然语言的文法通常是模棱两可的，针对一个句子通常可能会剖析(Parse)出多棵剖析树(Parse Tree)，而我们必须要仰赖语意及前后文的信息才能在其中选择一棵最为适合的剖析树。<br>有瑕疵的或不规范的输入</p>
+<p>例如语音处理时遇到外国口音或地方口音,或者在文本的处理中处理拼写,语法或者光学字符识别(OCR)的错误。</p>
+<h2 id="语言行为与计划"><a href="#语言行为与计划" class="headerlink" title="语言行为与计划"></a>语言行为与计划</h2><p>句子常常并不只是字面上的意思；例如，“你能把盐递过来吗”，一个好的回答应当是把盐递过去；在大多数上下文环境中，“能”将是糟糕的回答，虽说回答“不”或者“太远了我拿不到”也是可以接受的。再者，如果一门课程上一年没开设，对于提问“这门课程去年有多少学生没通过？”回答“去年没开这门课”要比回答“没人没通过”好。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -284,7 +433,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T11:06:49+08:00">
                 2017-05-13
@@ -419,7 +568,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T11:01:57+08:00">
                 2017-05-13
@@ -548,7 +697,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T19:32:39+08:00">
                 2017-05-04
@@ -678,7 +827,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T15:21:38+08:00">
                 2017-05-02
@@ -810,7 +959,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T13:47:33+08:00">
                 2017-05-02
@@ -956,7 +1105,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T19:56:31+08:00">
                 2017-04-26
@@ -1095,7 +1244,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T22:03:44+08:00">
                 2017-04-23
@@ -1235,7 +1384,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T21:42:48+08:00">
                 2017-04-23
@@ -1414,7 +1563,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Veröffentlicht am</span>
+                <span class="post-meta-item-text">Posted on</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T23:06:18+08:00">
                 2017-03-24
@@ -1544,8 +1693,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">9</span>
-                <span class="site-state-item-name">Artikel</span>
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -1599,7 +1748,7 @@
 
 
 <div class="powered-by">
-  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
