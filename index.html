@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -237,6 +237,141 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/Distant-supervision/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TANGXR">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TANGXR">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/13/Distant-supervision/" itemprop="url">
+                  Distant supervision
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T11:06:49+08:00">
+                2017-05-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>远程监督：使用未标注语料做关系抽取</p>
+<h1 id="1-背景："><a href="#1-背景：" class="headerlink" title="1. 背景："></a>1. 背景：</h1><pre><code>关系抽取（某个人是否属于某个组织等）
+</code></pre><p> 关系抽取中使用的3种方法：</p>
+<h2 id="a-监督学习"><a href="#a-监督学习" class="headerlink" title="a) 监督学习"></a>a) 监督学习</h2><pre><code>优点：准确率很高
+缺点：1.手工标注金标语料代价昂贵，时间金钱上需要很大的开销，并且数量受限，得不到大量的训练数据; 2.领域受限，标注都是在一个特定的语料中，训练的系统受限于那个领域
+</code></pre><h2 id="b-无监督学习。-优点：可以使用大规模的数据，抽取出大量的关系"><a href="#b-无监督学习。-优点：可以使用大规模的数据，抽取出大量的关系" class="headerlink" title="b) 无监督学习。 优点：可以使用大规模的数据，抽取出大量的关系"></a>b) 无监督学习。 优点：可以使用大规模的数据，抽取出大量的关系</h2><pre><code>缺点：抽取的结果往往比较难映射到特定的知识库
+</code></pre><h2 id="c-Bootstrap-learning，往往有低准确率的问题。"><a href="#c-Bootstrap-learning，往往有低准确率的问题。" class="headerlink" title="c) Bootstrap learning，往往有低准确率的问题。"></a>c) Bootstrap learning，往往有低准确率的问题。</h2><h2 id="d-远程监督-使用知识库（freebase）来获取weekly-labeled-training-data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。"><a href="#d-远程监督-使用知识库（freebase）来获取weekly-labeled-training-data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。" class="headerlink" title="d) 远程监督 使用知识库（freebase）来获取weekly labeled training data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。"></a>d) 远程监督 使用知识库（freebase）来获取weekly labeled training data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。</h2><h1 id="2-方法介绍"><a href="#2-方法介绍" class="headerlink" title="2. 方法介绍"></a>2. 方法介绍</h1><h2 id="训练阶段"><a href="#训练阶段" class="headerlink" title="训练阶段"></a>训练阶段</h2><p>使用 named entity tagge标注 persons organizations 和 locations；<br>对在freebase中出现的实体对提取特征，构造训练数据；<br>训练多类别逻辑斯特回归模型。</p>
+<h2 id="测试阶段："><a href="#测试阶段：" class="headerlink" title="测试阶段："></a>测试阶段：</h2><p>使用 named entity tagge标注 persons organizations 和 locations<br>在句子中出现的每对实体都被考虑做为一个潜在的关系实例，作为测试数据<br>使用训练后的模型对实体对分类。</p>
+<h1 id="3-特征选择"><a href="#3-特征选择" class="headerlink" title="3. 特征选择"></a>3. 特征选择</h1><h2 id="3-1-词汇特征："><a href="#3-1-词汇特征：" class="headerlink" title="3.1. 词汇特征："></a>3.1. 词汇特征：</h2><pre><code>a) 两个实体中间的词序列b) 这些词的词性标记 c) 标志位表示哪个实体出现在前面 d) 大小为k的左窗口 e) 大小为k的右窗口。
+</code></pre><h3 id="3-2-句法特征："><a href="#3-2-句法特征：" class="headerlink" title="3.2. 句法特征："></a>3.2. 句法特征：</h3><pre><code>a) 两个实体之间的最短依存路径；b) 两个实体的左右窗口。
+</code></pre><h3 id="3-3-命名实体tag特征："><a href="#3-3-命名实体tag特征：" class="headerlink" title="3.3. 命名实体tag特征："></a>3.3. 命名实体tag特征：</h3><pre><code>人名、地名、组织名和其他
+</code></pre><h1 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h1><pre><code>连接特征来丢进多类逻辑斯特回归模型。
+
+负例构造：随机选取不在freebase中的实体对（有错误的可能）
+</code></pre><h2 id="5-原文及我的全文翻译"><a href="#5-原文及我的全文翻译" class="headerlink" title="5.原文及我的全文翻译"></a>5.原文及我的全文翻译</h2><p>可向我索要</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -284,7 +419,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-13T11:01:57+08:00">
                 2017-05-13
@@ -413,7 +548,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T19:32:39+08:00">
                 2017-05-04
@@ -543,7 +678,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T15:21:38+08:00">
                 2017-05-02
@@ -675,7 +810,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T13:47:33+08:00">
                 2017-05-02
@@ -821,7 +956,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T19:56:31+08:00">
                 2017-04-26
@@ -960,7 +1095,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T22:03:44+08:00">
                 2017-04-23
@@ -1100,7 +1235,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T21:42:48+08:00">
                 2017-04-23
@@ -1279,7 +1414,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T23:06:18+08:00">
                 2017-03-24
@@ -1409,8 +1544,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1464,7 +1599,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
