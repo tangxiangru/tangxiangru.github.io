@@ -93,10 +93,12 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/15/吴岸成《NN-and-DL》/index.html">
 <meta property="og:site_name" content="TANGXR">
 <meta property="og:description" content="机器学习和神经网络入门">
-<meta property="og:updated_time" content="2017-05-15T15:44:41.000Z">
+<meta property="og:image" content="http://i4.buimg.com/588926/0a23be61f6a01b38.png">
+<meta property="og:updated_time" content="2017-05-15T16:58:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="吴岸成《NN and DL》">
 <meta name="twitter:description" content="机器学习和神经网络入门">
+<meta name="twitter:image" content="http://i4.buimg.com/588926/0a23be61f6a01b38.png">
 
 
 
@@ -196,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -206,7 +208,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -283,7 +285,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T23:32:11+08:00">
                 2017-05-15
@@ -354,12 +356,33 @@
 <h1 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h1><p>深度学习是神经网络的一个大的分支，深度学习的基本结构是深度神经网络</p>
 <p>深度神经网络大部分是至少有一个隐层的神经网络，其余小部分是递归神经网络和卷积神经网络。</p>
 <h2 id="机器学习的三种方式"><a href="#机器学习的三种方式" class="headerlink" title="机器学习的三种方式"></a>机器学习的三种方式</h2><p>机器学习：通过算法，从大量数据中学习规矩，从而对新的样本做预测</p>
-<p>监督学习：训练数据：输入数据（包括正确的训练集和错误的训练集），不断地与人工标注过的数据库作比较，然后不断调整模型</p>
-<p>非监督学习：模型自己去做聚类学习，常见算法：Apriori算法、K-Means算法</p>
-<p>强化学习：连续决策的过程。与监督学习的区别是，当不知道标注是什么的时候，给一个回报函数，回报函数决定当前状态得到什么样的结果，数学本质是一个马尔科夫决策过程。最终的目的是决策过程中整体的回报函数期望最优。</p>
-<p>但是，当遇到高维数据的时候（游戏），处理数据的速度跟不上画面速度。                                                                                                        </p>
-<h2 id="bp算法"><a href="#bp算法" class="headerlink" title="bp算法"></a>bp算法</h2><h1 id="深度学习的常用方法"><a href="#深度学习的常用方法" class="headerlink" title="深度学习的常用方法"></a>深度学习的常用方法</h1><p>算法</p>
-<h2 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h2><h2 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h2><h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1>
+<h3 id="监督学习："><a href="#监督学习：" class="headerlink" title="监督学习："></a>监督学习：</h3><p>训练数据：输入数据（包括正确的训练集和错误的训练集），不断地与人工标注过的数据库作比较，然后不断调整模型</p>
+<h3 id="非监督学习："><a href="#非监督学习：" class="headerlink" title="非监督学习："></a>非监督学习：</h3><p>模型自己去做聚类学习，常见算法：Apriori算法、K-Means算法</p>
+<h3 id="强化学习："><a href="#强化学习：" class="headerlink" title="强化学习："></a>强化学习：</h3><p>连续决策的过程。与监督学习的区别是，当不知道标注是什么的时候，给一个回报函数，回报函数决定当前状态得到什么样的结果，数学本质是一个马尔科夫决策过程。最终的目的是决策过程中整体的回报函数期望最优。</p>
+<p>或者说，通过一个过程来回的调整所谓的“标注数据” </p>
+<p>但是，当遇到高维数据的时候（游戏），处理数据的速度跟不上画面速度。此时要求助于深度学习</p>
+<p>通过强化学习引入深度学习</p>
+<p>深度学习是神经网络的一个大的分支，深度学习的基本结构是深度神经网络。用韦恩图来表示</p>
+<p> <img src="http://i4.buimg.com/588926/0a23be61f6a01b38.png" alt=" "></p>
+<h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><p>特征是机器学习的原材料</p>
+<p>特征粒度：我们在一个什么粒度上表示特征，才能发挥作用？</p>
+<p>任何事物都可以划分成粒度合适的浅层特征，而这个浅层特征一般就是我们的第二层输入</p>
+<p>结构性特征具有明显的层级概念，从较小粒度划分，再用划分的基本特征组成上层特征，以此类推，可以展示特征的结构性。</p>
+<p>从2006年开始深度学习爆火，为什么？几篇划时代性的论文：</p>
+<p>1、a fast learning algorithm for deep belief nets</p>
+<p>2.advances in neural information processing systems</p>
+<p>3.advances in neural information processing systems</p>
+<p>具体而言，1、非监督学习被用来训练各个层</p>
+<p>2、每个层次学习的内容作为下一个层的输入</p>
+<p>3、用监督学习来调整层与层之间的权重</p>
+<h2 id="如何训练有多个隐层的感知机：bp算法"><a href="#如何训练有多个隐层的感知机：bp算法" class="headerlink" title="如何训练有多个隐层的感知机：bp算法"></a>如何训练有多个隐层的感知机：bp算法</h2><p>由信号正向传播和误差反向传播</p>
+<p>核心思想：在反向传播上将所得误差分摊给各层所有的单元，修正权值</p>
+<p>一般在5层以内的神经网络中使用</p>
+<h1 id="深度学习的常用方法"><a href="#深度学习的常用方法" class="headerlink" title="深度学习的常用方法"></a>深度学习的常用方法</h1><p>深度学习是一个算法，但是特征的抽取过程是一个抽象的问题</p>
+<p>以前如k-means等聚类都是对一个问题有解，但是深度学习不同</p>
+<p>如何选取和如何训练？</p>
+<h2 id="卷积神经网络cnn"><a href="#卷积神经网络cnn" class="headerlink" title="卷积神经网络cnn"></a>卷积神经网络cnn</h2><p>一个模型架构：一种特殊的对图像识别的方式，属于带有前向反馈的网络</p>
+<h3 id="循环神经网络"><a href="#循环神经网络" class="headerlink" title="循环神经网络"></a>循环神经网络</h3><h1 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h1>
       
     </div>
 
@@ -452,10 +475,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -476,7 +499,7 @@
             <div class="site-state-item site-state-posts">
               <a href="/目录">
                 <span class="site-state-item-count">12</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -514,7 +537,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#历史"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准的机器学习问题"><span class="nav-number">2.1.</span> <span class="nav-text">标准的机器学习问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络"><span class="nav-number">2.2.</span> <span class="nav-text">神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造神经网络"><span class="nav-number">3.</span> <span class="nav-text">构造神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造一个神经元"><span class="nav-number">3.1.</span> <span class="nav-text">构造一个神经元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机"><span class="nav-number">3.2.</span> <span class="nav-text">感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用Java实现感知机–Neuroph：基于Java的神经网络框架"><span class="nav-number">3.2.1.</span> <span class="nav-text">用Java实现感知机–Neuroph：基于Java的神经网络框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.2.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造神经网络-1"><span class="nav-number">3.3.</span> <span class="nav-text">构造神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际问题解决"><span class="nav-number">3.4.</span> <span class="nav-text">实际问题解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习"><span class="nav-number">4.</span> <span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的三种方式"><span class="nav-number">4.1.</span> <span class="nav-text">机器学习的三种方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#bp算法"><span class="nav-number">4.2.</span> <span class="nav-text">bp算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习的常用方法"><span class="nav-number">5.</span> <span class="nav-text">深度学习的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积神经网络"><span class="nav-number">5.1.</span> <span class="nav-text">卷积神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环神经网络"><span class="nav-number">5.2.</span> <span class="nav-text">循环神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">6.</span> <span class="nav-text">杂项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#历史"><span class="nav-number">1.</span> <span class="nav-text">历史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#定义"><span class="nav-number">2.</span> <span class="nav-text">定义</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#标准的机器学习问题"><span class="nav-number">2.1.</span> <span class="nav-text">标准的机器学习问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络"><span class="nav-number">2.2.</span> <span class="nav-text">神经网络</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#构造神经网络"><span class="nav-number">3.</span> <span class="nav-text">构造神经网络</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#构造一个神经元"><span class="nav-number">3.1.</span> <span class="nav-text">构造一个神经元</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#感知机"><span class="nav-number">3.2.</span> <span class="nav-text">感知机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#用Java实现感知机–Neuroph：基于Java的神经网络框架"><span class="nav-number">3.2.1.</span> <span class="nav-text">用Java实现感知机–Neuroph：基于Java的神经网络框架</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码实现"><span class="nav-number">3.2.2.</span> <span class="nav-text">代码实现</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#构造神经网络-1"><span class="nav-number">3.3.</span> <span class="nav-text">构造神经网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实际问题解决"><span class="nav-number">3.4.</span> <span class="nav-text">实际问题解决</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习"><span class="nav-number">4.</span> <span class="nav-text">深度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的三种方式"><span class="nav-number">4.1.</span> <span class="nav-text">机器学习的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#监督学习："><span class="nav-number">4.1.1.</span> <span class="nav-text">监督学习：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#非监督学习："><span class="nav-number">4.1.2.</span> <span class="nav-text">非监督学习：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#强化学习："><span class="nav-number">4.1.3.</span> <span class="nav-text">强化学习：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#特征"><span class="nav-number">4.2.</span> <span class="nav-text">特征</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如何训练有多个隐层的感知机：bp算法"><span class="nav-number">4.3.</span> <span class="nav-text">如何训练有多个隐层的感知机：bp算法</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#深度学习的常用方法"><span class="nav-number">5.</span> <span class="nav-text">深度学习的常用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积神经网络cnn"><span class="nav-number">5.1.</span> <span class="nav-text">卷积神经网络cnn</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#循环神经网络"><span class="nav-number">5.1.1.</span> <span class="nav-text">循环神经网络</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#杂项"><span class="nav-number">6.</span> <span class="nav-text">杂项</span></a></li></ol></div>
             
 
           </div>
@@ -546,7 +569,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
