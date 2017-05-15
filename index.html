@@ -323,9 +323,7 @@
 
       
         
-          <p>微软有一个图形化的深度学习在线工具–为了简化技术–技术的进步</p>
-<h1 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h1><p>geoffery hinton辛顿、lecun勒邱恩、bengio<br>某个内向的德国人、李飞飞</p>
-<p>自图灵提出机器和智能之后，两派，一个是自顶向下，用逻辑和符号系统（控制论）；另一派是字下而上，模拟生物学大脑，想要获得意识。</p>
+          <p>机器学习和神经网络入门</p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/15/吴岸成《NN-and-DL》/#more" rel="contents">
@@ -576,38 +574,14 @@
 
       
         
-          
-            <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h2 id="基础理论"><a href="#基础理论" class="headerlink" title="基础理论"></a>基础理论</h2><p>自动机 形式逻辑 统计机器学习汉语语言学 形式语法理论</p>
-<h2 id="语言资源"><a href="#语言资源" class="headerlink" title="语言资源"></a>语言资源</h2><p>语料库 词典</p>
-<h2 id="关键技术"><a href="#关键技术" class="headerlink" title="关键技术"></a>关键技术</h2><p>汉字编码词法分析 句法分析 语义分析 文本生成 语音识别</p>
-<h2 id="应用系统"><a href="#应用系统" class="headerlink" title="应用系统"></a>应用系统</h2><p>文本分类和聚类 信息检索和过滤 信息抽取问答系统拼音汉字转换系统 机器翻译 新信息检测</p>
-<h1 id="技术"><a href="#技术" class="headerlink" title="技术"></a>技术</h1><h2 id="数据稀疏与平滑技术"><a href="#数据稀疏与平滑技术" class="headerlink" title="数据稀疏与平滑技术"></a>数据稀疏与平滑技术</h2><p>大规模数据统计方法与有限的训练语料之间必然产生数据稀疏问题，导致零概率问题，符合经典的zip’f定律。如IBM, Brown：366M英语语料训练trigram，在测试语料中，有14.7%的trigram和2.2%的bigram在训练语料中未出现。</p>
-<p>数据稀疏问题定义：“The problem of data sparseness, alsoknown as the zero-frequency problem ariseswhen analyses contain configurations thatnever occurred in the training corpus. Then it isnot possible to estimate probabilities from observedfrequencies, and some other estimation schemethat can generalize (that configurations) from thetraining data has to be used. —— Dagan”。</p>
-<p>人们为理论模型实用化而进行了众多尝试与努力，诞生了一系列经典的平滑技术，它们的基本思想是“降低已出现n-gram条件概率分布，以使未出现的n-gram条件概率分布非零”，且经数据平滑后一定保证概率和为1，详细如下：</p>
-<h1 id="Add-one（Laplace）-Smoothing"><a href="#Add-one（Laplace）-Smoothing" class="headerlink" title="Add-one（Laplace） Smoothing"></a>Add-one（Laplace） Smoothing</h1><p>加一平滑法，又称拉普拉斯定律，其保证每个n-gram在训练语料中至少出现1次，以bigram为例，公式如图：</p>
-<p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=9b313c968494a4c21e2eef796f9d70b0/54fbb2fb43166d2202f3c80d452309f79152d2a7.jpg" alt=""><br>其中，V是所有bigram的个数。</p>
-<h1 id="Good-Turing-Smoothing"><a href="#Good-Turing-Smoothing" class="headerlink" title="Good-Turing Smoothing"></a>Good-Turing Smoothing</h1><p>其基本思想是利用频率的类别信息对频率进行平滑。调整出现频率为c的n-gram频率为c*：<br>直接的改进策略就是“对出现次数超过某个阈值的gram，不进行平滑，阈值一般取8~10”，其他方法请参见“Simple Good-Turing”。</p>
-<h1 id="InterpolationSmoothing"><a href="#InterpolationSmoothing" class="headerlink" title="InterpolationSmoothing"></a>InterpolationSmoothing</h1><p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike60%2C5%2C5%2C60%2C20/sign=1006482284d6277ffd1f3a6a49517455/55e736d12f2eb9380c57a66bd6628535e5dd6f75.jpg" alt=""><br>不管是Add-one，还是Good Turing平滑技术，对于未出现的n-gram都一视同仁，难免存在不合理（事件发生概率存在差别），所以这里再介绍一种线性插值平滑技术，其基本思想是将高阶模型和低阶模型作线性组合，利用低元n-gram模型对高元n-gram模型进行线性插值。因为在没有足够的数据对高元n-gram模型进行概率估计时，低元n-gram模型通常可以提供有用的信息。公式如下如下<br><img src="https://imgsa.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=27986ea8a28b87d6444fa34d6661435d/203fb80e7bec54e7a255c687ba389b504ec26aea.jpg" alt=""></p>
-<p>扩展方式（上下文相关）为如右图</p>
-<p><img src="https://imgsa.baidu.com/baike/c0%3Dbaike60%2C5%2C5%2C60%2C20/sign=7f677694fbdcd100d991f07313e22c75/f603918fa0ec08fa159dcf3e5aee3d6d54fbda8e.jpg" alt=""></p>
-<p>λs可以通过EM算法来估计，具体步骤如下:</p>
-<p>首先，确定三种数据：Training data、Held-out data和Test data；<br>然后，根据Training data构造初始的语言模型，并确定初始的λs（如均为1）；<br>最后，基于EM算法迭代地优化λs，使得Held-out data概率（如下式）最大化。</p>
-<h1 id="处理工具"><a href="#处理工具" class="headerlink" title="处理工具"></a>处理工具</h1><h2 id="OpenNLP"><a href="#OpenNLP" class="headerlink" title="OpenNLP"></a>OpenNLP</h2><p>OpenNLP是一个基于Java机器学习工具包，用于处理自然语言文本。支持大多数常用的 NLP 任务，例如：标识化、句子切分、部分词性标注、名称抽取、组块、解析等。</p>
-<h2 id="FudanNLP"><a href="#FudanNLP" class="headerlink" title="FudanNLP"></a>FudanNLP</h2><p>FudanNLP主要是为中文自然语言处理而开发的工具包，也包含为实现这些任务的机器学习算法和数据集。本工具包及其包含数据集使用LGPL3.0许可证。开发语言为Java。<br>功能：</p>
-<ol>
-<li>文本分类 新闻聚类</li>
-<li>中文分词 词性标注 实体名识别 关键词抽取 依存句法分析 时间短语识别</li>
-<li>结构化学习 在线学习 层次分类 聚类 精确推理<h2 id="语言技术平台-LTP"><a href="#语言技术平台-LTP" class="headerlink" title="语言技术平台(LTP)"></a>语言技术平台(LTP)</h2></li>
-</ol>
-<p>语言技术平台（Language Technology Platform，LTP）是哈工大社会计算与信息检索研究中心历时十年开发的一整套中文语言处理系统。LTP制定了基于XML的语言处理结果表示，并在此基础上提供了一整套自底向上的丰富而且高效的中文语言处理模块（包括词法、句法、语义等6项中文处理核心技术），以及基于动态链接库（Dynamic Link Library, DLL）的应用程序接口，可视化工具，并且能够以网络服务（Web Service）的形式进行使用。</p>
-<p><img src="http://i4.buimg.com/588926/6f0af510d4e89c01.jpg" alt=""></p>
-<h1 id="自然语言处理技术难点"><a href="#自然语言处理技术难点" class="headerlink" title="自然语言处理技术难点"></a>自然语言处理技术难点</h1><h2 id="单词-的边界界定"><a href="#单词-的边界界定" class="headerlink" title="单词 的边界界定"></a>单词 的边界界定</h2><p>在口语中，词与词之间通常是连贯的，而界定字词边界通常使用的办法是取用能让给定的上下文最为通顺且在文法上无误的一种最佳组合。在书写上，汉语也没有词与词之间的边界。<br>词义的消歧</p>
-<p>许多字词不单只有一个意思，因而我们必须选出使句意最为通顺的解释。</p>
-<h2 id="句法-的模糊性"><a href="#句法-的模糊性" class="headerlink" title="句法 的模糊性"></a>句法 的模糊性</h2><p>自然语言的文法通常是模棱两可的，针对一个句子通常可能会剖析(Parse)出多棵剖析树(Parse Tree)，而我们必须要仰赖语意及前后文的信息才能在其中选择一棵最为适合的剖析树。<br>有瑕疵的或不规范的输入</p>
-<p>例如语音处理时遇到外国口音或地方口音,或者在文本的处理中处理拼写,语法或者光学字符识别(OCR)的错误。</p>
-<h2 id="语言行为与计划"><a href="#语言行为与计划" class="headerlink" title="语言行为与计划"></a>语言行为与计划</h2><p>句子常常并不只是字面上的意思；例如，“你能把盐递过来吗”，一个好的回答应当是把盐递过去；在大多数上下文环境中，“能”将是糟糕的回答，虽说回答“不”或者“太远了我拿不到”也是可以接受的。再者，如果一门课程上一年没开设，对于提问“这门课程去年有多少学生没通过？”回答“去年没开这门课”要比回答“没人没通过”好。</p>
-
-          
+          <p>nlp入门学习</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/14/nlp入门笔记/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -725,24 +699,14 @@
 
       
         
-          
-            <p>远程监督：使用未标注语料做关系抽取</p>
-<h1 id="1-背景："><a href="#1-背景：" class="headerlink" title="1. 背景："></a>1. 背景：</h1><pre><code>关系抽取（某个人是否属于某个组织等）
-</code></pre><p> 关系抽取中使用的3种方法：</p>
-<h2 id="a-监督学习"><a href="#a-监督学习" class="headerlink" title="a) 监督学习"></a>a) 监督学习</h2><pre><code>优点：准确率很高
-缺点：1.手工标注金标语料代价昂贵，时间金钱上需要很大的开销，并且数量受限，得不到大量的训练数据; 2.领域受限，标注都是在一个特定的语料中，训练的系统受限于那个领域
-</code></pre><h2 id="b-无监督学习。-优点：可以使用大规模的数据，抽取出大量的关系"><a href="#b-无监督学习。-优点：可以使用大规模的数据，抽取出大量的关系" class="headerlink" title="b) 无监督学习。 优点：可以使用大规模的数据，抽取出大量的关系"></a>b) 无监督学习。 优点：可以使用大规模的数据，抽取出大量的关系</h2><pre><code>缺点：抽取的结果往往比较难映射到特定的知识库
-</code></pre><h2 id="c-Bootstrap-learning，往往有低准确率的问题。"><a href="#c-Bootstrap-learning，往往有低准确率的问题。" class="headerlink" title="c) Bootstrap learning，往往有低准确率的问题。"></a>c) Bootstrap learning，往往有低准确率的问题。</h2><h2 id="d-远程监督-使用知识库（freebase）来获取weekly-labeled-training-data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。"><a href="#d-远程监督-使用知识库（freebase）来获取weekly-labeled-training-data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。" class="headerlink" title="d) 远程监督 使用知识库（freebase）来获取weekly labeled training data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。"></a>d) 远程监督 使用知识库（freebase）来获取weekly labeled training data。、特点：相比监督学习，使用知识库提供训练数据来取代人工标注获取训练数据，没有过拟合的问题和领域依赖的问题；比起无监督，不用解决聚类结果到关系的映射问题，并且使用大规模的训练数据可以得到丰富的特征。</h2><h1 id="2-方法介绍"><a href="#2-方法介绍" class="headerlink" title="2. 方法介绍"></a>2. 方法介绍</h1><h2 id="训练阶段"><a href="#训练阶段" class="headerlink" title="训练阶段"></a>训练阶段</h2><p>使用 named entity tagge标注 persons organizations 和 locations；<br>对在freebase中出现的实体对提取特征，构造训练数据；<br>训练多类别逻辑斯特回归模型。</p>
-<h2 id="测试阶段："><a href="#测试阶段：" class="headerlink" title="测试阶段："></a>测试阶段：</h2><p>使用 named entity tagge标注 persons organizations 和 locations<br>在句子中出现的每对实体都被考虑做为一个潜在的关系实例，作为测试数据<br>使用训练后的模型对实体对分类。</p>
-<h1 id="3-特征选择"><a href="#3-特征选择" class="headerlink" title="3. 特征选择"></a>3. 特征选择</h1><h2 id="3-1-词汇特征："><a href="#3-1-词汇特征：" class="headerlink" title="3.1. 词汇特征："></a>3.1. 词汇特征：</h2><pre><code>a) 两个实体中间的词序列b) 这些词的词性标记 c) 标志位表示哪个实体出现在前面 d) 大小为k的左窗口 e) 大小为k的右窗口。
-</code></pre><h3 id="3-2-句法特征："><a href="#3-2-句法特征：" class="headerlink" title="3.2. 句法特征："></a>3.2. 句法特征：</h3><pre><code>a) 两个实体之间的最短依存路径；b) 两个实体的左右窗口。
-</code></pre><h3 id="3-3-命名实体tag特征："><a href="#3-3-命名实体tag特征：" class="headerlink" title="3.3. 命名实体tag特征："></a>3.3. 命名实体tag特征：</h3><pre><code>人名、地名、组织名和其他
-</code></pre><h1 id="4-其他"><a href="#4-其他" class="headerlink" title="4. 其他"></a>4. 其他</h1><pre><code>连接特征来丢进多类逻辑斯特回归模型。
-
-负例构造：随机选取不在freebase中的实体对（有错误的可能）
-</code></pre><h2 id="5-原文及我的全文翻译"><a href="#5-原文及我的全文翻译" class="headerlink" title="5.原文及我的全文翻译"></a>5.原文及我的全文翻译</h2><p>可向我索要</p>
-
-          
+          <p>远程监督：使用未标注语料做关系抽取</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/Distant-supervision/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -860,18 +824,14 @@
 
       
         
-          
-            <h1 id="薪尽火传的昆曲"><a href="#薪尽火传的昆曲" class="headerlink" title="薪尽火传的昆曲"></a>薪尽火传的昆曲</h1><h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>昆曲传奇的人文之美体现美好人生的寄托和希望，昆腔传奇显现了永恒的人性之美，表现忠贞爱情题材的作品和人物形象。<br>魏良辅提出的“曲有三绝”，指的是字清#腔纯#板正 。<br>汤显祖在牡丹亭《题词》中有言：“如杜丽娘者，乃可谓之有情人耳。情不知所起，一往而深。生者可以死，死亦可生。生而不可与死，死而不可复生者，皆非情之至也。”阅读《牡丹亭》，享受文字的飨宴，穿越时空的生死之恋，不必借助现代科技，缠绵秾丽，至情弘贯苍茫人世，逶迤而来。</p>
-<h2 id="恋恋昆曲，前世今生"><a href="#恋恋昆曲，前世今生" class="headerlink" title="恋恋昆曲，前世今生"></a>恋恋昆曲，前世今生</h2><h3 id="昆曲的前世"><a href="#昆曲的前世" class="headerlink" title="昆曲的前世"></a>昆曲的前世</h3><p>起源于江苏昆山，也叫做昆山腔。明代魏良辅等人改革昆山腔，南曲北曲融合，水磨昆山调。<br>魏良辅所做：调理腔调和语音的关系，完善和提升曲调的音乐性，兼容并蓄融合南北曲为一炉，伴奏场面和乐队编制的完善 。<br>昆曲盛世，明清传奇的光辉，万历年间。<br>民国初年被京剧的大盛代替，强调多元，兼容并蓄。如梅兰芳。<br>1923年最后一个昆曲戏班解散，昆曲即将死亡。但是，苏州昆曲传习所的传字辈艺人。忍受寂寞到新中国成立后，《十五贯》拯救整个剧种，田汉周恩来毛泽东。</p>
-<h3 id="昆曲的今生"><a href="#昆曲的今生" class="headerlink" title="昆曲的今生"></a>昆曲的今生</h3><p>苏昆上昆等大剧团，艺以人传。<br>等等老艺术家，一言蔽之，情向前生种，人逢今世缘。</p>
-<h2 id="昆曲的文化"><a href="#昆曲的文化" class="headerlink" title="昆曲的文化"></a>昆曲的文化</h2><p>既然生活了就会去追寻，文化的雅俗争胜，不同的品味在不同的时代显示群体的爱好。俗是指自然的东西，雅的东西是追求层面的东西。无论艺术的发展还是文明的发展都是源于生活而高于生活。<br>南戏的声调、腔调与地方有关，但是韵是规定的。腔调演变：海盐到昆山，水磨调的昆山腔，还是说道魏良辅。<br>而梁辰鱼则是创作剧本，《浣溪沙》，汤显祖对其评价也颇高。<br>戏曲的故事不重要，重要的是表演，去体会，怎么用艺术的形式展示悲欢离合的角色。而生离死别是每个人都会经历的，剧场的气场，所以真正演出是可以把你引进去，引发你自己的情感世界，这是与碟片大大不同的。</p>
-<h3 id="汤显祖"><a href="#汤显祖" class="headerlink" title="汤显祖"></a>汤显祖</h3><p>临川四梦《紫钗记》#《牡丹亭》#《南柯记》#《邯郸梦》：生与死的关系，情感的追求，人生的意思<br>也意味着思想的解放和人性的思考，生死问题的触碰。他受达观和尚的影响，对情的纠缠。</p>
-<p>牡丹亭的意义：文学性和水磨调的完美配合<br>昆曲的复兴和汤显祖的重新发现，汤显祖的昆剧是一种高雅的艺术。而高雅是一种追求，高雅是人类文明的追求，甚至说对人类文化发展都是有意义的。</p>
-<h3 id="民间艺术"><a href="#民间艺术" class="headerlink" title="民间艺术"></a>民间艺术</h3><p>元代的特殊性。元杂剧作家身份的双重性，科举取消后三个走向：隐居；全真教；勾栏瓦舍（关汉卿）。从而实现了雅俗共赏。<br>昆曲、文人和民间的融合，民间对昆曲的吸收，采纳，交流不断加深。<br>明代汉族传统重建时，对戏曲身份的接受和认可问题就出现了。皇室承认了昆剧，自此，才出现万历以后昆曲200年的辉煌。<br>昆曲文学创作，传承大于创新。昆曲扶持工程，抢救保护扶持。</p>
-<h3 id="魏良辅"><a href="#魏良辅" class="headerlink" title="魏良辅"></a>魏良辅</h3><p>开始用乐器，武场：打击乐器（鼓板、小锣），文场：三弦、提琴。<br>融南北于一炉，文化皆有南北不同。<br>北曲以遒劲为主，重弦索，建立在北方方言上（入派三声，平分阴阳），只有四个音调。词来自于马上之歌，七声音阶。宜阔口家门。<br>南曲建立在吴方言上（平上去入，各分阴阳），重鼓板，以婉转为主。词来自于里巷歌谣，歌，五声音阶（无凡和以），适宜于生旦家门。《懒画眉》为例，拖得很长，缠绵。<br>昆腔集大成。<br>立昆腔为正声，规矩很多。<br>不只是魏良辅的贡献，叶堂、徐大椿、沈宠绥等</p>
-<h2 id="演唱"><a href="#演唱" class="headerlink" title="演唱"></a>演唱</h2><p>曲牌宫调腔格口法四大要素<br>曲牌最基本有两千多个，来源历史很广。牌有定腔，句有定式，字有定声。<br>宫调上南北有所不同<br>北曲宫调比较完善，有十七宫调，元人赋予不同宫调不同情感色彩和表现方式，全部划分。<br>南曲不太规范，特性和作用和其他因素也有关，比较难以捉摸，只标管色，不论宫调。<br>腔格，以汉语的音韵系统来保证曲子的表意。方音和官话有所不同，所以要”一转“。平上去入各有不同的腔格。<br>口法，运气发声技巧来保障歌唱的准确动听。俞振飞十六法。比较繁琐。<br>度曲：曲乐活动的选牌联套、填词订谱、擪笛唱曲全过程。大处依腔填词，小处订谱就字。</p>
-
-          
+          <h1 id="薪尽火传的昆曲"><a href="#薪尽火传的昆曲" class="headerlink" title="薪尽火传的昆曲"></a>薪尽火传的昆曲</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/13/昆曲/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -989,19 +949,14 @@
 
       
         
-          
-            <h1 id="分治策略和递归"><a href="#分治策略和递归" class="headerlink" title="分治策略和递归"></a>分治策略和递归</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>二分查找和二分归并排序：</p>
-<p>二分查找：从中位数开始判断，累加或者累减<br>二分归并排序：规模减半的子问题</p>
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p><a href="http://www.cnblogs.com/dongxiao-yang/p/4151730.html" target="_blank" rel="external">时间复杂度要求解递归方程</a>：使划分均匀</p>
-<p><a href="http://www.cnblogs.com/youxin/p/3284089.html" target="_blank" rel="external">MORE</a></p>
-<p>两类递归方程 T(n)<br>第一类：如hanoi。迭代、递归树、尝试</p>
-<p>第二类：如二分检索、二分归并排序。迭代、、递归树、主定理</p>
-<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>减少子问题个数：寻找子问题之间的依赖关系</p>
-<p>减少递归里面的东西作为预处理</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>首个元素作为划分标准，从后往前找一个小的j,再从前往后找一个大的i，i&lt;j交换它俩。重复直到ij相遇</p>
-<h3 id="选择问题"><a href="#选择问题" class="headerlink" title="选择问题"></a>选择问题</h3><p>就是排序</p>
-<h3 id="n-1次多项式"><a href="#n-1次多项式" class="headerlink" title="n-1次多项式"></a>n-1次多项式</h3><h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1>
-          
+          <p>北大版算法读书笔记</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/04/算法/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1119,21 +1074,14 @@
 
       
         
-          
-            <h1 id="读书笔记《cpp类与数据结构》"><a href="#读书笔记《cpp类与数据结构》" class="headerlink" title="读书笔记《cpp类与数据结构》"></a>读书笔记《cpp类与数据结构》</h1><p>比大话数据结构更适合数据结构的入门</p>
-<h2 id="什么是类"><a href="#什么是类" class="headerlink" title="什么是类"></a>什么是类</h2><h3 id="结构体和类"><a href="#结构体和类" class="headerlink" title="结构体和类"></a>结构体和类</h3><h4 id="结构体"><a href="#结构体" class="headerlink" title="结构体"></a>结构体</h4><p>和数组最大的区别就是数据成员可以拥有不同的类型，结构体一个是可以储存信息记录，另一个就是用来为数据结构本身创造构建块。数组不能赋值给数组但是结构体的对象可以复制给同一结构体的另一个对象</p>
-<h4 id="类"><a href="#类" class="headerlink" title="类"></a>类</h4><p>一个类生成很多个对象（私有：数据成员、公用：函数成员）<br>封装encapsulation：对象内部的数据只能由对象本身访问<br>类接口class interface：对象的共用部分当做程序和对象数据之间的接口<br>类接口好处：修改量减少</p>
-<h3 id="类的实现implementation"><a href="#类的实现implementation" class="headerlink" title="类的实现implementation"></a>类的实现implementation</h3><p>类包含两个文件：说明文件和实现文件</p>
-<h4 id="说明文件"><a href="#说明文件" class="headerlink" title="说明文件"></a>说明文件</h4><p>名称：“类名.h”<br>class 类名{public：……private：……}；</p>
-<h4 id="实现文件"><a href="#实现文件" class="headerlink" title="实现文件"></a>实现文件</h4><p>名称：“类名.cpp”</p>
-<p>#inlude “类名.h”<br>void 类名::函数名（）{}；<br>……<br>两点：<br>从对象的函数返回的时，对象将保留它的数据成员的当前值<br>类的所有函数都可以使用类定义中声明的数据成员。主程序不能使用私有数据成员。</p>
-<h3 id="要记得测试类"><a href="#要记得测试类" class="headerlink" title="要记得测试类"></a>要记得测试类</h3><p>为每个类编写测试驱动程序<br>注：把函数定义放到类中<br>结构和类的区别：结构不指明的话默认为公用，类则默认为私有</p>
-<h2 id="重载运算符和类模板"><a href="#重载运算符和类模板" class="headerlink" title="重载运算符和类模板"></a>重载运算符和类模板</h2><p>函数的名称必须使用关键字operator，后面跟被重载运算符的符号<br>当左操作数是结构的一个对象的时候，就会为这个对象调用该函数<br>一般不用==测试两个结构体是否相等<br>当左操作数不是对象，右操作数是对象时，最好将函数定义直接放在结构体定义的下方，但是与结构体中函数定义两点不同<br>一、这个函数定义不属于对象二、不认为结构体拥有该函数（访问方式）</p>
-<p>当左操作数为类的对象，函数原型位于类定义的公用部分；当左操作数不是而右操作数是类的对象，函数原型位于类定义的下面 </p>
-<p>类模板：生成类的蓝图<br>template <class datatype=""></class></p>
-<h2 id="const限定符和构造函数"><a href="#const限定符和构造函数" class="headerlink" title="const限定符和构造函数"></a>const限定符和构造函数</h2><p>使用const有多个方面的好处<br>参数传递方式概括：函数中的对象需要修改的时，用传址方式，对象的改变映射到调用函数中；用传值方式则不会映射到调用函数中；函数中的对象不需要改变就用传常址<br>构造函数通常用来初始化私有类的数据成员</p>
-<h2 id="指针和动态数组"><a href="#指针和动态数组" class="headerlink" title="指针和动态数组"></a>指针和动态数组</h2><h2 id="array类"><a href="#array类" class="headerlink" title="array类"></a>array类</h2><h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><h2 id="数据结构的方法（数组、链表）"><a href="#数据结构的方法（数组、链表）" class="headerlink" title="数据结构的方法（数组、链表）"></a>数据结构的方法（数组、链表）</h2><h2 id="栈和队列"><a href="#栈和队列" class="headerlink" title="栈和队列"></a>栈和队列</h2><h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h2 id="散列表、双向链表"><a href="#散列表、双向链表" class="headerlink" title="散列表、双向链表"></a>散列表、双向链表</h2><h2 id="优先级队列（树、堆）"><a href="#优先级队列（树、堆）" class="headerlink" title="优先级队列（树、堆）"></a>优先级队列（树、堆）</h2><h2 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h2><h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><h2 id="二叉树和图"><a href="#二叉树和图" class="headerlink" title="二叉树和图"></a>二叉树和图</h2>
-          
+          <h1 id="读书笔记《cpp类与数据结构》"><a href="#读书笔记《cpp类与数据结构》" class="headerlink" title="读书笔记《cpp类与数据结构》"></a>读书笔记《cpp类与数据结构》</h1><p>比大话数据结构更适合数据结构的入门</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/读书笔记《cpp类与数据结构》/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1251,35 +1199,14 @@
 
       
         
-          
-            <h2 id="绘制图案方法"><a href="#绘制图案方法" class="headerlink" title="绘制图案方法"></a>绘制图案方法</h2><p>1、所见即所得的绘制方法,缺点：不灵活、不易修改,优点：直观、简单<br>2、使用控制结构绘制图形,在知道需要输出的规格后，按行打印输出<br>如<a href="http://www.echojb.com/image/2016/08/10/101871.html" target="_blank" rel="external">简单对比</a></p>
-<h2 id="爱心"><a href="#爱心" class="headerlink" title="爱心"></a>爱心</h2><p>说明：用的是<a href="http://www.codeceo.com/article/5-vs-2015-preview-features.html" target="_blank" rel="external">Visual Studio 2015</a>开发环境</p>
-<h3 id="普通爱心"><a href="#普通爱心" class="headerlink" title="普通爱心"></a>普通爱心</h3><p><img src="http://static.codeceo.com/images/2015/06/c-heart-01.png" alt=""><br><img src="http://i1.piimg.com/567571/7cb23da288c64528.png" alt=""></p>
-<h3 id="带花纹的爱心图案"><a href="#带花纹的爱心图案" class="headerlink" title="带花纹的爱心图案"></a>带花纹的爱心图案</h3><p><img src="http://static.codeceo.com/images/2015/06/c-heart-02.png" alt=""><br><img src="http://i1.piimg.com/567571/c339efa41ff65ab8.jpg" alt=""></p>
-<h3 id="跳动的爱心"><a href="#跳动的爱心" class="headerlink" title="跳动的爱心"></a>跳动的爱心</h3><p><img src="http://i2.muimg.com/567571/d6baf33c7ccfabc5.png" alt=""><br><img src="http://static.codeceo.com/images/2015/06/c-heart-03.png" alt=""><br>跳动的爱心动画需要运行程序后才可以看到</p>
-<h3 id="打印楼梯，同时在楼梯上方打印两个笑脸"><a href="#打印楼梯，同时在楼梯上方打印两个笑脸" class="headerlink" title="打印楼梯，同时在楼梯上方打印两个笑脸"></a>打印楼梯，同时在楼梯上方打印两个笑脸</h3><p><img src="http://img.blog.csdn.net/20161129112313753" alt=""><br><img src="http://i2.muimg.com/567571/87a50503926c91ba.png" alt=""></p>
-<h3 id="五角星"><a href="#五角星" class="headerlink" title="五角星"></a>五角星</h3><p><img src="http://i4.buimg.com/567571/4054942c89f51d9a.png" alt=""><br><img src="http://i1.piimg.com/567571/70292c1e352a7a10.png" alt=""></p>
-<h3 id="棋盘"><a href="#棋盘" class="headerlink" title="棋盘"></a>棋盘</h3><p><img src="http://img.blog.csdn.net/20161129113339226" alt=""><br><img src="http://i2.muimg.com/567571/cc74267e0ee9b429.png" alt=""></p>
-<h2 id="递归出来的美丽分形世界"><a href="#递归出来的美丽分形世界" class="headerlink" title="递归出来的美丽分形世界"></a>递归出来的美丽分形世界</h2><p>世界上任何美丽的事物都可以用分形来展示出来</p>
-<h3 id="谢宾斯基三角"><a href="#谢宾斯基三角" class="headerlink" title="谢宾斯基三角"></a>谢宾斯基三角</h3><p><img src="http://www.echojb.com/img/2016/08/15/232523141.png" alt=""></p>
-<h3 id="毕达哥拉斯树"><a href="#毕达哥拉斯树" class="headerlink" title="毕达哥拉斯树"></a>毕达哥拉斯树</h3><p><img src="http://www.echojb.com/img/2016/08/15/232523142.png" alt=""></p>
-<h3 id="科赫曲线"><a href="#科赫曲线" class="headerlink" title="科赫曲线"></a>科赫曲线</h3><p>1次迭代<br><img src="http://www.echojb.com/img/2016/08/15/232523143.png" alt=""><br>2次迭代：<br><img src="http://www.echojb.com/img/2016/08/15/232523144.png" alt=""><br>而我们可以改变“+”“-”所旋转角度，从而得到自由旋转的曲线<br><img src="http://www.echojb.com/img/2016/08/15/232523145.png" alt=""><br>还可以树杈的递归，三叉递归出一棵枝叶茂密的大树</p>
-<p>一些非常好看分形壁纸，有关的算法就不清楚了</p>
-<p><img src="https://pic4.zhimg.com/v2-8ffe9b1da33a6c18cc1606c25661f84b_b.jpg" alt=""><br><img src="https://pic1.zhimg.com/v2-5382c833c745925d327d296c83fee290_b.jpg" alt=""><br><img src="https://pic2.zhimg.com/v2-492e5ed274d0d9629df02342b8033c3d_b.jpg" alt=""><br><img src="https://pic3.zhimg.com/v2-db56b8c713908e180216c7eec6754e3a_b.jpg" alt=""></p>
-<p><img src="https://pic3.zhimg.com/v2-534a2946bd7ca6542df976e51006591a_b.png" alt=""><br><img src="https://pic1.zhimg.com/v2-a15c26d2ad6fed00035c53d622d8a348_b.png" alt=""><br><img src="https://pic1.zhimg.com/v2-29af4d69675a25c1da3d021aa970aa84_b.png" alt=""><br><a href="http://www.fxysw.com/portal.php" target="_blank" rel="external">分形</a></p>
-<h2 id="重点来了：Tweetable-Mathematical-Art"><a href="#重点来了：Tweetable-Mathematical-Art" class="headerlink" title="重点来了：Tweetable Mathematical Art"></a>重点来了：Tweetable Mathematical Art</h2><p><a href="http://codegolf.stackexchange.com/questions/35569/tweetable-mathematical-art" target="_blank" rel="external">Tweetable Mathematical Art</a></p>
-<p>具体地说，参赛者需要用 C++ 语言编写 RD 、 GR 、 BL 三个函数，每个函数都不能超过 140 个字符。每个函数都会接到 i 和 j 两个整型参数（0 ≤ i, j ≤ 1023），然后需要返回一个 0 到 255 之间的整数，表示位于 (i, j) 的像素点的颜色值。举个例子，如果 RD(0, 0) 和 GR(0, 0) 返回的都是 0 ，但 BL(0, 0) 返回的是 255 ，那么图像的最左上角那个像素就是蓝色。参赛者编写的代码会被插进下面这段程序当中（我做了一些细微的改动），最终会生成一个大小为 1024×1024 的图片</p>
-<p><img src="http://i1.piimg.com/567571/d4581a76515051a2.png" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408121.png" alt=""><br><img src="http://i1.piimg.com/567571/26e2ad3898f3482a.png" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408124.png" alt=""></p>
-<p><img src="http://www.matrix67.com/blogimage_2014/201408125.png" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408126.png" alt=""></p>
-<p><img src="http://www.matrix67.com/blogimage_2014/201408122.png" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408123.png" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408127.png" alt=""><br><img src="https://pic2.zhimg.com/fc85495b91c847ff0949a179855f0f25_b.jpg" alt=""><br><img src="http://www.matrix67.com/blogimage_2014/201408128.png" alt=""><br><img src="https://pic3.zhimg.com/1a22cba8faf6896c13ffc6c80c876846_b.png" alt=""><br><img src="https://pic1.zhimg.com/3c86440410b553fecb08a96842574ff8_b.png" alt=""><br><img src="http://imgout.ph.126.net/52363170/cross-01.jpg" alt=""><br><img src="http://www.code-by.org/download/file.php?id=166&amp;sid=a4fcd7e7fbec88096b5d81b0b30e4a8d" alt=""><br>控制旋转角<br><img src="http://imgout.ph.126.net/52366322/test+1319.1789552C+rtx+2.jpg" alt=""><br>肥皂泡纹理<br><img src="https://i.stack.imgur.com/yC9sJ.png" alt=""></p>
-<p><img src="https://dl.dropboxusercontent.com/s/t2jvkxgvcz122r7/bigtile_256.png" alt=""><br><img src="https://i.stack.imgur.com/WSBOV.jpg" alt=""><img src="https://i.stack.imgur.com/oHOvJ.png" alt=""></p>
-<p><img src="https://i.stack.imgur.com/LAjNW.png" alt=""></p>
-<p><img src="https://i.stack.imgur.com/MlIL8.png" alt=""></p>
-<h2 id="将图片转为ASCII字符画"><a href="#将图片转为ASCII字符画" class="headerlink" title="将图片转为ASCII字符画"></a>将图片转为ASCII字符画</h2><p><a href="http://blog.csdn.net/conmajia/article/details/8144785" target="_blank" rel="external">基本思想</a>就是用不同“亮度”的字符（每个字符有自己对应的视觉亮度）替换图片中对应亮度的那些部分，最后形成和原图亮度分布差不多的“看起来很像”的字符画<br>╭╮　　　　　　　╭╮　　<br>　││　　　　　　　││　　<br>╭┴┴———————┴┴╮<br>│　　　　　　　　　　　│　　　<br>│　　　　　　　　　　　│　　　<br>│　●　　　　　　　●  　│<br>│○　　╰┬┬┬╯　　○    │<br>│　　　　╰—╯　　　　│　<br>╰——┬Ｏ———Ｏ┬——╯<br>　 　╭╮　　　　╭╮　　　　<br>　 　╰┴————┴╯  </p>
-<p><img src="http://bbsmax.ikafan.com/static/L3Byb3h5L2h0dHAvaW1hZ2VzMjAxNS5jbmJsb2dzLmNvbS9ibG9nLzc2Mzc1OC8yMDE2MDYvNzYzNzU4LTIwMTYwNjE1MjIxMjU4OTMyLTE1NjE0NDQ1MDIucG5n.jpg" alt=""><br><img src="https://pic2.zhimg.com/fee9d01cd1db6616a92943059635d5f5_b.jpg" alt=""><br><img src="http://img.my.csdn.net/uploads/201211/03/1351953208_3499.gif" alt="green!!!"></p>
-<p><a href="http://www.echojb.com/image/2016/08/10/100331.html" target="_blank" rel="external">为什么要用java或者cpp画</a></p>
-
-          
+          <h2 id="绘制图案方法"><a href="#绘制图案方法" class="headerlink" title="绘制图案方法"></a>绘制图案方法</h2><p>1、所见即所得的绘制方法,缺点：不灵活、不易修改,优点：直观、简单<br>2、使用控制结构绘制图形,在知道需要输出的规格后，按行打印输出<br>如<a href="http://www.echojb.com/image/2016/08/10/101871.html">简单对比</a></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/05/02/编程语言之美/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1397,28 +1324,14 @@
 
       
         
-          
-            <h1 id="关于git的几点"><a href="#关于git的几点" class="headerlink" title="关于git的几点"></a>关于git的几点</h1><h2 id="配置Configuring-a-remote-for-a-fork"><a href="#配置Configuring-a-remote-for-a-fork" class="headerlink" title="配置Configuring a remote for a fork"></a>配置Configuring a remote for a fork</h2><ul>
-<li><p>查看远程状态: git remote -v</p>
-</li>
-<li><p>添加一个将被同步给fork远程的上游仓库:git remote add upstream<br><a href="https://github.com/tangxiangru/original_repository.git" target="_blank" rel="external">https://github.com/tangxiangru/original_repository.git</a></p>
-</li>
-<li><p>再次查看状态确认是否配置成功: git remote -v </p>
-</li>
-</ul>
-<h2 id="同步Syncing-a-fork"><a href="#同步Syncing-a-fork" class="headerlink" title="同步Syncing a fork"></a>同步Syncing a fork</h2><ul>
-<li>从上游仓库 fetch 分支和提交点，传送到本地，并会被存储在一个本地分支upstream/master: git fetch upstream</li>
-<li>切换到本地主分支(如果不在): git checkout master</li>
-<li>把 upstream/master分支合并到本地master上，这样就完成了同步，并且不会丢掉本地修改的内容: git merge upstream/master<br>*如果想更新到GitHub的fork上: git push origin master</li>
-</ul>
-<h2 id="Git-如何-clone-非-master-分支的代码"><a href="#Git-如何-clone-非-master-分支的代码" class="headerlink" title="Git 如何 clone 非 master 分支的代码"></a>Git 如何 clone 非 master 分支的代码</h2><ul>
-<li>查看所有分支: git branch -a</li>
-<li>查看远程分支:git branch -r </li>
-<li>然后: git checkout dev-branch </li>
-</ul>
-<p>另一种方法：在本地先建立一个分支(名称和远程的想要同步的分支名称一样），再切换到这个分支，然后<code>git pull</code>一下按提示来做：<code>git branch --set-upstream-to=origin/devbranch</code>，然后最后<code>git pull</code></p>
-
-          
+          <h1 id="关于git的几点"><a href="#关于git的几点" class="headerlink" title="关于git的几点"></a>关于git的几点</h1><p>使用fork</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/26/关于git的几点/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1536,29 +1449,14 @@
 
       
         
-          
-            <p>一九一零年秋天，在阿斯塔陂沃的小火车站，托尔斯泰临终前，打开陀斯托耶夫思基的小说《卡拉玛左夫兄弟》，翻开的一页上面分明写着：当爱再也不复存在，那可能便是地狱。</p>
-<h2 id="为何而读"><a href="#为何而读" class="headerlink" title="为何而读"></a>为何而读</h2><p>大一寒假开学第一个周末，因为偶然翻到手机中去武大图书馆拍的阅读之星发的推荐名著，就选择了这本书。<br>没想到，寒假的一些永不会忘的经历让我对有些情节感同身受，哭到忘我。<br>“活得不像是自己”</p>
-<h2 id="为何而写"><a href="#为何而写" class="headerlink" title="为何而写"></a>为何而写</h2><p>1849年4月23日他因牵涉反对沙皇的革命活动而被捕，并于11月16日执行死刑。在行刑之前的一刻才改判成了流放西伯利亚。<br>1860年，陀思妥耶夫斯基在西伯利亚流放十年了之后，返回圣彼得堡，发表了第一部长篇《被侮辱与被损害的人》。<br>这部作品可以被看作是他前后期的过渡作品，既有前期的对社会苦难人民的描写，又带有后期的宗教与哲学探讨。这段时间他文学上有所进展，但生活却连遭打击。1864年他的妻子和兄长相继逝世，他还需要照顾兄长的家人，这使得他濒临破产。他希望通过赌博来还清债务，却欠下更多债，整个人陷入消沉之中。<br>在那流放的十年之中，我们完全相信苦难带给了他深刻的影响。恐怕正是那十年的思考奠定了他后来所走路线的基础。<br>在挫折中他直面生活的黑暗与苦难，揭露人性中阴暗的一面，却以更多的笔触来告诉人们只有爱的光辉才是永远不灭的。<br>相比他未来后期的作品，思想、哲学性并没有那么成熟。而且本书相对来说，思想性并不成体系，但是其中却闪动很多片段式的思想的火花。特别是他借人物之口进行的辩论，非常能启发人的思考。</p>
-<h2 id="人物"><a href="#人物" class="headerlink" title="人物"></a>人物</h2><h3 id="万尼亚"><a href="#万尼亚" class="headerlink" title="万尼亚"></a>万尼亚</h3><p>万尼亚对娜塔莎的爱，温暖深厚。他没有因为娜塔莎移情别恋而痛恨她。反而是同情她，帮助她，不求回报。这是善良让他心灵中充满了正面的力量。而这种爱，才是真正的爱，区别于那些得不到就要毁灭的邪恶之爱来说。</p>
-<p>###史密斯老人<br>史密斯老人被女儿和她的情人弄得破了产，由富有变得穷困潦倒、孑然一身。他看上去深深地痛恨自己的女儿，可这恨中却又饱含着爱。最后在得知女儿要死的消息以后，他拖着病痛的身体在街道上狂奔，放下心结想去见她。谁知见到的却是她冰冷的尸体。他悔恨交加，昏倒在地上。在这一打击下，他性格变得更为古怪。他的内心被悔恨蚕食，痛恨自己没有早一点原谅女儿。曾经她也是他的掌上明珠，曾经他对她宠爱有加，但是爱恨情仇过后，只剩下一个父亲回到对女儿最初的爱上，为她奔跑。不论他看起来是多么古怪讨厌小气的一个老头，最后只是一个普通父亲对女儿的爱。</p>
-<h3 id="阿辽沙"><a href="#阿辽沙" class="headerlink" title="阿辽沙"></a>阿辽沙</h3><p>他最缺乏主观见解，最容易被人牵着鼻子走。可好死不死的，他偏偏是最被人牵着鼻子的那个：一生信任他那玩弄他于鼓掌之中的父亲，纵使直觉感受到了怀疑，也终究没有展开。更不用提他沉没在自己同时对两个女性的爱里。</p>
-<h3 id="娜塔莎的父亲伊赫梅涅夫"><a href="#娜塔莎的父亲伊赫梅涅夫" class="headerlink" title="娜塔莎的父亲伊赫梅涅夫"></a>娜塔莎的父亲伊赫梅涅夫</h3><p>这本是一个本分善良的老人。可是老实人却被“白眼狼”——他为之尊敬忠心的东家公爵陷害，蒙受了不白之冤，而且因此倾家荡产。可是他的爱女却偏偏在这节骨眼上爱上了他仇人的儿子，并与之私奔。他表面上虽然诅咒了女儿，表现出无比的恨，但骨子里还是爱她。他一边咒骂她，一边却又关心她。最后终于忍不住去找回了她，含泪痛骂自己，差点失去女儿。是涅莉用她外公史密斯和自己母亲的故事，让他清醒，使得这一段父女之情终于获得了一个美好的结局。宽容是对真爱最好的注解。</p>
-<h3 id="阿廖沙"><a href="#阿廖沙" class="headerlink" title="阿廖沙"></a>阿廖沙</h3><p>阿廖沙是一个本性或许不坏的人，但他缺乏主见、思想极端不成熟。所以他容易爱上比自己成熟、意志力强的女性。比如母亲般的娜塔莎，比如活泼可爱却强势的卡佳，因为她们都能带领他。</p>
-<h3 id="公爵"><a href="#公爵" class="headerlink" title="公爵"></a>公爵</h3><p>公爵毫不掩饰自己的无耻，向着世界张牙舞爪，他蔑视所有的人，以他的肮脏与丑陋为荣，这是一颗彻底黑暗的，让人痛恨的心灵。然而，不能否认的是，这个世界存在着许多这样的心，但他们却伪装的很好，很少能让人看到这么肆无忌惮的表露，给人带来非常大的冲击。如此一颗丑陋的灵魂令人震撼。</p>
-<h2 id="感受"><a href="#感受" class="headerlink" title="感受"></a>感受</h2><h3 id="读完整体感受"><a href="#读完整体感受" class="headerlink" title="读完整体感受"></a>读完整体感受</h3><p>这本书里动辄长达两三页的独白或者心理描写让我享受。感叹居然有这么伟大的作者，能够写出这么细致入微的内心世界。书中人物那些激烈的个性、疯狂的行为、暴躁的情绪，还有书中所弥漫的无尽的悲怆、无边的苦痛、无助的愤怒、无底的绝望，以及隐藏在书背后作者宁静的注视、巨大的悲悯。在这本书里没有峰回路转也没有皆大欢喜，从头到尾都只能看到善良的被欺压、纯洁的被侮辱、尊严的被践踏，恶者愈恶而无所制约，弱者愈弱而无可反抗。</p>
-<h3 id="悲悯之心"><a href="#悲悯之心" class="headerlink" title="悲悯之心"></a>悲悯之心</h3><p>我还认为，一个伟大的作家要写出真正打动人心的作品，必然要有一副对人类的悲悯之心。陀思妥耶夫斯基正是拥有这一点。</p>
-<p>###关于爱情<br>诚然，爱情都是自私的，可是，成年人的爱，总要不断地调整自己，需要为对方设身处地着想，甚至为对方的幸福做出适当的牺牲。只有儿童的感情，才会完全只考虑自己的喜恶，高兴的时候，便不顾一切对你好，不高兴的时候，便使出种种招数来招惹你。<br>如果孩子气保持到成年，当爱上某人的时候，就容易变成一种“唯我之爱”。不能说一个人不爱、或者不够爱另一个人，但他这样的爱情是不成熟的，是纯粹从自身需要出发的爱情。这样的爱情往往不顾一切，炽烈的时候让人感动，痛苦的时候让人心碎。</p>
-<p>倘若爱上这样一个人，则在爱情中感受到的快乐与痛苦都会加倍。所以更需要有足够的耐心去理解和宽容对方，需要能忍受对方不时迸发出的孩子气。相应地，可以从对方那里得到的，则是一份充满赤子之心的感情。这种感情，是无法从历经沧桑的人身上得到的，但是往往，只凭这一份感情，便可以让一个人，明明知道对方是怀着可以用自私来形容的“唯我之爱”，仍然不由自主地泥足深陷、无法自拔。（娜达莎就是这样不由自主地抛弃青梅竹马的朋友瓦尼亚而喜欢上阿辽沙的）</p>
-<p>相比之下，《被伤害与侮辱的人们》中的瓦尼亚，虽然并不是这样一种唯我之爱，但总让人觉得缺乏真实感。明明是自己心爱的对象喜欢上了别人，自己却丝毫没有显出难过的样子，反而极力为对方的幸福奔走忙碌。是瓦尼亚傻，是他不够爱娜达莎，还是实在爱她太深了呢？我想，答案应该是最后一个。瓦尼亚并非不伤心难过，而是他知道，娜达莎已经背负着太多的压力了，他一点点也不愿意，让自己的痛苦与伤心为对方增添哪怕一丝的负担。即使在最痛苦的时候，他依然全心全意为娜达莎着想，充当娜达莎与父母、与阿辽沙之间沟通的桥梁，竭尽全力解决他们之间的问题，为了娜达莎的幸福，付出自己的一切。在娜达莎幸福快乐的时候，他小心翼翼地不去打扰，而在她遇到问题，在窗台上点起那支召唤的蜡烛时，瓦尼亚总是在第一时间及时出现，为她排忧解难，安慰她、照顾她。即使在她心情糟糕、冷眼相向的时候，也一如既往，毫不介怀。我想，爱一个人，只有爱到极致，爱到骨髓，才能爱到如此忘我。</p>
-<p>以娜达莎的聪明与善良，她从一开始就知道瓦尼亚的心情。我想，对瓦尼亚来说，自己的心意不用说就可以传达到对方心中，其实已经是幸福到极致的事了，单是娜达莎的这份体贴与温柔，就足以，让他付出100倍的努力来回报。娜达莎这样的姑娘，的确是值得让人这样去爱的。而事实上，瓦尼亚也并非没有得到回报，虽然娜达莎无法给予他最珍贵的爱情，可是，在爱情之外，她把最亲密的友谊与信赖给了瓦尼亚。而瓦尼亚也从这样的友谊与信赖中，得到了快乐与幸福。</p>
-<p>因为，对怀着这样一种爱的瓦尼亚来说，娜达莎的一个微笑，一次回眸，都是额外的恩赐，更何况，她给予他的，要远比一个微笑多得多。<br>所以直到最后，穷困、潦倒，病体弥留的瓦尼亚，在床上写下这段故事的时候，他依然幸福的觉得，在故事结束时，娜达莎的眼神是在告诉他：“我们本来是可以幸福地共度一生的”。原来，爱一个人，真的可以爱到如此忘我，如此极致。</p>
-<p>爱到”无私忘我“的境界是非常难的。我敬佩这样的爱情，但可能我永远做不到。我感到很抱歉，我大一寒假就是因为这个原因从而break up。所以正是这个愿意，看这本书的时候我哭了很久一会。</p>
-<h2 id="回味"><a href="#回味" class="headerlink" title="回味"></a>回味</h2><p>“卑鄙是卑鄙者的通行证，高尚是高尚者的墓志铭”</p>
-<p>但是我却不痛恨公爵，这只是人性，他们那种人都是没有道德底线的，为了利益无所不为。而善良的人们带着道德的枷锁，活在自己的世界中，不去抗争，妄图用心灵上的优势来进行道德上的谴责，但这样是毫无意义的。</p>
-<p>—-那么我们究竟该如何存在？</p>
-
-          
+          <p>一九一零年秋天，在阿斯塔陂沃的小火车站，托尔斯泰临终前，打开陀斯托耶夫思基的小说《卡拉玛左夫兄弟》，翻开的一页上面分明写着：当爱再也不复存在，那可能便是地狱。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/04/23/读被伤害与侮辱的人们/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
