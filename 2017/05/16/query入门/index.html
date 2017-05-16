@@ -87,16 +87,19 @@
 
 
 
-<meta name="description" content="北大版算法读书笔记">
+<meta name="description" content="主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结具体内容：“查询推荐”的不同英文叫法：Query Suggestion、Term Suggestion、Query Recommendation、Query Substitution、Query Rewriting
+查询推荐的任务：找出和用户查询相似的query，以便更好地表达用户查询意图，供用户便捷输入">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法">
-<meta property="og:url" content="http://yoursite.com/2017/05/04/算法/index.html">
+<meta property="og:title" content="query入门">
+<meta property="og:url" content="http://yoursite.com/2017/05/16/query入门/index.html">
 <meta property="og:site_name" content="TANGXR">
-<meta property="og:description" content="北大版算法读书笔记">
-<meta property="og:updated_time" content="2017-05-15T15:44:20.000Z">
+<meta property="og:description" content="主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结具体内容：“查询推荐”的不同英文叫法：Query Suggestion、Term Suggestion、Query Recommendation、Query Substitution、Query Rewriting
+查询推荐的任务：找出和用户查询相似的query，以便更好地表达用户查询意图，供用户便捷输入">
+<meta property="og:updated_time" content="2017-05-16T03:02:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="北大版算法读书笔记">
+<meta name="twitter:title" content="query入门">
+<meta name="twitter:description" content="主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结具体内容：“查询推荐”的不同英文叫法：Query Suggestion、Term Suggestion、Query Recommendation、Query Substitution、Query Rewriting
+查询推荐的任务：找出和用户查询相似的query，以便更好地表达用户查询意图，供用户便捷输入">
 
 
 
@@ -124,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/04/算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/05/16/query入门/"/>
 
 
 
 
 
-  <title> 算法 | TANGXR </title>
+  <title> query入门 | TANGXR </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -249,7 +252,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/query入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TANGXR">
@@ -270,7 +273,7 @@
             
             
               
-                算法
+                query入门
               
             
           </h1>
@@ -285,8 +288,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-04T19:32:39+08:00">
-                2017-05-04
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T11:00:05+08:00">
+                2017-05-16
               </time>
             
 
@@ -321,19 +324,21 @@
       
 
       
-        <p>北大版算法读书笔记</p>
+        <h1 id="主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结"><a href="#主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结" class="headerlink" title="主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结"></a>主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结</h1><h1 id="具体内容："><a href="#具体内容：" class="headerlink" title="具体内容："></a>具体内容：</h1><p>“查询推荐”的不同英文叫法：Query Suggestion、Term Suggestion、Query Recommendation、Query Substitution、Query Rewriting</p>
+<p>查询推荐的任务：找出和用户查询相似的query，以便更好地表达用户查询意图，供用户便捷输入</p>
 <a id="more"></a>
-<h1 id="分治策略和递归"><a href="#分治策略和递归" class="headerlink" title="分治策略和递归"></a>分治策略和递归</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>二分查找和二分归并排序：</p>
-<p>二分查找：从中位数开始判断，累加或者累减<br>二分归并排序：规模减半的子问题</p>
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p><a href="http://www.cnblogs.com/dongxiao-yang/p/4151730.html" target="_blank" rel="external">时间复杂度要求解递归方程</a>：使划分均匀</p>
-<p><a href="http://www.cnblogs.com/youxin/p/3284089.html" target="_blank" rel="external">MORE</a></p>
-<p>两类递归方程 T(n)<br>第一类：如hanoi。迭代、递归树、尝试</p>
-<p>第二类：如二分检索、二分归并排序。迭代、、递归树、主定理</p>
-<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>减少子问题个数：寻找子问题之间的依赖关系</p>
-<p>减少递归里面的东西作为预处理</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>首个元素作为划分标准，从后往前找一个小的j,再从前往后找一个大的i，i&lt;j交换它俩。重复直到ij相遇</p>
-<h3 id="选择问题"><a href="#选择问题" class="headerlink" title="选择问题"></a>选择问题</h3><p>就是排序</p>
-<h3 id="n-1次多项式"><a href="#n-1次多项式" class="headerlink" title="n-1次多项式"></a>n-1次多项式</h3><h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1>
+<h1 id="三种技术方法："><a href="#三种技术方法：" class="headerlink" title="三种技术方法："></a>三种技术方法：</h1><h2 id="1-基于文档的方法："><a href="#1-基于文档的方法：" class="headerlink" title="1. 基于文档的方法："></a>1. 基于文档的方法：</h2><p>通过处理query搜索出来的文档，以此作为反馈，进一步理解用户意图，扩充query</p>
+<p>（1）全局文档分析：方法如题目</p>
+<p>（2）局部文档分析：说一个更通用的名字，是伪相关反馈，用搜索结果的前N篇文章作为文档集合，扩展query，从伪相关文档中进行降维是一个难点，LCA等</p>
+<p>（3）基于语言学资源的分析：说白了就是用wordnet或者hownet或者wiki来做同义词扩展</p>
+<h2 id="2-基于日志的方法："><a href="#2-基于日志的方法：" class="headerlink" title="2. 基于日志的方法："></a>2. 基于日志的方法：</h2><p>日志作为用户的点击行为的记录，能够忠实的反映用户的真实意图。</p>
+<h3 id="（1）基于session的方法"><a href="#（1）基于session的方法" class="headerlink" title="（1）基于session的方法"></a>（1）基于session的方法</h3><p>简单地说，就是用户搜了什么之后还搜索了什么。往往最后搜索的那个query是能够满足用户当时需求的query。</p>
+<p>这个方法，session的判定是个难点</p>
+<p>###（2）基于click的方法：点击模型</p>
+<p><query, click1,="" click2....="">，这样的query和点击向量组成的数据结构，可以用一些距离函数（如：余弦距离）来计算query之间的相似度<br>这种方法，用户click的url很多，造成向量的维度很多，降维仍然是一个问题，两种降维途径：1. 聚类；2. 矩阵分解</query,></p>
+<p>###（3）基于时间分布的方法<br>即统计query的时间分布，如：在情人节那天搜索“巧克力”的人会比较多。不过这个一般只能作为补充。</p>
+<h1 id="评价方法："><a href="#评价方法：" class="headerlink" title="评价方法："></a>评价方法：</h1><p>基本思路还是人工建立评测集合（或者找国际标准评测集合，如trec），然后算准确率、召回率、NDCG等</p>
+
       
     </div>
 
@@ -369,8 +374,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/读书笔记《cpp类与数据结构》/" rel="next" title="读书笔记《cpp类与数据结构》">
-                <i class="fa fa-chevron-left"></i> 读书笔记《cpp类与数据结构》
+              <a href="/2017/05/15/吴岸成《NN-and-DL》/" rel="next" title="吴岸成《NN and DL》">
+                <i class="fa fa-chevron-left"></i> 吴岸成《NN and DL》
               </a>
             
           </div>
@@ -378,10 +383,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/昆曲/" rel="prev" title="昆曲">
-                昆曲 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -492,7 +493,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分治策略和递归"><span class="nav-number">1.</span> <span class="nav-text">分治策略和递归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么"><span class="nav-number">1.1.</span> <span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">1.3.</span> <span class="nav-text">改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">1.4.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">1.4.1.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择问题"><span class="nav-number">1.4.2.</span> <span class="nav-text">选择问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-1次多项式"><span class="nav-number">1.4.3.</span> <span class="nav-text">n-1次多项式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-number">2.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结"><span class="nav-number">1.</span> <span class="nav-text">主要内容：对通用搜索引擎的查询推荐技术的方法、评价进行了总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#具体内容："><span class="nav-number">2.</span> <span class="nav-text">具体内容：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三种技术方法："><span class="nav-number">3.</span> <span class="nav-text">三种技术方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-基于文档的方法："><span class="nav-number">3.1.</span> <span class="nav-text">1. 基于文档的方法：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-基于日志的方法："><span class="nav-number">3.2.</span> <span class="nav-text">2. 基于日志的方法：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#（1）基于session的方法"><span class="nav-number">3.2.1.</span> <span class="nav-text">（1）基于session的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评价方法："><span class="nav-number">4.</span> <span class="nav-text">评价方法：</span></a></li></ol></div>
             
 
           </div>
