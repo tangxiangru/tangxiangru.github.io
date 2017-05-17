@@ -247,6 +247,165 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/18/编程之美lecture/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/05/18/编程之美lecture/" itemprop="url">
+                  编程之美lecture
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-18T02:07:55+08:00">
+                2017-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="自动问答系统简介（段楠）"><a href="#自动问答系统简介（段楠）" class="headerlink" title="自动问答系统简介（段楠）"></a>自动问答系统简介（段楠）</h1><p>介绍典型的自动问答系统，包括基于知识库的自动问答（KB-QA）、基于文本的问答（Text-QA）和基于FAQ的问答（Community-QA）等。此外，还会对本次大赛问答任务中涉及到的技术做简要说明。</p>
+<p>基于自己学校的网站打造机器人，问题回复和信息抽取，做人机交互。包含很多功能和模块。</p>
+<p>任务，方法，涉及到的问答方法作介绍并基于真实实例</p>
+<p>系统基于给定的数据库，回答人类提出的问题。</p>
+<p>问题类型： 答案是实体，答案是定义，答案是yes/no，答案是意见，比较类问题<br><img src="http://i4.buimg.com/588926/fe458ae723a1af52.png" alt=""></p>
+<p>早期qa system是专业特定领域的，后来计算能力的飞跃，允许问答系统到开发领域</p>
+<p>三大类：</p>
+<h2 id="基于知识的问答系统KBQA"><a href="#基于知识的问答系统KBQA" class="headerlink" title="基于知识的问答系统KBQA"></a>基于知识的问答系统KBQA</h2><p>系统的数据库是结构化的，但是知识库是一些实体之间的关系，实体之间的关系是以抽象的标签的形式存在的 </p>
+<p>关键是两点：一是能不能把问题中实际到的实体检测出，另一是问题中提到的实体的关系检测出来</p>
+<p>应用：微软的必应bing，可以直接直接结构化的查寻，优点：直接拿到答案，节省用户去结果网页中进行信息再定位</p>
+<p>从学校主页上挖掘 主语+谓词+宾语（结构化的三元组），可以回答这样的问题：清华大学校长是谁，先做实体的识别，知识库中知识是以实体和关系来存储。实体识别：清华大学，上下文究竟提到的是关于实体的哪个关系的识别：校长关系，答案检索：&lt;清华大学，校长，邱勇&gt;<br><img src="http://i2.muimg.com/588926/892fd55457e729d8.png" alt=""></p>
+<p>那么可是如何做基于给定问题的实体识别和关系识别：</p>
+<p>从基本的方法开始，从一些百科类网站来获取实体名称，用上述的知识对输入的问题来标注，来标注问题中究竟提到了哪些关系。其他问题：同一实体有很多不同说法名称，一些细致的地方就要做一些扩展<br><img src="http://i4.buimg.com/588926/2326faebb3da15f4.png" alt=""><br>关系识别：</p>
+<p>一类是可以创造基于问题模板的关系识别方法（谁是什么什么创始人—&gt;创始人。人工撰写拓展问题模板或者搜索日志中抽取。要问题模板很全才能完全覆盖）。</p>
+<p><img src="http://i4.buimg.com/588926/2326faebb3da15f4.png" alt=""></p>
+<p>一类是创造基于关系关键字的方法，创办人–从其他地方抓取关键字都表示了创办人的意思。提示：如果有很多满足当前关系的实体对，可以去海量去文本中挖掘句子，这个句子的条件是同时包含了满足这个关系的某一个实体对。若两个实体出现在一个句子中，这两个实体间又在知识库中存在某关系，那这个句子的其他部分就在对知识库里的这个关系做陈述。通过类似方式来抓取一些知识库中关键多对应的不同的关键字来用于检测问的问题是提到知识库中的哪个关系</p>
+<p><img src="http://i4.buimg.com/588926/2eb9d1c89b34c2de.png" alt=""></p>
+<h2 id="基于文档的问答系统DBQA"><a href="#基于文档的问答系统DBQA" class="headerlink" title="基于文档的问答系统DBQA"></a>基于文档的问答系统DBQA</h2><p>很多知识是无法经过人类整理编辑录入知识库的，哪怕是google的freebase也是不全面的。需要利用其他一些非结构化的知识，可以基于文档中的句子来进行搜索</p>
+<p>应用：问题对应的搜索返回网页中包含的句子和段落很好的回答问的问题，直接就返回了结果</p>
+<p><img src="http://i2.muimg.com/588926/892fd55457e729d8.png" alt=""></p>
+<p>预选赛中的一个任务：给出了训练数据开发数据测试数据，训练数据给出了三元组，问题是同样的问题，七句话来自同一个篇章。第一列是答案标签，第六行是1：是答案，其他不是答案：是0。任务是：给你一个篇章再给一个问题，选出篇章中的一句来保证这是当前问题的答案。根据答案标签来训练问题答案句匹配模型，但是实际测试时只会给当前的篇章和问题，没有答案标签，要排序，排出最相关的一句话。</p>
+<p><img src="http://i2.muimg.com/588926/23b2556b33628d27.png" alt=""></p>
+<p>再比如校园机动车公告网页，第四句话是非常相关的，作为答案输出。对文档内容做处理。<br><img src="http://i2.muimg.com/588926/6311113a729b4f74.png" alt=""></p>
+<p>提示：1、数数，重复的字词很多，就有问题答案关系 </p>
+<p>2、词向量。每个句子都可以转化成词向量，表示当前词的语言。然后看词向量上的距离<br><img src="http://i1.piimg.com/588926/f26e268784c0ee9c.png" alt=""></p>
+<p>3、深度学习工具，做模型上的训练，使问题和正确答案相关性非常强，以实现答案抽取</p>
+<h2 id="基于社交型（问题答案对）问答形态FAQ-search"><a href="#基于社交型（问题答案对）问答形态FAQ-search" class="headerlink" title="基于社交型（问题答案对）问答形态FAQ search"></a>基于社交型（问题答案对）问答形态FAQ search</h2><p>像百度知道，奖励机制，点赞来提取出高质量的问题和答案对，用历史答案来回复现在的高相似度的问题。</p>
+<p>应用：微软小冰，进入公众号后，索引整理该公众号的历史文章，用户会问文章中含有的问题（一般是多引擎协同工作），直接用历史文章中的答案对来回答</p>
+<p><img src="http://i4.buimg.com/588926/2326faebb3da15f4.png" alt=""></p>
+<p>核心的目的是计算一个输入问题和历史问题的相似度，这就需要一个问题和问题的匹配模型。那么采用如何的训练数据来得到这样一个匹配模型。像百度知道这样来抽取训练数据，页面中会有一堆其他类似问题，即重新定向到历史问题。有这样的问题和相似问题的数据之后就可以训练一个模型，给一个分数来表明两个问题的相似度。</p>
+<p><img src="http://i2.muimg.com/588926/520ece09f47ebcb3.png" alt=""></p>
+<p>计算相似度是一个语义理解的问题，这是nlp中的最核心问题。概念：有一些方式根据相似数据做模型，如一个词缀对齐。</p>
+<p><img src="http://i4.buimg.com/588926/6a2297d0b5d6de26.png" alt=""><br>第二类是同义词和近似词表，另外海量的翻译数据，对翻译数据进行对其之后，一个现象：如果源语言端的两个词或者短语对应的反义词是相同的，则这两个源语言是近似的。同义词的信息抽取</p>
+<p>第三类是有了相似问题的海量数据之后，可以用深度学习或者是神经网络模型来做一个模型。概要性解释：把每一个问题转化成一个n维或者是1000维向量，每一个维度都是实值，人觉得是一千个数字，但是机器觉得1000维数字来对问题来编码来保证语意相同的两个句子在向量空间距离上是非常近的。给工具包，看说明</p>
+<p><img src="http://i2.muimg.com/588926/d26e73af446318fe.png" alt=""></p>
+<p>一些工具包<br>中文分词<br>词向量<br>句子向量<br>语言理解</p>
+<p>最后的是去年的评测比赛提供的两个的基准的问答系统的实例。虽然系统非常简单，但可以以此为基础进行扩展</p>
+<p><img src="http://i2.muimg.com/588926/3af9354eff4797bd.png" alt=""></p>
+<p><img src="http://i2.muimg.com/588926/54ac0b0933462fc6.png" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/16/计算机专业导论/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1366,131 +1525,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/02/编程语言之美/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/02/编程语言之美/" itemprop="url">
-                  编程语言之美
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-02T13:47:33+08:00">
-                2017-05-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="绘制图案方法"><a href="#绘制图案方法" class="headerlink" title="绘制图案方法"></a>绘制图案方法</h2><p>1、所见即所得的绘制方法,缺点：不灵活、不易修改,优点：直观、简单<br>2、使用控制结构绘制图形,在知道需要输出的规格后，按行打印输出<br>如<a href="http://www.echojb.com/image/2016/08/10/101871.html">简单对比</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/05/02/编程语言之美/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1540,7 +1574,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-count">15</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
