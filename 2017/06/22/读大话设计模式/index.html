@@ -87,16 +87,34 @@
 
 
 
-<meta name="description" content="怎么终端翻墙">
+<meta name="description" content="大话设计模式类似于活字印刷：可维护，可复用，可拓展—-oop让业务逻辑和界面逻辑分开
+oop三大特性：继承、封装、多态封装每个对象包含他能进行操作所需要的所有信息，通过类的实例来实现
+继承“is-a”关系
+1、子类有父类非private的属性和功能
+2、子类有自己的属性和功能（可拓展）
+3、子类可以以自己的方式实现父类的功能（方法重写）
+多态不同的对象可以执行相同的动作，但是要通过他们自己的实现代">
 <meta property="og:type" content="article">
-<meta property="og:title" content="更舒服的开发环境">
-<meta property="og:url" content="http://yoursite.com/2017/03/24/终端翻墙入门/index.html">
+<meta property="og:title" content="读大话设计模式">
+<meta property="og:url" content="http://yoursite.com/2017/06/22/读大话设计模式/index.html">
 <meta property="og:site_name" content="唐相儒TANG的博客">
-<meta property="og:description" content="怎么终端翻墙">
-<meta property="og:updated_time" content="2017-05-15T15:45:03.000Z">
+<meta property="og:description" content="大话设计模式类似于活字印刷：可维护，可复用，可拓展—-oop让业务逻辑和界面逻辑分开
+oop三大特性：继承、封装、多态封装每个对象包含他能进行操作所需要的所有信息，通过类的实例来实现
+继承“is-a”关系
+1、子类有父类非private的属性和功能
+2、子类有自己的属性和功能（可拓展）
+3、子类可以以自己的方式实现父类的功能（方法重写）
+多态不同的对象可以执行相同的动作，但是要通过他们自己的实现代">
+<meta property="og:updated_time" content="2017-06-22T15:32:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="更舒服的开发环境">
-<meta name="twitter:description" content="怎么终端翻墙">
+<meta name="twitter:title" content="读大话设计模式">
+<meta name="twitter:description" content="大话设计模式类似于活字印刷：可维护，可复用，可拓展—-oop让业务逻辑和界面逻辑分开
+oop三大特性：继承、封装、多态封装每个对象包含他能进行操作所需要的所有信息，通过类的实例来实现
+继承“is-a”关系
+1、子类有父类非private的属性和功能
+2、子类有自己的属性和功能（可拓展）
+3、子类可以以自己的方式实现父类的功能（方法重写）
+多态不同的对象可以执行相同的动作，但是要通过他们自己的实现代">
 
 
 
@@ -124,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/24/终端翻墙入门/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/22/读大话设计模式/"/>
 
 
 
 
 
-  <title> 更舒服的开发环境 | 唐相儒TANG的博客 </title>
+  <title> 读大话设计模式 | 唐相儒TANG的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="">
@@ -249,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/24/终端翻墙入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/读大话设计模式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -270,7 +288,7 @@
             
             
               
-                更舒服的开发环境
+                读大话设计模式
               
             
           </h1>
@@ -285,8 +303,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-24T23:06:18+08:00">
-                2017-03-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T23:32:11+08:00">
+                2017-06-22
               </time>
             
 
@@ -321,19 +339,29 @@
       
 
       
-        <p>怎么终端翻墙</p>
-<a id="more"></a>
-<h2 id="Step1-安装-Command-Line-Tools"><a href="#Step1-安装-Command-Line-Tools" class="headerlink" title="Step1 安装 Command Line Tools"></a>Step1 安装 Command Line Tools</h2><p>配置开发环境的第一步是安装系统软件包管理器 Homebrew，但是首先 Homebrew 需要依赖 Command Line Tools。这个软件包为Terminal命令行环境安装了进行 Unix 风格开发所必需的工具，同时包含 OS X SDK 及相关的头文件.如果你装了 Xcode，那么Command Line Tools 已经集成在了 Xcode 的软件包里（可能需要在偏好设置里确认安装，如果你不需要做 iOS 开发的话，Xcode的体积过大，所以可以下载单独的Command Line Tools安装包</p>
-<hr>
-<h2 id="Step2-安装-Homebrew"><a href="#Step2-安装-Homebrew" class="headerlink" title="Step2 安装 Homebrew"></a>Step2 安装 Homebrew</h2><p>Homebrew 是安装一系列软件包的工具，我们应该尽可能避免下载 -&gt; 安装这样的工作，而是用命令行完成软件安装和环境配置工作。Homebrew 的安装过程很简单，只需要在终端执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
-<p>这条命令需要兼容 bash 的 shell 环境<br>但最终我是用 iTerm2 取代默认的终端bash</p>
-<hr>
-<h2 id="Step3-完善科学上网"><a href="#Step3-完善科学上网" class="headerlink" title="Step3 完善科学上网"></a>Step3 完善科学上网</h2><p>先安装 ShadowSocks客户端解决操作系统层面下的上网问题，但是 Shadowsocks 的代理无法直接设置给终端使用。<br>没关系，我们有Polipo<br>Homebrew 可以直接安装 Polipo，但是需要配置 Shadowsocks。<br>首先 Polipo 作为终端下的服务是需要启动／停止的，这里有两个选择：一）手动；二）开机自动。</p>
-<h4 id="for手动"><a href="#for手动" class="headerlink" title="for手动"></a>for手动</h4><p>使用 Homebrew Services 来简化操作，执行 brew tap homebrew/services  之后 brew services start|stop|restart SERVICE_NAME 来操作一切终端服务</p>
-<h4 id="for开机自启动"><a href="#for开机自启动" class="headerlink" title="for开机自启动"></a>for开机自启动</h4><p>brew info polipo ，唯一的问题是需要 Polipo 在启动的时候要设定 socksParentProxy 选项。网上很多教程都是让去修改 /usr/local/opt/polipo/homebrew.mxcl.polipo.plist 文件。推荐另一种，在 ~/.polipo 文件里加一句  socksParentProxy = “localhost:1080”就好了。</p>
-<p>最后在 ~/.bash_profile 里加两句：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">export http_proxy=localhost:8123</div><div class="line">export ALL_PROXY=$http_proxy</div></pre></td></tr></table></figure>
+        <p>大话设计模式<br>类似于活字印刷：可维护，可复用，可拓展—-oop<br>让业务逻辑和界面逻辑分开</p>
+<h2 id="oop三大特性：继承、封装、多态"><a href="#oop三大特性：继承、封装、多态" class="headerlink" title="oop三大特性：继承、封装、多态"></a>oop三大特性：继承、封装、多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>每个对象包含他能进行操作所需要的所有信息，通过类的实例来实现</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>“is-a”关系</p>
+<p>1、子类有父类非private的属性和功能</p>
+<p>2、子类有自己的属性和功能（可拓展）</p>
+<p>3、子类可以以自己的方式实现父类的功能（方法重写）</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>不同的对象可以执行相同的动作，但是要通过他们自己的实现代码来执行</p>
+<p>1、子类以父类身份</p>
+<p>2、子类在工作中以自己的方式实现</p>
+<p>3、子类特有的属性和方法不能使用</p>
+<p>virtual方法：在该成员的返回类型之前加上virtual，来使子类的实例完全接替来自父类的类成员。通常虚拟的是方法。</p>
+<p>子类使用override：将父类实现替换为他自己的实现，即方法重写</p>
+<p>对象的申明是父类，实例化的对象是子类</p>
+<p>多态的原理：当方法被调用的时候，无论对象是否被转化为其父类，都只有位于对象继承链最末端的方法会被调用。也就是说，虚方法是按照其运行类型而非编译时类型进行动态调用的。</p>
+<h2 id="类和类之间的关系（uml类图）"><a href="#类和类之间的关系（uml类图）" class="headerlink" title="类和类之间的关系（uml类图）"></a>类和类之间的关系（uml类图）</h2><p>继承、依赖、聚合、合成、关联、实现接口</p>
+<h2 id="抽象策略模式和简单工厂"><a href="#抽象策略模式和简单工厂" class="headerlink" title="抽象策略模式和简单工厂"></a>抽象策略模式和简单工厂</h2><p>不是类越多越好，累的划分是为了封装，但分类的基础是抽象，具有相同属性和功能的对象的抽象集合才是类</p>
+<p>简单工厂模式：case0，case1，case2解决对象的创建问题</p>
+<p>抽象策略模式：定义了算法家族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化，不会影响到算法的客户（封装变化点）</p>
+<p>结合：简单工厂不一定是一个单独的类，可以和策略模式的context结合</p>
+<p>（参数是一个字符串）</p>
+<p>选择所用的具体实现的职责由客户端对象承担，并转给策略模式的context对象</p>
+<p>通常字段是private，首字母小写or“_”；通常属性是public，首字母大写。</p>
+<p>get和set就像封闭的房子的纱窗</p>
 
       
     </div>
@@ -370,15 +398,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/06/20/联创面试笔记/" rel="next" title="联创面试笔记">
+                <i class="fa fa-chevron-left"></i> 联创面试笔记
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/23/cmu-bomb-lab-1/" rel="prev" title="cmu_bomb_lab">
-                cmu_bomb_lab <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -489,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step1-安装-Command-Line-Tools"><span class="nav-number">1.</span> <span class="nav-text">Step1 安装 Command Line Tools</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step2-安装-Homebrew"><span class="nav-number">2.</span> <span class="nav-text">Step2 安装 Homebrew</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step3-完善科学上网"><span class="nav-number">3.</span> <span class="nav-text">Step3 完善科学上网</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#for手动"><span class="nav-number">3.0.1.</span> <span class="nav-text">for手动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#for开机自启动"><span class="nav-number">3.0.2.</span> <span class="nav-text">for开机自启动</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#oop三大特性：继承、封装、多态"><span class="nav-number">1.</span> <span class="nav-text">oop三大特性：继承、封装、多态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#封装"><span class="nav-number">1.1.</span> <span class="nav-text">封装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承"><span class="nav-number">1.2.</span> <span class="nav-text">继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多态"><span class="nav-number">1.3.</span> <span class="nav-text">多态</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和类之间的关系（uml类图）"><span class="nav-number">2.</span> <span class="nav-text">类和类之间的关系（uml类图）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#抽象策略模式和简单工厂"><span class="nav-number">3.</span> <span class="nav-text">抽象策略模式和简单工厂</span></a></li></ol></div>
             
 
           </div>

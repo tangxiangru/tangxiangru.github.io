@@ -194,7 +194,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -237,6 +237,149 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/22/读大话设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/06/22/读大话设计模式/" itemprop="url">
+                  读大话设计模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-22T23:32:11+08:00">
+                2017-06-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>大话设计模式<br>类似于活字印刷：可维护，可复用，可拓展—-oop<br>让业务逻辑和界面逻辑分开</p>
+<h2 id="oop三大特性：继承、封装、多态"><a href="#oop三大特性：继承、封装、多态" class="headerlink" title="oop三大特性：继承、封装、多态"></a>oop三大特性：继承、封装、多态</h2><h3 id="封装"><a href="#封装" class="headerlink" title="封装"></a>封装</h3><p>每个对象包含他能进行操作所需要的所有信息，通过类的实例来实现</p>
+<h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>“is-a”关系</p>
+<p>1、子类有父类非private的属性和功能</p>
+<p>2、子类有自己的属性和功能（可拓展）</p>
+<p>3、子类可以以自己的方式实现父类的功能（方法重写）</p>
+<h3 id="多态"><a href="#多态" class="headerlink" title="多态"></a>多态</h3><p>不同的对象可以执行相同的动作，但是要通过他们自己的实现代码来执行</p>
+<p>1、子类以父类身份</p>
+<p>2、子类在工作中以自己的方式实现</p>
+<p>3、子类特有的属性和方法不能使用</p>
+<p>virtual方法：在该成员的返回类型之前加上virtual，来使子类的实例完全接替来自父类的类成员。通常虚拟的是方法。</p>
+<p>子类使用override：将父类实现替换为他自己的实现，即方法重写</p>
+<p>对象的申明是父类，实例化的对象是子类</p>
+<p>多态的原理：当方法被调用的时候，无论对象是否被转化为其父类，都只有位于对象继承链最末端的方法会被调用。也就是说，虚方法是按照其运行类型而非编译时类型进行动态调用的。</p>
+<h2 id="类和类之间的关系（uml类图）"><a href="#类和类之间的关系（uml类图）" class="headerlink" title="类和类之间的关系（uml类图）"></a>类和类之间的关系（uml类图）</h2><p>继承、依赖、聚合、合成、关联、实现接口</p>
+<h2 id="抽象策略模式和简单工厂"><a href="#抽象策略模式和简单工厂" class="headerlink" title="抽象策略模式和简单工厂"></a>抽象策略模式和简单工厂</h2><p>不是类越多越好，累的划分是为了封装，但分类的基础是抽象，具有相同属性和功能的对象的抽象集合才是类</p>
+<p>简单工厂模式：case0，case1，case2解决对象的创建问题</p>
+<p>抽象策略模式：定义了算法家族，分别封装起来，让他们之间可以相互替换，此模式让算法的变化，不会影响到算法的客户（封装变化点）</p>
+<p>结合：简单工厂不一定是一个单独的类，可以和策略模式的context结合</p>
+<p>（参数是一个字符串）</p>
+<p>选择所用的具体实现的职责由客户端对象承担，并转给策略模式的context对象</p>
+<p>通常字段是private，首字母小写or“_”；通常属性是public，首字母大写。</p>
+<p>get和set就像封闭的房子的纱窗</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -284,7 +427,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-20T16:43:50+08:00">
                 2017-06-20
@@ -428,7 +571,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-10T21:06:49+08:00">
                 2017-06-10
@@ -585,7 +728,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-04T01:37:09+08:00">
                 2017-06-04
@@ -630,7 +773,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/04/bop资格赛弃坑之路/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -712,7 +855,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-28T17:46:45+08:00">
                 2017-05-28
@@ -843,7 +986,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-20T13:26:57+08:00">
                 2017-05-20
@@ -886,7 +1029,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/20/人民的名义/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -968,7 +1111,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-18T02:07:55+08:00">
                 2017-05-18
@@ -1016,7 +1159,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/18/编程之美lecture/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1098,7 +1241,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T23:47:59+08:00">
                 2017-05-16
@@ -1143,7 +1286,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/16/计算机专业导论/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1225,7 +1368,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-16T11:00:05+08:00">
                 2017-05-16
@@ -1269,7 +1412,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/16/query入门/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1351,7 +1494,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-15T23:32:11+08:00">
                 2017-05-15
@@ -1394,136 +1537,10 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/05/15/吴岸成《NN-and-DL》/#more" rel="contents">
-              Read more &raquo;
+              Weiterlesen &raquo;
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/14/课堂精灵/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/14/课堂精灵/" itemprop="url">
-                  课堂精灵
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-14T17:09:13+08:00">
-                2017-05-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>服务器地址mana-cyan.cn，账号op，项目位置/project/CourseSpirit</p>
-<p>ssh op@mana-cyan.cn</p>
-<p>密码</p>
-<p>cd /project/CourseSpirit</p>
-<p>cd apis</p>
-<p>exit</p>
-
-          
         
       
     </div>
@@ -1560,7 +1577,7 @@
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1605,8 +1622,8 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">20</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -1660,7 +1677,7 @@
 
 
 <div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
