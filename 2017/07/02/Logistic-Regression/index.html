@@ -123,7 +123,7 @@
 <meta property="og:image" content="http://img.blog.csdn.net/20131113204138093?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9uZ3Rpbmd6aGl6aQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20131113204152062?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9uZ3Rpbmd6aGl6aQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20131113202512453?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9uZ3Rpbmd6aGl6aQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-07-02T04:57:49.000Z">
+<meta property="og:updated_time" content="2017-07-02T04:59:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Logistic Regression">
 <meta name="twitter:description" content="看了吴恩达课之后总结（1）Logistic Regression的基本原理（2）Logistic Regression的具体过程，即是先选取预测函数，求解Cost函数和J(θ)，梯度下降法求J(θ)的最小值，以及递归下降过程的向量化（vectorization）（3）对比《机器学习实战》中的实现代码 ,回答阅读LogisticRegression部分遇到的疑惑(question:一般都是用梯度下降">
@@ -404,7 +404,7 @@
 
       
         <p>看了吴恩达课之后总结<br>（1）Logistic Regression的基本原理<br>（2）Logistic Regression的具体过程，即是先选取预测函数，求解Cost函数和J(θ)，梯度下降法求J(θ)的最小值，以及递归下降过程的向量化（vectorization）<br>（3）对比《机器学习实战》中的实现代码 ,回答阅读LogisticRegression部分遇到的疑惑<br>(question:一般都是用梯度下降法求损失函数的最小值，为何这里用梯度上升法呢？书中说用梯度上升发，为何代码实现时没求梯度的代码？)</p>
-<p>Stanford机器学习公开课（<a href="https://www.coursera.org/course/ml）" target="_blank" rel="external">https://www.coursera.org/course/ml）</a><br><a id="more"></a></p>
+<p>Stanford机器学习公开课（<a href="https://www.coursera.org/course/ml）" target="_blank" rel="external">https://www.coursera.org/course/ml）</a><br>(图片公式来源于csdn)<br><a id="more"></a></p>
 <h1 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h1><p>Logistic Regression和Linear Regression的原理是相似的，描述为这样的过程：<br>（1）找一个合适的预测函数（Andrew Ng的公开课中称为hypothesis），一般表示为h函数，该函数就是我们需要找的分类函数，它用来预测输入数据的判断结果。这个过程时非常关键的，需要对数据有一定的了解或分析，知道或者猜测预测函数的“大概”形式，比如是线性函数还是非线性函数。<br>（2）构造一个Cost函数（损失函数），该函数表示预测的输出（h）与训练数据类别（y）之间的偏差，可以是二者之间的差（h-y）或者是其他的形式。综合考虑所有训练数据的“损失”，将Cost求和或者求平均，记为J(θ)函数，表示所有训练数据预测值与实际类别的偏差。<br>（3）显然，J(θ)函数的值越小表示预测函数越准确（即h函数越准确），所以这一步需要做的是找到J(θ)函数的最小值。找函数的最小值有不同的方法，Logistic Regression实现时有的是梯度下降法（Gradient Descent）。</p>
 <h1 id="具体过程"><a href="#具体过程" class="headerlink" title="具体过程"></a>具体过程</h1><h2 id="构造预测函数"><a href="#构造预测函数" class="headerlink" title="构造预测函数"></a>构造预测函数</h2><p>Logistic Regression虽然名字里带“回归”，但是它实际上是一种分类方法，用于两分类问题（即输出只有两种）。根据刚刚说的的步骤，需要先找到一个预测函数（h），显然，该函数的输出必须是两个值（分别代表两个类别），所以利用了Logistic函数（或称为Sigmoid函数），函数形式为：<br><img src="http://img.blog.csdn.net/20131113203307078?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvZG9uZ3Rpbmd6aGl6aQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
 <p>对应的函数图像是一个取值在0和1之间的S型曲线</p>
