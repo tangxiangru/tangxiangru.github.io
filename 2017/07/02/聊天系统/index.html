@@ -1,0 +1,820 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleb849f8ce9353f945.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="欢迎戳进" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="自动聊天system的解决方案和技术挑战
+emmmm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊天系统">
+<meta property="og:url" content="http://yoursite.com/2017/07/02/聊天系统/index.html">
+<meta property="og:site_name" content="唐相儒TANG的博客">
+<meta property="og:description" content="自动聊天system的解决方案和技术挑战
+emmmm">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-38e27a1100fb19acd2ed2cb7e8535c12_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-fe5f406fe31610c259cef6342a264192_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-e06ed084a48762cb213c199738c5d92f_b.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-6e069790ec94e83e76fb4a28cbaeaa60_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-e8ebae4b4dcf4490599bf6ba08992ded_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-abca7ef451babfac9960929f4a692fcf_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-abca7ef451babfac9960929f4a692fcf_b.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-980a6f0078db89ab8da4debf63ea453c_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-00ae50bf23f6afe26d882557c0a8dde7_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-e33841dab758623e4e6049dc75ed50a7_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-1300f311c48ec31f50d2b38c408b1e82_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-052fcabbc9635d94fd58b9fc5bc35d2f_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-2e6e865163580065d9a5e4c7fc6d8b5e_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-1e03e014a0b00224281e89453941db82_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-0bacc990fc412d0adbfaabd77013a361_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-f0da75b28a648174ca802b59e144f896_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-41cf77e08e654a0718960600270d3eb6_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-152f6754d2b53639d441ea9be88940b2_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-1ffb17ca86c6c098440c4676aaab9562_b.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-27092e905743abe902b4fc4c3bf73810_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-b3d26dbca424a5c9f31ff9d8fc3043b2_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-0317254c32082faee3901baec1ff8466_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-9180d8ed5ac7558d1627d0784b5d0863_b.jpg">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-cc8fcfd6ba9b10240083f5e3f651a3a8_b.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-2fd7ed8b20f18bd83b2290d3d002ee52_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-6ffd0096a88fd0d647a54f92cef83df1_b.jpg">
+<meta property="og:image" content="https://pic4.zhimg.com/v2-8daf408d477efb702c6b8d37778e9ebf_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-2434ea8744b53972f45ce3138f04ed99_b.jpg">
+<meta property="og:updated_time" content="2017-07-02T03:28:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="聊天系统">
+<meta name="twitter:description" content="自动聊天system的解决方案和技术挑战
+emmmm">
+<meta name="twitter:image" content="https://pic3.zhimg.com/v2-38e27a1100fb19acd2ed2cb7e8535c12_b.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/02/聊天系统/"/>
+
+
+
+
+
+  <title> 聊天系统 | 唐相儒TANG的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">唐相儒TANG的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-ban"></i> <br />
+            
+            博客首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hand-peace-o"></i> <br />
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/目录" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sign-language"></i> <br />
+            
+            文章标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-asl-interpreting"></i> <br />
+            
+            team
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/02/聊天系统/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                聊天系统
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-02T11:23:10+08:00">
+                2017-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/02/聊天系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/02/聊天系统/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>自动聊天system的解决方案和技术挑战</p>
+<p>emmmm<br><a id="more"></a><br><img src="https://pic3.zhimg.com/v2-38e27a1100fb19acd2ed2cb7e8535c12_b.jpg" alt=""><br>图灵测试：人机对话无法判断对方，即持续聊天，任何query给出合适replies，考虑到用户个体差异</p>
+<p><img src="https://pic3.zhimg.com/v2-fe5f406fe31610c259cef6342a264192_b.jpg" alt=""><br>相关的概念：问答系统（给一个明确的答案factoid，或者why、how等等）、对话系统（通过对话完成一个事情，没有闲聊，科研圈子小）、自动客服FAQ</p>
+<h1 id="技术基因"><a href="#技术基因" class="headerlink" title="技术基因"></a>技术基因</h1><p>why和how形的问答、community qa、corpus mining、faq mining</p>
+<p>共同点：有大量的qa数据，配以准确的匹配&amp;排序算法，那么问答系统是可能的</p>
+<h1 id="重要结论："><a href="#重要结论：" class="headerlink" title="重要结论："></a>重要结论：</h1><p>文本的相似性和相关性（更重要）是两个不同需求</p>
+<p>短文本相关性很难计算（常识上的同义词）</p>
+<p><img src="https://pic4.zhimg.com/v2-e06ed084a48762cb213c199738c5d92f_b.jpg" alt=""><br>词语贡献\机器翻译（问题和恢复是一种另类的翻译对）|LDA主题建模\meta-data</p>
+<h1 id="两条主要路线"><a href="#两条主要路线" class="headerlink" title="两条主要路线"></a>两条主要路线</h1><p>一条好走大家都能走，一条看起来很难走但是沿途风景美</p>
+<p>1、基于ir的<br><img src="https://pic1.zhimg.com/v2-6e069790ec94e83e76fb4a28cbaeaa60_b.jpg" alt=""><br>建立一个索引，query问答库的匹配，用文本相似度找，把候选答案再做一个相关性计算，排序得到最相关的，框架上就相当于检索系统</p>
+<p>细化的三层的逻辑架构</p>
+<p><img src="https://pic2.zhimg.com/v2-e8ebae4b4dcf4490599bf6ba08992ded_b.jpg" alt=""></p>
+<p>首先计算query和question关系，找到和query最相似的问题后再通过问题找到答案；再做一个排序，考虑多轮语意相关性和主题相关性；第三层考虑非文本相关的需求，比如考虑用户差异，再排序 </p>
+<p><img src="https://pic4.zhimg.com/v2-abca7ef451babfac9960929f4a692fcf_b.jpg" alt=""></p>
+<h1 id="基于生成模板"><a href="#基于生成模板" class="headerlink" title="基于生成模板"></a>基于生成模板</h1><p>中文句子可以直接输出英文，而且机器翻译和聊天有潜在关联，则同样sequence to sequence，用深度学习做encoder到decoder</p>
+<p><img src="https://pic4.zhimg.com/v2-abca7ef451babfac9960929f4a692fcf_b.jpg" alt=""></p>
+<p>用基于ir的方法可以使句子可读性比较好，query保证回复的多样性，debug很容易。挑战是要rank，事情比较复杂。</p>
+<p>基于生成model式的，构建模型很容易，直接训练，不需要维护问答库，可读性很差，回复总会是说“我也觉得是这样”</p>
+<p><img src="https://pic1.zhimg.com/v2-980a6f0078db89ab8da4debf63ea453c_b.jpg" alt=""><br>难度：上下文、外部知识、个性元素、评价</p>
+<p><img src="https://pic4.zhimg.com/v2-00ae50bf23f6afe26d882557c0a8dde7_b.jpg" alt=""></p>
+<p>深度学习从浅入深列举，对抗学习23333<br><img src="https://pic4.zhimg.com/v2-e33841dab758623e4e6049dc75ed50a7_b.jpg" alt=""></p>
+<p>短文本的语意相关性计算<br><img src="https://pic3.zhimg.com/v2-1300f311c48ec31f50d2b38c408b1e82_b.jpg" alt=""></p>
+<p>词向量很重要，算夹角表示距离</p>
+<p><img src="https://pic4.zhimg.com/v2-052fcabbc9635d94fd58b9fc5bc35d2f_b.jpg" alt=""></p>
+<p>但是按维数相加，会产生损失，所以应该是产生句子向量，上面就是两种2014年的paper，一种是做卷积，后一种是词语之间的关系在二维上排开，细化计算语义关系产生矩阵再做卷积。即是词语向量输入，句子向量输出。</p>
+<p><img src="https://pic3.zhimg.com/v2-2e6e865163580065d9a5e4c7fc6d8b5e_b.jpg" alt=""></p>
+<p>如上图，上下文引入，要有对话历史。通过序列化的gru模型，两个层面的计算，一个是两个词语之间形成embedding，另一方面gru形成句子级别的向量矩阵，形成句子之间的矩阵。两个平行的矩阵，分别做卷积。2016年</p>
+<p><img src="https://pic3.zhimg.com/v2-1e03e014a0b00224281e89453941db82_b.jpg" alt=""></p>
+<p>如上图，看句子是否相关。在cnn上面做attention机制，query在语义背景下，使用了两种方法，一种是得到模糊的语义背景，一种是？？？？然后用这两种关系排除result</p>
+<p><img src="https://pic2.zhimg.com/v2-0bacc990fc412d0adbfaabd77013a361_b.jpg" alt=""></p>
+<p>如上图，GOOgle的方法，把作者的东西引进来，算，然后分解。上下文情况下人工排序</p>
+<p><img src="https://pic3.zhimg.com/v2-f0da75b28a648174ca802b59e144f896_b.jpg" alt=""></p>
+<p>如上图，外部知识如何引入</p>
+<h1 id="生成式"><a href="#生成式" class="headerlink" title="生成式"></a>生成式</h1><p><img src="https://pic3.zhimg.com/v2-41cf77e08e654a0718960600270d3eb6_b.jpg" alt=""><br>attention的方法引入<br><img src="https://pic3.zhimg.com/v2-152f6754d2b53639d441ea9be88940b2_b.jpg" alt=""></p>
+<p>上图，强化学习的引入，关键是怎么给model以奖惩。三个维度，一生成的model能引出更多样性的回复，推动聊天进展，强相关于topic</p>
+<p><img src="https://pic3.zhimg.com/v2-1ffb17ca86c6c098440c4676aaab9562_b.jpg" alt=""></p>
+<p>上图，id和词语向量放在一起，每个词生成都考虑人是谁</p>
+<p><img src="https://pic1.zhimg.com/v2-27092e905743abe902b4fc4c3bf73810_b.jpg" alt=""></p>
+<p>上图，对抗学习，引入文本生成。假如一句话不能判断是谁说的，就说明生成器很好。图形的生成是可导的，但是词语的选择这一步就是不可导的，那么关联就没有了？用强化学习绕过不可导。或者说语意向量是可导的，这样来关联两个生成器。</p>
+<h1 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h1><p><img src="https://pic3.zhimg.com/v2-b3d26dbca424a5c9f31ff9d8fc3043b2_b.jpg" alt="">  </p>
+<p>对话轮数是有区别的，可以赋权重</p>
+<p><img src="https://pic3.zhimg.com/v2-0317254c32082faee3901baec1ff8466_b.jpg" alt=""></p>
+<p><img src="https://pic4.zhimg.com/v2-9180d8ed5ac7558d1627d0784b5d0863_b.jpg" alt=""></p>
+<h1 id="挑战"><a href="#挑战" class="headerlink" title="挑战"></a>挑战</h1><p>训练集不统一（reddit更好）<br><img src="https://pic1.zhimg.com/v2-cc8fcfd6ba9b10240083f5e3f651a3a8_b.jpg" alt=""></p>
+<p><img src="https://pic3.zhimg.com/v2-2fd7ed8b20f18bd83b2290d3d002ee52_b.jpg" alt=""></p>
+<p>情感交流，这是提高用户体验到关键</p>
+<p><img src="https://pic2.zhimg.com/v2-6ffd0096a88fd0d647a54f92cef83df1_b.jpg" alt=""></p>
+<p><img src="https://pic4.zhimg.com/v2-8daf408d477efb702c6b8d37778e9ebf_b.jpg" alt=""></p>
+<p>全nlp：问答、机器翻译、自动文摘、语音的自动合成与识别、ir、文本分类</p>
+<p><img src="https://pic2.zhimg.com/v2-2434ea8744b53972f45ce3138f04ed99_b.jpg" alt=""></p>
+<p>信息检索：相关性、扩展以后的相关性、个性化检索</p>
+<p>特征取得要强</p>
+<p><a href="https://www.zhihu.com/lives/860816935267467264/messages" target="_blank" rel="external">emmmmm</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/27/talk-with-李云涛/" rel="next" title="talk with 李云涛">
+                <i class="fa fa-chevron-left"></i> talk with 李云涛
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
+               alt="唐相儒" />
+          <p class="site-author-name" itemprop="name">唐相儒</p>
+           
+              <p class="site-description motion-element" itemprop="description">Never Let Your Fear Decide Your Future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/目录">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#技术基因"><span class="nav-number">1.</span> <span class="nav-text">技术基因</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#重要结论："><span class="nav-number">2.</span> <span class="nav-text">重要结论：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#两条主要路线"><span class="nav-number">3.</span> <span class="nav-text">两条主要路线</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于生成模板"><span class="nav-number">4.</span> <span class="nav-text">基于生成模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#生成式"><span class="nav-number">5.</span> <span class="nav-text">生成式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#评价"><span class="nav-number">6.</span> <span class="nav-text">评价</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#挑战"><span class="nav-number">7.</span> <span class="nav-text">挑战</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐相儒</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/07/02/聊天系统/';
+          this.page.identifier = '2017/07/02/聊天系统/';
+          this.page.title = '聊天系统';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
