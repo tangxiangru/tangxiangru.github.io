@@ -292,6 +292,155 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/分类器性能评估方法对比/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/14/分类器性能评估方法对比/" itemprop="url">
+                  分类器性能评估方法对比
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:59:11+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/14/分类器性能评估方法对比/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/14/分类器性能评估方法对比/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。</p>
+<p><a href="http://pages.cs.wisc.edu/~jdavis/davisgoadrichcamera2.pdf" target="_blank" rel="external">http://pages.cs.wisc.edu/~jdavis/davisgoadrichcamera2.pdf</a></p>
+<p><a href="https://www.52ml.net/19370.html" target="_blank" rel="external">https://www.52ml.net/19370.html</a></p>
+<h1 id="精准率和召回率"><a href="#精准率和召回率" class="headerlink" title="精准率和召回率"></a>精准率和召回率</h1><p>系统检索到的相关文档（A）（TP）</p>
+<p>系统检索到的不相关文档（B）(FP)</p>
+<p>相关但是系统没有检索到的文档（C）(FN)</p>
+<p>不相关且没有被系统检索到的文档（D）(TN) </p>
+<p>则：召回率R：用检索到相关文档数作为分子，所有相关文档总数作为分母，即R = A / ( A + C )</p>
+<p>准确率P：用检索到相关文档数作为分子，所有检索到的文档总数作为分母．即P = A / ( A + B ).</p>
+<h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种加权平均，它的最大值是1，最小值是0。</p>
+<p>F1-score(F1-分数)：2×准确率×召回率/（准确率+召回率）<br><img src="http://alexkong.net/images/fpr-and-tpr.png" alt=""></p>
+<h1 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h1><p>ROC和AUC是一回事，通常用于二分类的评价</p>
+<p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）<br><img src="http://alexkong.net/images/Roccurves.png" alt=""></p>
+<p>AUC:被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。</p>
+<p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能将正样本排在负样本前面，即能够更好的分类。</p>
+<p>ROC曲线越接近左上角，该分类器的性能越好。</p>
+<p>下图是ROC曲线和Precision-Recall曲线5的对比：<br><img src="http://alexkong.net/images/roc-and-precall.png" alt=""><br>(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线. </p>
+<p>(a)和(b)展示的是分类其在原始测试集（正负样本分布平衡）的结果，(c)和(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线则变化较大。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/kd-tree/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1562,144 +1711,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/04/bop资格赛弃坑之路/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/04/bop资格赛弃坑之路/" itemprop="url">
-                  bop资格赛弃坑之路
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-04T01:37:09+08:00">
-                2017-06-04
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/04/bop资格赛弃坑之路/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/04/bop资格赛弃坑之路/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="bop资格赛弃坑之路"><a href="#bop资格赛弃坑之路" class="headerlink" title="bop资格赛弃坑之路"></a>bop资格赛弃坑之路</h1><p>由于这次资格赛涉及了过多的高级操作，就算会写bot也过不了资格赛，就比较无语，但是还是学到了些东西的</p>
-<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>资格赛任务题是基于文档的问答任务（Document-based Question Answering task, DBQA），它是对于给定的一篇文档（Document）和一个从文档中提出的自然语言问题(Question)，参赛队伍需要使用提供的数据集训练模型算法，让模型可以回答问题，回答时仅限于从组成该文档的句子中选出能回答该问题的句子（Answer Selection in Question Answering）。鼓励参赛队伍发挥算法创造力并使用各种资源来训练模型，比如句子匹配模型（Sentence Matching Model），以使模型能准确地回答问题。</p>
-<p><a href="https://msc.blob.core.chinacloudapi.cn/mscmedia/BoP2017_DBQA_dev_train_data.rar">训练集和开发集</a></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/04/bop资格赛弃坑之路/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1749,7 +1760,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
