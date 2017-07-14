@@ -1,0 +1,728 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleb849f8ce9353f945.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="欢迎戳进" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="kNN算法每次在查询k个最近邻的时候都需要遍历全集才能计算出来，可想而且如果训练样本很大的话，代价还是很大的
+优化：kd tree">
+<meta property="og:type" content="article">
+<meta property="og:title" content="kd tree">
+<meta property="og:url" content="http://yoursite.com/2017/07/14/kd-tree/index.html">
+<meta property="og:site_name" content="唐相儒TANG的博客">
+<meta property="og:description" content="kNN算法每次在查询k个最近邻的时候都需要遍历全集才能计算出来，可想而且如果训练样本很大的话，代价还是很大的
+优化：kd tree">
+<meta property="og:image" content="http://images.cnitblog.com/blog/659319/201501/050159325467325.jpg">
+<meta property="og:image" content="http://images.cnitblog.com/blog/659319/201501/050200102814798.jpg">
+<meta property="og:updated_time" content="2017-07-14T04:38:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="kd tree">
+<meta name="twitter:description" content="kNN算法每次在查询k个最近邻的时候都需要遍历全集才能计算出来，可想而且如果训练样本很大的话，代价还是很大的
+优化：kd tree">
+<meta name="twitter:image" content="http://images.cnitblog.com/blog/659319/201501/050159325467325.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/14/kd-tree/"/>
+
+
+
+
+
+  <title> kd tree | 唐相儒TANG的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">唐相儒TANG的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-ban"></i> <br />
+            
+            博客首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hand-peace-o"></i> <br />
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/目录" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sign-language"></i> <br />
+            
+            文章标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-asl-interpreting"></i> <br />
+            
+            team
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/kd-tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                kd tree
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T12:22:11+08:00">
+                2017-07-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/14/kd-tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/14/kd-tree/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>kNN算法每次在查询k个最近邻的时候都需要遍历全集才能计算出来，可想而且如果训练样本很大的话，代价还是很大的</p>
+<p>优化：kd tree<br><a id="more"></a><br>该树的功能就是在高维空间下进行一个快速的最近邻查询。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div></pre></td><td class="code"><pre><div class="line">#include &lt;iostream&gt;</div><div class="line">#include &lt;vector&gt;</div><div class="line">#include &lt;algorithm&gt;</div><div class="line">#include &lt;string&gt;</div><div class="line">#include &lt;cmath&gt;</div><div class="line">using namespace std;</div><div class="line"> struct KdTree&#123;</div><div class="line">     vector&lt;double&gt; root;</div><div class="line">     KdTree* parent;</div><div class="line">     KdTree* leftChild;</div><div class="line">     KdTree* rightChild;</div><div class="line">     //默认构造函数</div><div class="line">     KdTree()&#123;parent = leftChild = rightChild = NULL;&#125;</div><div class="line">     //判断kd树是否为空</div><div class="line">     bool isEmpty()</div><div class="line">     &#123;</div><div class="line">         return root.empty();</div><div class="line">     &#125;</div><div class="line">     //判断kd树是否只是一个叶子结点</div><div class="line">     bool isLeaf()</div><div class="line">     &#123;</div><div class="line">         return (!root.empty()) &amp;&amp; </div><div class="line">             rightChild == NULL &amp;&amp; leftChild == NULL;</div><div class="line">    &#125;</div><div class="line">     //判断是否是树的根结点</div><div class="line">     bool isRoot()</div><div class="line">      &#123;</div><div class="line">          return (!isEmpty()) &amp;&amp; parent == NULL;</div><div class="line">     &#125;</div><div class="line">     //判断该子kd树的根结点是否是其父kd树的左结点</div><div class="line">     bool isLeft()</div><div class="line">     &#123;</div><div class="line">         return parent-&gt;leftChild-&gt;root == root;</div><div class="line">     &#125;</div><div class="line">     //判断该子kd树的根结点是否是其父kd树的右结点</div><div class="line">     bool isRight()</div><div class="line">     &#123;</div><div class="line">         return parent-&gt;rightChild-&gt;root == root;</div><div class="line">     &#125;</div><div class="line"> &#125;;</div><div class="line"> </div><div class="line"> int data[6][2] = &#123;&#123;2,3&#125;,&#123;5,4&#125;,&#123;9,6&#125;,&#123;4,7&#125;,&#123;8,1&#125;,&#123;7,2&#125;&#125;;</div><div class="line"> </div><div class="line"> template&lt;typename T&gt;</div><div class="line"> vector&lt;vector&lt;T&gt; &gt; Transpose(vector&lt;vector&lt;T&gt; &gt; Matrix)</div><div class="line"> &#123;</div><div class="line">     unsigned row = Matrix.size();</div><div class="line">     unsigned col = Matrix[0].size();</div><div class="line">     vector&lt;vector&lt;T&gt; &gt; Trans(col,vector&lt;T&gt;(row,0));</div><div class="line">     for (unsigned i = 0; i &lt; col; ++i)</div><div class="line">     &#123;</div><div class="line">         for (unsigned j = 0; j &lt; row; ++j)</div><div class="line">         &#123;</div><div class="line">             Trans[i][j] = Matrix[j][i];</div><div class="line">         &#125;</div><div class="line">     &#125;</div><div class="line">     return Trans;</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> template &lt;typename T&gt;</div><div class="line"> T findMiddleValue(vector&lt;T&gt; vec)</div><div class="line"> &#123;</div><div class="line">     sort(vec.begin(),vec.end());</div><div class="line">     auto pos = vec.size() / 2;</div><div class="line">     return vec[pos];</div><div class="line"> &#125;</div><div class="line"> </div><div class="line"> </div><div class="line"> //构建kd树</div><div class="line"> void buildKdTree(KdTree* tree, vector&lt;vector&lt;double&gt; &gt; data, unsigned depth)</div><div class="line"> &#123;</div><div class="line"> </div><div class="line">     //样本的数量</div><div class="line">     unsigned samplesNum = data.size();</div><div class="line">     //终止条件</div><div class="line">     if (samplesNum == 0)</div><div class="line">     &#123;</div><div class="line">         return;</div><div class="line">     &#125;</div><div class="line">     if (samplesNum == 1)</div><div class="line">     &#123;</div><div class="line">         tree-&gt;root = data[0];</div><div class="line">         return;</div><div class="line">     &#125;</div><div class="line">     //样本的维度</div><div class="line">     unsigned k = data[0].size();</div><div class="line">     vector&lt;vector&lt;double&gt; &gt; transData = Transpose(data);</div><div class="line">     //选择切分属性</div><div class="line">     unsigned splitAttribute = depth % k;</div><div class="line">     vector&lt;double&gt; splitAttributeValues = transData[splitAttribute];</div><div class="line">     //选择切分值</div><div class="line">     double splitValue = findMiddleValue(splitAttributeValues);</div><div class="line">     //cout &lt;&lt; &quot;splitValue&quot; &lt;&lt; splitValue  &lt;&lt; endl;</div><div class="line"> </div><div class="line">     // 根据选定的切分属性和切分值，将数据集分为两个子集</div><div class="line">    vector&lt;vector&lt;double&gt; &gt; subset1;</div><div class="line">    vector&lt;vector&lt;double&gt; &gt; subset2;</div><div class="line">    for (unsigned i = 0; i &lt; samplesNum; ++i)</div><div class="line">    &#123;</div><div class="line">        if (splitAttributeValues[i] == splitValue &amp;&amp; tree-&gt;root.empty())</div><div class="line">            tree-&gt;root = data[i];</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            if (splitAttributeValues[i] &lt; splitValue)</div><div class="line">                subset1.push_back(data[i]);</div><div class="line">            else</div><div class="line">                subset2.push_back(data[i]);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //子集递归调用buildKdTree函数</div><div class="line"></div><div class="line">    tree-&gt;leftChild = new KdTree;</div><div class="line">    tree-&gt;leftChild-&gt;parent = tree;</div><div class="line">    tree-&gt;rightChild = new KdTree;</div><div class="line">    tree-&gt;rightChild-&gt;parent = tree;</div><div class="line">    buildKdTree(tree-&gt;leftChild, subset1, depth + 1);</div><div class="line">    buildKdTree(tree-&gt;rightChild, subset2, depth + 1);</div><div class="line">&#125;</div><div class="line"></div><div class="line">//逐层打印kd树</div><div class="line">void printKdTree(KdTree *tree, unsigned depth)</div><div class="line">&#123;</div><div class="line">    for (unsigned i = 0; i &lt; depth; ++i)</div><div class="line">        cout &lt;&lt; &quot;\t&quot;;</div><div class="line">            </div><div class="line">    for (vector&lt;double&gt;::size_type j = 0; j &lt; tree-&gt;root.size(); ++j)</div><div class="line">        cout &lt;&lt; tree-&gt;root[j] &lt;&lt; &quot;,&quot;;</div><div class="line">    cout &lt;&lt; endl;</div><div class="line">    if (tree-&gt;leftChild == NULL &amp;&amp; tree-&gt;rightChild == NULL )//叶子节点</div><div class="line">        return;</div><div class="line">    else //非叶子节点</div><div class="line">    &#123;</div><div class="line">        if (tree-&gt;leftChild != NULL)</div><div class="line">        &#123;</div><div class="line">            for (unsigned i = 0; i &lt; depth + 1; ++i)</div><div class="line">                cout &lt;&lt; &quot;\t&quot;;</div><div class="line">            cout &lt;&lt; &quot; left:&quot;;</div><div class="line">            printKdTree(tree-&gt;leftChild, depth + 1);</div><div class="line">        &#125;</div><div class="line">            </div><div class="line">        cout &lt;&lt; endl;</div><div class="line">        if (tree-&gt;rightChild != NULL)</div><div class="line">        &#123;</div><div class="line">            for (unsigned i = 0; i &lt; depth + 1; ++i)</div><div class="line">                cout &lt;&lt; &quot;\t&quot;;</div><div class="line">            cout &lt;&lt; &quot;right:&quot;;</div><div class="line">            printKdTree(tree-&gt;rightChild, depth + 1);</div><div class="line">        &#125;</div><div class="line">        cout &lt;&lt; endl;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//计算空间中两个点的距离</div><div class="line">double measureDistance(vector&lt;double&gt; point1, vector&lt;double&gt; point2, unsigned method)</div><div class="line">&#123;</div><div class="line">    if (point1.size() != point2.size())</div><div class="line">    &#123;</div><div class="line">        cerr &lt;&lt; &quot;Dimensions don&apos;t match！！&quot; ;</div><div class="line">        exit(1);</div><div class="line">    &#125;</div><div class="line">    switch (method)</div><div class="line">    &#123;</div><div class="line">        case 0://欧氏距离</div><div class="line">            &#123;</div><div class="line">                double res = 0;</div><div class="line">                for (vector&lt;double&gt;::size_type i = 0; i &lt; point1.size(); ++i)</div><div class="line">                &#123;</div><div class="line">                    res += pow((point1[i] - point2[i]), 2);</div><div class="line">                &#125;</div><div class="line">                return sqrt(res);</div><div class="line">            &#125;</div><div class="line">        case 1://曼哈顿距离</div><div class="line">            &#123;</div><div class="line">                double res = 0;</div><div class="line">                for (vector&lt;double&gt;::size_type i = 0; i &lt; point1.size(); ++i)</div><div class="line">                &#123;</div><div class="line">                    res += abs(point1[i] - point2[i]);</div><div class="line">                &#125;</div><div class="line">                return res;</div><div class="line">            &#125;</div><div class="line">        default:</div><div class="line">            &#123;</div><div class="line">                cerr &lt;&lt; &quot;Invalid method!!&quot; &lt;&lt; endl;</div><div class="line">                return -1;</div><div class="line">            &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">//在kd树tree中搜索目标点goal的最近邻</div><div class="line">//输入：目标点；已构造的kd树</div><div class="line">//输出：目标点的最近邻</div><div class="line">vector&lt;double&gt; searchNearestNeighbor(vector&lt;double&gt; goal, KdTree *tree)</div><div class="line">&#123;</div><div class="line">    /*第一步：在kd树中找出包含目标点的叶子结点：从根结点出发，</div><div class="line">    递归的向下访问kd树，若目标点的当前维的坐标小于切分点的</div><div class="line">     坐标，则移动到左子结点，否则移动到右子结点，直到子结点为</div><div class="line">    叶结点为止,以此叶子结点为“当前最近点”</div><div class="line">    */</div><div class="line">    unsigned k = tree-&gt;root.size();//计算出数据的维数</div><div class="line">    unsigned d = 0;//维度初始化为0，即从第1维开始</div><div class="line">    KdTree* currentTree = tree;</div><div class="line">    vector&lt;double&gt; currentNearest = currentTree-&gt;root;</div><div class="line">    while(!currentTree-&gt;isLeaf())</div><div class="line">    &#123;</div><div class="line">        unsigned index = d % k;//计算当前维</div><div class="line">        if (currentTree-&gt;rightChild-&gt;isEmpty() || goal[index] &lt; currentNearest[index])</div><div class="line">        &#123;</div><div class="line">            currentTree = currentTree-&gt;leftChild;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            currentTree = currentTree-&gt;rightChild;</div><div class="line">        &#125;</div><div class="line">        ++d;</div><div class="line">    &#125;</div><div class="line">    currentNearest = currentTree-&gt;root;</div><div class="line"></div><div class="line">    /*第二步：递归地向上回退， 在每个结点进行如下操作：</div><div class="line">    (a)如果该结点保存的实例比当前最近点距离目标点更近，则以该例点为“当前最近点”</div><div class="line">    (b)当前最近点一定存在于某结点一个子结点对应的区域，检查该子结点的父结点的另</div><div class="line">    一子结点对应区域是否有更近的点（即检查另一子结点对应的区域是否与以目标点为球</div><div class="line">    心、以目标点与“当前最近点”间的距离为半径的球体相交）；如果相交，可能在另一</div><div class="line">    个子结点对应的区域内存在距目标点更近的点，移动到另一个子结点，接着递归进行最</div><div class="line">    近邻搜索；如果不相交，向上回退*/</div><div class="line"></div><div class="line">    //当前最近邻与目标点的距离</div><div class="line">    double currentDistance = measureDistance(goal, currentNearest, 0);</div><div class="line"></div><div class="line">    //如果当前子kd树的根结点是其父结点的左孩子，则搜索其父结点的右孩子结点所代表</div><div class="line">    //的区域，反之亦反</div><div class="line">    KdTree* searchDistrict;</div><div class="line">    if (currentTree-&gt;isLeft())</div><div class="line">    &#123;</div><div class="line">        if (currentTree-&gt;parent-&gt;rightChild == NULL)</div><div class="line">            searchDistrict = currentTree;</div><div class="line">        else</div><div class="line">            searchDistrict = currentTree-&gt;parent-&gt;rightChild;</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        searchDistrict = currentTree-&gt;parent-&gt;leftChild;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //如果搜索区域对应的子kd树的根结点不是整个kd树的根结点，继续回退搜索</div><div class="line">    while (searchDistrict-&gt;parent != NULL)</div><div class="line">    &#123;</div><div class="line">        //搜索区域与目标点的最近距离</div><div class="line">        double districtDistance = abs(goal[(d+1)%k] - searchDistrict-&gt;parent-&gt;root[(d+1)%k]);</div><div class="line"></div><div class="line">        //如果“搜索区域与目标点的最近距离”比“当前最近邻与目标点的距离”短，表明搜索</div><div class="line">        //区域内可能存在距离目标点更近的点</div><div class="line">        if (districtDistance &lt; currentDistance )//&amp;&amp; !searchDistrict-&gt;isEmpty()</div><div class="line">        &#123;</div><div class="line"></div><div class="line">            double parentDistance = measureDistance(goal, searchDistrict-&gt;parent-&gt;root, 0);</div><div class="line"></div><div class="line">            if (parentDistance &lt; currentDistance)</div><div class="line">            &#123;</div><div class="line">                currentDistance = parentDistance;</div><div class="line">                currentTree = searchDistrict-&gt;parent;</div><div class="line">                currentNearest = currentTree-&gt;root;</div><div class="line">            &#125;</div><div class="line">            if (!searchDistrict-&gt;isEmpty())</div><div class="line">            &#123;</div><div class="line">                double rootDistance = measureDistance(goal, searchDistrict-&gt;root, 0);</div><div class="line">                if (rootDistance &lt; currentDistance)</div><div class="line">                &#123;</div><div class="line">                    currentDistance = rootDistance;</div><div class="line">                     currentTree = searchDistrict;</div><div class="line">                     currentNearest = currentTree-&gt;root;</div><div class="line">                 &#125;</div><div class="line">             &#125;</div><div class="line">            if (searchDistrict-&gt;leftChild != NULL)</div><div class="line">            &#123;</div><div class="line">                double leftDistance = measureDistance(goal, searchDistrict-&gt;leftChild-&gt;root, 0);</div><div class="line">                if (leftDistance &lt; currentDistance)</div><div class="line">                &#123;</div><div class="line">                    currentDistance = leftDistance;</div><div class="line">                    currentTree = searchDistrict;</div><div class="line">                    currentNearest = currentTree-&gt;root;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            if (searchDistrict-&gt;rightChild != NULL)</div><div class="line">            &#123;</div><div class="line">                double rightDistance = measureDistance(goal, searchDistrict-&gt;rightChild-&gt;root, 0);</div><div class="line">                if (rightDistance &lt; currentDistance)</div><div class="line">                &#123;</div><div class="line">                    currentDistance = rightDistance;</div><div class="line">                    currentTree = searchDistrict;</div><div class="line">                    currentNearest = currentTree-&gt;root;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;//end if</div><div class="line"></div><div class="line">        if (searchDistrict-&gt;parent-&gt;parent != NULL)</div><div class="line">        &#123;</div><div class="line">            searchDistrict = searchDistrict-&gt;parent-&gt;isLeft()? </div><div class="line">                            searchDistrict-&gt;parent-&gt;parent-&gt;rightChild:</div><div class="line">                            searchDistrict-&gt;parent-&gt;parent-&gt;leftChild;</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            searchDistrict = searchDistrict-&gt;parent;</div><div class="line">        &#125;</div><div class="line">        ++d;</div><div class="line">    &#125;//end while</div><div class="line">    return currentNearest;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()</div><div class="line">&#123;</div><div class="line">    vector&lt;vector&lt;double&gt; &gt; train(6, vector&lt;double&gt;(2, 0));</div><div class="line">     for (unsigned i = 0; i &lt; 6; ++i)</div><div class="line">        for (unsigned j = 0; j &lt; 2; ++j)</div><div class="line">             train[i][j] = data[i][j];</div><div class="line"> </div><div class="line">     KdTree* kdTree = new KdTree;</div><div class="line">     buildKdTree(kdTree, train, 0);</div><div class="line"> </div><div class="line">     printKdTree(kdTree, 0); </div><div class="line">     vector&lt;double&gt; goal;</div><div class="line">     goal.push_back(3);</div><div class="line">     goal.push_back(4.5);</div><div class="line">     vector&lt;double&gt; nearestNeighbor = searchNearestNeighbor(goal, kdTree);</div><div class="line">     vector&lt;double&gt;::iterator beg = nearestNeighbor.begin();</div><div class="line">     cout &lt;&lt; &quot;The nearest neighbor is: &quot;;</div><div class="line">     while(beg != nearestNeighbor.end()) cout &lt;&lt; *beg++ &lt;&lt; &quot;,&quot;;</div><div class="line">     cout &lt;&lt; endl;</div><div class="line">     return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="http://images.cnitblog.com/blog/659319/201501/050159325467325.jpg" alt=""><br>构造的kd树如下<br><img src="http://images.cnitblog.com/blog/659319/201501/050200102814798.jpg" alt=""></p>
+<p>利用kd树搜索最近邻</p>
+<p>输入：已构造的kd树；目标点x;</p>
+<p>输出：x的最近邻</p>
+<p>1.在kd树中找出包含目标点x的叶结点：从根结点出发，递归的向下访问kd树，若目标点x的当前维的坐标小于切分点的坐标，则移动到左子结点，否则移动到右子结点，直到子结点为叶结点为止。</p>
+<p>2.以此叶结点为“当前最近点”</p>
+<p>3.递归地向上回退，在每个结点进行以下操作：</p>
+<p>（a）如果该结点保存的实例点比当前最近点距离目标点更近，则以该实例点为“当前最近点”;</p>
+<p>(b)当前最近点一定存在于某结点一个子结点对应的区域，检查该子结点的父结点的另<br>一子结点对应区域是否有更近的点（即检查另一子结点对应的区域是否与以目标点为球<br>心、以目标点与“当前最近点”间的距离为半径的球体相交）；如果相交，可能在另一<br>个子结点对应的区域内存在距目标点更近的点，移动到另一个子结点，接着递归进行最<br>近邻搜索；如果不相交，向上回退</p>
+<p>4.当回退到根结点时，搜索结束，最后的“当前最近点”即为x的最近邻点。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/14/kNN算法/" rel="next" title="kNN算法">
+                <i class="fa fa-chevron-left"></i> kNN算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
+               alt="唐相儒" />
+          <p class="site-author-name" itemprop="name">唐相儒</p>
+           
+              <p class="site-description motion-element" itemprop="description">Never Let Your Fear Decide Your Future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/目录">
+                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐相儒</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/07/14/kd-tree/';
+          this.page.identifier = '2017/07/14/kd-tree/';
+          this.page.title = 'kd tree';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
