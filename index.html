@@ -392,7 +392,12 @@
 <h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种加权平均，它的最大值是1，最小值是0。</p>
 <p>F1-score(F1-分数)：2×准确率×召回率/（准确率+召回率）<br><img src="http://alexkong.net/images/fpr-and-tpr.png" alt=""></p>
 <h1 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h1><p>ROC和AUC是一回事，通常用于二分类的评价</p>
-<p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）<br><img src="http://alexkong.net/images/Roccurves.png" alt=""></p>
+<p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）</p>
+<p>TPR:TPR = TP /（TP + FN）</p>
+<p>TNR:TNR = TN /（TN + FP）</p>
+<p>FPR:FPR = FP /（FP + TN） </p>
+<p>FNR:FNR = FN /（TP + FN） </p>
+<p><img src="http://alexkong.net/images/Roccurves.png" alt=""></p>
 <p>AUC:被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。</p>
 <p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能将正样本排在负样本前面，即能够更好的分类。</p>
 <p>ROC曲线越接近左上角，该分类器的性能越好。</p>
