@@ -379,33 +379,14 @@
 
       
         
-          
-            <p>对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。</p>
-<p><a href="http://pages.cs.wisc.edu/~jdavis/davisgoadrichcamera2.pdf" target="_blank" rel="external">06icml)The Relationship Between Precision-Recall and ROC Curves</a></p>
-<p><a href="https://www.52ml.net/19370.html" target="_blank" rel="external">https://www.52ml.net/19370.html</a></p>
-<h1 id="精准率和召回率"><a href="#精准率和召回率" class="headerlink" title="精准率和召回率"></a>精准率和召回率</h1><p>系统检索到的相关文档（A）（TP）</p>
-<p>系统检索到的不相关文档（B）(FP)</p>
-<p>相关但是系统没有检索到的文档（C）(FN)</p>
-<p>不相关且没有被系统检索到的文档（D）(TN) </p>
-<p>则：召回率R：用检索到相关文档数作为分子，所有相关文档总数作为分母，即R = A / ( A + C )</p>
-<p>准确率P：用检索到相关文档数作为分子，所有检索到的文档总数作为分母．即P = A / ( A + B ).</p>
-<h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种加权平均，它的最大值是1，最小值是0。</p>
-<p>F1-score(F1-分数)：2×准确率×召回率/（准确率+召回率）<br><img src="http://alexkong.net/images/fpr-and-tpr.png" alt=""></p>
-<h1 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h1><p>ROC和AUC是一回事，通常用于二分类的评价</p>
-<p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）</p>
-<p>TPR:TPR = TP /（TP + FN）</p>
-<p>TNR:TNR = TN /（TN + FP）</p>
-<p>FPR:FPR = FP /（FP + TN） </p>
-<p>FNR:FNR = FN /（TP + FN） </p>
-<p><img src="http://alexkong.net/images/Roccurves.png" alt=""></p>
-<p>AUC:被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。</p>
-<p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能将正样本排在负样本前面，即能够更好的分类。</p>
-<p>ROC曲线越接近左上角，该分类器的性能越好。</p>
-<p>下图是ROC曲线和Precision-Recall曲线5的对比：</p>
-<p>（图片来自论文<br><img src="http://alexkong.net/images/roc-and-precall.png" alt=""><br>(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线. </p>
-<p>(a)和(b)展示的是分类其在原始测试集（正负样本分布平衡）的结果，(c)和(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线则变化较大。</p>
-
-          
+          <p>对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/14/分类器性能评估方法对比/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
