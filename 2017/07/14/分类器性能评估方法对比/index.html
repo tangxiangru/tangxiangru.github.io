@@ -108,7 +108,7 @@ https://www.52ml.net/19370.html
 <meta property="og:image" content="http://alexkong.net/images/fpr-and-tpr.png">
 <meta property="og:image" content="http://alexkong.net/images/Roccurves.png">
 <meta property="og:image" content="http://alexkong.net/images/roc-and-precall.png">
-<meta property="og:updated_time" content="2017-07-14T11:27:21.000Z">
+<meta property="og:updated_time" content="2017-07-15T03:33:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分类器性能评估方法对比">
 <meta name="twitter:description" content="对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。
@@ -414,7 +414,8 @@ https://www.52ml.net/19370.html
 <p>AUC:被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。</p>
 <p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能将正样本排在负样本前面，即能够更好的分类。</p>
 <p>ROC曲线越接近左上角，该分类器的性能越好。</p>
-<p>下图是ROC曲线和Precision-Recall曲线5的对比：<br><img src="http://alexkong.net/images/roc-and-precall.png" alt=""><br>(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线. </p>
+<p>下图是ROC曲线和Precision-Recall曲线5的对比：</p>
+<p>（图片来自论文<br><img src="http://alexkong.net/images/roc-and-precall.png" alt=""><br>(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线. </p>
 <p>(a)和(b)展示的是分类其在原始测试集（正负样本分布平衡）的结果，(c)和(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线则变化较大。</p>
 
       
