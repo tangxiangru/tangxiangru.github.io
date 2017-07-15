@@ -125,7 +125,7 @@ emmmm">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-6ffd0096a88fd0d647a54f92cef83df1_b.jpg">
 <meta property="og:image" content="https://pic4.zhimg.com/v2-8daf408d477efb702c6b8d37778e9ebf_b.jpg">
 <meta property="og:image" content="https://pic2.zhimg.com/v2-2434ea8744b53972f45ce3138f04ed99_b.jpg">
-<meta property="og:updated_time" content="2017-07-02T03:28:26.000Z">
+<meta property="og:updated_time" content="2017-07-15T06:51:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊天系统">
 <meta name="twitter:description" content="自动聊天system的解决方案和技术挑战
@@ -407,15 +407,18 @@ emmmm">
 
       
         <p>自动聊天system的解决方案和技术挑战</p>
-<p>emmmm<br><a id="more"></a><br><img src="https://pic3.zhimg.com/v2-38e27a1100fb19acd2ed2cb7e8535c12_b.jpg" alt=""><br>图灵测试：人机对话无法判断对方，即持续聊天，任何query给出合适replies，考虑到用户个体差异</p>
+<p>emmmm<br><a id="more"></a></p>
+<p><img src="https://pic3.zhimg.com/v2-38e27a1100fb19acd2ed2cb7e8535c12_b.jpg" alt=""><br>图灵测试：人机对话无法判断对方，即持续聊天，任何query给出合适replies，考虑到用户个体差异</p>
 <p><img src="https://pic3.zhimg.com/v2-fe5f406fe31610c259cef6342a264192_b.jpg" alt=""><br>相关的概念：问答系统（给一个明确的答案factoid，或者why、how等等）、对话系统（通过对话完成一个事情，没有闲聊，科研圈子小）、自动客服FAQ</p>
 <h1 id="技术基因"><a href="#技术基因" class="headerlink" title="技术基因"></a>技术基因</h1><p>why和how形的问答、community qa、corpus mining、faq mining</p>
 <p>共同点：有大量的qa数据，配以准确的匹配&amp;排序算法，那么问答系统是可能的</p>
 <h1 id="重要结论："><a href="#重要结论：" class="headerlink" title="重要结论："></a>重要结论：</h1><p>文本的相似性和相关性（更重要）是两个不同需求</p>
 <p>短文本相关性很难计算（常识上的同义词）</p>
-<p><img src="https://pic4.zhimg.com/v2-e06ed084a48762cb213c199738c5d92f_b.jpg" alt=""><br>词语贡献\机器翻译（问题和恢复是一种另类的翻译对）|LDA主题建模\meta-data</p>
+<p><img src="https://pic4.zhimg.com/v2-e06ed084a48762cb213c199738c5d92f_b.jpg" alt=""></p>
+<p>词语贡献\机器翻译（问题和恢复是一种另类的翻译对）|LDA主题建模\meta-data</p>
 <h1 id="两条主要路线"><a href="#两条主要路线" class="headerlink" title="两条主要路线"></a>两条主要路线</h1><p>一条好走大家都能走，一条看起来很难走但是沿途风景美</p>
-<p>1、基于ir的<br><img src="https://pic1.zhimg.com/v2-6e069790ec94e83e76fb4a28cbaeaa60_b.jpg" alt=""><br>建立一个索引，query问答库的匹配，用文本相似度找，把候选答案再做一个相关性计算，排序得到最相关的，框架上就相当于检索系统</p>
+<p>1、基于ir的<br><img src="https://pic1.zhimg.com/v2-6e069790ec94e83e76fb4a28cbaeaa60_b.jpg" alt=""></p>
+<p>建立一个索引，query问答库的匹配，用文本相似度找，把候选答案再做一个相关性计算，排序得到最相关的，框架上就相当于检索系统</p>
 <p>细化的三层的逻辑架构</p>
 <p><img src="https://pic2.zhimg.com/v2-e8ebae4b4dcf4490599bf6ba08992ded_b.jpg" alt=""></p>
 <p>首先计算query和question关系，找到和query最相似的问题后再通过问题找到答案；再做一个排序，考虑多轮语意相关性和主题相关性；第三层考虑非文本相关的需求，比如考虑用户差异，再排序 </p>
