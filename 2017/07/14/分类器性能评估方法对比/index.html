@@ -98,7 +98,7 @@
 <meta property="og:image" content="http://alexkong.net/images/fpr-and-tpr.png">
 <meta property="og:image" content="http://alexkong.net/images/Roccurves.png">
 <meta property="og:image" content="http://alexkong.net/images/roc-and-precall.png">
-<meta property="og:updated_time" content="2017-07-15T03:36:44.000Z">
+<meta property="og:updated_time" content="2017-07-16T13:56:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="分类器性能评估方法对比">
 <meta name="twitter:description" content="对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。">
@@ -386,7 +386,7 @@
 <p>不相关且没有被系统检索到的文档（D）(TN) </p>
 <p>则：召回率R：用检索到相关文档数作为分子，所有相关文档总数作为分母，即R = A / ( A + C )</p>
 <p>准确率P：用检索到相关文档数作为分子，所有检索到的文档总数作为分母．即P = A / ( A + B ).</p>
-<h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种加权平均，它的最大值是1，最小值是0。</p>
+<h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种调和平均，它的最大值是1，最小值是0。</p>
 <p>F1-score(F1-分数)：2×准确率×召回率/（准确率+召回率）<br><img src="http://alexkong.net/images/fpr-and-tpr.png" alt=""></p>
 <h1 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h1><p>ROC和AUC是一回事，通常用于二分类的评价</p>
 <p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）</p>
