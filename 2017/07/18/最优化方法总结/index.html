@@ -95,7 +95,10 @@
 启发式优化方法
 解决约束优化问题——拉格朗日乘数法
 
-1. 梯度下降法（Gradient Descent）2. 牛顿法和拟牛顿法（Newton’s method &amp;amp; Quasi-New">
+1. 梯度下降法（Gradient Descent）以线性回归算法来对三种梯度下降法进行比较
+(假设函数h    
+(损失函数J
+下图为一">
 <meta property="og:type" content="article">
 <meta property="og:title" content="最优化方法总结">
 <meta property="og:url" content="http://yoursite.com/2017/07/18/最优化方法总结/index.html">
@@ -106,8 +109,21 @@
 启发式优化方法
 解决约束优化问题——拉格朗日乘数法
 
-1. 梯度下降法（Gradient Descent）2. 牛顿法和拟牛顿法（Newton’s method &amp;amp; Quasi-New">
-<meta property="og:updated_time" content="2017-07-18T04:07:44.000Z">
+1. 梯度下降法（Gradient Descent）以线性回归算法来对三种梯度下降法进行比较
+(假设函数h    
+(损失函数J
+下图为一">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230183324042-1022081727.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525190603437">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525190954867">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525190954867">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230190320667-1412088485.png">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525191712216">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525192139662">
+<meta property="og:image" content="http://img.blog.csdn.net/20130525192139662">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193523495-665207012.png">
+<meta property="og:image" content="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193948073-572720704.png">
+<meta property="og:updated_time" content="2017-07-18T07:36:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="最优化方法总结">
 <meta name="twitter:description" content="梯度下降法（Gradient Descent）
@@ -116,7 +132,11 @@
 启发式优化方法
 解决约束优化问题——拉格朗日乘数法
 
-1. 梯度下降法（Gradient Descent）2. 牛顿法和拟牛顿法（Newton’s method &amp;amp; Quasi-New">
+1. 梯度下降法（Gradient Descent）以线性回归算法来对三种梯度下降法进行比较
+(假设函数h    
+(损失函数J
+下图为一">
+<meta name="twitter:image" content="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230183324042-1022081727.png">
 
 
 
@@ -399,7 +419,29 @@
 <li>启发式优化方法</li>
 <li>解决约束优化问题——拉格朗日乘数法</li>
 </ol>
-<h1 id="1-梯度下降法（Gradient-Descent）"><a href="#1-梯度下降法（Gradient-Descent）" class="headerlink" title="1. 梯度下降法（Gradient Descent）"></a>1. 梯度下降法（Gradient Descent）</h1><h1 id="2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><a href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）" class="headerlink" title="2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）"></a>2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）</h1><h1 id="3-共轭梯度法（Conjugate-Gradient）"><a href="#3-共轭梯度法（Conjugate-Gradient）" class="headerlink" title="3. 共轭梯度法（Conjugate Gradient）"></a>3. 共轭梯度法（Conjugate Gradient）</h1><h1 id="4-启发式优化方法"><a href="#4-启发式优化方法" class="headerlink" title="4. 启发式优化方法"></a>4. 启发式优化方法</h1><h1 id="5-解决约束优化问题——拉格朗日乘数法"><a href="#5-解决约束优化问题——拉格朗日乘数法" class="headerlink" title="5. 解决约束优化问题——拉格朗日乘数法"></a>5. 解决约束优化问题——拉格朗日乘数法</h1>
+<h1 id="1-梯度下降法（Gradient-Descent）"><a href="#1-梯度下降法（Gradient-Descent）" class="headerlink" title="1. 梯度下降法（Gradient Descent）"></a>1. 梯度下降法（Gradient Descent）</h1><p>以线性回归算法来对三种梯度下降法进行比较</p>
+<p>(假设函数h    </p>
+<p>(损失函数J</p>
+<p>下图为一个二维参数对应损失函数的可视化图：<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230183324042-1022081727.png" alt=""></p>
+<h2 id="1-批量梯度下降法BGD"><a href="#1-批量梯度下降法BGD" class="headerlink" title="1. 批量梯度下降法BGD"></a>1. 批量梯度下降法BGD</h2><p>更新每一参数时都使用所有的样本来进行更新,具体步骤：</p>
+<p>(1) 对上述的能量函数求偏导：<br><img src="http://img.blog.csdn.net/20130525190603437" alt=""><br>(2) 由于是最小化风险函数，所以按照每个参数θ的梯度负方向来更新每个θ：<br><img src="http://img.blog.csdn.net/20130525190954867" alt=""></p>
+<p>具体的伪代码形式为：</p>
+<p>repeat{　　　　<br><img src="http://img.blog.csdn.net/20130525190954867" alt=""><br>（for every j=0, … , n）<br>}</p>
+<p>优点：全局最优解；易于并行实现；</p>
+<p>缺点：当样本数目很多时，训练过程会很慢。</p>
+<p>它得到的是一个全局最优解，但是每迭代一步，都要用到训练集所有的数据，如果样本数目m很大，那么可想而知这种方法的迭代速度很慢。所以，这就引入了随机梯度下降。</p>
+<p><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230190320667-1412088485.png" alt=""></p>
+<h2 id="2-随机梯度下降法SGD"><a href="#2-随机梯度下降法SGD" class="headerlink" title="2. 随机梯度下降法SGD"></a>2. 随机梯度下降法SGD</h2><p>将上面的损失函数写为：<br><img src="http://img.blog.csdn.net/20130525191712216" alt=""></p>
+<p>利用每个样本的损失函数对θ求偏导得到对应的梯度，来更新θ：<br><img src="http://img.blog.csdn.net/20130525192139662" alt=""></p>
+<p>具体的伪代码形式为：</p>
+<ol>
+<li>Randomly shuffle dataset；</li>
+<li>repeat{<br>for i=1, … , m{<br><img src="http://img.blog.csdn.net/20130525192139662" alt=""><br> }<br>}<br>优点：训练速度快；</li>
+</ol>
+<p>缺点：准确度下降，并不是全局最优；不易于并行实现。<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193523495-665207012.png" alt=""></p>
+<h2 id="3-小批量梯度下降法MBGD"><a href="#3-小批量梯度下降法MBGD" class="headerlink" title="3. 小批量梯度下降法MBGD"></a>3. 小批量梯度下降法MBGD</h2><p>算法的训练过程比较快，而且也要保证最终参数训练的准确率，而这是小批量梯度下降法</p>
+<p>　　MBGD在每次更新参数时使用b个样本（b一般为10），其具体的伪代码形式为：<br>b=10, m=1000.<br>Repeat{<br>for i=1, 11, 21, 31, … , 991{<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193948073-572720704.png" alt=""><br>(for every j=0, … , nn)<br>    }<br>}</p>
+<h1 id="2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><a href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）" class="headerlink" title="2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）"></a>2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）</h1><h1 id="3-共轭梯度法（Conjugate-Gradient）"><a href="#3-共轭梯度法（Conjugate-Gradient）" class="headerlink" title="3. 共轭梯度法（Conjugate Gradient）"></a>3. 共轭梯度法（Conjugate Gradient）</h1><h1 id="4-启发式优化方法"><a href="#4-启发式优化方法" class="headerlink" title="4. 启发式优化方法"></a>4. 启发式优化方法</h1><h1 id="5-解决约束优化问题——拉格朗日乘数法"><a href="#5-解决约束优化问题——拉格朗日乘数法" class="headerlink" title="5. 解决约束优化问题——拉格朗日乘数法"></a>5. 解决约束优化问题——拉格朗日乘数法</h1>
       
     </div>
 
@@ -565,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-梯度下降法（Gradient-Descent）"><span class="nav-number">1.</span> <span class="nav-text">1. 梯度下降法（Gradient Descent）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><span class="nav-number">2.</span> <span class="nav-text">2. 牛顿法和拟牛顿法（Newton’s method & Quasi-Newton Methods）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-共轭梯度法（Conjugate-Gradient）"><span class="nav-number">3.</span> <span class="nav-text">3. 共轭梯度法（Conjugate Gradient）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-启发式优化方法"><span class="nav-number">4.</span> <span class="nav-text">4. 启发式优化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-解决约束优化问题——拉格朗日乘数法"><span class="nav-number">5.</span> <span class="nav-text">5. 解决约束优化问题——拉格朗日乘数法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-梯度下降法（Gradient-Descent）"><span class="nav-number">1.</span> <span class="nav-text">1. 梯度下降法（Gradient Descent）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-批量梯度下降法BGD"><span class="nav-number">1.1.</span> <span class="nav-text">1. 批量梯度下降法BGD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-随机梯度下降法SGD"><span class="nav-number">1.2.</span> <span class="nav-text">2. 随机梯度下降法SGD</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-小批量梯度下降法MBGD"><span class="nav-number">1.3.</span> <span class="nav-text">3. 小批量梯度下降法MBGD</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><span class="nav-number">2.</span> <span class="nav-text">2. 牛顿法和拟牛顿法（Newton’s method & Quasi-Newton Methods）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-共轭梯度法（Conjugate-Gradient）"><span class="nav-number">3.</span> <span class="nav-text">3. 共轭梯度法（Conjugate Gradient）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-启发式优化方法"><span class="nav-number">4.</span> <span class="nav-text">4. 启发式优化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-解决约束优化问题——拉格朗日乘数法"><span class="nav-number">5.</span> <span class="nav-text">5. 解决约束优化问题——拉格朗日乘数法</span></a></li></ol></div>
             
 
           </div>
