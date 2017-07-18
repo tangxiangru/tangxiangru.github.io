@@ -540,9 +540,8 @@
 <h1 id="1-梯度下降法（Gradient-Descent）"><a href="#1-梯度下降法（Gradient-Descent）" class="headerlink" title="1. 梯度下降法（Gradient Descent）"></a>1. 梯度下降法（Gradient Descent）</h1><p>以线性回归算法来对三种梯度下降法进行比较</p>
 <p>(假设函数h    </p>
 <p>(损失函数J</p>
-<p>下图为一个二维参数对应损失函数的可视化图：<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230183324042-1022081727.png" alt=""></p>
 <h2 id="1-批量梯度下降法BGD"><a href="#1-批量梯度下降法BGD" class="headerlink" title="1. 批量梯度下降法BGD"></a>1. 批量梯度下降法BGD</h2><p>更新每一参数时都使用所有的样本来进行更新,具体步骤：</p>
-<p>(1) 对上述的能量函数求偏导：<br><img src="http://img.blog.csdn.net/20130525190603437" alt=""><br>(2) 由于是最小化风险函数，所以按照每个参数θ的梯度负方向来更新每个θ：<br><img src="http://img.blog.csdn.net/20130525190954867" alt=""></p>
+<p>(1) 损失函数对θ求偏导，得到每个θ对应的的梯度：<br><img src="http://img.blog.csdn.net/20130525190603437" alt=""><br>(2) 由于是最小化风险函数，所以按照每个参数θ的梯度负方向来更新每个θ：<br><img src="http://img.blog.csdn.net/20130525190954867" alt=""></p>
 <p>具体的伪代码形式为：</p>
 <p>repeat{　　　　<br><img src="http://img.blog.csdn.net/20130525190954867" alt=""><br>（for every j=0, … , n）<br>}</p>
 <p>优点：全局最优解；易于并行实现；</p>
@@ -559,7 +558,19 @@
 <p>缺点：准确度下降，并不是全局最优；不易于并行实现。<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193523495-665207012.png" alt=""></p>
 <h2 id="3-小批量梯度下降法MBGD"><a href="#3-小批量梯度下降法MBGD" class="headerlink" title="3. 小批量梯度下降法MBGD"></a>3. 小批量梯度下降法MBGD</h2><p>算法的训练过程比较快，而且也要保证最终参数训练的准确率，而这是小批量梯度下降法</p>
 <p>　　MBGD在每次更新参数时使用b个样本（b一般为10），其具体的伪代码形式为：<br>b=10, m=1000.<br>Repeat{<br>for i=1, 11, 21, 31, … , 991{<br><img src="http://images2015.cnblogs.com/blog/764050/201512/764050-20151230193948073-572720704.png" alt=""><br>(for every j=0, … , nn)<br>    }<br>}</p>
-<h1 id="2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><a href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）" class="headerlink" title="2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）"></a>2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）</h1><h1 id="3-共轭梯度法（Conjugate-Gradient）"><a href="#3-共轭梯度法（Conjugate-Gradient）" class="headerlink" title="3. 共轭梯度法（Conjugate Gradient）"></a>3. 共轭梯度法（Conjugate Gradient）</h1><h1 id="4-启发式优化方法"><a href="#4-启发式优化方法" class="headerlink" title="4. 启发式优化方法"></a>4. 启发式优化方法</h1><h1 id="5-解决约束优化问题——拉格朗日乘数法"><a href="#5-解决约束优化问题——拉格朗日乘数法" class="headerlink" title="5. 解决约束优化问题——拉格朗日乘数法"></a>5. 解决约束优化问题——拉格朗日乘数法</h1>
+<h1 id="2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）"><a href="#2-牛顿法和拟牛顿法（Newton’s-method-amp-Quasi-Newton-Methods）" class="headerlink" title="2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）"></a>2. 牛顿法和拟牛顿法（Newton’s method &amp; Quasi-Newton Methods）</h1><p>使用函数f (x)的泰勒级数的前面几项来寻找方程f (x) = 0的根。牛顿法最大的特点就在于它的收敛速度很快。</p>
+<p>求解:<img src="http://images0.cnblogs.com/blog2015/764050/201508/222309088311820.png" alt=""></p>
+<p>　我们将新求得的点的 x 坐标命名为x1，通常x1会比x0更接近方程f  (x) = 0的解。迭代公式：<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222309221284615.png" alt=""><br>由于牛顿法是基于当前位置的切线来确定下一次的位置，所以牛顿法又被很形象地称为是”切线法”。</p>
+<p>　　从本质上去看，牛顿法是二阶收敛，梯度下降是一阶收敛，所以牛顿法就更快。如果更通俗地说的话，比如你想找一条最短的路径走到一个盆地的最底部，梯度下降法每次只从你当前所处位置选一个坡度最大的方向走一步，牛顿法在选择方向时，不仅会考虑坡度是否够大，还会考虑你走了一步之后，坡度是否会变得更大。所以，可以说牛顿法比梯度下降法看得更远一点，能更快地走到最底部。<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222309373784741.png" alt=""></p>
+<p>2）拟牛顿法<br>拟牛顿法的本质思想是改善牛顿法每次需要求解复杂的Hessian矩阵的逆矩阵的缺陷，它使用正定矩阵来近似Hessian矩阵的逆，从而简化了运算的复杂度。拟牛顿法和最速下降法一样只要求每一步迭代时知道目标函数的梯度。通过测量梯度的变化，构造一个目标函数的模型使之足以产生超线性收敛性。这类方法大大优于最速下降法，尤其对于困难的问题。另外，因为拟牛顿法不需要二阶导数的信息，所以有时比牛顿法更为有效。</p>
+<p>具体步骤:(Bk是一个对称正定矩阵)</p>
+<p>首先构造目标函数在当前迭代xk的二次模型：<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222253268161863.png" alt=""></p>
+<p>取这个二次模型的最优解作为搜索方向，并且得到新的迭代点：<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222254384106201.png" alt=""></p>
+<p>要求步长ak 满足Wolfe条件。这样的迭代与牛顿法类似，区别就在于用近似的Hesse矩阵Bk 代替真实的Hesse矩阵。所以拟牛顿法最关键的地方就是每一步迭代中矩阵Bk 的更新。现在假设得到一个新的迭代xk+1，并得到一个新的二次模型：<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222256385508904.png" alt=""></p>
+<p>具体地，要求<br><img src="http://images0.cnblogs.com/blog2015/764050/201508/222257530664204.png" alt=""><br>　从而得到</p>
+<p><img src="http://images0.cnblogs.com/blog2015/764050/201508/222258392223638.png" alt=""><br>这个公式被称为割线方程。常用的拟牛顿法有DFP算法和BFGS算法。</p>
+<h1 id="3-共轭梯度法（Conjugate-Gradient）"><a href="#3-共轭梯度法（Conjugate-Gradient）" class="headerlink" title="3. 共轭梯度法（Conjugate Gradient）"></a>3. 共轭梯度法（Conjugate Gradient）</h1><p>绿色为梯度下降法，红色代表共轭梯度法<br><img src="http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Conjugate_gradient_illustration.svg/220px-Conjugate_gradient_illustration.svg.png?_=4751804" alt=""></p>
+<h1 id="4-启发式优化方法"><a href="#4-启发式优化方法" class="headerlink" title="4. 启发式优化方法"></a>4. 启发式优化方法</h1><h1 id="5-解决约束优化问题——拉格朗日乘数法"><a href="#5-解决约束优化问题——拉格朗日乘数法" class="headerlink" title="5. 解决约束优化问题——拉格朗日乘数法"></a>5. 解决约束优化问题——拉格朗日乘数法</h1>
           
         
       
