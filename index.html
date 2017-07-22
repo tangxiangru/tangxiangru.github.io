@@ -292,6 +292,163 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/Activation-Function/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/07/22/Activation-Function/" itemprop="url">
+                  Activation Function
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T19:27:26+08:00">
+                2017-07-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/22/Activation-Function/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/22/Activation-Function/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="激活函数都有哪些？都长什么样？有哪些优缺点？"><a href="#激活函数都有哪些？都长什么样？有哪些优缺点？" class="headerlink" title="激活函数都有哪些？都长什么样？有哪些优缺点？"></a>激活函数都有哪些？都长什么样？有哪些优缺点？</h1><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac1.png" alt=""><br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac2.png" alt=""></p>
+<h2 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-sigmoid_relu.png" alt=""></p>
+<p>能够把输入的连续实值“压缩”到0和1之间。 </p>
+<p>缺点：</p>
+<p>1、Sigmoids saturate and kill gradients：</p>
+<p>sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值很大的话，大部分神经元可能都会处在saturation的状态而把gradient kill掉，这会导致网络变的很难学习。</p>
+<p>2、Sigmoid 的 output 不是0均值：</p>
+<p>这会导致后一层的神经元将得到上一层输出的非0均值的信号作为输入。<br>产生的一个结果就是：如果数据进入神经元的时候是正的，那么w计算出的梯度也会始终都是正的。 </p>
+<h2 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu.png" alt=""></p>
+<p>与 sigmoid 不同的是，tanh 是0均值的</p>
+<h2 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h2><p>f(x)=max(0,x)<br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu-perf.png" alt=""></p>
+<p>ReLU 的优点：</p>
+<p>1、使用 ReLU 得到的SGD的收敛速度会比 sigmoid/tanh 快很多。（因为它是linear，而且 non-saturating）</p>
+<p>2、相比于 sigmoid/tanh，ReLU 只需要一个阈值就可以得到激活值，而不用去算一大堆复杂的运算。</p>
+<p>ReLU 的缺点： </p>
+<p>举个例子：一个非常大的梯度流过一个 ReLU 神经元，更新过参数之后，这个神经元再也不会对任何数据有激活现象了。如果这个情况发生了，那么这个神经元的梯度就永远都会是0.</p>
+<p>实际操作中，如果learning rate 很大，那么很有可能网络中的40%的神经元都”dead”了。 </p>
+<p>当然，如果设置一个合适的较小的learning rate，这个问题发生的情况其实也不会太频繁。</p>
+<h2 id="Leaky-ReLU、P-ReLU、R-ReLU"><a href="#Leaky-ReLU、P-ReLU、R-ReLU" class="headerlink" title="Leaky-ReLU、P-ReLU、R-ReLU"></a>Leaky-ReLU、P-ReLU、R-ReLU</h2><p>Leaky ReLUs： 就是用来解决这个 “dying ReLU” 的问题的。与 ReLU 不同的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f(x)=αx，(x&lt;0)</div><div class="line">f(x)=x，(x&gt;=0)</div></pre></td></tr></table></figure></p>
+<p> α 是一个很小的常数</p>
+<p>Parametric ReLU： 对于 Leaky ReLU 中的α，通常都是通过先验知识人工赋值的。</p>
+<p>见论文《Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification》</p>
+<p>Randomized ReLU：<br>在训练过程中，α 是从一个高斯分布 U(l,u) 中 随机出来的，然后再测试过程中进行修正（有点像dropout的用法）。</p>
+<p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-rrelu.png" alt=""></p>
+<h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><p>Maxout出现在ICML2013上,见论文</p>
+<h1 id="怎么选用激活函数？"><a href="#怎么选用激活函数？" class="headerlink" title="怎么选用激活函数？"></a>怎么选用激活函数？</h1><p>使用 ReLU，要小心设置 learning rate，如果这个问题不好解决，那么可以试试 Leaky ReLU、PReLU 或者 Maxout.</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/多种kernel对比/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1530,142 +1687,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/27/talk-with-李云涛/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/06/27/talk-with-李云涛/" itemprop="url">
-                  talk with 李云涛
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-27T00:48:17+08:00">
-                2017-06-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/06/27/talk-with-李云涛/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/06/27/talk-with-李云涛/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>和李云涛的晚上trip<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/27/talk-with-李云涛/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1715,7 +1736,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

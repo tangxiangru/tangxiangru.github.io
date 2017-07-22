@@ -89,16 +89,38 @@
 
 
 
-<meta name="description" content="薪尽火传的昆曲">
+<meta name="description" content="激活函数都有哪些？都长什么样？有哪些优缺点？
+Sigmoid
+能够把输入的连续实值“压缩”到0和1之间。 
+缺点：
+1、Sigmoids saturate and kill gradients：
+sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="昆曲">
-<meta property="og:url" content="http://yoursite.com/2017/05/13/昆曲/index.html">
+<meta property="og:title" content="Activation Function">
+<meta property="og:url" content="http://yoursite.com/2017/07/22/Activation-Function/index.html">
 <meta property="og:site_name" content="唐相儒TANG的博客">
-<meta property="og:description" content="薪尽火传的昆曲">
-<meta property="og:updated_time" content="2017-05-15T15:43:58.000Z">
+<meta property="og:description" content="激活函数都有哪些？都长什么样？有哪些优缺点？
+Sigmoid
+能够把输入的连续实值“压缩”到0和1之间。 
+缺点：
+1、Sigmoids saturate and kill gradients：
+sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac1.png">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac2.png">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-sigmoid_relu.png">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu.png">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu-perf.png">
+<meta property="og:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-rrelu.png">
+<meta property="og:updated_time" content="2017-07-22T11:45:01.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="昆曲">
-<meta name="twitter:description" content="薪尽火传的昆曲">
+<meta name="twitter:title" content="Activation Function">
+<meta name="twitter:description" content="激活函数都有哪些？都长什么样？有哪些优缺点？
+Sigmoid
+能够把输入的连续实值“压缩”到0和1之间。 
+缺点：
+1、Sigmoids saturate and kill gradients：
+sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值">
+<meta name="twitter:image" content="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac1.png">
 
 
 
@@ -126,13 +148,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/13/昆曲/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/22/Activation-Function/"/>
 
 
 
 
 
-  <title> 昆曲 | 唐相儒TANG的博客 </title>
+  <title> Activation Function | 唐相儒TANG的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/13/昆曲/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/22/Activation-Function/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -312,7 +334,7 @@
             
             
               
-                昆曲
+                Activation Function
               
             
           </h1>
@@ -327,8 +349,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-13T11:01:57+08:00">
-                2017-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-22T19:27:26+08:00">
+                2017-07-22
               </time>
             
 
@@ -346,9 +368,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/13/昆曲/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/22/Activation-Function/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/13/昆曲/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/22/Activation-Function/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,16 +396,32 @@
       
 
       
-        <h1 id="薪尽火传的昆曲"><a href="#薪尽火传的昆曲" class="headerlink" title="薪尽火传的昆曲"></a>薪尽火传的昆曲</h1><a id="more"></a>
-<h2 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h2><p>昆曲传奇的人文之美体现美好人生的寄托和希望，昆腔传奇显现了永恒的人性之美，表现忠贞爱情题材的作品和人物形象。<br>魏良辅提出的“曲有三绝”，指的是字清#腔纯#板正 。<br>汤显祖在牡丹亭《题词》中有言：“如杜丽娘者，乃可谓之有情人耳。情不知所起，一往而深。生者可以死，死亦可生。生而不可与死，死而不可复生者，皆非情之至也。”阅读《牡丹亭》，享受文字的飨宴，穿越时空的生死之恋，不必借助现代科技，缠绵秾丽，至情弘贯苍茫人世，逶迤而来。</p>
-<h2 id="恋恋昆曲，前世今生"><a href="#恋恋昆曲，前世今生" class="headerlink" title="恋恋昆曲，前世今生"></a>恋恋昆曲，前世今生</h2><h3 id="昆曲的前世"><a href="#昆曲的前世" class="headerlink" title="昆曲的前世"></a>昆曲的前世</h3><p>起源于江苏昆山，也叫做昆山腔。明代魏良辅等人改革昆山腔，南曲北曲融合，水磨昆山调。<br>魏良辅所做：调理腔调和语音的关系，完善和提升曲调的音乐性，兼容并蓄融合南北曲为一炉，伴奏场面和乐队编制的完善 。<br>昆曲盛世，明清传奇的光辉，万历年间。<br>民国初年被京剧的大盛代替，强调多元，兼容并蓄。如梅兰芳。<br>1923年最后一个昆曲戏班解散，昆曲即将死亡。但是，苏州昆曲传习所的传字辈艺人。忍受寂寞到新中国成立后，《十五贯》拯救整个剧种，田汉周恩来毛泽东。</p>
-<h3 id="昆曲的今生"><a href="#昆曲的今生" class="headerlink" title="昆曲的今生"></a>昆曲的今生</h3><p>苏昆上昆等大剧团，艺以人传。<br>等等老艺术家，一言蔽之，情向前生种，人逢今世缘。</p>
-<h2 id="昆曲的文化"><a href="#昆曲的文化" class="headerlink" title="昆曲的文化"></a>昆曲的文化</h2><p>既然生活了就会去追寻，文化的雅俗争胜，不同的品味在不同的时代显示群体的爱好。俗是指自然的东西，雅的东西是追求层面的东西。无论艺术的发展还是文明的发展都是源于生活而高于生活。<br>南戏的声调、腔调与地方有关，但是韵是规定的。腔调演变：海盐到昆山，水磨调的昆山腔，还是说道魏良辅。<br>而梁辰鱼则是创作剧本，《浣溪沙》，汤显祖对其评价也颇高。<br>戏曲的故事不重要，重要的是表演，去体会，怎么用艺术的形式展示悲欢离合的角色。而生离死别是每个人都会经历的，剧场的气场，所以真正演出是可以把你引进去，引发你自己的情感世界，这是与碟片大大不同的。</p>
-<h3 id="汤显祖"><a href="#汤显祖" class="headerlink" title="汤显祖"></a>汤显祖</h3><p>临川四梦《紫钗记》#《牡丹亭》#《南柯记》#《邯郸梦》：生与死的关系，情感的追求，人生的意思<br>也意味着思想的解放和人性的思考，生死问题的触碰。他受达观和尚的影响，对情的纠缠。</p>
-<p>牡丹亭的意义：文学性和水磨调的完美配合<br>昆曲的复兴和汤显祖的重新发现，汤显祖的昆剧是一种高雅的艺术。而高雅是一种追求，高雅是人类文明的追求，甚至说对人类文化发展都是有意义的。</p>
-<h3 id="民间艺术"><a href="#民间艺术" class="headerlink" title="民间艺术"></a>民间艺术</h3><p>元代的特殊性。元杂剧作家身份的双重性，科举取消后三个走向：隐居；全真教；勾栏瓦舍（关汉卿）。从而实现了雅俗共赏。<br>昆曲、文人和民间的融合，民间对昆曲的吸收，采纳，交流不断加深。<br>明代汉族传统重建时，对戏曲身份的接受和认可问题就出现了。皇室承认了昆剧，自此，才出现万历以后昆曲200年的辉煌。<br>昆曲文学创作，传承大于创新。昆曲扶持工程，抢救保护扶持。</p>
-<h3 id="魏良辅"><a href="#魏良辅" class="headerlink" title="魏良辅"></a>魏良辅</h3><p>开始用乐器，武场：打击乐器（鼓板、小锣），文场：三弦、提琴。<br>融南北于一炉，文化皆有南北不同。<br>北曲以遒劲为主，重弦索，建立在北方方言上（入派三声，平分阴阳），只有四个音调。词来自于马上之歌，七声音阶。宜阔口家门。<br>南曲建立在吴方言上（平上去入，各分阴阳），重鼓板，以婉转为主。词来自于里巷歌谣，歌，五声音阶（无凡和以），适宜于生旦家门。《懒画眉》为例，拖得很长，缠绵。<br>昆腔集大成。<br>立昆腔为正声，规矩很多。<br>不只是魏良辅的贡献，叶堂、徐大椿、沈宠绥等</p>
-<h2 id="演唱"><a href="#演唱" class="headerlink" title="演唱"></a>演唱</h2><p>曲牌宫调腔格口法四大要素<br>曲牌最基本有两千多个，来源历史很广。牌有定腔，句有定式，字有定声。<br>宫调上南北有所不同<br>北曲宫调比较完善，有十七宫调，元人赋予不同宫调不同情感色彩和表现方式，全部划分。<br>南曲不太规范，特性和作用和其他因素也有关，比较难以捉摸，只标管色，不论宫调。<br>腔格，以汉语的音韵系统来保证曲子的表意。方音和官话有所不同，所以要”一转“。平上去入各有不同的腔格。<br>口法，运气发声技巧来保障歌唱的准确动听。俞振飞十六法。比较繁琐。<br>度曲：曲乐活动的选牌联套、填词订谱、擪笛唱曲全过程。大处依腔填词，小处订谱就字。</p>
+        <h1 id="激活函数都有哪些？都长什么样？有哪些优缺点？"><a href="#激活函数都有哪些？都长什么样？有哪些优缺点？" class="headerlink" title="激活函数都有哪些？都长什么样？有哪些优缺点？"></a>激活函数都有哪些？都长什么样？有哪些优缺点？</h1><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac1.png" alt=""><br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac2.png" alt=""></p>
+<h2 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-sigmoid_relu.png" alt=""></p>
+<p>能够把输入的连续实值“压缩”到0和1之间。 </p>
+<p>缺点：</p>
+<p>1、Sigmoids saturate and kill gradients：</p>
+<p>sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值很大的话，大部分神经元可能都会处在saturation的状态而把gradient kill掉，这会导致网络变的很难学习。</p>
+<p>2、Sigmoid 的 output 不是0均值：</p>
+<p>这会导致后一层的神经元将得到上一层输出的非0均值的信号作为输入。<br>产生的一个结果就是：如果数据进入神经元的时候是正的，那么w计算出的梯度也会始终都是正的。 </p>
+<h2 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu.png" alt=""></p>
+<p>与 sigmoid 不同的是，tanh 是0均值的</p>
+<h2 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h2><p>f(x)=max(0,x)<br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu-perf.png" alt=""></p>
+<p>ReLU 的优点：</p>
+<p>1、使用 ReLU 得到的SGD的收敛速度会比 sigmoid/tanh 快很多。（因为它是linear，而且 non-saturating）</p>
+<p>2、相比于 sigmoid/tanh，ReLU 只需要一个阈值就可以得到激活值，而不用去算一大堆复杂的运算。</p>
+<p>ReLU 的缺点： </p>
+<p>举个例子：一个非常大的梯度流过一个 ReLU 神经元，更新过参数之后，这个神经元再也不会对任何数据有激活现象了。如果这个情况发生了，那么这个神经元的梯度就永远都会是0.</p>
+<p>实际操作中，如果learning rate 很大，那么很有可能网络中的40%的神经元都”dead”了。 </p>
+<p>当然，如果设置一个合适的较小的learning rate，这个问题发生的情况其实也不会太频繁。</p>
+<h2 id="Leaky-ReLU、P-ReLU、R-ReLU"><a href="#Leaky-ReLU、P-ReLU、R-ReLU" class="headerlink" title="Leaky-ReLU、P-ReLU、R-ReLU"></a>Leaky-ReLU、P-ReLU、R-ReLU</h2><p>Leaky ReLUs： 就是用来解决这个 “dying ReLU” 的问题的。与 ReLU 不同的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f(x)=αx，(x&lt;0)</div><div class="line">f(x)=x，(x&gt;=0)</div></pre></td></tr></table></figure></p>
+<p> α 是一个很小的常数</p>
+<p>Parametric ReLU： 对于 Leaky ReLU 中的α，通常都是通过先验知识人工赋值的。</p>
+<p>见论文《Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification》</p>
+<p>Randomized ReLU：<br>在训练过程中，α 是从一个高斯分布 U(l,u) 中 随机出来的，然后再测试过程中进行修正（有点像dropout的用法）。</p>
+<p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-rrelu.png" alt=""></p>
+<h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><p>Maxout出现在ICML2013上,见论文</p>
+<h1 id="怎么选用激活函数？"><a href="#怎么选用激活函数？" class="headerlink" title="怎么选用激活函数？"></a>怎么选用激活函数？</h1><p>使用 ReLU，要小心设置 learning rate，如果这个问题不好解决，那么可以试试 Leaky ReLU、PReLU 或者 Maxout.</p>
 
       
     </div>
@@ -420,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/04/算法/" rel="next" title="算法">
-                <i class="fa fa-chevron-left"></i> 算法
+              <a href="/2017/07/21/多种kernel对比/" rel="next" title="多种kernel对比">
+                <i class="fa fa-chevron-left"></i> 多种kernel对比
               </a>
             
           </div>
@@ -429,10 +467,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/Distant-supervision/" rel="prev" title="Distant supervision">
-                Distant supervision <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +584,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#薪尽火传的昆曲"><span class="nav-number">1.</span> <span class="nav-text">薪尽火传的昆曲</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#综述"><span class="nav-number">1.1.</span> <span class="nav-text">综述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#恋恋昆曲，前世今生"><span class="nav-number">1.2.</span> <span class="nav-text">恋恋昆曲，前世今生</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#昆曲的前世"><span class="nav-number">1.2.1.</span> <span class="nav-text">昆曲的前世</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#昆曲的今生"><span class="nav-number">1.2.2.</span> <span class="nav-text">昆曲的今生</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#昆曲的文化"><span class="nav-number">1.3.</span> <span class="nav-text">昆曲的文化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#汤显祖"><span class="nav-number">1.3.1.</span> <span class="nav-text">汤显祖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#民间艺术"><span class="nav-number">1.3.2.</span> <span class="nav-text">民间艺术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#魏良辅"><span class="nav-number">1.3.3.</span> <span class="nav-text">魏良辅</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#演唱"><span class="nav-number">1.4.</span> <span class="nav-text">演唱</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#激活函数都有哪些？都长什么样？有哪些优缺点？"><span class="nav-number">1.</span> <span class="nav-text">激活函数都有哪些？都长什么样？有哪些优缺点？</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sigmoid"><span class="nav-number">1.1.</span> <span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tanh"><span class="nav-number">1.2.</span> <span class="nav-text">tanh</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLU"><span class="nav-number">1.3.</span> <span class="nav-text">ReLU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leaky-ReLU、P-ReLU、R-ReLU"><span class="nav-number">1.4.</span> <span class="nav-text">Leaky-ReLU、P-ReLU、R-ReLU</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maxout"><span class="nav-number">1.5.</span> <span class="nav-text">Maxout</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#怎么选用激活函数？"><span class="nav-number">2.</span> <span class="nav-text">怎么选用激活函数？</span></a></li></ol></div>
             
 
           </div>
@@ -687,9 +721,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/05/13/昆曲/';
-          this.page.identifier = '2017/05/13/昆曲/';
-          this.page.title = '昆曲';
+          this.page.url = 'http://yoursite.com/2017/07/22/Activation-Function/';
+          this.page.identifier = '2017/07/22/Activation-Function/';
+          this.page.title = 'Activation Function';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
