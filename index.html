@@ -379,35 +379,14 @@
 
       
         
-          
-            <h1 id="激活函数都有哪些？都长什么样？有哪些优缺点？"><a href="#激活函数都有哪些？都长什么样？有哪些优缺点？" class="headerlink" title="激活函数都有哪些？都长什么样？有哪些优缺点？"></a>激活函数都有哪些？都长什么样？有哪些优缺点？</h1><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac1.png" alt=""><br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-ac2.png" alt=""></p>
-<h2 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-sigmoid_relu.png" alt=""></p>
-<p>能够把输入的连续实值“压缩”到0和1之间。 </p>
-<p>缺点：</p>
-<p>1、Sigmoids saturate and kill gradients：</p>
-<p>sigmoid 有一个非常致命的缺点，当输入非常大或者非常小的时候，这些神经元的梯度是接近于0的，从图中可以看出梯度的趋势。所以，你需要尤其注意参数的初始值来尽量避免saturation的情况。如果初始值很大的话，大部分神经元可能都会处在saturation的状态而把gradient kill掉，这会导致网络变的很难学习。</p>
-<p>2、Sigmoid 的 output 不是0均值：</p>
-<p>这会导致后一层的神经元将得到上一层输出的非0均值的信号作为输入。<br>产生的一个结果就是：如果数据进入神经元的时候是正的，那么w计算出的梯度也会始终都是正的。 </p>
-<h2 id="tanh"><a href="#tanh" class="headerlink" title="tanh"></a>tanh</h2><p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu.png" alt=""></p>
-<p>与 sigmoid 不同的是，tanh 是0均值的</p>
-<h2 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h2><p>f(x)=max(0,x)<br><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-relu-perf.png" alt=""></p>
-<p>ReLU 的优点：</p>
-<p>1、使用 ReLU 得到的SGD的收敛速度会比 sigmoid/tanh 快很多。（因为它是linear，而且 non-saturating）</p>
-<p>2、相比于 sigmoid/tanh，ReLU 只需要一个阈值就可以得到激活值，而不用去算一大堆复杂的运算。</p>
-<p>ReLU 的缺点： </p>
-<p>举个例子：一个非常大的梯度流过一个 ReLU 神经元，更新过参数之后，这个神经元再也不会对任何数据有激活现象了。如果这个情况发生了，那么这个神经元的梯度就永远都会是0.</p>
-<p>实际操作中，如果learning rate 很大，那么很有可能网络中的40%的神经元都”dead”了。 </p>
-<p>当然，如果设置一个合适的较小的learning rate，这个问题发生的情况其实也不会太频繁。</p>
-<h2 id="Leaky-ReLU、P-ReLU、R-ReLU"><a href="#Leaky-ReLU、P-ReLU、R-ReLU" class="headerlink" title="Leaky-ReLU、P-ReLU、R-ReLU"></a>Leaky-ReLU、P-ReLU、R-ReLU</h2><p>Leaky ReLUs： 就是用来解决这个 “dying ReLU” 的问题的。与 ReLU 不同的是：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">f(x)=αx，(x&lt;0)</div><div class="line">f(x)=x，(x&gt;=0)</div></pre></td></tr></table></figure></p>
-<p> α 是一个很小的常数</p>
-<p>Parametric ReLU： 对于 Leaky ReLU 中的α，通常都是通过先验知识人工赋值的。</p>
-<p>见论文《Delving Deep into Rectifiers: Surpassing Human-Level Performance on ImageNet Classification》</p>
-<p>Randomized ReLU：<br>在训练过程中，α 是从一个高斯分布 U(l,u) 中 随机出来的，然后再测试过程中进行修正（有点像dropout的用法）。</p>
-<p><img src="http://7pn4yt.com1.z0.glb.clouddn.com/blog-rrelu.png" alt=""></p>
-<h2 id="Maxout"><a href="#Maxout" class="headerlink" title="Maxout"></a>Maxout</h2><p>Maxout出现在ICML2013上,见论文</p>
-<h1 id="怎么选用激活函数？"><a href="#怎么选用激活函数？" class="headerlink" title="怎么选用激活函数？"></a>怎么选用激活函数？</h1><p>使用 ReLU，要小心设置 learning rate，如果这个问题不好解决，那么可以试试 Leaky ReLU、PReLU 或者 Maxout.</p>
-
-          
+          <h1 id="激活函数都有哪些？都长什么样？有哪些优缺点？"><a href="#激活函数都有哪些？都长什么样？有哪些优缺点？" class="headerlink" title="激活函数都有哪些？都长什么样？有哪些优缺点？"></a>激活函数都有哪些？都长什么样？有哪些优缺点？</h1>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/22/Activation-Function/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -672,25 +651,14 @@
 
       
         
-          
-            <a id="more"></a>
-<h1 id="什么是对偶问题"><a href="#什么是对偶问题" class="headerlink" title="什么是对偶问题"></a>什么是对偶问题</h1><p>任何一个求极大化的线性规划问题都有一个求极小化的线性规划问题与之对应，反之亦然，如果我们把其中一个叫原问题，则另一个就叫做它的对偶问题</p>
-<p>对称型和非对称型</p>
-<h1 id="最优化与KTT条件"><a href="#最优化与KTT条件" class="headerlink" title="最优化与KTT条件"></a>最优化与KTT条件</h1><p>最优化问题可以根据目标函数和约束条件的类型进行分类:</p>
-<p>1). 如果目标函数和约束条件都为变量的线性函数, 称该最优化问题为线性规划;</p>
-<p>2). 如果目标函数为变量的二次函数, 约束条件为变量的线性函数, 称该最优化问题为二次规划;</p>
-<p>3). 如果目标函数或者约束条件为变量的非线性函数, 称该最优化问题为非线性规划.</p>
-<p>KTT条件是指在满足一些有规则的条件下, 一个非线性规划(Nonlinear Programming)问题能有最优化解法的一个必要和充分条件. 这是一个广义化拉格朗日乘数的成果. 一般地, 一个最优化数学模型的列标准形式参考开头的式子, 所谓 Karush-Kuhn-Tucker 最优化条件，就是指上式的最优点x∗必须满足下面的条件:</p>
-<p>1). 约束条件满足gi(x∗)≤0,i=1,2,…,p, 以及,hj(x∗)=0,j=1,2,…,q</p>
-<p>2). ∇f(x∗)+∑i=1pμi∇gi(x∗)+∑j=1qλj∇hj(x∗)=0, 其中∇为梯度算子;</p>
-<p>3). λj≠0且不等式约束条件满足μi≥0,μigi(x∗)=0,i=1,2,…,p</p>
-<p>KKT条件第一项是说最优点x∗必须满足所有等式及不等式限制条件, 也就是说最优点必须是一个可行解, 这一点自然是毋庸置疑的. 第二项表明在最优点x∗, ∇f必须是∇g和∇h的线性組合, μ和λ都叫作拉格朗日乘子. 所不同的是不等式限制条件有方向性, 所以每一个μ都必须大于或等于零, 而等式限制条件没有方向性，所以λ没有符号的限制, 其符号要视等式限制条件的写法而定.</p>
-<h1 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h1><p>同时满足如下两个条件的优化问题称为凸优化：</p>
-<p>1）目标函数(objective fucntion)是凸函数；</p>
-<p>2）可行集合(feasible set)必须是凸集；</p>
-<p>即在凸集上寻找凸函数的全局最值的过程称为凸优化。</p>
-
-          
+          <p>对偶问题\KTT条件\凸优化<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/21/svm中三个基础问题/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
