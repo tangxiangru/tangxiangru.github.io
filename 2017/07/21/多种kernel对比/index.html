@@ -96,7 +96,7 @@
 <meta property="og:site_name" content="唐相儒TANG的博客">
 <meta property="og:description" content="SVM关键是选取核函数的类型，主要有线性内核，多项式内核，径向基内核（RBF），sigmoid核。">
 <meta property="og:image" content="https://pic2.zhimg.com/bf7f2d438420fe61ec62b9b0b1b9e2cd_b.jpg">
-<meta property="og:updated_time" content="2017-07-22T04:36:41.000Z">
+<meta property="og:updated_time" content="2017-07-22T05:48:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多种kernel对比">
 <meta name="twitter:description" content="SVM关键是选取核函数的类型，主要有线性内核，多项式内核，径向基内核（RBF），sigmoid核。">
@@ -389,6 +389,12 @@
 </li>
 </ol>
 <p><img src="https://pic2.zhimg.com/bf7f2d438420fe61ec62b9b0b1b9e2cd_b.jpg" alt=""></p>
+<p>对于若是使用库kernel函数：</p>
+<p>　　　　1）线性核函数（Linear Kernel）表达式为：K(x,z)=x∙zK(x,z)=x∙z，就是普通的内积。</p>
+<p>　　　　2)  多项式核函数（Polynomial Kernel）是线性不可分SVM常用的核函数之一，表达式为：K(x,z)=（γx∙z+r)dK(x,z)=（γx∙z+r)d ，其中，γ,r,dγ,r,d都需要自己调参定义,比较麻烦。</p>
+<p>　　　　3）高斯核函数（Gaussian Kernel），在SVM中也称为径向基核函数（Radial Basis Function,RBF），它是libsvm默认的核函数。表达式为：K(x,z)=exp(γ||x−z||2)K(x,z)=exp(γ||x−z||2)， 其中，γγ大于0，需要自己调参定义。</p>
+<p>　　　　4）Sigmoid核函数（Sigmoid Kernel）也是线性不可分SVM常用的核函数之一，表达式为：K(x,z)=tanh（γx∙z+r)K(x,z)=tanh（γx∙z+r)， 其中，γ,rγ,r都需要自己调参定义。</p>
+<p>　　　　一般情况下，对非线性数据使用默认的高斯核函数会有比较好的效果，如果你不是SVM调参高手的话，建议使用高斯核来做数据分析。　　</p>
 <hr>
 <hr>
 <p>“更多的时候，适合当前数据集的核函数不是现成就有的，是需要我们自己去编程实现的”</p>
