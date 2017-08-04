@@ -118,7 +118,7 @@
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/65286412.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/7567953.jpg">
-<meta property="og:updated_time" content="2017-08-04T08:39:38.000Z">
+<meta property="og:updated_time" content="2017-08-04T12:52:50.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夏令营总结">
 <meta name="twitter:description" content="时间总是很快的">
@@ -428,7 +428,7 @@
 <p>model的学习策略上和学习算法上对比：</p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/65242209.jpg" alt=""></p>
 <hr>
-<h1 id="dl："><a href="#dl：" class="headerlink" title="dl："></a>dl：</h1><p>##卷积运算<br>通过三个重要的思想: 稀疏交互(sparse interactions)、参数共享(parameter sharing)、等变表示(equivariant representa- tions)。</p>
+<h1 id="dl："><a href="#dl：" class="headerlink" title="dl："></a>dl：</h1><h2 id="卷积运算"><a href="#卷积运算" class="headerlink" title="卷积运算"></a>卷积运算</h2><p>通过三个重要的思想: 稀疏交互(sparse interactions)、参数共享(parameter sharing)、等变表示(equivariant representa- tions)。</p>
 <p>稀疏交互：使核的大小远小于输入的大小来达到的。举个例子, 当处理一张图像时,输入的图像可能包含成千上万个像素点,但是我们可以通过只占用几十个像素点的核来检测一些小的有意义的特征,例如图像的边缘。意味着我们需要存储的参数更少,而且提高了它的统计效率，更少的计算量。</p>
 <p>参数共享：在一个模型的多个函数中使用相同的参数。传统权重矩阵的每一个元素只使用一次,当它乘以输入的一个元素后就再也不会用到了。在卷积神经网络中,核的每一个元素都作用在输入的每一位置上。参数共享保证了我们只需要学习一个参数集合,而不是对于每一位置都需要学习一个单独的参数集合。把模型的存储需求降低至 k 个参数,并且 k 通常要比 m 小很多个数量级。m大概等于n,故·k相对于 m × n 是很小的。总之存储需求和统计效率优于稠密矩阵的乘法运算。</p>
 <p>平移等变：如果一个函数满足输入改变,输出也以同样的方式改变这一性质,我们就说是等变的。如果我们把输入中的一个事件向后延时,在输出中仍然 会有完全相同的表示,只是时间延后了。图像与之类似,卷积产生了一个 2 维映射 来表明某些特征在输入中出现的位置。如果我们移动输入中的对象,它的表示也会 在输出中移动同样的量。</p>
@@ -448,17 +448,19 @@
 <p>二深度</p>
 <p>文本的分布式表示：词向量（word embedding）+词向量解决了文本表示的问题，文本分类模型则是利用CNN/RNN等深度学习网络及其变体解决自动特征提取（即特征表达）的问题。</p>
 <p>5种CNN/RNN及其变体的模型：</p>
-<p>1）fastText<br><img src="https://pic2.zhimg.com/v2-ec902f184be860226f95acb26cebd4dd_b.png" alt=""><br>2）TextCNN<br><img src="https://pic3.zhimg.com/v2-bb10ad5bbdc5294d3041662f887e60a6_b.png" alt=""></p>
+<p>1）fastText<br><img src="https://pic2.zhimg.com/v2-ec902f184be860226f95acb26cebd4dd_b.png" alt=""></p>
+<p>2）TextCNN</p>
+<p><img src="https://pic3.zhimg.com/v2-bb10ad5bbdc5294d3041662f887e60a6_b.png" alt=""></p>
 <p>3）TextRNN<br>bi</p>
 <p>4）TextRNN + Attention</p>
 <p>5）TextRCNN（TextRNN + CNN）（aaai2015）</p>
 <p><img src="https://pic3.zhimg.com/v2-263209ce34c0941fece21de00065aa92_b.png" alt=""></p>
-<p>#还有shell lab！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsh&gt;</div></pre></td></tr></table></figure>
-<h1 id="hackweek"><a href="#hackweek" class="headerlink" title="hackweek"></a>hackweek</h1><h1 id="博客上的总结和笔记："><a href="#博客上的总结和笔记：" class="headerlink" title="博客上的总结和笔记："></a>博客上的总结和笔记：</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg" alt=""></p>
+<h1 id="还有shell-lab！"><a href="#还有shell-lab！" class="headerlink" title="还有shell lab！"></a>还有shell lab！</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsh&gt;</div></pre></td></tr></table></figure>
+<h1 id="hackweek"><a href="#hackweek" class="headerlink" title="hackweek"></a>hackweek</h1><p>同义词汇聚类</p>
+<h1 id="博客上的总结和笔记："><a href="#博客上的总结和笔记：" class="headerlink" title="博客上的总结和笔记："></a>博客上的总结和笔记：</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg" alt=""></p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/65286412.jpg" alt=""></p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/7567953.jpg" alt=""></p>
-<h1 id="回顾和期望"><a href="#回顾和期望" class="headerlink" title="回顾和期望"></a>回顾和期望</h1><p>这一个月,基本上保持了日均在团队12个小时，当然也有通宵，也有爆肝。</p>
+<h1 id="回顾和期望"><a href="#回顾和期望" class="headerlink" title="回顾和期望"></a>回顾和期望</h1><p>这一个月,基本上保持了日均在团队12个小时，当然也有经常通宵，经常爆肝。</p>
 <p>不过却是挺喜欢十点到十点的生活</p>
 <p>而且，更值得开心是在学自己喜欢的东西，在做自己喜欢的事，所以才挺有动力的。</p>
 <p>囿于时间，未尽之处：Semi-Supervised Learning、PGM的实现、强化学习、评测比赛、prml</p>
@@ -628,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn"><span class="nav-number">7.1.</span> <span class="nav-text">rnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本分类问题"><span class="nav-number">7.2.</span> <span class="nav-text">文本分类问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hackweek"><span class="nav-number">8.</span> <span class="nav-text">hackweek</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">9.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">10.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#卷积运算"><span class="nav-number">7.1.</span> <span class="nav-text">卷积运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn"><span class="nav-number">7.2.</span> <span class="nav-text">rnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本分类问题"><span class="nav-number">7.3.</span> <span class="nav-text">文本分类问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#还有shell-lab！"><span class="nav-number">8.</span> <span class="nav-text">还有shell lab！</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hackweek"><span class="nav-number">9.</span> <span class="nav-text">hackweek</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">10.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">11.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
             
 
           </div>
