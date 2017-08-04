@@ -109,10 +109,16 @@
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/65242209.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/14439949.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/18736954.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/95234727.jpg">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-92e49aef6626add56e85c2ee1b36e9aa_b.png">
+<meta property="og:image" content="https://pic1.zhimg.com/v2-e8ccf4351f3a0b6b7e46524b047e4758_b.jpg">
+<meta property="og:image" content="https://pic2.zhimg.com/v2-ec902f184be860226f95acb26cebd4dd_b.png">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-bb10ad5bbdc5294d3041662f887e60a6_b.png">
+<meta property="og:image" content="https://pic3.zhimg.com/v2-263209ce34c0941fece21de00065aa92_b.png">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/65286412.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/7567953.jpg">
-<meta property="og:updated_time" content="2017-08-04T06:00:51.000Z">
+<meta property="og:updated_time" content="2017-08-04T07:30:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夏令营总结">
 <meta name="twitter:description" content="时间总是很快的">
@@ -435,6 +441,18 @@
 <p>bi-rnn<br>普通的mlp对数据长度有限制，虽然rnn可以处理不固定长度的时序data，但是无法利用某个历史输入的未来信息。而bi-rnn将时序相反的两个rnn连接到同一个输出，可以同时获取历史信息和未来信息。</p>
 <p>特别是在于需要content的时候非常有用，比如手写文字识别，前一个单词和后一个单词，比如上下文语境做mt任务。</p>
 <p>问题在于虽然两个不同时序方向的rnn没有交集可以分开训练（不共用state），但是bptt不能同时更新状态和输出，要人工。</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/95234727.jpg" alt=""></p>
+<p><img src="https://pic3.zhimg.com/v2-92e49aef6626add56e85c2ee1b36e9aa_b.png" alt=""></p>
+<h2 id="文本分类问题"><a href="#文本分类问题" class="headerlink" title="文本分类问题"></a>文本分类问题</h2><p>一传统<br><img src="https://pic1.zhimg.com/v2-e8ccf4351f3a0b6b7e46524b047e4758_b.jpg" alt=""></p>
+<p>文本分词和去停用词+词袋模型（BOW, Bag Of Words）或向量空间模型（Vector Space Model）+常用的评价有文档频率、互信息、信息增益、χ²统计量+分类器</p>
+<p>二深度</p>
+<p>文本的分布式表示：词向量（word embedding）+词向量解决了文本表示的问题，文本分类模型则是利用CNN/RNN等深度学习网络及其变体解决自动特征提取（即特征表达）的问题。</p>
+<p>5种CNN/RNN及其变体的模型：</p>
+<p>1）fastText<br><img src="https://pic2.zhimg.com/v2-ec902f184be860226f95acb26cebd4dd_b.png" alt=""><br>2）TextCNN<br><img src="https://pic3.zhimg.com/v2-bb10ad5bbdc5294d3041662f887e60a6_b.png" alt=""></p>
+<p>3）TextRNN<br>bi</p>
+<p>4）TextRNN + Attention</p>
+<p>5）TextRCNN（TextRNN + CNN）（aaai2015）</p>
+<p><img src="https://pic3.zhimg.com/v2-263209ce34c0941fece21de00065aa92_b.png" alt=""></p>
 <p>#还有shell lab！</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tsh&gt;</div></pre></td></tr></table></figure>
 <h1 id="博客上的总结和笔记："><a href="#博客上的总结和笔记：" class="headerlink" title="博客上的总结和笔记："></a>博客上的总结和笔记：</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg" alt=""></p>
@@ -610,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn"><span class="nav-number">7.1.</span> <span class="nav-text">rnn</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">8.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">9.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn"><span class="nav-number">7.1.</span> <span class="nav-text">rnn</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本分类问题"><span class="nav-number">7.2.</span> <span class="nav-text">文本分类问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">8.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">9.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
             
 
           </div>
