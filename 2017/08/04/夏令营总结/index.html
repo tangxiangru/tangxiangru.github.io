@@ -107,10 +107,12 @@
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/23809087.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/46079397.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/65242209.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/14439949.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/18736954.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/16903531.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/65286412.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-8-4/7567953.jpg">
-<meta property="og:updated_time" content="2017-08-04T05:40:09.000Z">
+<meta property="og:updated_time" content="2017-08-04T06:00:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="夏令营总结">
 <meta name="twitter:description" content="时间总是很快的">
@@ -419,7 +421,15 @@
 <p>部分model之间的关系<br><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/46079397.jpg" alt=""></p>
 <p>model的学习策略上和学习算法上对比：</p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/65242209.jpg" alt=""></p>
-<h1 id="dl："><a href="#dl：" class="headerlink" title="dl："></a>dl：</h1><p>实现cnn，word2vec，用tf实现rnn和LSTM<br>把每一个词都转一个向量，然后文章就变成了稀疏矩阵，比如说如果是文本分类问题，就把每一个词对应的向量加在一起统计次数</p>
+<hr>
+<h1 id="dl："><a href="#dl：" class="headerlink" title="dl："></a>dl：</h1><p>##卷积运算<br>通过三个重要的思想: 稀疏交互(sparse interactions)、参数共享(parameter sharing)、等变表示(equivariant representa- tions)。</p>
+<p>稀疏交互：使核的大小远小于输入的大小来达到的。举个例子, 当处理一张图像时,输入的图像可能包含成千上万个像素点,但是我们可以通过只占用几十个像素点的核来检测一些小的有意义的特征,例如图像的边缘。意味着我们需要存储的参数更少,而且提高了它的统计效率，更少的计算量。</p>
+<p>参数共享：在一个模型的多个函数中使用相同的参数。传统权重矩阵的每一个元素只使用一次,当它乘以输入的一个元素后就再也不会用到了。在卷积神经网络中,核的每一个元素都作用在输入的每一位置上。参数共享保证了我们只需要学习一个参数集合,而不是对于每一位置都需要学习一个单独的参数集合。把模型的存储需求降低至 k 个参数,并且 k 通常要比 m 小很多个数量级。m大概等于n,故·k相对于 m × n 是很小的。总之存储需求和统计效率优于稠密矩阵的乘法运算。</p>
+<p>平移等变：如果一个函数满足输入改变,输出也以同样的方式改变这一性质,我们就说是等变的。如果我们把输入中的一个事件向后延时,在输出中仍然 会有完全相同的表示,只是时间延后了。图像与之类似,卷积产生了一个 2 维映射 来表明某些特征在输入中出现的位置。如果我们移动输入中的对象,它的表示也会 在输出中移动同样的量。</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/14439949.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-8-4/18736954.jpg" alt=""></p>
+<p>池化）</p>
+<h2 id="rnn"><a href="#rnn" class="headerlink" title="rnn"></a>rnn</h2><p>实现cnn，word2vec，用tf实现rnn、LSTM<br>把每一个词都转一个向量，然后文章就变成了稀疏矩阵，比如说如果是文本分类问题，就把每一个词对应的向量加在一起统计次数</p>
 <p>word2vec有CBOW（类似于蒙特卡洛模拟，只需训练一个二元的分类模型）和skip-gram（目标词汇高频率）两种模式，选后者训练很快而且计算loss function效率高。</p>
 <p>间隔太远的输入信息，rnn难以记忆，叫做longterm dependence是传统rnn硬伤。LSTM（1997）内部结构很复杂，包含四层，state在LSTM单元中流动时，每个单元有三个gates，可以对state储存和修改，来实现长程记忆。</p>
 <p>bi-rnn<br>普通的mlp对数据长度有限制，虽然rnn可以处理不固定长度的时序data，但是无法利用某个历史输入的未来信息。而bi-rnn将时序相反的两个rnn连接到同一个输出，可以同时获取历史信息和未来信息。</p>
@@ -600,7 +610,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">8.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">9.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢苟神"><span class="nav-number">1.</span> <span class="nav-text">感谢苟神</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢天恒巨巨"><span class="nav-number">2.</span> <span class="nav-text">感谢天恒巨巨</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#感谢所有借过饭卡的人-ʕ-•ᴥ•ʔ"><span class="nav-number">3.</span> <span class="nav-text">感谢所有借过饭卡的人 ʕ •ᴥ•ʔ</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#开始从头说起"><span class="nav-number">4.</span> <span class="nav-text">开始从头说起</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hackinit"><span class="nav-number">4.1.</span> <span class="nav-text">hackinit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#接下来进入ml的学习"><span class="nav-number">5.</span> <span class="nav-text">接下来进入ml的学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#我对模型的总结"><span class="nav-number">6.</span> <span class="nav-text">我对模型的总结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl："><span class="nav-number">7.</span> <span class="nav-text">dl：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#rnn"><span class="nav-number">7.1.</span> <span class="nav-text">rnn</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#博客上的总结和笔记："><span class="nav-number">8.</span> <span class="nav-text">博客上的总结和笔记：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回顾和期望"><span class="nav-number">9.</span> <span class="nav-text">回顾和期望</span></a></li></ol></div>
             
 
           </div>
