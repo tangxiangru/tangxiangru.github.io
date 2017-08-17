@@ -292,6 +292,257 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/17/emnlp/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/17/emnlp/" itemprop="url">
+                  emnlp
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-17T21:21:27+08:00">
+                2017-08-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/17/emnlp/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/17/emnlp/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="文本摘要和情感分析"><a href="#文本摘要和情感分析" class="headerlink" title="文本摘要和情感分析"></a>文本摘要和情感分析</h1><h2 id="1-异步多模态文本摘要"><a href="#1-异步多模态文本摘要" class="headerlink" title="1.异步多模态文本摘要"></a>1.异步多模态文本摘要</h2><p>介绍：<br>同步·：同一时间语言和视频（字幕）</p>
+<p>异步：文本新闻，视频新闻</p>
+<p>多模态的异步：文本模态，视频模态，音频模态<br>要考虑到：会有很多错误</p>
+<p>视频：一系列图像集合，镜头内部语意相似（一系列帧的集合）<br>视觉信息在新闻中占有什么角色<br>若是文本摘要能覆盖这些视觉亮点就可以覆盖那些重点</p>
+<p>镜头长的自然更重要一些</p>
+<p>具体：<br>重要性，可读性，覆盖视觉信息</p>
+<p>salience for text：Lexrank模型：避免可读性差的出现在摘要中（语音识别和文本相比哪个好就用哪个）</p>
+<p>coverage for visual：<br>采用text image matching model（cvpr2016）是一个文本图片匹配分类器<br>但是还要提取子句，语意角色标注，（扔去时间地点信息）</p>
+<p>目标函数：怎么优化有数学……<br>上面如图</p>
+<p>数据集：<br>对比试验：有七个对比，肯定是图文匹配结果更好（加引导策略提升不大，引导策略对可读性有提升）</p>
+<p>总结：指导策略来可读性高，多模态摘要（未来：低成本标注大量数据集）</p>
+<h2 id="2-多文本摘要"><a href="#2-多文本摘要" class="headerlink" title="2 多文本摘要"></a>2 多文本摘要</h2><p>保持句子间的亲疏度<br>aim：选择更重要的句子、冗余性少<br>一个摘要系统的目标函数考虑到aim</p>
+<p>几十篇文档句子数量很多，但目标摘要句子少<br>优点：用图排序（基于迭代，较为复杂）所以不需要大量数据集（区别深度模型）</p>
+<p>更新调整随机游走模型中的非对称的转移矩阵</p>
+<p>缺点：convergence，词袋模型</p>
+<p>传统上随机游走模型：离散mm，加了一个只能转移到自己的节点</p>
+<h2 id="3-情感原因发现"><a href="#3-情感原因发现" class="headerlink" title="3.情感原因发现"></a>3.情感原因发现</h2><p>（coling2010 规则方法  等上述都没公开数据集）<br>情感表达</p>
+<p>emnlp2016公布新浪微博数据库</p>
+<p>转化为树的分类问题（词语之间关系），只能处理句子，无法处理短语</p>
+<p>新的框架：问答系统框架，情感相当阅读文本，情感相当问题，结果相当于答案，答案只有yes和no</p>
+<p>memory network（memnet 2015）作为基本模型，注意力的加权和<br>但是权重由上下文和本文一起决定<br>相当于卷积注意力加权方法<br>conv-memnet</p>
+<p>实验对隔壁传统：<br>rb<br>cb<br>rb+cb+ml<br>svm<br>word2vec<br>cnn<br>多核<br>c-memnet有很多提升</p>
+<p>重新定义了测评指标来测短语级别）</p>
+<p>引入卷积操作（ntcir emotion cause extraction shared task中英文的数据集）</p>
+<h2 id="4多语言的情感分类"><a href="#4多语言的情感分类" class="headerlink" title="4多语言的情感分类"></a>4多语言的情感分类</h2><p>带情感信息的embedded（bilingual word2vec）<br>中文自身和英文自身预测，互译预测</p>
+<p>亚马逊购物评论数据集（…）</p>
+<p>几个分类器，主要是LR回归得到分类（只是用GD去调收敛）：<br>bilingual model：直接平行 单语言模型（双语数据）<br>pivotn-driven bilingual model：无需平行语料<br>universal multilingual model：到英语无法直接到达的语言，统一的模型</p>
+<p>实验只是想知道能不能获取这样的信息，压缩到embedding空间后一个模型得到的统一的分类器</p>
+<h2 id="5情感词典的构建"><a href="#5情感词典的构建" class="headerlink" title="5情感词典的构建"></a>5情感词典的构建</h2><p>传统的是基于字典和基于语料</p>
+<p>词义级和文档级监督信息</p>
+<p>基于PMI的词语级监督<br>文档级监督</p>
+<p>预测和真实的差异，定义交叉熵<br>rgd来最小化损失函数</p>
+<p>由此得到情感表示来构建情感词典</p>
+<p>情感词典（HIT 2015 tang）训练softmax分类器<br>（正向和负向）</p>
+<p>数据集是twtter</p>
+<p>评估分为有监督（特征模板是LIBSVM工具包）和无监督</p>
+<p>评估：semeval情感词典</p>
+<p>结论：三种来源：预订的情感词典，PMI-SO硬 sentiment anotation，PMI-SO软sentiment annotation</p>
+<h1 id="mt"><a href="#mt" class="headerlink" title="mt"></a>mt</h1><h2 id="1-神经网络phase翻译"><a href="#1-神经网络phase翻译" class="headerlink" title="1.    神经网络phase翻译"></a>1.    神经网络phase翻译</h2><p>引入SMt（statistical）的短语来打败nmt（缺点：生成的东西跟原文不相关）</p>
+<p>结合nmt和smt<br>有word level和sentence level，那phase level？</p>
+<p>问题：<br>忠实度、覆盖度</p>
+<p>预先：smt把核心词提出来，smt写相关的phase，nmt读取那些相关的phase</p>
+<p>nn based balance 求概率<br>NIST数据集<br>关心的是生成的phase对我们有没有帮助</p>
+<p>结果：<br>NP<br>VP：时态分不清楚<br>QP<br>上述都不好</p>
+<p>不足：smt翻译有问题，chunking有错误抠不出来，word generation</p>
+<p>结论：照片中某个表格<br>smt得出的东西让nmt去玩</p>
+<p>未来还能做什么：？</p>
+<h2 id="2-词语预测机制"><a href="#2-词语预测机制" class="headerlink" title="2.    词语预测机制"></a>2.    词语预测机制</h2><p>encoder decoder框架：输出生成initial state（含目标信息）<br>decoder的隐藏层有</p>
+<p>缺点：错误回传（某个词翻译错误）<br>s1和s2没有直接的监督</p>
+<p>上述不好，则提出新的，要有直接控制，回传机制要有监督后续信息<br>就引入词语预测机制</p>
+<p>词语预测不关注词语性质，只关注是否正确。<br>训练过程中对initial state和hidden state都加入词语预测</p>
+<p>initial state：某个公式最大化概率</p>
+<p>hidden state：最大化…….</p>
+<p>且不会影响解码（而且可以加快解码效率）</p>
+<p>做法：先词语预测，选出最大的概率的词语，然后把它交给解码，（但注意一定要准确）</p>
+<p>实验：<br>LDC中英语料</p>
+<p>这个模型加了dropout之后没作用？why</p>
+<p>召回率很高，所以能包含将翻译的全部词语</p>
+<p>但是一个句子每个词找最好的真的就最后结论最好吗<br>其实就相当于多任务的学习。。</p>
+<ol>
+<li>双向分层表示<br>主要是关注encoder<br>关注：长距离依赖不会编码的那么好，语法和语意的缺失</li>
+</ol>
+<p>conv-tree-based encoder<br>基于树的encoder的改进</p>
+<p>工作：1，双向树的编码2.拓展到字词subword来解决oov问题<br>3.树和叶有近似的词语</p>
+<p>1，    双向树的编码<br>自顶向下（标准gru）</p>
+<p>2.拓展到字词subword来解决oov问题<br>自己建一个自左向右两两结合的词法树，把它融入到句法树<br>就既包含全局信息也包含局部信息，但是那么就会有重复的翻译</p>
+<p>3.对原来的attention机制修改，把两部分的（红色和绿色）分开<br>gating scalar<br>就知道词向量占得多还是短语向量占得多</p>
+<p>实验：<br>数据集LDC<br>不仅序列的上下信息，结构的上下文信息也能得到提升<br>词法树的加入不会破坏翻译质量，而且树模型会涨一点<br>贝塔的值是叶向量（节点）和词语向量的占比（节点），各有所长<br>所以gating scale（自动去学权重）是最好的</p>
+<ol>
+<li>无监督生成双语词典构建<br>非平行的中英文本语料</li>
+</ol>
+<p>前人训练前都需要一个小的词典（种子词典）</p>
+<p>发现词向量不同语言空间上是近似的，线性映射联系起来<br>想法：无监督，取消种子词典依赖</p>
+<p>学习一个映射G，关键是距离度量earth mover distance （EMD）（离散分布）</p>
+<p>想象为土堆和坑洞，最小化整体的方案，而且能得到一词多义</p>
+<p>（Wasserstein distance）</p>
+<p>两种优化方案<br>1，    gan<br>2，    正交<br>先固定g，求解t，再反过来，交替形式，并可以收敛</p>
+<p>用WGAN的结果优化EMDOT</p>
+<p>实验：<br>五对语言</p>
+<p>和用种子词典对比，</p>
+<p>plus：<br>语言间距离决定因素：两种因素，语言形态和交互关系</p>
+<h1 id="信息抽取及自动问答"><a href="#信息抽取及自动问答" class="headerlink" title="信息抽取及自动问答"></a>信息抽取及自动问答</h1><h2 id="1-关系抽取：知识图谱补全，问答，热点事件"><a href="#1-关系抽取：知识图谱补全，问答，热点事件" class="headerlink" title="1.关系抽取：知识图谱补全，问答，热点事件"></a>1.关系抽取：知识图谱补全，问答，热点事件</h2><p>问题：难以多句话文本抽取语意</p>
+<p>引入关系路径编码器</p>
+<p>模型：<br>text encoder<br>path encoder<br>joint model</p>
+<p>实验做了很多种情况，加path之后都有提升</p>
+<p>还自己构造了一个数据集</p>
+<h2 id="2-全局优化端对端nn"><a href="#2-全局优化端对端nn" class="headerlink" title="2.全局优化端对端nn"></a>2.全局优化端对端nn</h2><p>句子级别的关系抽取：转化为序列</p>
+<p>2014年的填表table-filling sequence   n的平方的表</p>
+<p>融入beam searching（acl2016）<br>特征抽取上面有所不同（句法特征）<br>双向LSTM从左向右和从右向左</p>
+<h2 id="3-异构知识理解和机器阅读"><a href="#3-异构知识理解和机器阅读" class="headerlink" title="3.异构知识理解和机器阅读"></a>3.异构知识理解和机器阅读</h2><p>常识阅读理解<br>rocstories数据集，更需要非直接来自于文本的知识</p>
+<p>知识获取：把知识表示成推理知识：1时间序列知识event narrative knowledge<br>从文本中无监督得到<br>2实体之间的语意知识 entity semantic knowledge<br>3 实体间的相关关系 entity associate knowledge<br>4 情感一致性规则 sentiment</p>
+<p>metric learning 来矫正推理规则</p>
+<p>怎么去应用：<br>文档和候选答案划分为元素（phase）：对推理合理性进行评估<br>结果中出现的每个元素能找到依据</p>
+<p>框架：</p>
+<p>得到代价和概率，由此softmax</p>
+<p>但是有问题<br>1，    抽取的是词对<br>2，    怎么形成一个统一的框架的<br>3，    时间序列不一定能提出来<br>4，    准确率取决于得到的模型的所用的文本的正误回答之间的距离好坏以及和要用到的文本之间的近似度</p>
+<h2 id="4法学"><a href="#4法学" class="headerlink" title="4法学"></a>4法学</h2><h2 id="5-聊天场景下的回复生成"><a href="#5-聊天场景下的回复生成" class="headerlink" title="5 聊天场景下的回复生成"></a>5 聊天场景下的回复生成</h2><p>生成式回复是统计模型，那么统一的回复会概率很大但是很无聊</p>
+<p>用外部的信号告诉它，gan框架<br>生成器和判别器</p>
+<p>文本是离散结构，图像是连续的，这样离散会导致不可导。<br>rl框架是融合多个不同的模型，从而相互作用，但是rl不够直接，端到端模型应该紧密结合在一起。<br>如何变成连续？<br>提出embedding层，从而判别器能顺利传到生成器</p>
+<p>取倒数第二层作为loss</p>
+<p>百度贴吧作为数据集？好吗这样</p>
+<p>主要是解决gan用在单轮对话上<br>如何变为连续，如何定义loss函数（最小化最后一层的两个句子节点的差距）</p>
+<p>结果上看上去很好</p>
+<h1 id="文本分析及表示学习"><a href="#文本分析及表示学习" class="headerlink" title="文本分析及表示学习"></a>文本分析及表示学习</h1><h2 id="1-gan对Twitter进行词性标注"><a href="#1-gan对Twitter进行词性标注" class="headerlink" title="1.    gan对Twitter进行词性标注"></a>1.    gan对Twitter进行词性标注</h2><p>含有OOV问题</p>
+<p>word2vec会丢失形态和结构信息</p>
+<h2 id="2-中文0指代消解任务"><a href="#2-中文0指代消解任务" class="headerlink" title="2.    中文0指代消解任务"></a>2.    中文0指代消解任务</h2><p>我吃了一个苹果。很甜<br>0代词（ZP）能帮助替代句子中以前出现的词语<br>ZP的先行词一般是名词短语</p>
+<p>常见：作为分类任务，寻找一系列先行可能的词汇，分为可消解和不可消解<br>可消解概率最大的就是我们要找到的</p>
+<p>不足：没有利用语意信息（只是针对词法语法），因为很难被表示，没有描述形信息</p>
+<p>需要借助句子其他信息：上下文，潜在的那些先行语（memory network逐层去做）</p>
+<p>上下文：两层上下文LSTM从左到右和从右到左</p>
+<p>潜在的那些先行语：之前是用平均和head word但是都有问题<br>那么就用lstm，一个正向一个反向</p>
+<p>就有了np的表示，那么怎样用于memory network呢？<br>每个先行语作为memory，<br>加权求和，每个都加attention，多层的attention</p>
+<p>（每个trick之后提升，实验要有）</p>
+<h2 id="3-ngram2vec"><a href="#3-ngram2vec" class="headerlink" title="3.    ngram2vec"></a>3.    ngram2vec</h2><p>得到更好的单词表示（结合工作，自己工作不多）</p>
+<h2 id="4-面向习语的组合语意"><a href="#4-面向习语的组合语意" class="headerlink" title="4.    面向习语的组合语意"></a>4.    面向习语的组合语意</h2><p>词的语意组合成句子语意</p>
+<p>idioms习语有普通的词但是意思不同（比如撒狗粮）</p>
+<p>用gate判断取组合还是非组合</p>
+<p>实验如图<br>先要有个习语表，对任何一个ngram都要看是否是习语，不连续的习语无法处理</p>
+<p>情感分析的可视化：越红越正面，越蓝越负面<br>圆形是组合，三角是</p>
+<p>共享的方式做情感方面的组合任务，构造了一个数据集</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/04/夏令营总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1517,142 +1768,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/kNN算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/14/kNN算法/" itemprop="url">
-                  kNN算法
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T11:30:56+08:00">
-                2017-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/14/kNN算法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/14/kNN算法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="1、knn"><a href="#1、knn" class="headerlink" title="1、knn?"></a>1、knn?</h1><p>k-近邻算法采用测量不同特征值之间距离的方法进行分类.思想很简单：如果一个样本的特征空间中最为临近（欧式距离进行判断）的K个点大都属于某一个类，那么该样本就属于这个类。这就是物以类聚的思想。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/kNN算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1702,7 +1817,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">36</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
