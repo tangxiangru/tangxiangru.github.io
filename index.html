@@ -292,6 +292,193 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/matlab探索/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/19/matlab探索/" itemprop="url">
+                  matlab探索
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-19T21:51:15+08:00">
+                2017-08-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/19/matlab探索/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/19/matlab探索/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="运算基础"><a href="#运算基础" class="headerlink" title="运算基础"></a>运算基础</h1><p>clear </p>
+<p>clear x，y，z</p>
+<p>exp（a） e的a次方</p>
+<h1 id="矩阵基础"><a href="#矩阵基础" class="headerlink" title="矩阵基础"></a>矩阵基础</h1><p>a’ 转置</p>
+<p>inv(a) 逆矩阵</p>
+<p>.* 矩阵对应元素相乘法</p>
+<p>a.^3 矩阵a的每个元素乘三次方</p>
+<p>A = [a,a]  把两个矩阵横着合为一个</p>
+<p>A = [a; a] 把两个矩阵竖着合为一个</p>
+<p>A = magic(4)  四维魔幻方阵</p>
+<p>A(4,2)  输出矩阵中某元素</p>
+<p>A(1:3,2)  矩阵第一行到第三行的第二列元素</p>
+<p>A(3,:)  第三行的所有元素</p>
+<h1 id="limit求极限"><a href="#limit求极限" class="headerlink" title="limit求极限"></a>limit求极限</h1><p>limit(expr,x,a)  符号表达式中x趋近于a时的双向极限</p>
+<p>limit(expr,a)  表达式中默认变量趋近于a时的双向极限</p>
+<p>limit(expr,x,a,’right’)   x从右边趋近于a时的极限</p>
+<h1 id="find"><a href="#find" class="headerlink" title="find"></a>find</h1><p>ind = find(X, k) or ind = find(X, k, ‘first’)    X矩阵中的元素，从头开始查找，查找到第一个值为K的元素时，返回索引值</p>
+<p>ind = find(X, k, ‘last’)   在X中查找，从后往前找，找到第一个值为K的元素，并返回索引值</p>
+<p>[row,col] = find(A&gt;10)   在矩阵中找大于10的</p>
+<p>[row,col] = find(X) 在矩阵中找x</p>
+<h1 id="用于创始化变量的-MATLAB-函数"><a href="#用于创始化变量的-MATLAB-函数" class="headerlink" title="用于创始化变量的 MATLAB 函数"></a>用于创始化变量的 MATLAB 函数</h1><p>zeros(n)创建一个 n×n 零矩阵<br>zeros(n,m)创建一个 n×m 零矩阵<br>zeros(size(arr))创建一个与数组 arr 的零矩阵<br>ones(n) 创建一个 n×n 元素全为 1 矩阵<br>ones(n,m)创建一个 n×m 元素全为 1 矩阵<br>eye(n) 创建一个 n×n 的单位矩阵<br>eye(n,m) 创建一个 n×m 的单位矩阵<br>length(arr) 返回一个向量的长度或二维数组中最长的那一维的长度 </p>
+<p>size(arr)返回指定数组的行数和列数</p>
+<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><p>x=[0];save x.dat x -ascii”将会创建一个文件 x.dat</p>
+<p>load filename</p>
+<h1 id="矩阵乘除"><a href="#矩阵乘除" class="headerlink" title="矩阵乘除"></a>矩阵乘除</h1><p>数组右除法A./B</p>
+<p>数组左除法 A.\B</p>
+<p>矩阵右除法 A/B</p>
+<p>矩阵左除法 A\B</p>
+<p>数组指数运算 A.^B</p>
+<h1 id="数学函数"><a href="#数学函数" class="headerlink" title="数学函数"></a>数学函数</h1><p>abs(x) 计算 x 的绝对值</p>
+<p>字符转换函数<br>char(x) 将矩阵中的数转化为字符,矩阵中的元素就不大于 127</p>
+<p>double(x) 将子符串转化为矩阵</p>
+<p>int2str(x) 将整数 x 转化为字符串形式</p>
+<p>num2str(x) 将带小数点的数转化为一个字符型数组</p>
+<p>str2num(x) 将字符串转化为数</p>
+<p>查询自己</p>
+<h1 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h1><p>给图增加标题和坐标轴标签将会用到 title, xlabel, ylable 函数</p>
+<p>grid on 代表在图象中出现网格线,grid off 代表去除网格线</p>
+<p>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">x=0:1:10;</div><div class="line">y=x.^2-10*x+15;plot(x,y);</div><div class="line">title (&apos;Plot of y=x.^2-10*x+15&apos;); xlabel (&apos;x&apos;);</div><div class="line">ylabel (&apos;y&apos;); grid on;</div></pre></td></tr></table></figure></p>
+<p>创建一个 TIFF 格式的当前图象的图片,并保存在 一个叫 my_image.tif 的文件中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print –dtiff my_image.tif</div></pre></td></tr></table></figure></p>
+<p>联合作图:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">x = 0:pi/100:2*pi; y1 = sin(2*x);</div><div class="line">y2 = 2*cos(2*x); plot (x,y1,x,y2);</div></pre></td></tr></table></figure></p>
+<p>关于自定义图像：<br>第一方面指定轨迹的颜色, 第二方面指定符号的类型, 第三方面指定线的类型.（可以把重要的点突出，或者某一段是实线其他是虚线）</p>
+<p>制作图例：<br>如：显示了 f(x)=sin2x 和它的微分函数的图象</p>
+<p>用黑实线代表 f(x),用红虚线代表它的微分函数。 图中有标题,坐标轴标签和网格线。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">x=0:pi/100:2*pi;</div><div class="line">y1=sin(2*x);</div><div class="line">y2=2*cos(2*x);</div><div class="line">plot(x,y1,&apos;k-&apos;,x,y2,&apos;b--&apos;);</div><div class="line">title(&apos; Plot of f(x)=sin(2x) and its derivative&apos;); xlabel(&apos;x&apos;);</div><div class="line">ylabel(&apos;y&apos;); legend(&apos;f(x)&apos;,&apos;d/dx f(x)&apos;) grid on;</div></pre></td></tr></table></figure></p>
+<p>对数尺寸：</p>
+<p>打印数据既可以用对数尺度,也可以用线性尺度。在 x,y 轴上使用这两种尺度的一种或两种 可以组合形成 4 种不同的坐标系。每一种组合者有一个特定的函数。<br>1.plot 函数的 x,y 均用线性尺度<br>2.semilog 函数 x 轴用对数尺度,y 轴将用线性尺度<br>3.semiloge 函数 x 轴用线性尺度,y 轴用对数尺度<br>4.loglog 函数两坐标轴将会都用对数尺度。</p>
+<p>在 legend 命令中 pos 的值不同使图像位置不同，如0，1，2</p>
+<p>0是自动寻找最佳位置,至少不与数据冲突</p>
+<p>ischar(a) a 是字符数组返回 1,否则返回 0<br>isempty(a)a 是空数组返回 1,否则返回 0<br>isinf(a)a 是无穷大,则返回 1,否则返回 0<br>isnan(a) a 不是一个数则返 1,否则返回 0<br>isnumeric(a) a 是一个数值数组返回 1,否则返回 0</p>
+<p>在同一坐标系内画出多个图象</p>
+<pre><code>x = -pi:pi/20:pi;
+y1 = sin(x);
+y2 = cos(x); plot(x,y1,&apos;b-&apos;);
+hold on; plot(x,y2,&apos;k--&apos;);
+hold off;
+legend (&apos;sin x&apos;,&apos;cos x&apos;);
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/17/emnlp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1630,143 +1817,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/kd-tree/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/14/kd-tree/" itemprop="url">
-                  kd tree
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T12:22:11+08:00">
-                2017-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/14/kd-tree/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/14/kd-tree/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>kNN算法每次在查询k个最近邻的时候都需要遍历全集才能计算出来，可想而且如果训练样本很大的话，代价还是很大的</p>
-<p>优化：kd tree<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/kd-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1816,7 +1866,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">37</span>
+                <span class="site-state-item-count">38</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
