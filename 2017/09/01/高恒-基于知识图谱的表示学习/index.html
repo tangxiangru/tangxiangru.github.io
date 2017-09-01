@@ -89,27 +89,24 @@
 
 
 
-<meta name="description" content="知识图谱简介
-表示学习意义
-表示学习历史">
+<meta name="description" content="知识图谱简介、表示学习意义
+表示学习历史、基于知识图谱的表示学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="高恒:基于知识图谱的表示学习">
 <meta property="og:url" content="http://yoursite.com/2017/09/01/高恒-基于知识图谱的表示学习/index.html">
 <meta property="og:site_name" content="唐相儒TANG的博客">
-<meta property="og:description" content="知识图谱简介
-表示学习意义
-表示学习历史">
+<meta property="og:description" content="知识图谱简介、表示学习意义
+表示学习历史、基于知识图谱的表示学习">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/64124016.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/11292203.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/37694202.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/28247988.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/90318677.jpg">
-<meta property="og:updated_time" content="2017-09-01T13:59:23.000Z">
+<meta property="og:updated_time" content="2017-09-01T14:09:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="高恒:基于知识图谱的表示学习">
-<meta name="twitter:description" content="知识图谱简介
-表示学习意义
-表示学习历史">
+<meta name="twitter:description" content="知识图谱简介、表示学习意义
+表示学习历史、基于知识图谱的表示学习">
 <meta name="twitter:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-1/64124016.jpg">
 
 
@@ -386,15 +383,16 @@
       
 
       
-        <p>知识图谱简介</p>
-<p>表示学习意义</p>
-<p>表示学习历史</p>
+        <p>知识图谱简介、表示学习意义</p>
+<p>表示学习历史、基于知识图谱的表示学习</p>
 <a id="more"></a>
-<p>基于知识图谱的表示学习</p>
+<p>高恒：东南大学知识工程实验室（漆桂林）</p>
+<h1 id="表示学习意义"><a href="#表示学习意义" class="headerlink" title="表示学习意义"></a>表示学习意义</h1><p>在传统的表示学习中，在训练表示学习模型的过程中加入其他的增强信息会提高表示学习的效果通常情况下大家只会加入一些单一的信息，但知识图谱本身的结构信息往往会被忽略。</p>
 <h1 id="表示学习历史"><a href="#表示学习历史" class="headerlink" title="表示学习历史"></a>表示学习历史</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/64124016.jpg" alt=""></p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/11292203.jpg" alt=""></p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/37694202.jpg" alt=""></p>
-<h1 id="基于知识图谱的表示学习"><a href="#基于知识图谱的表示学习" class="headerlink" title="基于知识图谱的表示学习"></a>基于知识图谱的表示学习</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/28247988.jpg" alt=""></p>
+<h1 id="基于知识图谱的表示学习"><a href="#基于知识图谱的表示学习" class="headerlink" title="基于知识图谱的表示学习"></a>基于知识图谱的表示学习</h1><p>我们在表示学习的研究中一直在考虑如何加入知识图谱的结构信息并以此为基础提出了一个新的表示学习方法。在整个研究过程中我们主要关注两个问题：1）如何加入结构信息 2）以及哪些结构信息是可以用来提升表示学习算法的。</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/28247988.jpg" alt=""></p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/90318677.jpg" alt=""></p>
 <p>单一的信息只是加强某一方面</p>
 <p>但是却忽略了知识图谱的结构上的信息</p>
@@ -404,9 +402,10 @@
 <p>2、结构信息<br>把子图放到表示学习里面去训练:<br>①改造transe里面的势能函数，改成概率函数</p>
 <p>②三个不同的context</p>
 <p>主语+宾语+关系，联合概率分布，使得三元组整体概率最大<br>加入上采样和下采样，并且提供负例加入训练</p>
-<p>（P.S.<br>实体预测数据集：HITS@10、MEAN RANk、FB40k、WN18</p>
+<p>最后通过实验证明在加入知识图谱的结构信息后可以提高表示学习在实体类型预测以及实体关系预测的效果，使得我们的算法达到了当前最先进的水平。</p>
+<p>“””<br>P.S.<br>实体预测数据集：HITS@10、MEAN RANk、FB40k、WN18</p>
 <p>transE在一对一很好，但是在多对一、多对多、一对多上面不太好，而加入图信息则效果都还可以</p>
-<p>context比较稀疏的时候效果不太好</p>
+<p>context比较稀疏的时候效果不太好}<br>“””</p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>融合更多信息（结构、属性、路径、规则、多模态信息）会使表示学习准确率++</p>
 <p>知识图谱表示学习如何应用在传统推理规则任务（不一致检测）</p>
 <p>时空、地点这种非三元组</p>
@@ -575,7 +574,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表示学习历史"><span class="nav-number">1.</span> <span class="nav-text">表示学习历史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于知识图谱的表示学习"><span class="nav-number">2.</span> <span class="nav-text">基于知识图谱的表示学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">3.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#表示学习意义"><span class="nav-number">1.</span> <span class="nav-text">表示学习意义</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表示学习历史"><span class="nav-number">2.</span> <span class="nav-text">表示学习历史</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于知识图谱的表示学习"><span class="nav-number">3.</span> <span class="nav-text">基于知识图谱的表示学习</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
