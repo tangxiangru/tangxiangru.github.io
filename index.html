@@ -292,6 +292,164 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/01/高恒-基于知识图谱的表示学习/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒TANG的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/01/高恒-基于知识图谱的表示学习/" itemprop="url">
+                  高恒:基于知识图谱的表示学习
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-01T21:53:34+08:00">
+                2017-09-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/01/高恒-基于知识图谱的表示学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/01/高恒-基于知识图谱的表示学习/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>知识图谱简介</p>
+<p>表示学习意义</p>
+<p>表示学习历史</p>
+<p>&lt;–more!–&gt;</p>
+<p>基于知识图谱的表示学习</p>
+<h1 id="表示学习历史"><a href="#表示学习历史" class="headerlink" title="表示学习历史"></a>表示学习历史</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/64124016.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/11292203.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/37694202.jpg" alt=""></p>
+<h1 id="基于知识图谱的表示学习"><a href="#基于知识图谱的表示学习" class="headerlink" title="基于知识图谱的表示学习"></a>基于知识图谱的表示学习</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/28247988.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-9-1/90318677.jpg" alt=""></p>
+<p>单一的信息只是加强某一方面</p>
+<p>但是却忽略了知识图谱的结构上的信息</p>
+<p>1、首先要哪些数据可以用来描述实体</p>
+<p>用一些周围的信息实体（和关系边）来确定描述唯一的实体</p>
+<p>那么数据：目标实体的周围实体+连通路径约束关系</p>
+<p>2、结构信息<br>把子图放到表示学习里面去训练:<br>①改造transe里面的势能函数，改成概率函数</p>
+<p>②三个不同的context</p>
+<p>主语+宾语+关系，联合概率分布，使得三元组整体概率最大<br>加入上采样和下采样，并且提供负例加入训练</p>
+<p>（P.S.<br>实体预测数据集：HITS@10、MEAN RANk、FB40k、WN18</p>
+<p>transE在一对一很好，但是在多对一、多对多、一对多上面不太好，而加入图信息则效果都还可以</p>
+<p>context比较稀疏的时候效果不太好</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>融合更多信息（结构、属性、路径、规则、多模态信息）会使表示学习准确率++</p>
+<p>知识图谱表示学习如何应用在传统推理规则任务（不一致检测）</p>
+<p>时空、地点这种非三元组</p>
+<p>多语言知识融合（NMT常见）会双方同时提高，类似平行语料库会提高实体<strong>凑趣</strong></p>
+<p>联合任务，识别实体+抽取关系同时做，nlp场景下可以尝试（指代消解任务中）</p>
+<p>IJCAI：一级铠</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/19/matlab探索/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1518,142 +1676,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/分类器性能评估方法对比/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒TANG的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/14/分类器性能评估方法对比/" itemprop="url">
-                  分类器性能评估方法对比
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:59:11+08:00">
-                2017-07-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/14/分类器性能评估方法对比/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/14/分类器性能评估方法对比/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/14/分类器性能评估方法对比/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1703,7 +1725,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">39</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
