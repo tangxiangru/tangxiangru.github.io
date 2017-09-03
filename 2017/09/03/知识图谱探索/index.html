@@ -99,7 +99,7 @@
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-03T15:46:29.000Z">
+<meta property="og:updated_time" content="2017-09-03T15:56:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱探索">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -401,6 +401,8 @@
 <p>三、向量建模（Vector Modeling）</p>
 <p>和信息抽取的思想比较接近，根据问题得出候选答案，把问题和候选答案都映射为分布式表达（Distributed Embedding），通过训练数据对该分布式表达进行训练，使得问题和正确答案的向量表达的得分（通常以点乘为形式）尽量高，如下图所示。模型训练完成后则可根据候选答案的向量表达和问题表达的得分进行筛选，得出最终答案。</p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p> Question answering with subgraph embeddings（文章发表于 2014 年的 EMNLP 会议）：</p>
+<p> 问题一是如何将问题和答案映射到低维空间，显然我们不能仅仅将自然语言的问题和答案进行映射，还要将知识库里的知识也映射到这个低维空间中（否则我们就只是在做 QA 而非 KB-QA 了）</p>
 <p>代表论文： </p>
 <p>Bordes A, Chopra S, Weston J. Question answering with subgraph embeddings[J]. arXiv preprint arXiv:1406.3676, 2014.</p>
 <p>Yang M C, Duan N, Zhou M, et al. Joint Relational Embeddings for Knowledge-based Question Answering[C]//EMNLP. 2014, 14: 645-650.</p>
