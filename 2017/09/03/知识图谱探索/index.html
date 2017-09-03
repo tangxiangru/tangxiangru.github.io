@@ -128,7 +128,7 @@
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-03T17:09:47.000Z">
+<meta property="og:updated_time" content="2017-09-03T17:12:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱探索">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -484,8 +484,7 @@
 <p>Cai Q, Yates A. Large-scale Semantic Parsing via Schema Matching and Lexicon Extension[C]//ACL (1). 2013: 423-433.</p>
 <p>Kwiatkowski T, Choi E, Artzi Y, et al. Scaling semantic parsers with on-the-fly ontology matching[C]//In Proceedings of EMNLP. Percy. 2013.</p>
 <p>Fader A, Zettlemoyer L, Etzioni O. Open question answering over curated and extracted knowledge bases[C]//Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2014: 1156-1165.</p>
-<p>二、信息抽取（Information Extraction）</p>
-<p>该类方法通过提取问题中的实体，通过在知识库中查询该实体可以得到以该实体节点为中心的<strong>知识库子图</strong>，子图中的每一个节点或边都可以作为候选答案，通过观察问题依据某些规则或模板进行信息抽取，得到问题特征向量，建立分类器通过输入问题特征向量对候选答案进行筛选，从而得出最终答案。</p>
+<h3 id="二、信息抽取（Information-Extraction）"><a href="#二、信息抽取（Information-Extraction）" class="headerlink" title="二、信息抽取（Information Extraction）"></a>二、信息抽取（Information Extraction）</h3><p>该类方法通过提取问题中的实体，通过在知识库中查询该实体可以得到以该实体节点为中心的<strong>知识库子图</strong>，子图中的每一个节点或边都可以作为候选答案，通过观察问题依据某些规则或模板进行信息抽取，得到问题特征向量，建立分类器通过输入问题特征向量对候选答案进行筛选，从而得出最终答案。</p>
 <p>信息抽取的代表论文 </p>
 <p>Yao X, Van Durme B. Information Extraction over Structured Data: Question Answering with Freebase[C]//ACL (1). 2014: 956-966。</p>
 <p>1.人类的思考方式</p>
@@ -509,9 +508,7 @@
 <p>2）如果该节点是命名实体，那就把该节点变为命名实体形式，如 justin -&gt; qtopic=person （justin 对应的命名实体形式是 person）。这一步的目的是因为数据中涉及到的命名实体名字太多了，这里我们只需要区分它是人名 地名 还是其他类型的名字即可。 </p>
 <p>3）删除掉一些不重要的叶子节点，如限定词（determiner，如 a/the/some/this/each 等），介词（preposition）和标点符号（punctuation）。</p>
 <p> 从依存树到问题图的转换，实质是就是对问题进行信息抽取，提取出有利于寻找答案的问题特征，删减掉不重要的信息。</p>
-<ol>
-<li>如何构建特征向量对候选答案进行分类</li>
-</ol>
+<p>3.如何构建特征向量对候选答案进行分类</p>
 <p>在候选答案中找出正确答案，实际上是一个二分类问题（判断每个候选答案是否是正确答案），我们使用训练数据问题-答案对，训练一个分类器来找到正确答案。那么分类器的输入特征向量怎么构造和定义呢？ </p>
 <p>特征向量中的每一维，对应一个问题-候选答案特征。每一个问题-候选答案特征由问题特征中的一个特征，和候选答案特征的一个特征，组合（combine）而成。 </p>
 <p>问题特征：我们从问题图中的每一条边 e(s,t)，抽取 4 种问题特征：s，t，s|t，和 s|e|t。如对于边 prep_of(qfocus=name，brother)，我们可以抽取这样四个特征：qfocus=what，brother，qfocus=what|brother  和 qfocus=what|prep_of|brother。 </p>
@@ -532,16 +529,13 @@
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNtR8ysm9rBDib6Mev5quPVKSIibFT67FtAW7IZwpN0iaxp9HOhv0tYobfQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>可以看出当使用 ClueWebMapping 这个超大数据集训练后，给定一个问题，每次选择概率最高的 rel 时，有 19% 的正确率。因此，作者对于主题图中的每一个候选答案，增加这样一种特征，即该候选答案对应的每一个关系 rel，其概率 P(rel|Q) 在所有关系中的排名情况（如 top1、top3、top5、top50、top100 等等），比如特征 income_relation_rank=top_3（这里因为 relation 是有方向的，所以用 income 前缀对方向加以区分)。 </p>
 <p>至此，我们已经搞清楚了这篇文章方法涉及到的所有元素：问题特征，候选答案特征，每个候选答案和问题的特征向量以及分类器。最后，我们再简单介绍下实验。</p>
-<ol>
-<li>论文实验与总结</li>
-</ol>
+<p>4.论文实验与总结</p>
 <p>候选答案的主题图是根据问题中的主题词确定的，而一个问题可能包含多个主题词。作者先通过命名实体识别提取问题中的所有命名实体（如果提取不到一个命名实体，则使用名词短语代替），将所有命名实体输入到 Freebase Search API 中，选取返回排名最高的作为最终的主题词，使用 Freebase Topic API 得到相应的主题图。 </p>
 <p>当然使用 Freebase Search API 这个方法可能会错过真正和答案相关的主题词（topic），作者也测试了模型在真实的主题词（Gold Retrieval）下的 F1 score，结果如下： </p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNBoBNKBKfXW9ErNAHUrT2dYN5TRlcJt0C6vCFmn4uZyX1lzV8oyaDCQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""><br>相比Semantic Parsing on Freebase from Question-Answer Pairs 方法在 F1-score 下有较高的提升，到达了 42.0 的 F1-score。 </p>
 <p>信息抽取的办法，总体来说涉及到了不少 linguistic 的知识，比较符合人类的直觉。虽然也涉及到了很多手工和先验知识的东西，但个人认为它的思想还是很不错的。 </p>
 <p>作者在构造候选答案特征时，引入了和 P(R|Q) 相关的特征，这个思路是一个很好的思路，但是对 P(R|Q) 的估计方式总体来说还是比较粗暴（比如使用 backoff），个人认为可以使用 Deep Learning 的方法进行提升。</p>
-<p>三、向量建模（Vector Modeling）</p>
-<p>和信息抽取的思想比较接近，根据问题得出候选答案，把问题和候选答案都映射为分布式表达（Distributed Embedding），通过训练数据对该分布式表达进行训练，使得问题和正确答案的向量表达的得分（通常以点乘为形式）尽量高，如下图所示。模型训练完成后则可根据候选答案的向量表达和问题表达的得分进行筛选，得出最终答案。</p>
+<h3 id="三、向量建模（Vector-Modeling）"><a href="#三、向量建模（Vector-Modeling）" class="headerlink" title="三、向量建模（Vector Modeling）"></a>三、向量建模（Vector Modeling）</h3><p>和信息抽取的思想比较接近，根据问题得出候选答案，把问题和候选答案都映射为分布式表达（Distributed Embedding），通过训练数据对该分布式表达进行训练，使得问题和正确答案的向量表达的得分（通常以点乘为形式）尽量高，如下图所示。模型训练完成后则可根据候选答案的向量表达和问题表达的得分进行筛选，得出最终答案。</p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p> Question answering with subgraph embeddings（文章发表于 2014 年的 EMNLP 会议）：</p>
 <p> 问题一是如何将问题和答案映射到低维空间，显然我们不能仅仅将自然语言的问题和答案进行映射，还要将知识库里的知识也映射到这个低维空间中（否则我们就只是在做 QA 而非 KB-QA 了）</p>
@@ -585,7 +579,7 @@
 <p>Bordes A, Chopra S, Weston J. Question answering with subgraph embeddings[J]. arXiv preprint arXiv:1406.3676, 2014.</p>
 <p>Yang M C, Duan N, Zhou M, et al. Joint Relational Embeddings for Knowledge-based Question Answering[C]//EMNLP. 2014, 14: 645-650.</p>
 <p>Bordes A, Weston J, Usunier N. Open question answering with weakly supervised embedding models[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Springer Berlin Heidelberg, 2014: 165-180.</p>
-<p>上述方法集中在13-14年</p>
+<p>上述方法集中在13-14年发布</p>
 <h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p>使用卷积神经网络对向量建模方法进行提升： </p>
 <p>Dong L, Wei F, Zhou M, et al. Question Answering over Freebase with Multi-Column Convolutional Neural Networks[C]//ACL (1). 2015: 260-269. </p>
 <p>使用卷积神经网络对语义解析方法进行提升： </p>
@@ -766,7 +760,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#知识图谱"><span class="nav-number">1.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KBQA"><span class="nav-number">2.</span> <span class="nav-text">KBQA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#评价标准"><span class="nav-number">2.1.</span> <span class="nav-text">评价标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主流方法"><span class="nav-number">2.2.</span> <span class="nav-text">主流方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、语义解析（Semantic-Parsing）"><span class="nav-number">2.2.1.</span> <span class="nav-text">一、语义解析（Semantic Parsing）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习"><span class="nav-number">2.3.</span> <span class="nav-text">深度学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kbqa数据集"><span class="nav-number">2.4.</span> <span class="nav-text">kbqa数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#btw"><span class="nav-number">2.5.</span> <span class="nav-text">btw</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#知识图谱"><span class="nav-number">1.</span> <span class="nav-text">知识图谱</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#KBQA"><span class="nav-number">2.</span> <span class="nav-text">KBQA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#评价标准"><span class="nav-number">2.1.</span> <span class="nav-text">评价标准</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主流方法"><span class="nav-number">2.2.</span> <span class="nav-text">主流方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、语义解析（Semantic-Parsing）"><span class="nav-number">2.2.1.</span> <span class="nav-text">一、语义解析（Semantic Parsing）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、信息抽取（Information-Extraction）"><span class="nav-number">2.2.2.</span> <span class="nav-text">二、信息抽取（Information Extraction）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、向量建模（Vector-Modeling）"><span class="nav-number">2.2.3.</span> <span class="nav-text">三、向量建模（Vector Modeling）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习"><span class="nav-number">2.3.</span> <span class="nav-text">深度学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#kbqa数据集"><span class="nav-number">2.4.</span> <span class="nav-text">kbqa数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#btw"><span class="nav-number">2.5.</span> <span class="nav-text">btw</span></a></li></ol></li></ol></div>
             
 
           </div>
