@@ -379,51 +379,14 @@
 
       
         
-          
-            <h1 id="知识图谱"><a href="#知识图谱" class="headerlink" title="知识图谱"></a>知识图谱</h1><p>1、实体链接————&gt;实体识别+实体消歧</p>
-<p>2、关系抽取————&gt;词性标注+语法分析+依存关系树+关系分类</p>
-<h1 id="KBQA"><a href="#KBQA" class="headerlink" title="KBQA"></a>KBQA</h1><p>KBQA: Learning Question Answering over QA Corpora and Knowledge Bases</p>
-<p>##评价标准</p>
-<p>评价标准：回召率（Recall），精确率（Precision)），F1-Score。而对话系统的评价标准以人工评价为主，以及 BLEU 和 Perplexity。</p>
-<h2 id="主流方法"><a href="#主流方法" class="headerlink" title="主流方法"></a>主流方法</h2><p>一、语义解析（Semantic Parsing）</p>
-<p>偏linguistic、将自然语言转化为一系列形式化的逻辑形式（logic form），通过对逻辑形式进行自底向上的解析，得到一种可以表达整个问题语义的逻辑形式，通过相应的查询语句（类似 lambda-Caculus）在知识库中进行查询，从而得出答案。下图红色部分即逻辑形式，绿色部分 where was Obama born 为自然语言问题，蓝色部分为语义解析进行的相关操作，而形成的语义解析树的根节点则是最终的语义解析结果，可以通过查询语句直接在知识库中查询最终答案</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShxb0IiamXUqfKfmTu3R7aj8Rc0DnB4KJaLDUEf3b4XROjeYk6rxrJHuQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<p>代表论文：</p>
-<p>Berant J, Chou A, Frostig R, et al. Semantic Parsing on Freebase from Question-Answer Pairs[C]//EMNLP. 2013, 2(5): 6.</p>
-<p>Cai Q, Yates A. Large-scale Semantic Parsing via Schema Matching and Lexicon Extension[C]//ACL (1). 2013: 423-433.</p>
-<p>Kwiatkowski T, Choi E, Artzi Y, et al. Scaling semantic parsers with on-the-fly ontology matching[C]//In Proceedings of EMNLP. Percy. 2013.</p>
-<p>Fader A, Zettlemoyer L, Etzioni O. Open question answering over curated and extracted knowledge bases[C]//Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining. ACM, 2014: 1156-1165.</p>
-<p>二、信息抽取（Information Extraction）</p>
-<p>该类方法通过提取问题中的实体，通过在知识库中查询该实体可以得到以该实体节点为中心的知识库子图，子图中的每一个节点或边都可以作为候选答案，通过观察问题依据某些规则或模板进行信息抽取，得到问题特征向量，建立分类器通过输入问题特征向量对候选答案进行筛选，从而得出最终答案。</p>
-<p>信息抽取的代表论文 </p>
-<p>Yao X, Van Durme B. Information Extraction over Structured Data: Question Answering with Freebase[C]//ACL (1). 2014: 956-966。</p>
-<p>三、向量建模（Vector Modeling）</p>
-<p>和信息抽取的思想比较接近，根据问题得出候选答案，把问题和候选答案都映射为分布式表达（Distributed Embedding），通过训练数据对该分布式表达进行训练，使得问题和正确答案的向量表达的得分（通常以点乘为形式）尽量高，如下图所示。模型训练完成后则可根据候选答案的向量表达和问题表达的得分进行筛选，得出最终答案。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<p>代表论文： </p>
-<p>Bordes A, Chopra S, Weston J. Question answering with subgraph embeddings[J]. arXiv preprint arXiv:1406.3676, 2014.</p>
-<p>Yang M C, Duan N, Zhou M, et al. Joint Relational Embeddings for Knowledge-based Question Answering[C]//EMNLP. 2014, 14: 645-650.</p>
-<p>Bordes A, Weston J, Usunier N. Open question answering with weakly supervised embedding models[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Springer Berlin Heidelberg, 2014: 165-180.</p>
-<p>上述方法集中在13-14年</p>
-<h2 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h2><p>使用卷积神经网络对向量建模方法进行提升： </p>
-<p>Dong L, Wei F, Zhou M, et al. Question Answering over Freebase with Multi-Column Convolutional Neural Networks[C]//ACL (1). 2015: 260-269. </p>
-<p>使用卷积神经网络对语义解析方法进行提升： </p>
-<p>Yih S W, Chang M W, He X, et al. Semantic parsing via staged query graph generation: Question answering with knowledge base[J]. 2015. </p>
-<p>注：该 paper 来自微软，是 ACL 2015 年的 Outstanding paper，也是目前 KB-QA 效果最好的 paper 之一。</p>
-<p>使用长短时记忆网络（Long Short-Term Memory，LSTM），卷积神经网络（Convolutional Neural Networks，CNNs）进行实体关系分类： </p>
-<p>Xu Y, Mou L, Li G, et al. Classifying Relations via Long Short Term Memory Networks along Shortest Dependency Paths[C]//EMNLP. 2015: 1785-1794. </p>
-<p>Zeng D, Liu K, Lai S, et al. Relation Classification via Convolutional Deep Neural Network[C]//COLING. 2014: 2335-2344.（Best paper） </p>
-<p>Zeng D, Liu K, Chen Y, et al. Distant Supervision for Relation Extraction via Piecewise Convolutional Neural Networks[C]//EMNLP. 2015: 1753-1762. </p>
-<p>使用记忆网络（Memory Networks），注意力机制（Attention Mechanism）进行 KB-QA： </p>
-<p>Bordes A, Usunier N, Chopra S, et al. Large-scale simple question answering with memory networks[J]. arXiv preprint arXiv:1506.02075, 2015. </p>
-<p>Zhang Y, Liu K, He S, et al. Question Answering over Knowledge Base with Neural Attention Combining Global Knowledge Information[J]. arXiv preprint arXiv:1606.00979, 2016. </p>
-<p>以上论文几乎都使用了 Freebase 作为 knowledge base，并且在 WebQuestion 数据集上进行过测试，这里给出各种方法的效果对比图，给大家一个更加直观的感受。</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<h2 id="kbqa数据集"><a href="#kbqa数据集" class="headerlink" title="kbqa数据集"></a>kbqa数据集</h2><p>Benchmark 数据集——WebQuestion。 </p>
-<p>该数据集由 Berant J, Chou A, Frostig R, et al.在 13 年的论文 Semantic Parsing on Freebase from Question-Answer Pairs 中公开。 </p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-
-          
+          <p>KBQA: Learning Question Answering over QA Corpora and Knowledge Bases</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/03/知识图谱探索/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
