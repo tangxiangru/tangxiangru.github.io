@@ -97,9 +97,12 @@
 <meta property="og:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShxb0IiamXUqfKfmTu3R7aj8Rc0DnB4KJaLDUEf3b4XROjeYk6rxrJHuQ/640?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGabdkkecmcTrAZe6P3WFSPv0opJApQSHRYhHdAPflp7Nnsaias9oLlBQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGnicrqianEKwktE33EIuY4ibQ0PpgaCibzDQfDmv7y4icbiam2zNQJHaiaXN8A/0.png?tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-03T15:56:49.000Z">
+<meta property="og:updated_time" content="2017-09-03T15:58:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱探索">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -403,6 +406,33 @@
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShHo2RpiaTs6VnRxfLUSbEBQKn9ia4BV5Fh3GeQnCXp7kqN7eCzWmeE5UA/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p> Question answering with subgraph embeddings（文章发表于 2014 年的 EMNLP 会议）：</p>
 <p> 问题一是如何将问题和答案映射到低维空间，显然我们不能仅仅将自然语言的问题和答案进行映射，还要将知识库里的知识也映射到这个低维空间中（否则我们就只是在做 QA 而非 KB-QA 了）</p>
+<p>第二个问题是，如果做过类似工作（one-shot，imgae caption，word embedding 等）的朋友应该知道，使用这种方法是需要大量数据去训练这个低维空间的分布式表达的，而 KB-QA 中的 benchmark 数据集 WebQuestion 只含有 5800 多个问题答案对，这样的数据是难以训练好这种表达的。 </p>
+<p>问题的分布式表达：首先我们把自然语言问题进行向量化，作者将输入空间的维度 N 设置为字典的大小+知识库实体数目+知识库实体关系数目，对于输入向量每一维的值设置为该维所代表的单词（当然这一维也可能代表的是某个实体数目或实体关系，对于问题的向量化，这些维数都设置为 0）在问题中出现的次数（一般为 0 或 1 次），可以看出这是一种 multi-hot 的稀疏表达，是一种简化版的词袋模型（Bag-of-words model）。 </p>
+<p>我们用 q 代表问题，用 Φ(q) 代表 N 维的问题向量，用矩阵 W 将 N 维的问题向量映射到 k 维的低维空间，那么问题的分布式表达即 f(q)=WΦ(q)。</p>
+<p>答案的分布式表达：我们想想可以怎样对答案进行向量化，最简单的方式，就是像对问题一样的向量化方式，使用一个简化版的词袋模型。由于答案都是一个知识库实体，那么这样的表达就是一个 one-hot 的表达，显然，这种方式并没有把知识库的知识引入到我们的输入空间中。 </p>
+<p>第二种方式，我们把知识库想象成一个图，图的节点代表实体，边代表实体关系。通过问题中的主题词可以定位到图中的一个节点，该节点到答案节点有一条路径，我们把该路径上的所有边（实体关系）和点（实体）都以 multi-hot 的形式存下来作为答案的输入向量。</p>
+<p>我们这里只考虑一跳（hop）或者两跳的路径，如路径（barack obama, place of birth, honolulu）是一跳，路径（barack obama, people.person.place of birth, location.location.containedby, hawaii）是两跳。因此这种表示是一种 3-hot 或 4-hot 的表示。 </p>
+<p>第三种方式，让我们回想一下我们在揭开知识库问答KB-QA的面纱3·信息抽取篇介绍的信息抽取的方法，对于每一个候选答案，该答案所对应的属性（type/gender 等）和关系都是能够帮助我们判断它是否是正确答案的重要信息。</p>
+<p>因此我们可以把每个候选答案对应的知识库子图（1 跳或 2 跳范围）也加入到输入向量中，假设该子图包含 C 个实体和 D 个关系，那么我们最终的表达是一种 3+C+D-hot 或者 4+C+D-hot 的表达。和信息抽取方法一样，我们也对关系的方向进行区分，因此我们输入向量的大小变为字典的大小+2*（知识库实体数目+知识库实体关系数目）。</p>
+<p>同样的，我们用 a 表示答案，用 Ψ(a) 表示答案的输入向量，用矩阵 W 将问题向量映射到 k 维的低维空间，答案的分布式表达即 g(a)=WΨ(a)。</p>
+<p>向量得分：最后我们用一个函数表征答案和问题的得分，我们希望问题和它对应的正确答案得尽量高分，通过比较每个候选答案的得分，选出最高的，作为正确答案。得分函数定义为二者分布式表达的点乘，即。</p>
+<p>上述整个流程如下图所示：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGabdkkecmcTrAZe6P3WFSPv0opJApQSHRYhHdAPflp7Nnsaias9oLlBQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>训练分布式表达：</p>
+<p>对于训练数据集，我们一个定义 margin-based ranking 损失函数，公式如下：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGnicrqianEKwktE33EIuY4ibQ0PpgaCibzDQfDmv7y4icbiam2zNQJHaiaXN8A/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>做过 zero-shot 或者对 SVM 了解的朋友应该对这个式子不会陌生，其中  表示负样本集  中的一个负样本（错误答案），m 是一个值为 0.1 的 margin。最小化这个损失函数，意味着我们希望正确答案和问题的得分要比任意错误答案的得分高出一个 margin。 </p>
+<p>和训练 word embedding 一样，为减少计算量，我们通过采样的方式构造负样本，50% 来自随机挑选，50% 来自与问题主题词实体相连的其它路径。 </p>
+<p>由于 benchmark 数据集 WebQuestion 包含的样本数过少，作者还构造了其他几个数据集： </p>
+<p>Freebase：选取 freebase 中包含出现频率高于 5 次实体的三元组，得到一个知识库子集（含 2.2M 实体和 7K 关系），对于每一个三元组如（subject, type1.type2.predicate, object），我们通过自动化的方式，生成这样的问题答案对： </p>
+<p>Quesiton：“What is the predicate of the type2subject?” Answer：object </p>
+<p>ClueWeb Extractions：由于 Freebase 的三元组都是形式化语言，并不贴近自然语言，我们也用同样的方式将 ClueWeb 上提取出的三元组（subject, “text string”, object）通过少量模板作同样的变换（作者提取了 2M 对三元组）。 </p>
+<p>这样我们就在 WebQuestion 数据集的基础上，得到了一个新的扩展数据集，该数据集的例子如下表所示：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>可以看出，扩增版的数据集，问题大多数都是自动构造的，缺乏多样性和真实性。怎么办呢？我们希望训练数据中问题的分布式表达尽量贴近它所类似的真实问题的分布式表达。</p>
+<p>因此，作者在 WikiAnswers 中抓取了 2.2M 问题（不含答案），通过问题的分类标签，将它们分为了 350k 个类簇（可以理解为每个类簇里的自然语言问题它所表达的意思是一样的）。</p>
+<p>如下表所示：</p>
+<p>![](<a href="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）" target="_blank" rel="external">https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）</a></p>
+<p>接下来我们就可以进行一个多任务学习（multi-task），让同一个类簇的问题得分较高，即，其训练方式和之前训练答案和问题得分是一样的。</p>
+<p>至此，通过以上两种训练，我们的分布式表达就训练完毕了。</p>
 <p>代表论文： </p>
 <p>Bordes A, Chopra S, Weston J. Question answering with subgraph embeddings[J]. arXiv preprint arXiv:1406.3676, 2014.</p>
 <p>Yang M C, Duan N, Zhou M, et al. Joint Relational Embeddings for Knowledge-based Question Answering[C]//EMNLP. 2014, 14: 645-650.</p>
