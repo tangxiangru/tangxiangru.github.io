@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-03T15:58:56.000Z">
+<meta property="og:updated_time" content="2017-09-03T15:59:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识图谱探索">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -433,7 +433,16 @@
 <p>![](<a href="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）" target="_blank" rel="external">https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）</a></p>
 <p>接下来我们就可以进行一个多任务学习（multi-task），让同一个类簇的问题得分较高，即，其训练方式和之前训练答案和问题得分是一样的。</p>
 <p>至此，通过以上两种训练，我们的分布式表达就训练完毕了。</p>
-<p>代表论文： </p>
+<p>根据问题首先要确定候选答案，这里作者确定候选答案的方式和信息抽取略有不同。首先在从问题中主题词对应的知识库实体出发，通过 beam search 的方式保存10个和问题最相关的实体关系（通过把实体关系当成答案，用  式子的得分作为 beam search 的排序标准）。</p>
+<p>接下来选取主题词两跳范围以内的路径，且该路径必须包含这 10 个关系中的关系，将满足条件的路径的终点对应的实体作为候选答案，其中，1 跳路径的权值是 2 跳的 1.5 倍（因为 2 跳包含的元素更多）。 </p>
+<p>确定完候选答案后，选取  得分最高的作为最终答案。 </p>
+<p>该方法在 WebQuestion 数据集上进行测试，取得了 39.2 的 F1-Score。 </p>
+<p>可以看出，相比信息抽取和语义解析的方法，该方法几乎不需要任何手工定义的特征（hand- crafted features），也不需要借助额外的系统（词汇映射表，词性标注，依存树等）。</p>
+<p>相对来说，比较简单，也较容易实现，能取得 39.2 的 F1-score 得分（斯坦福 13 年的语义解析方法只有 35.7）也说明了该方法的强大性。通过自动化的方式扩展数据集和多任务训练也部分解决了实验数据不足的缺点。 </p>
+<p>然而，向量建模方法，是一种趋于黑盒的方法，缺少了解释性（语义解析可以将问题转化成一种逻辑形式的表达，而信息抽取构造的每一维特征的含义也是离散可见的），更重要的是，它也缺少了我们的先验知识和推理（可以看出其 F1-score 略低于 14 年使用了大量先验知识的信息抽取方法，该方法 F1-score 为 42.0），事实上，这也是现在深度学习一个比较有争议的诟病。 </p>
+<p>就这篇论文的向量建模方法来说，也存在一些问题，比如对问题的向量表示采用了类似词袋模型的方法，这样相当于并未考虑问题的语言顺序（比如 “谢霆锋的爸爸是谁？” 谢霆锋是谁的爸爸？ 这两个问题用该方法得到的表达是一样的，然而这两个问题的意思显然是不同的），且训练分布式表达的模型很简单，相当于一个两层的感知机。这些问题，可以通过深度学习来解决。</p>
+<p>随着深度学习的加入，KB-QA 进入了一个新的时代。下一期，我们将进入深度学习篇，由于深度学习可以对传统的三种方法都可以进行提升，因此我们打算将深度学习篇拆成 2-3 篇来进行讲解，进一步揭开 KB-QA 的面纱，敬请期待本系列后续文章。</p>
+<p>其他代表论文： </p>
 <p>Bordes A, Chopra S, Weston J. Question answering with subgraph embeddings[J]. arXiv preprint arXiv:1406.3676, 2014.</p>
 <p>Yang M C, Duan N, Zhou M, et al. Joint Relational Embeddings for Knowledge-based Question Answering[C]//EMNLP. 2014, 14: 645-650.</p>
 <p>Bordes A, Weston J, Usunier N. Open question answering with weakly supervised embedding models[C]//Joint European Conference on Machine Learning and Knowledge Discovery in Databases. Springer Berlin Heidelberg, 2014: 165-180.</p>
