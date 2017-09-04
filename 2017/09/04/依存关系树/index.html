@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="关于git的几点使用fork">
+<meta name="description" content="浅层句法分析和依存句法分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="关于git的几点">
-<meta property="og:url" content="http://yoursite.com/2017/04/26/关于git的几点/index.html">
+<meta property="og:title" content="依存关系树">
+<meta property="og:url" content="http://yoursite.com/2017/09/04/依存关系树/index.html">
 <meta property="og:site_name" content="唐相儒TANG的博客">
-<meta property="og:description" content="关于git的几点使用fork">
-<meta property="og:updated_time" content="2017-05-15T15:43:35.000Z">
+<meta property="og:description" content="浅层句法分析和依存句法分析">
+<meta property="og:updated_time" content="2017-09-04T11:50:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="关于git的几点">
-<meta name="twitter:description" content="关于git的几点使用fork">
+<meta name="twitter:title" content="依存关系树">
+<meta name="twitter:description" content="浅层句法分析和依存句法分析">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/26/关于git的几点/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/04/依存关系树/"/>
 
 
 
 
 
-  <title> 关于git的几点 | 唐相儒TANG的博客 </title>
+  <title> 依存关系树 | 唐相儒TANG的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/关于git的几点/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/04/依存关系树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -312,7 +312,7 @@
             
             
               
-                关于git的几点
+                依存关系树
               
             
           </h1>
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T19:56:31+08:00">
-                2017-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-04T19:50:13+08:00">
+                2017-09-04
               </time>
             
 
@@ -346,9 +346,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/26/关于git的几点/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/04/依存关系树/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/04/26/关于git的几点/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/04/依存关系树/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,27 +374,42 @@
       
 
       
-        <h1 id="关于git的几点"><a href="#关于git的几点" class="headerlink" title="关于git的几点"></a>关于git的几点</h1><p>使用fork</p>
-<a id="more"></a>
-<h2 id="配置Configuring-a-remote-for-a-fork"><a href="#配置Configuring-a-remote-for-a-fork" class="headerlink" title="配置Configuring a remote for a fork"></a>配置Configuring a remote for a fork</h2><ul>
-<li><p>查看远程状态: git remote -v</p>
-</li>
-<li><p>添加一个将被同步给fork远程的上游仓库:git remote add upstream<br><a href="https://github.com/tangxiangru/original_repository.git" target="_blank" rel="external">https://github.com/tangxiangru/original_repository.git</a></p>
-</li>
-<li><p>再次查看状态确认是否配置成功: git remote -v </p>
-</li>
-</ul>
-<h2 id="同步Syncing-a-fork"><a href="#同步Syncing-a-fork" class="headerlink" title="同步Syncing a fork"></a>同步Syncing a fork</h2><ul>
-<li>从上游仓库 fetch 分支和提交点，传送到本地，并会被存储在一个本地分支upstream/master: git fetch upstream</li>
-<li>切换到本地主分支(如果不在): git checkout master</li>
-<li>把 upstream/master分支合并到本地master上，这样就完成了同步，并且不会丢掉本地修改的内容: git merge upstream/master<br>*如果想更新到GitHub的fork上: git push origin master</li>
-</ul>
-<h2 id="Git-如何-clone-非-master-分支的代码"><a href="#Git-如何-clone-非-master-分支的代码" class="headerlink" title="Git 如何 clone 非 master 分支的代码"></a>Git 如何 clone 非 master 分支的代码</h2><ul>
-<li>查看所有分支: git branch -a</li>
-<li>查看远程分支:git branch -r </li>
-<li>然后: git checkout dev-branch </li>
-</ul>
-<p>另一种方法：在本地先建立一个分支(名称和远程的想要同步的分支名称一样），再切换到这个分支，然后<code>git pull</code>一下按提示来做：<code>git branch --set-upstream-to=origin/devbranch</code>，然后最后<code>git pull</code></p>
+        <p>浅层句法分析和依存句法分析<br><a id="more"></a></p>
+<h2 id="浅层句法分析"><a href="#浅层句法分析" class="headerlink" title="浅层句法分析"></a>浅层句法分析</h2><p>1、概念：识别句子中的一些相对简单的独立成分（语块）</p>
+<p>2、任务：（1）语块的识别与分析；（2）语块之间的依存关系</p>
+<p>3、语块的概念：包含位词、非递归短语、子句</p>
+<p>4、名词短语句法分析：利用IOB来标记语块，或者块标注法标记语块，并且可以使用下面的方法来训练模型（1）使用SVM；（2）使用WINNOW；（3）使用CRF</p>
+<h2 id="依存句法分析"><a href="#依存句法分析" class="headerlink" title="依存句法分析"></a>依存句法分析</h2><p>1、思路</p>
+<p>句法关联建立起词和词之间的关联，包括支配词和从属词。依存语法是指支配与被支配的关系。（依存语法认为动词是句子的中心，其他词都是由动词所支配。）</p>
+<p>2、优点</p>
+<p>简单，直接考虑词之间的关联；<br>不过多强调句子中的固定词序；<br>受深层语义结构驱动，依存本质是语义上的；<br>形式化程度较短语结构更浅。</p>
+<p>3、依存句法分析方法</p>
+<p>包括判别式、生成式、确定性依存分析、基于约束满足的分析方法（规则方法）。</p>
+<p>①生成式：考虑联合分布最大时的依存语法树（需要以词和词之间是独立的作为前提条件）</p>
+<p>②判别式：考虑条件概率最大（可以不考虑词和词之间的独立性）</p>
+<p>③模仿人的认知过程，按照特定方向每次读入一个词。每读入一个词，就进行一次决策。<br>优点：速度快<br>缺点：不可回溯（局部最优）<br>举例：Arc-eager算法（包含四种分析动作：Left-Arc、Right-Arc、Reduce、Shift），算法例子放在后面</p>
+<p>4、评价指标</p>
+<p>无标记依存正确率：测试集中找到其正确支配词的词所占总次数的百分比；<br>带标记依存正确率：测试集中找到其正确支配词的词，并且依存关系类型也标注正确的词占总词数的百分比；<br>依存正确率：测试集中找到正确支配词非根结点词占所有非根结点词总数的百分比；<br>根正确率：测试集中正确根结点的个数与句子个数的百分比；或者是指测试集中找到正确根结点的句子数占总句子数百分比；<br>完全匹配率：测试集中无标记依存结构完全正确的句子占句子总数的百分比。</p>
+<p>5、依存分析树与短语结构树的关系</p>
+<p>依存分析树可以由短语结构树得到，但是反过来不行（一颗依存分析树对应多种可能的短语结构树）。</p>
+<p>转换步骤：</p>
+<p>定义中心词抽取规则，产生中心词表；<br>根据中心词表，为句法树中每个节点选择中心子结点；<br>同一层的非中心子结点中心词依存到中心子结点的中心词上，下一层的中心词依存到上一层的中心词上。</p>
+<p>6、Arc-eager算法举例</p>
+<p>由于截图不是特别清楚，我们再用文字描述一遍。</p>
+<p>左边的S表示栈，右边为待处理的已分词的句子。句子内容为“脚步声打断了我的沉思”。具体步骤描述如下：</p>
+<p>Left-Arc：将“脚步”存入栈中，之后取栈顶元素（“脚步”）和队头元素（“声”）比较，如果两者有依存关系，且“声”支配“脚步”，则进行Left-Arc操作；</p>
+<p>Shift：将已经完成的部分放入栈中（如下图）；</p>
+<p>Left-Arc：比对当前栈顶元素（“声”）和队列元素（“打断”）的依存关系，发现也是Left-Arc，那么进行Left-Arc操作；</p>
+<p>Shift；</p>
+<p>Right-Arc：“打断”支配“了”，为Right-Arc；</p>
+<p>Reduce：由于栈顶元素不是根结点，所以要进行规约，使得“打断”在栈顶；</p>
+<p>Shift：由于“我”和“打断”没有依存关系，所以将“我”移入栈顶；</p>
+<p>Left-Arc：“的”支配“我”；</p>
+<p>Shift；</p>
+<p>Left-Arc：“沉思”支配“的”；</p>
+<p>Right-Arc：“打断”支配“沉思”；</p>
+<p>Reduce：让“打断”在栈顶；</p>
+<p>End。</p>
 
       
     </div>
@@ -431,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/23/读被伤害与侮辱的人们/" rel="next" title="读被伤害与侮辱的人们">
-                <i class="fa fa-chevron-left"></i> 读被伤害与侮辱的人们
+              <a href="/2017/09/03/知识图谱探索/" rel="next" title="知识图谱探索">
+                <i class="fa fa-chevron-left"></i> 知识图谱探索
               </a>
             
           </div>
@@ -440,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/02/编程语言之美/" rel="prev" title="编程语言之美">
-                编程语言之美 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -561,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#关于git的几点"><span class="nav-number">1.</span> <span class="nav-text">关于git的几点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置Configuring-a-remote-for-a-fork"><span class="nav-number">1.1.</span> <span class="nav-text">配置Configuring a remote for a fork</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同步Syncing-a-fork"><span class="nav-number">1.2.</span> <span class="nav-text">同步Syncing a fork</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-如何-clone-非-master-分支的代码"><span class="nav-number">1.3.</span> <span class="nav-text">Git 如何 clone 非 master 分支的代码</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#浅层句法分析"><span class="nav-number">1.</span> <span class="nav-text">浅层句法分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依存句法分析"><span class="nav-number">2.</span> <span class="nav-text">依存句法分析</span></a></li></ol></div>
             
 
           </div>
@@ -698,9 +709,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/04/26/关于git的几点/';
-          this.page.identifier = '2017/04/26/关于git的几点/';
-          this.page.title = '关于git的几点';
+          this.page.url = 'http://yoursite.com/2017/09/04/依存关系树/';
+          this.page.identifier = '2017/09/04/依存关系树/';
+          this.page.title = '依存关系树';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
