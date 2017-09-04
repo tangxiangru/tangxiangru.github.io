@@ -97,26 +97,18 @@ tags:文本摘要和情感分析、mt、文本分析及表示学习">
 <meta property="og:site_name" content="唐相儒TANG的博客">
 <meta property="og:description" content="title: emnlpdate: 2017-08-17 21:21:27
 tags:文本摘要和情感分析、mt、文本分析及表示学习">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/3.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/7.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/2.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/1.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/4.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/15.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/9.png">
-<meta property="og:image" content="http://yoursite.com/picture/emnlp/5.png">
 <meta property="og:image" content="http://yoursite.com/picture/1.png">
 <meta property="og:image" content="http://yoursite.com/picture/emnlp/.png">
 <meta property="og:image" content="http://yoursite.com/picture/emnlp/.png">
 <meta property="og:image" content="http://yoursite.com/picture/emnlp/.png">
 <meta property="og:image" content="http://yoursite.com/picture/emnlp/.png">
 <meta property="og:image" content="http://yoursite.com/picture/emnlp/.png">
-<meta property="og:updated_time" content="2017-08-29T07:03:39.000Z">
+<meta property="og:updated_time" content="2017-09-04T12:17:49.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="唐相儒TANG的博客">
 <meta name="twitter:description" content="title: emnlpdate: 2017-08-17 21:21:27
 tags:文本摘要和情感分析、mt、文本分析及表示学习">
-<meta name="twitter:image" content="http://yoursite.com/picture/emnlp/3.png">
+<meta name="twitter:image" content="http://yoursite.com/picture/1.png">
 
 
 
@@ -394,10 +386,11 @@ tags:文本摘要和情感分析、mt、文本分析及表示学习">
       
         <hr>
 <p>title: emnlp<br>date: 2017-08-17 21:21:27</p>
-<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>文本摘要和情感分析、mt、文本分析及表示学习<br><a id="more"></a></p>
+<h2 id="tags"><a href="#tags" class="headerlink" title="tags:"></a>tags:</h2><p>文本摘要和情感分析、mt、文本分析及表示学习 </p>
+<a id="more"></a>
 <h1 id="文本摘要和情感分析"><a href="#文本摘要和情感分析" class="headerlink" title="文本摘要和情感分析"></a>文本摘要和情感分析</h1><h2 id="1-异步多模态文本摘要"><a href="#1-异步多模态文本摘要" class="headerlink" title="1.异步多模态文本摘要"></a>1.异步多模态文本摘要</h2><p>介绍：<br>同步·：同一时间语言和视频（字幕）</p>
 <p>异步：文本新闻，视频新闻</p>
-<p><img src="/picture/emnlp/3.png" alt=""><br><img src="/picture/emnlp/7.png" alt=""><br><img src="/picture/emnlp/2.png" alt=""><br><img src="/picture/emnlp/1.png" alt=""><br>多模态的异步：文本模态，视频模态，音频模态<br>要考虑到：会有很多错误</p>
+<p>多模态的异步：文本模态，视频模态，音频模态<br>要考虑到：会有很多错误</p>
 <p>视频：一系列图像集合，镜头内部语意相似（一系列帧的集合）<br>视觉信息在新闻中占有什么角色<br>若是文本摘要能覆盖这些视觉亮点就可以覆盖那些重点</p>
 <p>镜头长的自然更重要一些</p>
 <p>具体：<br>重要性，可读性，覆盖视觉信息</p>
@@ -406,7 +399,8 @@ tags:文本摘要和情感分析、mt、文本分析及表示学习">
 <p>目标函数：怎么优化有数学……<br>上面如图</p>
 <p>数据集：<br>对比试验：有七个对比，肯定是图文匹配结果更好（加引导策略提升不大，引导策略对可读性有提升）</p>
 <p>总结：指导策略来可读性高，多模态摘要（未来：低成本标注大量数据集）</p>
-<h2 id="2-多文本摘要"><a href="#2-多文本摘要" class="headerlink" title="2 多文本摘要"></a>2 多文本摘要</h2><p>保持句子间的亲疏度<br>aim：选择更重要的句子、冗余性少<br>一个摘要系统的目标函数考虑到aim<br><img src="/picture/emnlp/4.png" alt=""><br><img src="/picture/emnlp/15.png" alt=""><br><img src="/picture/emnlp/9.png" alt=""><br><img src="/picture/emnlp/5.png" alt=""><br>几十篇文档句子数量很多，但目标摘要句子少<br>优点：用图排序（基于迭代，较为复杂）所以不需要大量数据集（区别深度模型）</p>
+<h2 id="2-多文本摘要"><a href="#2-多文本摘要" class="headerlink" title="2 多文本摘要"></a>2 多文本摘要</h2><p>保持句子间的亲疏度<br>aim：选择更重要的句子、冗余性少<br>一个摘要系统的目标函数考虑到aim</p>
+<p>几十篇文档句子数量很多，但目标摘要句子少<br>优点：用图排序（基于迭代，较为复杂）所以不需要大量数据集（区别深度模型）</p>
 <p>更新调整随机游走模型中的非对称的转移矩阵</p>
 <p>缺点：convergence，词袋模型</p>
 <p>传统上随机游走模型：离散mm，加了一个只能转移到自己的节点</p>
