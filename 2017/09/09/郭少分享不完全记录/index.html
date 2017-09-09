@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://shiningray.cn/wp-content/uploads/tcmalloc_files/pageheap.gif">
 <meta property="og:image" content="http://dl.iteye.com/upload/attachment/548687/91b3885b-1b16-3a35-90dd-e059090121b8.jpg">
 <meta property="og:image" content="http://dl.iteye.com/upload/attachment/548691/fe463a08-18a5-3a75-ab51-6c4c425cb4db.jpg">
-<meta property="og:updated_time" content="2017-09-09T06:56:39.000Z">
+<meta property="og:updated_time" content="2017-09-09T11:24:27.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="郭少分享不完全记录">
 <meta name="twitter:description" content="“用TCMalloc或者jemalloc比自己实现的可能好十到一百倍”">
@@ -403,7 +403,7 @@
 <p>UNIX访问文件的<strong>传统方法</strong>是用open打开它们,如下图两个进程同时读一个文件的同一页的情形，每个进程都要再执行一个存储器内的复制操作将已经被从磁盘读到高速缓冲区的数据再读到自己的地址空间<br><img src="http://dl.iteye.com/upload/attachment/548687/91b3885b-1b16-3a35-90dd-e059090121b8.jpg" alt=""></p>
 <p>而mmap()系统调用使得进程之间通过映射同一个普通文件实现共享内存。普通文件被映射到进程地址空间后，进程可以向访问普通内存一样对文件进行访问，不必再调用read()，write（）等操作。</p>
 <p>mmap()系统调用形式如下：<br>void<em> mmap ( void </em> addr , size_t len , int prot , int flags , int fd , off_t offset )<br>mmap的作用是映射文件描述符fd指定文件的 [off,off + len]区域至调用进程的[addr, addr + len]的内存区域, 如下图所示:<br><img src="http://dl.iteye.com/upload/attachment/548691/fe463a08-18a5-3a75-ab51-6c4c425cb4db.jpg" alt=""><br>参数解释：</p>
-<p>(参数fd为即将映射到进程空间的文件描述字，一般由open()返回，同时，fd可以指定为-1，此时须指定flags参数中的<br>MAP_ANON，表明进行的是匿名映射（不涉及具体的文件名，避免了文件的创建及打开，很显然只能用于具有亲缘关系的<br>进程间通信）。<br>len是映射到调用进程地址空间的字节数，它从被映射文件开头offset个字节开始算起。<br>prot 参数指定共享内存的访问权限。可取如下几个值的或：PROT_READ（可读） , PROT_WRITE （可写）, PROT_EXEC （可执行）, PROT_NONE（不可访问）。<br>flags由以下几个常值指定：MAP_SHARED , MAP_PRIVATE , MAP_FIXED，其中，MAP_SHARED , MAP_PRIVATE必<br>选其一，而MAP_FIXED则不推荐使用。<br>offset参数一般设为0，表示从文件头开始映射。<br>参数addr指定文件应被映射到进程空间的起始地址，一般被指定一个空指针，此时选择起始地址的任务留给内核来完成。函<br>数的返回值为最后文件映射到进程空间的地址，进程可直接操作起始地址为该值的有效地址。)</p>
+<p>(参数fd为即将映射到进程空间的文件描述字，一般由open()返回，同时，fd可以指定为-1，此时须指定flags参数中的MAP_ANON，表明进行的是匿名映射（不涉及具体的文件名，避免了文件的创建及打开，很显然只能用于具有亲缘关系的<br>进程间通信）。<br>len是映射到调用进程地址空间的字节数，它从被映射文件开头offset个字节开始算起。<br>prot 参数指定共享内存的访问权限。可取如下几个值的或：PROT_READ（可读） , PROT_WRITE （可写）, PROT_EXEC （可执行）, PROT_NONE（不可访问）。<br>flags由以下几个常值指定：MAP_SHARED , MAP_PRIVATE , MAP_FIXED，其中,MAP_SHARED , MAP_PRIVATE必<br>选其一，而MAP_FIXED则不推荐使用。<br>offset参数一般设为0，表示从文件头开始映射。<br>参数addr指定文件应被映射到进程空间的起始地址，一般被指定一个空指针，此时选择起始地址的任务留给内核来完成。函数的返回值为最后文件映射到进程空间的地址，进程可直接操作起始地址为该值的有效地址。)</p>
 <h1 id="jemalloc"><a href="#jemalloc" class="headerlink" title="jemalloc"></a>jemalloc</h1><p><a href="http://brionas.github.io/2015/01/31/jemalloc%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" target="_blank" rel="external">http://brionas.github.io/2015/01/31/jemalloc%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</a></p>
 <h1 id="内存池的实现"><a href="#内存池的实现" class="headerlink" title="内存池的实现"></a>内存池的实现</h1><p><a href="http://www.cnblogs.com/bangerlee/archive/2011/08/31/2161421.html" target="_blank" rel="external">http://www.cnblogs.com/bangerlee/archive/2011/08/31/2161421.html</a></p>
 <h1 id="slab-分配器"><a href="#slab-分配器" class="headerlink" title="slab 分配器"></a>slab 分配器</h1><p><a href="https://www.ibm.com/developerworks/cn/linux/l-linux-slab-allocator/index.html" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-linux-slab-allocator/index.html</a></p>
