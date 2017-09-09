@@ -89,20 +89,23 @@
 
 
 
-<meta name="description" content="对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。">
+<meta name="description" content="“用TCMalloc或者jemalloc比自己实现的可能好十到一百倍”">
 <meta property="og:type" content="article">
-<meta property="og:title" content="分类器性能评估方法对比">
-<meta property="og:url" content="http://yoursite.com/2017/07/14/分类器性能评估方法对比/index.html">
+<meta property="og:title" content="郭少分享不完全记录">
+<meta property="og:url" content="http://yoursite.com/2017/09/09/郭少分享不完全记录/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
-<meta property="og:description" content="对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。">
-<meta property="og:image" content="http://alexkong.net/images/fpr-and-tpr.png">
-<meta property="og:image" content="http://alexkong.net/images/Roccurves.png">
-<meta property="og:image" content="http://alexkong.net/images/roc-and-precall.png">
-<meta property="og:updated_time" content="2017-07-16T13:56:52.000Z">
+<meta property="og:description" content="“用TCMalloc或者jemalloc比自己实现的可能好十到一百倍”">
+<meta property="og:image" content="http://shiningray.cn/wp-content/uploads/tcmalloc_files/spanmap.gif">
+<meta property="og:image" content="http://blog.chinaunix.net/photo/96790_101223120455.jpg">
+<meta property="og:image" content="http://blog.chinaunix.net/photo/96790_101223120512.jpg">
+<meta property="og:image" content="http://shiningray.cn/wp-content/uploads/tcmalloc_files/pageheap.gif">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/548687/91b3885b-1b16-3a35-90dd-e059090121b8.jpg">
+<meta property="og:image" content="http://dl.iteye.com/upload/attachment/548691/fe463a08-18a5-3a75-ab51-6c4c425cb4db.jpg">
+<meta property="og:updated_time" content="2017-09-09T06:56:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类器性能评估方法对比">
-<meta name="twitter:description" content="对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。">
-<meta name="twitter:image" content="http://alexkong.net/images/fpr-and-tpr.png">
+<meta name="twitter:title" content="郭少分享不完全记录">
+<meta name="twitter:description" content="“用TCMalloc或者jemalloc比自己实现的可能好十到一百倍”">
+<meta name="twitter:image" content="http://shiningray.cn/wp-content/uploads/tcmalloc_files/spanmap.gif">
 
 
 
@@ -130,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/14/分类器性能评估方法对比/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/09/郭少分享不完全记录/"/>
 
 
 
 
 
-  <title> 分类器性能评估方法对比 | 唐相儒的博客 </title>
+  <title> 郭少分享不完全记录 | 唐相儒的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -295,7 +298,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/14/分类器性能评估方法对比/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/09/郭少分享不完全记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -316,7 +319,7 @@
             
             
               
-                分类器性能评估方法对比
+                郭少分享不完全记录
               
             
           </h1>
@@ -331,8 +334,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-14T15:59:11+08:00">
-                2017-07-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-09T14:28:00+08:00">
+                2017-09-09
               </time>
             
 
@@ -350,9 +353,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/14/分类器性能评估方法对比/#comments" itemprop="discussionUrl">
+                <a href="/2017/09/09/郭少分享不完全记录/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/14/分类器性能评估方法对比/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/09/09/郭少分享不完全记录/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -378,29 +381,33 @@
       
 
       
-        <p>对于分类器，或者说分类算法，评价指标主要有precision，recall，F-score1，ROC和AUC。<br><a id="more"></a><br><a href="http://pages.cs.wisc.edu/~jdavis/davisgoadrichcamera2.pdf" target="_blank" rel="external">06icml)The Relationship Between Precision-Recall and ROC Curves</a></p>
-<p><a href="https://www.52ml.net/19370.html" target="_blank" rel="external">https://www.52ml.net/19370.html</a></p>
-<h1 id="精准率和召回率"><a href="#精准率和召回率" class="headerlink" title="精准率和召回率"></a>精准率和召回率</h1><p>系统检索到的相关文档（A）（TP）</p>
-<p>系统检索到的不相关文档（B）(FP)</p>
-<p>相关但是系统没有检索到的文档（C）(FN)</p>
-<p>不相关且没有被系统检索到的文档（D）(TN) </p>
-<p>则：召回率R：用检索到相关文档数作为分子，所有相关文档总数作为分母，即R = A / ( A + C )</p>
-<p>准确率P：用检索到相关文档数作为分子，所有检索到的文档总数作为分母．即P = A / ( A + B ).</p>
-<h1 id="F1"><a href="#F1" class="headerlink" title="F1"></a>F1</h1><p>F1是对准确率和召回率的综合，是模型准确率和召回率的一种调和平均，它的最大值是1，最小值是0。</p>
-<p>F1-score(F1-分数)：2×准确率×召回率/（准确率+召回率）<br><img src="http://alexkong.net/images/fpr-and-tpr.png" alt=""></p>
-<h1 id="ROC和AUC"><a href="#ROC和AUC" class="headerlink" title="ROC和AUC"></a>ROC和AUC</h1><p>ROC和AUC是一回事，通常用于二分类的评价</p>
-<p>ROC:ROC曲线的横坐标为false positive rate（FPR,假正率），纵坐标为true positive rate（TPR，真正率，召回率）</p>
-<p>TPR:TPR = TP /（TP + FN）</p>
-<p>TNR:TNR = TN /（TN + FP）</p>
-<p>FPR:FPR = FP /（FP + TN） </p>
-<p>FNR:FNR = FN /（TP + FN） </p>
-<p><img src="http://alexkong.net/images/Roccurves.png" alt=""></p>
-<p>AUC:被定义为ROC曲线下的面积，显然这个面积的数值不会大于1。又由于ROC曲线一般都处于y=x这条直线的上方，所以AUC的取值范围在0.5和1之间。</p>
-<p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法根据计算得到的Score值将这个正样本排在负样本前面的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能将正样本排在负样本前面，即能够更好的分类。</p>
-<p>ROC曲线越接近左上角，该分类器的性能越好。</p>
-<p>下图是ROC曲线和Precision-Recall曲线5的对比：</p>
-<p>（图片来自论文<br><img src="http://alexkong.net/images/roc-and-precall.png" alt=""><br>(a)和(c)为ROC曲线，(b)和(d)为Precision-Recall曲线. </p>
-<p>(a)和(b)展示的是分类其在原始测试集（正负样本分布平衡）的结果，(c)和(d)是将测试集中负样本的数量增加到原来的10倍后，分类器的结果。可以明显的看出，ROC曲线基本保持原貌，而Precision-Recall曲线则变化较大。</p>
+        <p>“用TCMalloc或者jemalloc比自己实现的可能好十到一百倍”<br><a id="more"></a></p>
+<h1 id="TCMalloc"><a href="#TCMalloc" class="headerlink" title="TCMalloc"></a>TCMalloc</h1><p>优点：快、减少了多线程程序中的锁争用情况、小对象的空间最优表现形式</p>
+<h2 id="跨度（Span）"><a href="#跨度（Span）" class="headerlink" title="跨度（Span）"></a>跨度（Span）</h2><p>TCMalloc管理的堆由一系列页面组成。连续的页面由一个“跨度”（Span）对象来表示。由页面号索引的中央数组可以用于找到某个页面所属的跨度。</p>
+<p><img src="http://shiningray.cn/wp-content/uploads/tcmalloc_files/spanmap.gif" alt=""><br>(跨度a占据了2个页面，跨度b占据了1个页面，跨度c占据了5个页面最后跨度d占据了3个页面)</p>
+<p>在一个32位的地址空间中，中央阵列由一个2层的基数树来表示，其中根包含了32个条目，每个叶包含了 2^15个条目（一个32为地址空间包含了 2^20个 4K 页面，所以这里树的第一层则是用2^5整除2^20个页面）。这就导致了中央阵列的初始内存使用需要128KB空间（2^15*4字节），看上去还是可以接受的。</p>
+<p>在64位机器上，我们将使用一个3层的基数树。</p>
+<p><strong>其中基数树是什么?</strong></p>
+<p>Linux基数树（radix tree）是将指针与long整数键值相关联的机制，它存储有效率，并且可快速查询，用于指针与整数值的映射（如：IDR机制）、内存管理等。</p>
+<p>Linux radix树最广泛的用途是用于内存管理，结构address_space通过radix树跟踪绑定到地址映射上的核心页，该radix树允许内存管理代码快速查找标识为dirty或writeback的页。Linux radix树的API函数在lib/radix-tree.c中实现。</p>
+<p>radix树是通用的字典类型数据结构，radix树又称为PAT位树（Patricia Trie or crit bit tree）。Linux内核使用了数据类型unsigned long的固定长度输入的版本。每级代表了输入空间固定位数。</p>
+<p>radix tree是一种多叉搜索树，树的叶子结点是实际的数据条目。每个结点有一个固定的、2^n指针指向子结点（每个指针称为槽slot），并有一个指针指向父结点。</p>
+<p>Linux内核利用radix树在文件内偏移快速定位文件缓存页，图4是一个radix树样例，该radix树的分叉为4(22)，树高为4，树的每个叶子结点用来快速定位8位文件内偏移，可以定位4x4x4x4=256页，如：图中虚线对应的两个叶子结点的路径组成值0x00000010和0x11111010，指向文件内相应偏移所对应的缓存页。 </p>
+<p><img src="http://blog.chinaunix.net/photo/96790_101223120455.jpg" alt=""></p>
+<p>Linux radix树每个结点有64个slot，与数据类型long的位数相同，图1显示了一个有3级结点的radix树，每个数据条目（item）可用3个6位的键值（key）进行索引，键值从左到右分别代表第1~3层结点位置。没有孩子的结点在图中不出现。因此，radix树为稀疏树提供了有效的存储，代替固定尺寸数组提供了键值到指针的快速查找。<br><img src="http://blog.chinaunix.net/photo/96790_101223120512.jpg" alt=""></p>
+<h2 id="大对象的分配"><a href="#大对象的分配" class="headerlink" title="大对象的分配"></a>大对象的分配</h2><p>一个大对象的尺寸(&gt; 32K)会被除以一个页面尺寸（4K）并取整（大于结果的最小整数），同时是由中央页面堆来处理的。中央页面堆又是一个自由列表的阵列。对于i &lt; 256而言，第k个条目是一个由k个页面组成的自由列表。第256个条目则是一个包含了长度&gt;= 256个页面的自由列表：</p>
+<p><img src="http://shiningray.cn/wp-content/uploads/tcmalloc_files/pageheap.gif" alt=""></p>
+<p>k个页面的一次分配通过在第k个自由列表中查找来完成。如果该自由列表为空，那么我们则在下一个自由列表中查找，如此继续。最终，如果必要的话，我们将在最后一个自由列表中查找。如果这个动作也失败了，我们将向系统获取内存（使用sbrk、mmap或者通过在/dev/mem中进行映射）。</p>
+<p>如果k个页面的一次分配行为由连续的长度&gt; k的页面满足了，剩下的连续页面将被重新插回到页面堆的对应的自由列表中。</p>
+<p><strong>其中内存共享机制mmap是什么?</strong><br>共享内存可以说是最有用的进程间通信方式，也是最快的IPC形式, 因为进程可以直接读写内存，而不需要任何数据的拷贝。（unlike管道和消息队列）并且共享内存中的内容往往是在解除映射时才写回文件的。因此，采用共享内存的通信方式效率是非常高的</p>
+<p>UNIX访问文件的<strong>传统方法</strong>是用open打开它们,如下图两个进程同时读一个文件的同一页的情形，每个进程都要再执行一个存储器内的复制操作将已经被从磁盘读到高速缓冲区的数据再读到自己的地址空间<br><img src="http://dl.iteye.com/upload/attachment/548687/91b3885b-1b16-3a35-90dd-e059090121b8.jpg" alt=""></p>
+<p>而mmap()系统调用使得进程之间通过映射同一个普通文件实现共享内存。普通文件被映射到进程地址空间后，进程可以向访问普通内存一样对文件进行访问，不必再调用read()，write（）等操作。</p>
+<p>mmap()系统调用形式如下：<br>void<em> mmap ( void </em> addr , size_t len , int prot , int flags , int fd , off_t offset )<br>mmap的作用是映射文件描述符fd指定文件的 [off,off + len]区域至调用进程的[addr, addr + len]的内存区域, 如下图所示:<br><img src="http://dl.iteye.com/upload/attachment/548691/fe463a08-18a5-3a75-ab51-6c4c425cb4db.jpg" alt=""><br>参数解释：</p>
+<p>(参数fd为即将映射到进程空间的文件描述字，一般由open()返回，同时，fd可以指定为-1，此时须指定flags参数中的<br>MAP_ANON，表明进行的是匿名映射（不涉及具体的文件名，避免了文件的创建及打开，很显然只能用于具有亲缘关系的<br>进程间通信）。<br>len是映射到调用进程地址空间的字节数，它从被映射文件开头offset个字节开始算起。<br>prot 参数指定共享内存的访问权限。可取如下几个值的或：PROT_READ（可读） , PROT_WRITE （可写）, PROT_EXEC （可执行）, PROT_NONE（不可访问）。<br>flags由以下几个常值指定：MAP_SHARED , MAP_PRIVATE , MAP_FIXED，其中，MAP_SHARED , MAP_PRIVATE必<br>选其一，而MAP_FIXED则不推荐使用。<br>offset参数一般设为0，表示从文件头开始映射。<br>参数addr指定文件应被映射到进程空间的起始地址，一般被指定一个空指针，此时选择起始地址的任务留给内核来完成。函<br>数的返回值为最后文件映射到进程空间的地址，进程可直接操作起始地址为该值的有效地址。)</p>
+<h1 id="jemalloc"><a href="#jemalloc" class="headerlink" title="jemalloc"></a>jemalloc</h1><p><a href="http://brionas.github.io/2015/01/31/jemalloc%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/" target="_blank" rel="external">http://brionas.github.io/2015/01/31/jemalloc%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/</a></p>
+<h1 id="内存池的实现"><a href="#内存池的实现" class="headerlink" title="内存池的实现"></a>内存池的实现</h1><p><a href="http://www.cnblogs.com/bangerlee/archive/2011/08/31/2161421.html" target="_blank" rel="external">http://www.cnblogs.com/bangerlee/archive/2011/08/31/2161421.html</a></p>
+<h1 id="slab-分配器"><a href="#slab-分配器" class="headerlink" title="slab 分配器"></a>slab 分配器</h1><p><a href="https://www.ibm.com/developerworks/cn/linux/l-linux-slab-allocator/index.html" target="_blank" rel="external">https://www.ibm.com/developerworks/cn/linux/l-linux-slab-allocator/index.html</a></p>
+<h1 id="c-实现内存分配器"><a href="#c-实现内存分配器" class="headerlink" title="c++实现内存分配器"></a>c++实现内存分配器</h1><p><a href="http://www.codeceo.com/article/efficient-cpp-memory-allocator.html" target="_blank" rel="external">http://www.codeceo.com/article/efficient-cpp-memory-allocator.html</a></p>
 
       
     </div>
@@ -437,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/14/kd-tree/" rel="next" title="kd tree">
-                <i class="fa fa-chevron-left"></i> kd tree
+              <a href="/2017/09/04/emnlp2017/" rel="next" title="emnlp2017">
+                <i class="fa fa-chevron-left"></i> emnlp2017
               </a>
             
           </div>
@@ -446,10 +453,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/18/最优化方法总结/" rel="prev" title="最优化方法总结">
-                最优化方法总结 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -567,7 +570,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#精准率和召回率"><span class="nav-number">1.</span> <span class="nav-text">精准率和召回率</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#F1"><span class="nav-number">2.</span> <span class="nav-text">F1</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ROC和AUC"><span class="nav-number">3.</span> <span class="nav-text">ROC和AUC</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#TCMalloc"><span class="nav-number">1.</span> <span class="nav-text">TCMalloc</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#跨度（Span）"><span class="nav-number">1.1.</span> <span class="nav-text">跨度（Span）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#大对象的分配"><span class="nav-number">1.2.</span> <span class="nav-text">大对象的分配</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#jemalloc"><span class="nav-number">2.</span> <span class="nav-text">jemalloc</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内存池的实现"><span class="nav-number">3.</span> <span class="nav-text">内存池的实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#slab-分配器"><span class="nav-number">4.</span> <span class="nav-text">slab 分配器</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#c-实现内存分配器"><span class="nav-number">5.</span> <span class="nav-text">c++实现内存分配器</span></a></li></ol></div>
             
 
           </div>
@@ -704,9 +707,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/07/14/分类器性能评估方法对比/';
-          this.page.identifier = '2017/07/14/分类器性能评估方法对比/';
-          this.page.title = '分类器性能评估方法对比';
+          this.page.url = 'http://yoursite.com/2017/09/09/郭少分享不完全记录/';
+          this.page.identifier = '2017/09/09/郭少分享不完全记录/';
+          this.page.title = '郭少分享不完全记录';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
