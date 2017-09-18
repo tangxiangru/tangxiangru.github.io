@@ -129,7 +129,7 @@
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-16/47020236.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-16/1953720.jpg">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-9-16/34301809.jpg">
-<meta property="og:updated_time" content="2017-09-17T05:10:09.000Z">
+<meta property="og:updated_time" content="2017-09-17T10:39:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="smp2017">
 <meta name="twitter:description" content="keynete价值&amp;gt;Σ(paper+poster)价值">
@@ -620,6 +620,121 @@
 <h1 id="dynamic-network"><a href="#dynamic-network" class="headerlink" title="dynamic network"></a>dynamic network</h1><p>2016kdd 随机异常RCA</p>
 <p>网络的改变，变化的原因，定位</p>
 <p>早期的用消失的相关项，</p>
+<h1 id="情感分析-session"><a href="#情感分析-session" class="headerlink" title="情感分析 session"></a>情感分析 session</h1><h2 id="李寿山苏大-文本情绪分析"><a href="#李寿山苏大-文本情绪分析" class="headerlink" title="李寿山苏大 文本情绪分析"></a>李寿山苏大 文本情绪分析</h2><p>任务：产品评论、个人性格分析、精神状态识别</p>
+<p>情感是对极性的评价，情绪是主观认知经验的通称</p>
+<p>文本情感分析：句子level、篇章level、评价对象level</p>
+<p>文本情绪分析任务:情感类别和情感原因|结果</p>
+<p>三种解决语料库匮乏的问题：</p>
+<h3 id="语料库建设"><a href="#语料库建设" class="headerlink" title="语料库建设"></a>语料库建设</h3><p>1、类别体系的定义（心理学：基本情绪和复合情绪）</p>
+<p>基本情绪：快乐、愤怒、悲伤、恐惧</p>
+<p>2、情绪体验者体系</p>
+<p>作者、读者、某人</p>
+<p>3、原因或者结果</p>
+<h3 id="情绪图标"><a href="#情绪图标" class="headerlink" title="情绪图标"></a>情绪图标</h3><p>事实：社交网络中含有微表情或者表情包</p>
+<p>解决方案：网络学习的方式</p>
+<h3 id="半监督的新闻读者和评论（对称性）"><a href="#半监督的新闻读者和评论（对称性）" class="headerlink" title="半监督的新闻读者和评论（对称性）"></a>半监督的新闻读者和评论（对称性）</h3><p>acl13<br>存在读者情绪和作者情绪，情绪是有关联的。两种视角做co-training</p>
+<p>就把非标注信息的样本利用起来</p>
+<p>coling16</p>
+<p>当不满足co-training时，要改进</p>
+<p>通过新定义转移学习</p>
+<p>（情感分析半监督都算是前沿，短文本的半监督很有挑战性）</p>
+<h2 id="腾讯-ai平台部-基础技术中心"><a href="#腾讯-ai平台部-基础技术中心" class="headerlink" title="腾讯 ai平台部 基础技术中心"></a>腾讯 ai平台部 基础技术中心</h2><p>舆情商业化</p>
+<p>平台：（基础平台）-&gt;（指数分析平台、用户画像平台、舆情分析平台）-&gt;对接业务</p>
+<p>技术问题：延时问题、歧义问题、数据量大、事件覆盖</p>
+<p>事件热点三级发现策略：离线策略（主题分词、LDA语意聚类）、在线策略（层次聚类）、高危策略 （预定义高危事件模板，信息抽取实时上报）</p>
+<p>歧义问题：有监督消除歧义，看做分类，每个语意一个类别，但是问题是数据太大要几十万个分类器。所以还是得用无监督消除歧义。构件实体知识库，核心是计算歧义实体的上下文和实体知识库的语义相似度</p>
+<p>构建相似图：词为节点，边为其余弦相似度</p>
+<p>舆情目标：有一段时期，对不同的时期有着不同的策略。</p>
+<p>舆情组件：情绪（作者）、情感（读者）、观点提取</p>
+<p>情绪分类建模：典型的短文本分类问题。分类模型+闭环迭代系统模型</p>
+<p>情感分类：影响情感分类的三个关键点：评价对象、情感词语、对象和词语的相对位置</p>
+<p>汗液做法：rule+句法分析&lt;svm+句法分析&lt;target+cnn&lt;target-lstm-a&lt;memnet；</p>
+<p>改进：emnlp2017 recurrent attention network for aspect情感分析</p>
+<p>观点提取</p>
+<p>问题定义：实体观点和事件观点</p>
+<p>用户：</p>
+<p>问题：账号体系不统一、属性的错误、如何刻画对象（基础属性+层次化兴趣体系）</p>
+<p>舆情商业化应用：</p>
+<p>应用：分析用户反馈，优化产品需求，排序处理问题的优先级，分级处理问题</p>
+<p>难点：异常问题必须在大量传播才有效，人力难以遍历信息，处理信息滞后</p>
+<p>商业化探索：与新闻媒体结合</p>
+<p>用采集的数据定制内容和题材策划并可视化分析结果</p>
+<p>商业化探索：与影视剧制作结合</p>
+<p>总结过去来预测未来</p>
+<p>问题：用户画像和媒体画像</p>
+<h2 id="t大-jaijia-情感计算"><a href="#t大-jaijia-情感计算" class="headerlink" title="t大 jaijia 情感计算"></a>t大 jaijia 情感计算</h2><p>affect computing<br>难题：怎么提取具有情感区分性的feature，social feature ，建模（large network）</p>
+<h1 id="表示学习session"><a href="#表示学习session" class="headerlink" title="表示学习session"></a>表示学习session</h1><p>深度学习非常重要的一个应用。非结构化学习的一个表示</p>
+<h2 id="赵鑫"><a href="#赵鑫" class="headerlink" title="赵鑫"></a>赵鑫</h2><p>跨主题的一些工作，推荐系统中的表示学习</p>
+<p>对数据特征以及其结构的表示，数据的摘要。传统的矩阵分解和现在的embedd</p>
+<p>推荐系统：评分预测和推荐五题<br>基本模型：mf矩阵分解</p>
+<p>评分预测：<br>一个表格中的填空</p>
+<p>更复杂的是基于context的推荐，基于页面的推荐</p>
+<p>矩阵分解：做低纬的投影</p>
+<p>等</p>
+<p>六种方法</p>
+<p>基于网络嵌入式<br>将网络节点做低维表示</p>
+<p>用random walk生成序列</p>
+<p>line一阶和二阶都表示出来了</p>
+<p>刻画出图的样子</p>
+<p>推荐更近的节点</p>
+<p>bpr是推荐系统里面的baseline<br>pitf是tag的传统baseline</p>
+<p>实验效果不错</p>
+<p>很多带属性的信息中做随机游走很困难</p>
+<p>wordembed</p>
+<p>输入一串符号序列</p>
+<p>在poi签到数据集做实验</p>
+<p>签到地点和时间做排序得到两个序列</p>
+<p>学习出user和location的表示</p>
+<p>cbow：给顶点的信息，预测点的信息</p>
+<p>用户关系刻画：skip-gram</p>
+<p>线性加权融合两个信息</p>
+<p>问题：序列很长，如不同月份会关联度很差</p>
+<p>方法：按天切断，得到几个段上刻画的序列</p>
+<p>段的信息也要加入</p>
+<p>就是把三个jointly</p>
+<p>实验：token2vec</p>
+<p>计算所的工作</p>
+<p>用学习的东西对传统模型做正则化</p>
+<p>动机：重点刻画用户和iterm的关系，但是iterm之间相关性被忽略</p>
+<p>而word2vec做适合刻画两个词之间的相关性，刚好</p>
+<p>而结合方法就是一部分分解mf，另一部分分解pmi的矩阵，两个分解矩阵叠加在一起</p>
+<h3 id="transe"><a href="#transe" class="headerlink" title="transe"></a>transe</h3><p>知识图谱上补全和预测上很强<br>对head实体加上relation等于tail实体</p>
+<p>每个用户都生成了一个自己喜欢的很多的电影的序列</p>
+<p>传统做hmm但是会遇到数据稀疏的问题，所以做factorized hmm</p>
+<p>而transe要表示，先建系（先前的iterm+user=next iterm）</p>
+<h3 id="metric-leanring："><a href="#metric-leanring：" class="headerlink" title="metric leanring："></a>metric leanring：</h3><p>做相似性，距离上的度量</p>
+<p>学习一个距离函数，学习mahalanobis 距离矩阵，尽量连在一起的点距离很小，使没有链在一起的点距离大</p>
+<p>pull loss就是使同类近，push loss就是使异类远</p>
+<p>distance func和loss func</p>
+<p>同时学习用户i和表示u</p>
+<p>怎么引入用户的很多特征来改进表示，引入变化函数</p>
+<p>引入正则化的项</p>
+<h3 id="多模态融合"><a href="#多模态融合" class="headerlink" title="多模态融合"></a>多模态融合</h3><p>嵌入kg</p>
+<p>每个iterm都是entity，把知识图谱上面信息用上来</p>
+<p>三种信息：图片、文本、信息</p>
+<p>transr</p>
+<p>文本：输入文本输出也是文本</p>
+<p>图片：前端cnn搭自编码器，并且表示是可以叠加的</p>
+<p>应用结合图像和文字做推荐，图像的信息属于iterm，basemodel只有图片没有文本，把他考虑成多任务工作，加入文本模型。</p>
+<p>推荐系统最近几年停滞了，并没有出现很多数据集下打败svd++，bpr，fm的模型，推荐系统本身是刻画相关度的问题，那么如何用dl的方法？</p>
+<p>效果得看数据</p>
+<p>序列性很强用word embed，不强则用网络嵌入，或者结合？</p>
+<p>不同的映射空间怎么到一个映射空间？不能直接相加吧？</p>
+<h2 id="自然语言表示学习-韩先培"><a href="#自然语言表示学习-韩先培" class="headerlink" title="自然语言表示学习 韩先培"></a>自然语言表示学习 韩先培</h2><p>nlp两条路径：符号主义路线、sub-符号主义路径（直接学习文本表示，直接映射到我们的目的表示）</p>
+<p>深度表示学习：句子-&gt;压缩低维的稠密向量</p>
+<p>好的表示是什么？（很多困难）</p>
+<p>从两个方面介绍nlp表示学习</p>
+<h3 id="词嵌入"><a href="#词嵌入" class="headerlink" title="词嵌入"></a>词嵌入</h3><p>w-&gt;n维连续向量的函数</p>
+<p>分布式假设：相似上下文具有相似语意（甚至是跨语言的）</p>
+<h3 id="大粒度短语句子"><a href="#大粒度短语句子" class="headerlink" title="大粒度短语句子"></a>大粒度短语句子</h3><p>1、bow就是简单的带权词向量相加除以平均数，简单高效</p>
+<p>2、lstm</p>
+<p>3、受到感受野而提出cnn，具有平移缩放不变性</p>
+<p>表示学习的应用</p>
+<p>分成四种任务</p>
+<p>对于ai 那个评测，说不定cnn+lstm已经很好，如果要更好，可以结合一下翻译</p>
+<h2 id="语言和计算社会学"><a href="#语言和计算社会学" class="headerlink" title="语言和计算社会学"></a>语言和计算社会学</h2><p>推荐中知识表示</p>
+<p>社交媒体中的网络表示</p>
+<p>词汇表示，句子表示</p>
 
       
     </div>
@@ -665,6 +780,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/18/say-hello-to-nlp/" rel="prev" title="say hello to nlp">
+                say hello to nlp <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -743,7 +862,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">44</span>
+                <span class="site-state-item-count">45</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -782,7 +901,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote1张潼"><span class="nav-number">1.</span> <span class="nav-text">keynote1张潼</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ai-lab-基础研究-产品-开放"><span class="nav-number">1.1.</span> <span class="nav-text">ai lab:基础研究+产品+开放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tasks"><span class="nav-number">1.2.</span> <span class="nav-text">tasks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote2周涛"><span class="nav-number">2.</span> <span class="nav-text">keynote2周涛</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote3秦兵"><span class="nav-number">3.</span> <span class="nav-text">keynote3秦兵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#情感分类：输入seq或篇章，输出情感类别"><span class="nav-number">3.1.</span> <span class="nav-text">情感分类：输入seq或篇章，输出情感类别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感抽取"><span class="nav-number">3.2.</span> <span class="nav-text">情感抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨领域情感分析"><span class="nav-number">3.3.</span> <span class="nav-text">跨领域情感分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化情感分析"><span class="nav-number">3.4.</span> <span class="nav-text">个性化情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于用户用词习惯"><span class="nav-number">3.4.1.</span> <span class="nav-text">基于用户用词习惯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于认知理论的方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">基于认知理论的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于网络结构的方法"><span class="nav-number">3.4.3.</span> <span class="nav-text">基于网络结构的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式情感分析"><span class="nav-number">3.5.</span> <span class="nav-text">隐式情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事实型"><span class="nav-number">3.5.1.</span> <span class="nav-text">事实型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修辞型"><span class="nav-number">3.5.2.</span> <span class="nav-text">修辞型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感原因发现"><span class="nav-number">3.6.</span> <span class="nav-text">情感原因发现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于文本"><span class="nav-number">3.6.1.</span> <span class="nav-text">基于文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于个体立场"><span class="nav-number">3.6.2.</span> <span class="nav-text">基于个体立场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于群体立场"><span class="nav-number">3.6.3.</span> <span class="nav-text">基于群体立场</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感生成"><span class="nav-number">3.7.</span> <span class="nav-text">情感生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote4唐杰"><span class="nav-number">4.</span> <span class="nav-text">keynote4唐杰</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结前人"><span class="nav-number">4.1.</span> <span class="nav-text">总结前人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分，社交影响的研究"><span class="nav-number">4.2.</span> <span class="nav-text">第二部分，社交影响的研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯上的应用"><span class="nav-number">4.2.1.</span> <span class="nav-text">腾讯上的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nlp-session"><span class="nav-number">5.</span> <span class="nav-text">nlp session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seq2seq-翻译-中文分词"><span class="nav-number">5.1.</span> <span class="nav-text">seq2seq 翻译 中文分词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交媒体数据中的实体集合扩展"><span class="nav-number">5.2.</span> <span class="nav-text">社交媒体数据中的实体集合扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DQN的开放域的多伦对话"><span class="nav-number">5.3.</span> <span class="nav-text">DQN的开放域的多伦对话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件演化图谱"><span class="nav-number">5.4.</span> <span class="nav-text">事件演化图谱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#教育session"><span class="nav-number">6.</span> <span class="nav-text">教育session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#刘三女牙（宏观）"><span class="nav-number">6.1.</span> <span class="nav-text">刘三女牙（宏观）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#荀恩东-语言教育"><span class="nav-number">6.2.</span> <span class="nav-text">荀恩东 语言教育</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言教育技术"><span class="nav-number">6.2.1.</span> <span class="nav-text">语言教育技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大数据"><span class="nav-number">6.2.2.</span> <span class="nav-text">大数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关工作"><span class="nav-number">6.2.3.</span> <span class="nav-text">相关工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#唐杰-mooc"><span class="nav-number">6.3.</span> <span class="nav-text">唐杰 mooc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote5-拓尔思"><span class="nav-number">7.</span> <span class="nav-text">keynote5 拓尔思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote6-刘铁岩"><span class="nav-number">8.</span> <span class="nav-text">keynote6 刘铁岩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ai是一个方法论，但看领域本身，在各个方面都有突飞猛进的发展"><span class="nav-number">8.1.</span> <span class="nav-text">ai是一个方法论，但看领域本身，在各个方面都有突飞猛进的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">8.2.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai和人类社会之间存在的鸿沟"><span class="nav-number">8.3.</span> <span class="nav-text">ai和人类社会之间存在的鸿沟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dual-learning对偶学习"><span class="nav-number">8.3.1.</span> <span class="nav-text">dual learning对偶学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leanring-to-teach因材施教"><span class="nav-number">8.3.2.</span> <span class="nav-text">leanring to teach因材施教</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dynamic-network"><span class="nav-number">9.</span> <span class="nav-text">dynamic network</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote1张潼"><span class="nav-number">1.</span> <span class="nav-text">keynote1张潼</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ai-lab-基础研究-产品-开放"><span class="nav-number">1.1.</span> <span class="nav-text">ai lab:基础研究+产品+开放</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#tasks"><span class="nav-number">1.2.</span> <span class="nav-text">tasks</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote2周涛"><span class="nav-number">2.</span> <span class="nav-text">keynote2周涛</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote3秦兵"><span class="nav-number">3.</span> <span class="nav-text">keynote3秦兵</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#情感分类：输入seq或篇章，输出情感类别"><span class="nav-number">3.1.</span> <span class="nav-text">情感分类：输入seq或篇章，输出情感类别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感抽取"><span class="nav-number">3.2.</span> <span class="nav-text">情感抽取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#跨领域情感分析"><span class="nav-number">3.3.</span> <span class="nav-text">跨领域情感分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#个性化情感分析"><span class="nav-number">3.4.</span> <span class="nav-text">个性化情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于用户用词习惯"><span class="nav-number">3.4.1.</span> <span class="nav-text">基于用户用词习惯</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于认知理论的方法"><span class="nav-number">3.4.2.</span> <span class="nav-text">基于认知理论的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于网络结构的方法"><span class="nav-number">3.4.3.</span> <span class="nav-text">基于网络结构的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#隐式情感分析"><span class="nav-number">3.5.</span> <span class="nav-text">隐式情感分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事实型"><span class="nav-number">3.5.1.</span> <span class="nav-text">事实型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修辞型"><span class="nav-number">3.5.2.</span> <span class="nav-text">修辞型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感原因发现"><span class="nav-number">3.6.</span> <span class="nav-text">情感原因发现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基于文本"><span class="nav-number">3.6.1.</span> <span class="nav-text">基于文本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于个体立场"><span class="nav-number">3.6.2.</span> <span class="nav-text">基于个体立场</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基于群体立场"><span class="nav-number">3.6.3.</span> <span class="nav-text">基于群体立场</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#情感生成"><span class="nav-number">3.7.</span> <span class="nav-text">情感生成</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote4唐杰"><span class="nav-number">4.</span> <span class="nav-text">keynote4唐杰</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#总结前人"><span class="nav-number">4.1.</span> <span class="nav-text">总结前人</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第二部分，社交影响的研究"><span class="nav-number">4.2.</span> <span class="nav-text">第二部分，社交影响的研究</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#腾讯上的应用"><span class="nav-number">4.2.1.</span> <span class="nav-text">腾讯上的应用</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#nlp-session"><span class="nav-number">5.</span> <span class="nav-text">nlp session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seq2seq-翻译-中文分词"><span class="nav-number">5.1.</span> <span class="nav-text">seq2seq 翻译 中文分词</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#社交媒体数据中的实体集合扩展"><span class="nav-number">5.2.</span> <span class="nav-text">社交媒体数据中的实体集合扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DQN的开放域的多伦对话"><span class="nav-number">5.3.</span> <span class="nav-text">DQN的开放域的多伦对话</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件演化图谱"><span class="nav-number">5.4.</span> <span class="nav-text">事件演化图谱</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#教育session"><span class="nav-number">6.</span> <span class="nav-text">教育session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#刘三女牙（宏观）"><span class="nav-number">6.1.</span> <span class="nav-text">刘三女牙（宏观）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#荀恩东-语言教育"><span class="nav-number">6.2.</span> <span class="nav-text">荀恩东 语言教育</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语言教育技术"><span class="nav-number">6.2.1.</span> <span class="nav-text">语言教育技术</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大数据"><span class="nav-number">6.2.2.</span> <span class="nav-text">大数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关工作"><span class="nav-number">6.2.3.</span> <span class="nav-text">相关工作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#唐杰-mooc"><span class="nav-number">6.3.</span> <span class="nav-text">唐杰 mooc</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote5-拓尔思"><span class="nav-number">7.</span> <span class="nav-text">keynote5 拓尔思</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#keynote6-刘铁岩"><span class="nav-number">8.</span> <span class="nav-text">keynote6 刘铁岩</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ai是一个方法论，但看领域本身，在各个方面都有突飞猛进的发展"><span class="nav-number">8.1.</span> <span class="nav-text">ai是一个方法论，但看领域本身，在各个方面都有突飞猛进的发展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#应用"><span class="nav-number">8.2.</span> <span class="nav-text">应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ai和人类社会之间存在的鸿沟"><span class="nav-number">8.3.</span> <span class="nav-text">ai和人类社会之间存在的鸿沟</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#dual-learning对偶学习"><span class="nav-number">8.3.1.</span> <span class="nav-text">dual learning对偶学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#leanring-to-teach因材施教"><span class="nav-number">8.3.2.</span> <span class="nav-text">leanring to teach因材施教</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dynamic-network"><span class="nav-number">9.</span> <span class="nav-text">dynamic network</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#情感分析-session"><span class="nav-number">10.</span> <span class="nav-text">情感分析 session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#李寿山苏大-文本情绪分析"><span class="nav-number">10.1.</span> <span class="nav-text">李寿山苏大 文本情绪分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#语料库建设"><span class="nav-number">10.1.1.</span> <span class="nav-text">语料库建设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#情绪图标"><span class="nav-number">10.1.2.</span> <span class="nav-text">情绪图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#半监督的新闻读者和评论（对称性）"><span class="nav-number">10.1.3.</span> <span class="nav-text">半监督的新闻读者和评论（对称性）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#腾讯-ai平台部-基础技术中心"><span class="nav-number">10.2.</span> <span class="nav-text">腾讯 ai平台部 基础技术中心</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#t大-jaijia-情感计算"><span class="nav-number">10.3.</span> <span class="nav-text">t大 jaijia 情感计算</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#表示学习session"><span class="nav-number">11.</span> <span class="nav-text">表示学习session</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#赵鑫"><span class="nav-number">11.1.</span> <span class="nav-text">赵鑫</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#transe"><span class="nav-number">11.1.1.</span> <span class="nav-text">transe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#metric-leanring："><span class="nav-number">11.1.2.</span> <span class="nav-text">metric leanring：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#多模态融合"><span class="nav-number">11.1.3.</span> <span class="nav-text">多模态融合</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自然语言表示学习-韩先培"><span class="nav-number">11.2.</span> <span class="nav-text">自然语言表示学习 韩先培</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#词嵌入"><span class="nav-number">11.2.1.</span> <span class="nav-text">词嵌入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#大粒度短语句子"><span class="nav-number">11.2.2.</span> <span class="nav-text">大粒度短语句子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语言和计算社会学"><span class="nav-number">11.3.</span> <span class="nav-text">语言和计算社会学</span></a></li></ol></li></ol></div>
             
 
           </div>
