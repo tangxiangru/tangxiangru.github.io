@@ -98,7 +98,14 @@
 <meta property="og:image" content="https://adeshpande3.github.io/assets/NLP6.png">
 <meta property="og:image" content="https://adeshpande3.github.io/assets/NLP7.png">
 <meta property="og:image" content="https://adeshpande3.github.io/assets/NLP8.png">
-<meta property="og:updated_time" content="2017-09-18T14:01:44.000Z">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706wyo5en1ecexj5z15.png">
+<meta property="og:image" content="https://adeshpande3.github.io/assets/NLP14.png">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706fan3r59awhi222wb.png">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706jetqz90eb2btww35.jpeg">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706oddfkbrhkgfiioys.png">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706yeuigqbuymw26jzw.png">
+<meta property="og:image" content="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706pa3bkakn5feknk33.jpeg">
+<meta property="og:updated_time" content="2017-09-19T14:24:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="say hello to nlp">
 <meta name="twitter:description" content="first try to write in english &amp;amp;&amp;amp; want to make friends in our studio say hello to Natural Language Processing">
@@ -380,7 +387,7 @@
       
         <p>first try to write in english &amp;&amp; want to make friends in our studio say hello to Natural Language Processing</p>
 <a id="more"></a> 
-<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p>  Natural language processing (NLP) is all about creating systems that process or “understand” language in order to perform certain tasks. So what are these tasks?</p>
+<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><p> Natural language processing (NLP) is all about creating systems that process or “understand” language in order to perform certain tasks. So what are these tasks?</p>
 <p>For example:</p>
 <ul>
 <li><p>qa</p>
@@ -402,6 +409,26 @@
 <p>So now using the matrix we have  word vectors,but the question is that the matrix which would be extremely sparse (lots of 0’s) when the training data are very large. Definitely it has poor storage efficiency.<br><img src="https://adeshpande3.github.io/assets/NLP8.png" alt=""></p>
 <p>so let us come to Word2Vec.</p>
 <h2 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h2><p>   The basic idea is that we want to store as much information as we can in this word vector while still keeping the dimensionality at a manageable scale (25 – 1000 dimensions).</p>
+<p>   We want to predict the surrounding words of every word by maximizing the log probability of any context word given the current center word</p>
+<p><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706wyo5en1ecexj5z15.png" alt=""></p>
+<p>Word2Vec finds vector representations of different words by maximizing the log probability of context words given a center word and modifying the vectors through SGD(<a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf、http://nlp.stanford.edu/pubs/glove.pdf" target="_blank" rel="external">https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf、http://nlp.stanford.edu/pubs/glove.pdf</a>)</p>
+<h1 id="RNN"><a href="#RNN" class="headerlink" title="RNN"></a>RNN</h1><p><img src="https://adeshpande3.github.io/assets/NLP14.png" alt=""></p>
+<p>Each of the vectors has a hidden state vector at that same time step (ht, ht-1, ht+1). Let’s call this </p>
+<p>one module=each of the vectors(x)+hidden state vector</p>
+<p>hidden state：about the hidden state vector at previous time step and the word vector.W is weight matrix.<br><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706fan3r59awhi222wb.png" alt=""></p>
+<p>When we want a output.The last time is t.<br><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706jetqz90eb2btww35.jpeg" alt=""></p>
+<h1 id="gated-recurrent-units"><a href="#gated-recurrent-units" class="headerlink" title="gated recurrent units"></a>gated recurrent units</h1><p>Why we need to capture long distance dependencies? During backpropagation, such as if the initial gradient is a small number (&lt; 0.25), then by the 3rd or 4th module, the gradient will have vanished.</p>
+<p>The GRU provides a different way of computing this hidden state vector h(t). Included:an update gate, a reset gate, and a new memory container. </p>
+<p><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706oddfkbrhkgfiioys.png" alt=""></p>
+<p>two gateas have different weights  </p>
+<p>a new memory container:<br><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706yeuigqbuymw26jzw.png" alt=""></p>
+<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p><img src="http://attachbak.dataguru.cn/attachments/portal/201701/11/174706pa3bkakn5feknk33.jpeg" alt=""></p>
+<p>as an extension to the idea behind a GRU</p>
+<p>different in the number of gates that they have (GRU – 2, LSTM – 3)</p>
+<p><a href="http://colah.github.io/posts/2015-08-Understanding-LSTMs/" target="_blank" rel="external">http://colah.github.io/posts/2015-08-Understanding-LSTMs/</a> </p>
+<h1 id="Memory-Networks"><a href="#Memory-Networks" class="headerlink" title="Memory Networks"></a>Memory Networks</h1><p>详见另一篇博客</p>
+<p>神经机器翻译</p>
+<p>论文：<a href="https://arxiv.org/pdf/1609.08144v2.pdf" target="_blank" rel="external">https://arxiv.org/pdf/1609.08144v2.pdf</a></p>
 
       
     </div>
@@ -564,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#traditional-approach"><span class="nav-number">2.</span> <span class="nav-text">traditional approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl-approach"><span class="nav-number">3.</span> <span class="nav-text">dl approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Vectors"><span class="nav-number">3.1.</span> <span class="nav-text">Word Vectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2Vec"><span class="nav-number">3.2.</span> <span class="nav-text">Word2Vec</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#traditional-approach"><span class="nav-number">2.</span> <span class="nav-text">traditional approach</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#dl-approach"><span class="nav-number">3.</span> <span class="nav-text">dl approach</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Word-Vectors"><span class="nav-number">3.1.</span> <span class="nav-text">Word Vectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word2Vec"><span class="nav-number">3.2.</span> <span class="nav-text">Word2Vec</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#RNN"><span class="nav-number">4.</span> <span class="nav-text">RNN</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gated-recurrent-units"><span class="nav-number">5.</span> <span class="nav-text">gated recurrent units</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LSTM"><span class="nav-number">6.</span> <span class="nav-text">LSTM</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Memory-Networks"><span class="nav-number">7.</span> <span class="nav-text">Memory Networks</span></a></li></ol></div>
             
 
           </div>
