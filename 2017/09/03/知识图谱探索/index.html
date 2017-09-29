@@ -114,6 +114,7 @@
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7X5Xia0ZbWV4aGumqNa2UTfgX20YPibfraryKEyMWnAZicfvasUU3843EKA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7XIK80icnz1HAviajMIFzBzm0b2TVhjvz85ZNTVgVf8jlHOENbjKsh5tdQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNHbPtic2MsuGImsG1kYZ4lcuzSbMHXFC6x6lRRIWAPxen8EVztiaU9ycQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNT3PqIdJYaH5RriaCc7TmpsGq0o0k8tCpbjTlOgmb60JO6YVItZFlthA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNFBssXsZAQbd5gs0h7l4WFykIUBHBXsibzRVAHLnZj8w0eOJRjo5bLBA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNEywLnRcUJpXXVFZCHiaDBLqNl6w4uPaJOMlV5jgwCdxFrunFBDcEFYg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNcDicR8tdchiaetoLDicnoLcdZ4DdC64yBrmnVqqicAzDbPDX8Ku1euFSTQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
@@ -129,7 +130,7 @@
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-29T10:02:16.000Z">
+<meta property="og:updated_time" content="2017-09-29T10:35:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="kbqa">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -502,7 +503,7 @@
 <p>第三个我们需要的信息，就是这个问题的主题词（word topic，记作 qtopic），在这个句子里 Justin Bieber 就是 qtopic，这个词能够帮助我们找到 freebase 中相关的知识，我们可以通过命名实体识别（Named Entity Recognition，NER）来确定主题词，需要注意的是，一个问题中可能存在多个主题词。</p>
 <p>最后，第四个我们需要提取的特征，就是问题的中心动词（question verb ，记作 qverb），动词能够给我们提供很多和答案相关的信息，比如 play，那么答案有可能是某种球类或者乐器。我们可以通过词性标注（Part-of-Speech，POS）确定 qverb。</p>
 <p>通过对问题提取问题词 qword，问题焦点 qfocus，问题主题词 qtopic 和问题中心动词 qverb 这四个问题特征，我们可以将该问题的依存树转化为问题图（Question Graph），如下图所示：</p>
-<p>![](<a href="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNT3PqIdJYaH5RriaCc7TmpsGq0o0k8tCpbjTlOgmb60JO6YVItZFlthA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）" target="_blank" rel="external">http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNT3PqIdJYaH5RriaCc7TmpsGq0o0k8tCpbjTlOgmb60JO6YVItZFlthA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）</a></p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNT3PqIdJYaH5RriaCc7TmpsGq0o0k8tCpbjTlOgmb60JO6YVItZFlthA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>具体来说，将依存树转化为问题图进行了三个操作：</p>
 <p>1）将问题词 qword，问题焦点 qfocus，问题主题词 qtopic 和问题中心动词 qverb 加入相对应的节点中，如 what -&gt; qword=what。 </p>
 <p>2）如果该节点是命名实体，那就把该节点变为命名实体形式，如 justin -&gt; qtopic=person （justin 对应的命名实体形式是 person）。这一步的目的是因为数据中涉及到的命名实体名字太多了，这里我们只需要区分它是人名 地名 还是其他类型的名字即可。 </p>
