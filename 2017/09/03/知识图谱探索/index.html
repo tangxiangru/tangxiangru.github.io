@@ -91,7 +91,7 @@
 
 <meta name="description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
 <meta property="og:type" content="article">
-<meta property="og:title" content="知识图谱探索">
+<meta property="og:title" content="kbqa">
 <meta property="og:url" content="http://yoursite.com/2017/09/03/知识图谱探索/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
 <meta property="og:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
@@ -126,11 +126,12 @@
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGabdkkecmcTrAZe6P3WFSPv0opJApQSHRYhHdAPflp7Nnsaias9oLlBQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGnicrqianEKwktE33EIuY4ibQ0PpgaCibzDQfDmv7y4icbiam2zNQJHaiaXN8A/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&wxfrom=5&wx_lazy=1">
+<meta property="og:image" content="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEt1caDndgYIpeq28tBrojLE2T86YpnibMLMVlmcEaA2UUwIbldUc2aSQ/0.png?tp=webp&wxfrom=5&wx_lazy=1">
 <meta property="og:image" content="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgm2k8uyM8BYwAMKte3FoBuEiaiagwhfdBpx7Ovu9kbGFOHe1eHxX2h6nicAA0bEtmCsLb8uzlHnWQsIg/0.png?tp=webp&wxfrom=5&wx_lazy=1">
-<meta property="og:updated_time" content="2017-09-03T17:12:59.000Z">
+<meta property="og:updated_time" content="2017-09-29T10:02:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="知识图谱探索">
+<meta name="twitter:title" content="kbqa">
 <meta name="twitter:description" content="KBQA: Learning Question Answering over QA Corpora and Knowledge Bases">
 <meta name="twitter:image" content="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShxb0IiamXUqfKfmTu3R7aj8Rc0DnB4KJaLDUEf3b4XROjeYk6rxrJHuQ/640?tp=webp&wxfrom=5&wx_lazy=1">
 
@@ -166,7 +167,7 @@
 
 
 
-  <title> 知识图谱探索 | 唐相儒的博客 </title>
+  <title> kbqa | 唐相儒的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -346,7 +347,7 @@
             
             
               
-                知识图谱探索
+                kbqa
               
             
           </h1>
@@ -415,8 +416,7 @@
 <h1 id="KBQA"><a href="#KBQA" class="headerlink" title="KBQA"></a>KBQA</h1><p>KBQA: Learning Question Answering over QA Corpora and Knowledge Bases</p>
 <h2 id="评价标准"><a href="#评价标准" class="headerlink" title="评价标准"></a>评价标准</h2><p>评价标准：回召率（Recall），精确率（Precision)），F1-Score。而对话系统的评价标准以人工评价为主，以及 BLEU 和 Perplexity。</p>
 <h2 id="主流方法"><a href="#主流方法" class="headerlink" title="主流方法"></a>主流方法</h2><h3 id="一、语义解析（Semantic-Parsing）"><a href="#一、语义解析（Semantic-Parsing）" class="headerlink" title="一、语义解析（Semantic Parsing）"></a>一、语义解析（Semantic Parsing）</h3><p>偏linguistic、将<strong>自然语言</strong>转化为  一系列形式化的<strong>逻辑形式（logic form）</strong>，通过对逻辑形式进行自底向上的解析，得到一种可以表达整个问题语义的逻辑形式，通过相应的查询语句（类似 lambda-Caculus）在知识库中进行查询，从而得出答案。</p>
-<p>下图红色部分即逻辑形式，绿色部分 where was Obama born 为自然语言问题，蓝色部分为语义解析进行的相关操作，而形成的语义解析树的根节点则是最终的语义解析结果，可以通过查询语句直接在知识库中查询最终答案</p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShxb0IiamXUqfKfmTu3R7aj8Rc0DnB4KJaLDUEf3b4XROjeYk6rxrJHuQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>下图红色部分即逻辑形式，绿色部分 where was Obama born 为自然语言问题，蓝色部分为语义解析进行的相关操作，而形成的语义解析树的根节点则是最终的语义解析结果，可以通过查询语句直接在知识库中查询最终答案<br><img src="http://mmbiz.qpic.cn/mmbiz_png/e9024pz9VqXVclchRIJrZn8WGBejCdShxb0IiamXUqfKfmTu3R7aj8Rc0DnB4KJaLDUEf3b4XROjeYk6rxrJHuQ/640?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>原始论文解读：</p>
 <p>该方法来自斯坦福 Berant J, Chou A, Frostig R的Semantic Parsing on Freebase from Question-Answer Pairs，文章发表于2013年的EMNLP</p>
 <p>1.什么是语义解析</p>
@@ -465,7 +465,7 @@
 <p>作者最后提到这个问题有希望通过在知识库上进行随机游走 Random walk 或者使用马尔科夫逻辑 Markov logic 解决，因此我们需要一个补丁，需要找到一个额外的二元关系来将当前的逻辑形式连接起来，那就是桥接。 </p>
 <p>这里举个具体的例子，比如“Which college did Obama go to?” 假设“Obama” 和 “college” 可被词汇映射映射为 BarackObama 和 Type.University，这里”go to” 却难以找到一个映射，事实上，这里我们需要去寻找一个中间二元关系（即Education）使得上面的句子可以被解析为 (Type.University ∩ Education.BarackObama)，如下图所示：</p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7XGujoqbWZZwB05yMKb8N3Dk3aJ0J457K3OcqJK1UtXWzpoq0p6KqkSw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
-<p>具体来说，给定两个类型（type）分别为 t1 和 t2 的一元逻辑形式 z1 和 z2，我们需要找到一个二元逻辑形式 b，在 b 对应的实体对类型满足 (t1,t2) 的条件下生成逻辑形式 <img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7X9aKlY9lKZhW0Q27zZk4dZibZan8K3icYqr2M6icBcV1pXEdlTa2aaYW8Q/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="">，这就是桥接，由于这里有类型的限制，所以我们可以在知识库中相邻的逻辑关系中暴力搜索符合条件的二元关系 b。（注：在论文中还提到了另外两种需要进行桥接的场景，这里我们则不再赘述）。</p>
+<p>具体来说，给定两个类型（type）分别为 t1 和 t2 的一元逻辑形式 z1 和 z2，我们需要找到一个二元逻辑形式 b，在 b 对应的实体对类型满足 (t1,t2) 的条件下生成逻辑形式<img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7X9aKlY9lKZhW0Q27zZk4dZibZan8K3icYqr2M6icBcV1pXEdlTa2aaYW8Q/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt="">，这就是桥接，由于这里有类型的限制，所以我们可以在知识库中相邻的逻辑关系中暴力搜索符合条件的二元关系 b。（注：在论文中还提到了另外两种需要进行桥接的场景，这里我们则不再赘述）。</p>
 <p>同样的，作者也为桥接操作定义了相应的特征（为了分类器的训练），定义如下表所示：</p>
 <p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgmQ5ps2EwCKM0YrPHGSlU7XRDwaxfSZ4qQpiaXJueqqpVX0C3dqIH3evG1ia19HdHs8KLib7oH38oGmA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>对于构建（composition）的其他三种操作，连接Join，求交集Intersection和聚合Aggregate，作者也定义了相应的特征（为了分类器的训练），如下表所示：</p>
@@ -532,7 +532,8 @@
 <p>4.论文实验与总结</p>
 <p>候选答案的主题图是根据问题中的主题词确定的，而一个问题可能包含多个主题词。作者先通过命名实体识别提取问题中的所有命名实体（如果提取不到一个命名实体，则使用名词短语代替），将所有命名实体输入到 Freebase Search API 中，选取返回排名最高的作为最终的主题词，使用 Freebase Topic API 得到相应的主题图。 </p>
 <p>当然使用 Freebase Search API 这个方法可能会错过真正和答案相关的主题词（topic），作者也测试了模型在真实的主题词（Gold Retrieval）下的 F1 score，结果如下： </p>
-<p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNBoBNKBKfXW9ErNAHUrT2dYN5TRlcJt0C6vCFmn4uZyX1lzV8oyaDCQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""><br>相比Semantic Parsing on Freebase from Question-Answer Pairs 方法在 F1-score 下有较高的提升，到达了 42.0 的 F1-score。 </p>
+<p><img src="http://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhglEDE6UHM1WiaZshsNAl8RgNBoBNKBKfXW9ErNAHUrT2dYN5TRlcJt0C6vCFmn4uZyX1lzV8oyaDCQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>相比Semantic Parsing on Freebase from Question-Answer Pairs 方法在 F1-score 下有较高的提升，到达了 42.0 的 F1-score。 </p>
 <p>信息抽取的办法，总体来说涉及到了不少 linguistic 的知识，比较符合人类的直觉。虽然也涉及到了很多手工和先验知识的东西，但个人认为它的思想还是很不错的。 </p>
 <p>作者在构造候选答案特征时，引入了和 P(R|Q) 相关的特征，这个思路是一个很好的思路，但是对 P(R|Q) 的估计方式总体来说还是比较粗暴（比如使用 backoff），个人认为可以使用 Deep Learning 的方法进行提升。</p>
 <h3 id="三、向量建模（Vector-Modeling）"><a href="#三、向量建模（Vector-Modeling）" class="headerlink" title="三、向量建模（Vector Modeling）"></a>三、向量建模（Vector Modeling）</h3><p>和信息抽取的思想比较接近，根据问题得出候选答案，把问题和候选答案都映射为分布式表达（Distributed Embedding），通过训练数据对该分布式表达进行训练，使得问题和正确答案的向量表达的得分（通常以点乘为形式）尽量高，如下图所示。模型训练完成后则可根据候选答案的向量表达和问题表达的得分进行筛选，得出最终答案。</p>
@@ -549,21 +550,22 @@
 <p>因此我们可以把每个候选答案对应的知识库子图（1 跳或 2 跳范围）也加入到输入向量中，假设该子图包含 C 个实体和 D 个关系，那么我们最终的表达是一种 3+C+D-hot 或者 4+C+D-hot 的表达。和信息抽取方法一样，我们也对关系的方向进行区分，因此我们输入向量的大小变为字典的大小+2*（知识库实体数目+知识库实体关系数目）。</p>
 <p>同样的，我们用 a 表示答案，用 Ψ(a) 表示答案的输入向量，用矩阵 W 将问题向量映射到 k 维的低维空间，答案的分布式表达即 g(a)=WΨ(a)。</p>
 <p>向量得分：最后我们用一个函数表征答案和问题的得分，我们希望问题和它对应的正确答案得尽量高分，通过比较每个候选答案的得分，选出最高的，作为正确答案。得分函数定义为二者分布式表达的点乘，即s(q,a)=f(q)*g(a)。</p>
-<p>上述整个流程如下图所示：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGabdkkecmcTrAZe6P3WFSPv0opJApQSHRYhHdAPflp7Nnsaias9oLlBQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>上述整个流程如下图所示：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGabdkkecmcTrAZe6P3WFSPv0opJApQSHRYhHdAPflp7Nnsaias9oLlBQ/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>训练分布式表达：</p>
-<p>对于训练数据集D，我们定义 <strong>margin-based ranking 损失函数</strong>，公式如下：</p>
-<p><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGnicrqianEKwktE33EIuY4ibQ0PpgaCibzDQfDmv7y4icbiam2zNQJHaiaXN8A/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>对于训练数据集D，我们定义 <strong>margin-based ranking 损失函数</strong>，公式如下：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGnicrqianEKwktE33EIuY4ibQ0PpgaCibzDQfDmv7y4icbiam2zNQJHaiaXN8A/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>做过 zero-shot 或者对 SVM 了解的朋友应该对这个式子不会陌生，其中  表示负样本集  中的一个负样本（错误答案），m 是一个值为 0.1 的 margin。最小化这个损失函数，意味着我们希望正确答案和问题的得分要比任意错误答案的得分高出一个 margin。 </p>
 <p>和训练 word embedding 一样，为减少计算量，我们通过采样的方式构造负样本，50% 来自随机挑选，50% 来自与问题主题词实体相连的其它路径。 </p>
 <p>由于 benchmark 数据集 WebQuestion 包含的样本数过少，作者还构造了其他几个数据集： </p>
 <p>Freebase：选取 freebase 中包含出现频率高于 5 次实体的三元组，得到一个知识库子集（含 2.2M 实体和 7K 关系），对于每一个三元组如（subject, type1.type2.predicate, object），我们通过自动化的方式，生成这样的问题答案对： </p>
 <p>Quesiton：“What is the predicate of the type2subject?” Answer：object </p>
 <p>ClueWeb Extractions：由于 Freebase 的三元组都是形式化语言，并不贴近自然语言，我们也用同样的方式将 ClueWeb 上提取出的三元组（subject, “text string”, object）通过少量模板作同样的变换（作者提取了 2M 对三元组）。 </p>
-<p>这样我们就在 WebQuestion 数据集的基础上，得到了一个新的扩展数据集，该数据集的例子如下表所示：<br><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
+<p>这样我们就在 WebQuestion 数据集的基础上，得到了一个新的扩展数据集，该数据集的例子如下表所示：</p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGwbxZz3eVTjKhyW5eibMma3c1icicYRibgAgwcnRKI5XfXz72CpibqWYoIoA/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>可以看出，扩增版的数据集，问题大多数都是自动构造的，缺乏多样性和真实性。怎么办呢？我们希望训练数据中问题的分布式表达尽量贴近它所类似的真实问题的分布式表达。</p>
 <p>因此，作者在 WikiAnswers 中抓取了 2.2M 问题（不含答案），通过问题的分类标签，将它们分为了 350k 个类簇（可以理解为每个类簇里的自然语言问题它所表达的意思是一样的）。</p>
 <p>如下表所示：</p>
-<p>![](<a href="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）" target="_blank" rel="external">https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1）</a></p>
+<p><img src="https://mmbiz.qpic.cn/mmbiz_png/VBcD02jFhgl0RAFZqNSYfS9yWnv9SyMGbrJpk20mcYHz8uLTSb6JUiatYGZl30lW0HEh6S9aWErJxURkSsSEscw/0.png?tp=webp&amp;wxfrom=5&amp;wx_lazy=1" alt=""></p>
 <p>接下来我们就可以进行一个多任务学习（multi-task），让同一个类簇的问题得分较高，即s(q1,q2)=f(q1)*g(q2)，其训练方式和之前训练答案和问题得分是一样的。</p>
 <p>至此，通过以上两种训练，我们的分布式表达就训练完毕了。</p>
 <p>根据问题首先要确定候选答案，这里作者确定候选答案的方式和信息抽取略有不同。首先在从问题中主题词对应的知识库实体出发，通过 beam search 的方式保存10个和问题最相关的实体关系（通过把实体关系当成答案，用s(q,a)=f(q)*g(a)式子的得分作为 beam search 的排序标准）。</p>
@@ -725,7 +727,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">47</span>
+                <span class="site-state-item-count">48</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -903,7 +905,7 @@
         var disqus_config = function () {
           this.page.url = 'http://yoursite.com/2017/09/03/知识图谱探索/';
           this.page.identifier = '2017/09/03/知识图谱探索/';
-          this.page.title = '知识图谱探索';
+          this.page.title = 'kbqa';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
