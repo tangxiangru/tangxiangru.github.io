@@ -103,9 +103,9 @@
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram2.png">
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/blob/master/notes/images/coattention/diagram3.png">
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq5.png">
-<meta property="og:image" content="https://github.com/ajarai/casual-digressions/blob/master/notes/images/coattention/eq4.png">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-10-28/33159222.jpg">
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram4.png">
-<meta property="og:updated_time" content="2017-10-28T09:00:01.000Z">
+<meta property="og:updated_time" content="2017-10-28T09:12:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper weekly1:DCN for qa">
 <meta name="twitter:description" content="第一次的组内规定每周paper: DYNAMIC COATTENTION NETWORKS FOR QUESTION ANSWERING（https://arxiv.org/abs/1611.01604）">
@@ -385,7 +385,8 @@
       
 
       
-        <p>第一次的组内规定每周paper: DYNAMIC COATTENTION NETWORKS FOR QUESTION ANSWERING（<a href="https://arxiv.org/abs/1611.01604）" target="_blank" rel="external">https://arxiv.org/abs/1611.01604）</a><br><a id="more"></a></p>
+        <p>第一次的组内规定每周paper: DYNAMIC COATTENTION NETWORKS FOR QUESTION ANSWERING（<a href="https://arxiv.org/abs/1611.01604）" target="_blank" rel="external">https://arxiv.org/abs/1611.01604）</a></p>
+<a id="more"></a>
 <p>##总体而言</p>
 <p>总体而言，是一个用于基于文档的问答的模型，允许对问题和文档进行互相依赖的表示，以便用文档的相关部分来回答问题。以下是模型可以生成的结果示例：</p>
 <p><img src="https://theneuralperspective.files.wordpress.com/2017/01/screen-shot-2017-01-02-at-4-30-49-pm.png" alt=""></p>
@@ -416,7 +417,7 @@
 <p>开始和结束位置由开始和结束的highway maxout network（HMN）的argmax决定。Maxout networks和highway networks很好用。 maxout和highway networks是具有相同结构但权重不同的网络。</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq5.png" alt=""></p>
 <p>可以将maxout网络视为强大的非线性模型，但是权重是ReLU的两倍。通过highway networks连接，能够选择性地控制信息流，能够建立从第一个最大层输出到最后一个最大层的连接。</p>
-<p><img src="https://github.com/ajarai/casual-digressions/blob/master/notes/images/coattention/eq4.png" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-10-28/33159222.jpg" alt=""></p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram4.png" alt=""></p>
 <p>整个Decoder部分可以概括为用HMN根据历史预测信息、上一次预测情况对每文档中每一个字作为起始位置（或终止位置）进行打分，用LSTM存储历史预测信息，将最后一次迭代得分最高的为最终答案。</p>
 <h1 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h1><p>损失函数是所有迭代的开始和结束位置的累积交叉熵。一旦开始和结束位置停止更改或设置最大次数（本文中为4），就停止迭代。</p>
