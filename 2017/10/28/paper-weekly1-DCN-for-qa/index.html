@@ -105,7 +105,7 @@
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq5.png">
 <meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-10-28/33159222.jpg">
 <meta property="og:image" content="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram4.png">
-<meta property="og:updated_time" content="2017-10-28T13:34:58.000Z">
+<meta property="og:updated_time" content="2017-11-01T07:39:13.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="paper weekly1:DCN for qa">
 <meta name="twitter:description" content="第一次的组内规定每周paper: DYNAMIC COATTENTION NETWORKS FOR QUESTION ANSWERING（https://arxiv.org/abs/1611.01604）">
@@ -391,9 +391,10 @@
 <p><img src="https://theneuralperspective.files.wordpress.com/2017/01/screen-shot-2017-01-02-at-4-30-49-pm.png" alt=""></p>
 <h1 id="什么是阅读理解问题"><a href="#什么是阅读理解问题" class="headerlink" title="什么是阅读理解问题"></a>什么是阅读理解问题</h1><p>结合问题和文本段落二者的信息，生成一个关于文本段落各部分的注意力权重，对文本信息进行加权，得到最高权重的部分文本。</p>
 <h1 id="详细说明："><a href="#详细说明：" class="headerlink" title="详细说明："></a>详细说明：</h1><p>DCN是一种端到端的，把问题和文档同时encoder（带coattention），以及确定文档中答案的开始词和结束词的动态定位decoder。</p>
-<h1 id="DOCUMENT-AND-QUESTION-ENCODER"><a href="#DOCUMENT-AND-QUESTION-ENCODER" class="headerlink" title="DOCUMENT AND QUESTION ENCODER"></a>DOCUMENT AND QUESTION ENCODER</h1><p>假设问题中有n个单词，文档中有m个单词。还向每个向量表达中添加了一个哨兵（sentinel），以告诉模型不加入某些特定的单词。LSTM用于一次处理一个单词，隐藏状态用d或q表示。使用lstm的输出作为问题和文档的表示。</p>
+<h1 id="DOCUMENT-AND-QUESTION-ENCODER"><a href="#DOCUMENT-AND-QUESTION-ENCODER" class="headerlink" title="DOCUMENT AND QUESTION ENCODER"></a>DOCUMENT AND QUESTION ENCODER</h1><p>假设问题中有n个单词，文档中有m个单词。还向每个向量表达中添加了一个哨兵（sentinel），以告诉模型不加入某些特定的单词。LSTM用于一次处理一个单词，隐藏状态用d或q表示.</p>
+<p>提取lstm的每一时刻的隐层得到矩阵作为问题和文档的表示。</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq1.png" alt=""></p>
-<p>为了在文档和问题表示中有一些变化，一个额外的非线性层被用于问题的表示。</p>
+<p>为了在文档和问题表示中有一些变化，对问句的表示做一个非线性变换。</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram1.png" alt=""></p>
 <h1 id="模型第一部分是coattention-encoder"><a href="#模型第一部分是coattention-encoder" class="headerlink" title="模型第一部分是coattention encoder"></a>模型第一部分是coattention encoder</h1><p>coattention 机制（见论文Hierarchical Question-Image Co-Attentionfor Visual Question Answering）：是一种双向的注意力，不仅要给阅读的文本段落生成一个注意力权重，还要给问句也生成一个注意力权重。</p>
 <p>plus，协同注意力可以分为两种方式：</p>
@@ -402,18 +403,20 @@
 <li>Alternating Co-Attention：先基于数据源A的信息，产生数据源B的Attention，再基于加入Attention之后的数据源B的信息，去生成数据源A的Attention，类似交替使用两次传统的Attention。</li>
 </ul>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq2.png" alt=""></p>
-<p>其中符号：<br>A：注意力权重，softmax出乘后的矩阵<br>C_Q：问题中每个单词的注意力权重表示*文档中的所有单词。</p>
-<p>Q__A_D：</p>
+<p>其中符号：<br>A：注意力权重，直接对文档和问句相乘后的矩阵分别按行和按列求Softmax，得到对问句中每个单词的Attention矩阵和文档中每个单词的Attention矩阵</p>
+<p>C_Q：将Attention应用到问句中，问题中每个单词的注意力权重表示*文档中的所有单词。</p>
+<p>Q__A_D：将Attention应用到文档中</p>
 <p>C_Q__A_D：</p>
-<p>C_D：将文档中每个单词的表示保存为Q<strong>A_D和C_Q</strong>A_D的总和的最终表示。</p>
-<p>coattention encoder的最后步骤是将时间信息与我们刚做出来的注意力内容相结合。我们将使用它来选择答案范围。</p>
+<p>C_D：引入Co-Attention机制后的文档信息和文本信息的结合，将文档中每个单词的表示保存为Q<strong>A_D和C_Q</strong>A_D的总和的最终表示。</p>
+<p>coattention encoder的最后步骤是将时间信息与我们刚做出来的注意力内容相结合。把文档信息D和C_D通过双向LSTM在时序上进行融合，双向LSTM每一时刻的隐层（U）作为总的encoder部分最后输出。</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq3.png" alt=""></p>
-<p>结果是矩阵U。（在获取Bi-LSTM的所有输出后，我们已经删除了前哨）。</p>
+<p>结果是矩阵U。（在获取Bi-LSTM的所有输出后，我们已经删除了前哨）。用该矩阵来预测答案在文档的起始位置和终止位置。</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/diagram2.png" alt=""></p>
 <h1 id="模型第二部分Dynamic-Pointer-Decoder"><a href="#模型第二部分Dynamic-Pointer-Decoder" class="headerlink" title="模型第二部分Dynamic Pointer Decoder"></a>模型第二部分Dynamic Pointer Decoder</h1><p>动态迭代：对于模型输出的结果，不将它作为最终的结果，而是将它继续输入到模型中作为参考，迭代出新一轮的输出，经过多次迭代，直到超过迭代次数阈值。这在文本生成上有很多的应用，诸如唐诗生成等等。对于机器阅读理解，模型最终需要预测阅读文本的哪一个片段（Span）是问句的答案，我们则可以引入动态迭代的思想，先预测一个片段，再将预测输入回模型，反复迭代后，得到最终的预测片段。</p>
+<p>迭代：输入：上一次的预测结果和Encoder信息以及历史预测信息，输出：下一次的预测结果</p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-10-28/62504385.jpg" alt=""></p>
-<p>为了避免我们的答案跨度的局部最大值，使用Dynamic Pointer Decode进行几次迭代。每次更新都提供更准确的开始和结束位置估算。</p>
-<p>开始和结束位置由开始和结束的highway maxout network（HMN）的argmax决定。Maxout networks和highway networks很好用。 maxout和highway networks是具有相同结构但权重不同的网络。</p>
+<p>将每一次的预测结果都输入到一个LSTM中去保存该历史预测信息（h矩阵）</p>
+<p>开始和结束位置由开始和结束的highway maxout network（HMN）的argmax决定。Maxout networks和highway networks很好用。 maxout和highway networks是具有相同结构但权重不同的网络。（hmn特别的地方是用Skip Connection并且使用Maxout作为激活函数）</p>
 <p><img src="https://github.com/ajarai/casual-digressions/raw/master/notes/images/coattention/eq5.png" alt=""></p>
 <p>可以将maxout网络视为强大的非线性模型，但是权重是ReLU的两倍。通过highway networks连接，能够选择性地控制信息流，能够建立从第一个最大层输出到最后一个最大层的连接。</p>
 <p><img src="http://oqnrd919g.bkt.clouddn.com/17-10-28/33159222.jpg" alt=""></p>
