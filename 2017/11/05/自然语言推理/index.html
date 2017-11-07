@@ -95,10 +95,18 @@
 <meta property="og:url" content="http://yoursite.com/2017/11/05/自然语言推理/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
 <meta property="og:description" content="两句话之间的逻辑关系，只有三类：推理p-&amp;gt;q、无关、矛盾p！-&amp;gt;q">
-<meta property="og:updated_time" content="2017-11-05T15:32:58.000Z">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/70988041.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/83089963.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/56319532.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/77164895.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/30027908.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/85463464.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/63209010.jpg">
+<meta property="og:updated_time" content="2017-11-07T08:22:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自然语言推理">
 <meta name="twitter:description" content="两句话之间的逻辑关系，只有三类：推理p-&amp;gt;q、无关、矛盾p！-&amp;gt;q">
+<meta name="twitter:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-7/70988041.jpg">
 
 
 
@@ -376,17 +384,20 @@
       
         <p>两句话之间的逻辑关系，只有三类：推理p-&gt;q、无关、矛盾p！-&gt;q<br><a id="more"></a></p>
 <h1 id="自然语言推理最近相关工作"><a href="#自然语言推理最近相关工作" class="headerlink" title="自然语言推理最近相关工作"></a>自然语言推理最近相关工作</h1><p>2005年专家系统，2015年用深度学习找两句话的表示，然后做分类：lstm去encode句子表示，也可以加attention等等。问题是不能并行计算，使得时间周期长。</p>
-<h1 id="交互空间中的自然语言推理"><a href="#交互空间中的自然语言推理" class="headerlink" title="交互空间中的自然语言推理"></a>交互空间中的自然语言推理</h1><p>《natural language inference over interaction space》数据集是SNLI和multiNLI</p>
-<p>IIN：embedd–&gt;encoder–&gt;interaction做两句话的每个词之间的交互<br>！【】】</p>
+<h1 id="交互空间中的自然语言推理"><a href="#交互空间中的自然语言推理" class="headerlink" title="交互空间中的自然语言推理"></a>交互空间中的自然语言推理</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/70988041.jpg" alt=""><br>《natural language inference over interaction space》数据集是SNLI和multiNLI</p>
+<p>IIN：embedd–&gt;encoder–&gt;interaction做两句话的每个词之间的交互</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/83089963.jpg" alt=""></p>
 <p>extraction很像图像识别中的feature map，所以像用resnet做特征提取</p>
 <p>交叉熵loss</p>
 <p>《attention is all you need 》提出来一个muti-hot attention，就是对两句话做多次attention，就是说两组encoding之间有多个encoding weight。</p>
 <p>更深的attention weight就可以包含更多信息。</p>
-<p>encoding layer：<br>！【】】<br>现加两层highway network，在此之上做一次self-attention，整合信息全局信息，就是不用lstm去组合context信息。</p>
-<p>feature extraction layer用的densenet（cvpr2017），不同的是除去batch-norm，每个dense block有8层convolution layer，每个convolution layer的output都是20个chanel，再叠加到之前的feature map上</p>
-<p>densenet省参数又不损失准确率</p>
-<p>每个切除分析都能加强对模型理解</p>
-<h1 id="交互空间中的其他应用"><a href="#交互空间中的其他应用" class="headerlink" title="交互空间中的其他应用"></a>交互空间中的其他应用</h1><h1 id="qa"><a href="#qa" class="headerlink" title="qa"></a>qa</h1>
+<h2 id="encoding-layer"><a href="#encoding-layer" class="headerlink" title="encoding layer"></a>encoding layer</h2><p>encoding layer：<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/56319532.jpg" alt=""><br>现加两层highway network，在此之上做一次self-attention，整合信息全局信息，就是不用lstm去组合context信息。</p>
+<h2 id="feature-extraction-layer"><a href="#feature-extraction-layer" class="headerlink" title="feature extraction layer"></a>feature extraction layer</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/77164895.jpg" alt=""><br>feature extraction layer用的densenet（cvpr2017），不同的是除去batch-norm，每个dense block有8层convolution layer，每个convolution layer的output都是20个chanel，再叠加到之前的feature map上</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/30027908.jpg" alt=""></p>
+<h2 id="densenet"><a href="#densenet" class="headerlink" title="densenet"></a>densenet</h2><p>densenet省参数又不损失准确率<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/85463464.jpg" alt=""></p>
+<h2 id="切除分析"><a href="#切除分析" class="headerlink" title="切除分析"></a>切除分析</h2><p>做切除分析，每个切除分析都能加强对模型理解</p>
+<h1 id="交互空间中的其他应用"><a href="#交互空间中的其他应用" class="headerlink" title="交互空间中的其他应用"></a>交互空间中的其他应用</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-7/63209010.jpg" alt=""></p>
+<h1 id="qa"><a href="#qa" class="headerlink" title="qa"></a>qa</h1>
       
     </div>
 
@@ -548,7 +559,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自然语言推理最近相关工作"><span class="nav-number">1.</span> <span class="nav-text">自然语言推理最近相关工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交互空间中的自然语言推理"><span class="nav-number">2.</span> <span class="nav-text">交互空间中的自然语言推理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交互空间中的其他应用"><span class="nav-number">3.</span> <span class="nav-text">交互空间中的其他应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qa"><span class="nav-number">4.</span> <span class="nav-text">qa</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#自然语言推理最近相关工作"><span class="nav-number">1.</span> <span class="nav-text">自然语言推理最近相关工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交互空间中的自然语言推理"><span class="nav-number">2.</span> <span class="nav-text">交互空间中的自然语言推理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#encoding-layer"><span class="nav-number">2.1.</span> <span class="nav-text">encoding layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#feature-extraction-layer"><span class="nav-number">2.2.</span> <span class="nav-text">feature extraction layer</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#densenet"><span class="nav-number">2.3.</span> <span class="nav-text">densenet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#切除分析"><span class="nav-number">2.4.</span> <span class="nav-text">切除分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交互空间中的其他应用"><span class="nav-number">3.</span> <span class="nav-text">交互空间中的其他应用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#qa"><span class="nav-number">4.</span> <span class="nav-text">qa</span></a></li></ol></div>
             
 
           </div>
