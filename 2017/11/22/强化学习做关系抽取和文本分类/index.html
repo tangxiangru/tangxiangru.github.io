@@ -1,0 +1,820 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleb849f8ce9353f945.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="欢迎戳进" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="清华冯珺（黄明烈）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="强化学习做关系抽取和文本分类">
+<meta property="og:url" content="http://yoursite.com/2017/11/22/强化学习做关系抽取和文本分类/index.html">
+<meta property="og:site_name" content="唐相儒的博客">
+<meta property="og:description" content="清华冯珺（黄明烈）">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/28409090.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/38773711.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/18995311.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/87046092.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/22850549.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/80089301.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/13501536.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/16811204.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/91685839.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/74736669.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/3414876.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/32357594.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/49238512.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/18217101.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/60612135.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/50027664.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/20536990.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/81878804.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/49024626.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/65999057.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/58494217.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/53920597.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/78283849.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/5691313.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/23048831.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/53656995.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/38756655.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/7257991.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/55864814.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/58524739.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/70305291.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/72388076.jpg">
+<meta property="og:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/14005936.jpg">
+<meta property="og:updated_time" content="2017-11-22T14:13:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="强化学习做关系抽取和文本分类">
+<meta name="twitter:description" content="清华冯珺（黄明烈）">
+<meta name="twitter:image" content="http://oqnrd919g.bkt.clouddn.com/17-11-22/28409090.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/22/强化学习做关系抽取和文本分类/"/>
+
+
+
+
+
+  <title> 强化学习做关系抽取和文本分类 | 唐相儒的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">唐相儒的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-ban"></i> <br />
+            
+            博客首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hand-peace-o"></i> <br />
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/目录" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sign-language"></i> <br />
+            
+            文章标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-asl-interpreting"></i> <br />
+            
+            team
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/22/强化学习做关系抽取和文本分类/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                强化学习做关系抽取和文本分类
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T22:12:38+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/22/强化学习做关系抽取和文本分类/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/22/强化学习做关系抽取和文本分类/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>清华冯珺（黄明烈）<br><a id="more"></a></p>
+<h1 id="强化学习基本"><a href="#强化学习基本" class="headerlink" title="强化学习基本"></a>强化学习基本</h1><p>对每一个位置都有最佳的policy</p>
+<h1 id="关系抽取"><a href="#关系抽取" class="headerlink" title="关系抽取"></a>关系抽取</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/28409090.jpg" alt=""><br>（一句话包含多个实体关系无法解决）</p>
+<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/38773711.jpg" alt=""><br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/18995311.jpg" alt=""><br>其实是关系分类：已经标注出了entity，对两个实体之间的关系分类，监督学习。</p>
+<p>但是标记成本很高，现有不带噪音数据集提出<strong>distant supervision</strong>。问题：标记有噪音可能有问题</p>
+<h2 id="传统方法"><a href="#传统方法" class="headerlink" title="传统方法"></a>传统方法</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/87046092.jpg" alt=""><br>传统：把关系抽取转化成袋子</p>
+<p>不足：不知道具体关系，上一个和下一个句子</p>
+<p>##我们方法有两个挑战<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/22850549.jpg" alt=""><br>:数据集中不知道哪些label的正误、training中不是独立过程，互相影响</p>
+<p>第一个：通过分类效果好坏来判断选择的子数据集是否好<br>第二个：train and error search，不停的选不同的子数据集</p>
+<p>弱监督的结果就相当于reword（平均的likelihood）来更新policy</p>
+<p>likelihood：通过分类器产生的概率</p>
+<h2 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/80089301.jpg" alt=""><br>强化学习来选择最好的子数据集</p>
+<p>instance seletor来帮助做分类，做分类结果反过来帮助更好选择</p>
+<p>（有一个jointy training的过程）</p>
+<h2 id="instance-seletor"><a href="#instance-seletor" class="headerlink" title="instance seletor"></a>instance seletor</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/13501536.jpg" alt=""><br>问题是数据集的traning和test都是自动生成</p>
+<p>优化就是用<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/16811204.jpg" alt=""></p>
+<h2 id="relation-classifier"><a href="#relation-classifier" class="headerlink" title="relation classifier"></a>relation classifier</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/91685839.jpg" alt=""></p>
+<h2 id="训练"><a href="#训练" class="headerlink" title="训练"></a>训练</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/74736669.jpg" alt=""><br>25轮</p>
+<h2 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/3414876.jpg" alt=""><br>NYT（riedel 2010）<br>三个baseline：一个纯粹cnn不考虑noise，两个bag level（CNN+ATT，CNN+MAX）<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/32357594.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>sentence level去做</p>
+<p>只需要弱监督信息</p>
+<p>还可以适用于任何有noise的数据集做分类</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/49238512.jpg" alt=""></p>
+<h1 id="文本分类"><a href="#文本分类" class="headerlink" title="文本分类"></a>文本分类</h1><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/18217101.jpg" alt=""></p>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/60612135.jpg" alt=""><br>句子分类：用sentence representation再做分类</p>
+<h2 id="传统方法sentence-representation"><a href="#传统方法sentence-representation" class="headerlink" title="传统方法sentence representation"></a>传统方法sentence representation</h2><p>词带、cnn、rnn、att的共同问题都没有考虑句子结构</p>
+<p>树lstm：树形结构是给定的</p>
+<h2 id="我们"><a href="#我们" class="headerlink" title="我们"></a>我们</h2><p>希望做到和任务相关的树形的表示，并且问题是不知道做什么任务的时候是什么结构—–&gt;得到结构之后丢进去分类看好坏<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/50027664.jpg" alt=""></p>
+<h2 id="model"><a href="#model" class="headerlink" title="model"></a>model</h2><p>有点复杂</p>
+<p>分成三部分<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/20536990.jpg" alt=""></p>
+<h3 id="policy"><a href="#policy" class="headerlink" title="policy"></a>policy</h3><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/81878804.jpg" alt=""><br>把句子结构变成序列，输出policy</p>
+<p>基于当前state生成action</p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/49024626.jpg" alt=""><br>encode </p>
+<h3 id="树形表示"><a href="#树形表示" class="headerlink" title="树形表示"></a>树形表示</h3><p>根据动作生成句子树形表示</p>
+<p>训练:最大化</p>
+<h3 id="分类（Cnet）"><a href="#分类（Cnet）" class="headerlink" title="分类（Cnet）"></a>分类（Cnet）</h3><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/65999057.jpg" alt=""><br>最小化</p>
+<h2 id="information-distilled-LSTM的过程"><a href="#information-distilled-LSTM的过程" class="headerlink" title="information distilled LSTM的过程"></a>information distilled LSTM的过程</h2><p>输入每个词，看哪个词比较重要，就保留：输出的动作就是删除或者保留（二分类）<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/58494217.jpg" alt=""></p>
+<p>retain就是跟传统lstm一样<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/53920597.jpg" alt=""><br>reword加人为限制使它删除词更多</p>
+<h2 id="Hierarchically-Structured-LSTM"><a href="#Hierarchically-Structured-LSTM" class="headerlink" title="Hierarchically Structured LSTM"></a>Hierarchically Structured LSTM</h2><p>生成的lstm分为两层</p>
+<p>word level 和 phrase level<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/78283849.jpg" alt=""><br>问题：怎么样去分句子，action就是怎么去切分句子</p>
+<p>动作：inside或者end(切割或者不切）</p>
+<p>reword函数跟information distilled LSTM比较像<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/5691313.jpg" alt=""><br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/23048831.jpg" alt=""></p>
+<h2 id="数据集："><a href="#数据集：" class="headerlink" title="数据集："></a>数据集：</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/53656995.jpg" alt=""><br>MR、SST、Subi、AG</p>
+<p>实验结果：<br><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/38756655.jpg" alt=""></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/7257991.jpg" alt=""><br>无关紧要的词和短语都删了</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/55864814.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/58524739.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/70305291.jpg" alt=""></p>
+<p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/72388076.jpg" alt=""></p>
+<h2 id="总结-1"><a href="#总结-1" class="headerlink" title="总结"></a>总结</h2><p><img src="http://oqnrd919g.bkt.clouddn.com/17-11-22/14005936.jpg" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/16/面经更新/" rel="next" title="面经更新">
+                <i class="fa fa-chevron-left"></i> 面经更新
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
+               alt="唐相儒" />
+          <p class="site-author-name" itemprop="name">唐相儒</p>
+           
+              <p class="site-description motion-element" itemprop="description">Never Let Your Fear Decide Your Future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/目录">
+                <span class="site-state-item-count">56</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#强化学习基本"><span class="nav-number">1.</span> <span class="nav-text">强化学习基本</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#关系抽取"><span class="nav-number">2.</span> <span class="nav-text">关系抽取</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">2.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统方法"><span class="nav-number">2.2.</span> <span class="nav-text">传统方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模型"><span class="nav-number">2.3.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#instance-seletor"><span class="nav-number">2.4.</span> <span class="nav-text">instance seletor</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#relation-classifier"><span class="nav-number">2.5.</span> <span class="nav-text">relation classifier</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#训练"><span class="nav-number">2.6.</span> <span class="nav-text">训练</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验"><span class="nav-number">2.7.</span> <span class="nav-text">实验</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">2.8.</span> <span class="nav-text">总结</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#文本分类"><span class="nav-number">3.</span> <span class="nav-text">文本分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">3.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统方法sentence-representation"><span class="nav-number">3.2.</span> <span class="nav-text">传统方法sentence representation</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们"><span class="nav-number">3.3.</span> <span class="nav-text">我们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#model"><span class="nav-number">3.4.</span> <span class="nav-text">model</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#policy"><span class="nav-number">3.4.1.</span> <span class="nav-text">policy</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#树形表示"><span class="nav-number">3.4.2.</span> <span class="nav-text">树形表示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#分类（Cnet）"><span class="nav-number">3.4.3.</span> <span class="nav-text">分类（Cnet）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#information-distilled-LSTM的过程"><span class="nav-number">3.5.</span> <span class="nav-text">information distilled LSTM的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hierarchically-Structured-LSTM"><span class="nav-number">3.6.</span> <span class="nav-text">Hierarchically Structured LSTM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集："><span class="nav-number">3.7.</span> <span class="nav-text">数据集：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#例子"><span class="nav-number">3.8.</span> <span class="nav-text">例子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析"><span class="nav-number">3.9.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结-1"><span class="nav-number">3.10.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐相儒</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/11/22/强化学习做关系抽取和文本分类/';
+          this.page.identifier = '2017/11/22/强化学习做关系抽取和文本分类/';
+          this.page.title = '强化学习做关系抽取和文本分类';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
