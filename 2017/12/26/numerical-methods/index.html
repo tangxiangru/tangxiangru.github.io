@@ -89,16 +89,34 @@
 
 
 
-<meta name="description" content="北大版算法读书笔记">
+<meta name="description" content="看完这本书才挺后悔，明显作者是数学家，写作口吻不是很好，并且年代有些久远
+monte carlo用概统来理解蒙特卡洛模拟的结果，为什么是n-1（贝塞尔修正），作用：估计|模拟
+一元非线性方程解带余项的taylor定理、牛顿法、拟牛顿法（避免求导数）
+最小二乘法选主元、cholesky分解。条件化：范数
+分段多项式插值k阶均差
+数值微分richardson外推:在导数的近似中得到高阶精度的方法
+数值">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法">
-<meta property="og:url" content="http://yoursite.com/2017/05/04/算法/index.html">
+<meta property="og:title" content="numerical methods">
+<meta property="og:url" content="http://yoursite.com/2017/12/26/numerical-methods/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
-<meta property="og:description" content="北大版算法读书笔记">
-<meta property="og:updated_time" content="2017-05-15T15:44:20.000Z">
+<meta property="og:description" content="看完这本书才挺后悔，明显作者是数学家，写作口吻不是很好，并且年代有些久远
+monte carlo用概统来理解蒙特卡洛模拟的结果，为什么是n-1（贝塞尔修正），作用：估计|模拟
+一元非线性方程解带余项的taylor定理、牛顿法、拟牛顿法（避免求导数）
+最小二乘法选主元、cholesky分解。条件化：范数
+分段多项式插值k阶均差
+数值微分richardson外推:在导数的近似中得到高阶精度的方法
+数值">
+<meta property="og:updated_time" content="2017-12-26T09:48:36.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法">
-<meta name="twitter:description" content="北大版算法读书笔记">
+<meta name="twitter:title" content="numerical methods">
+<meta name="twitter:description" content="看完这本书才挺后悔，明显作者是数学家，写作口吻不是很好，并且年代有些久远
+monte carlo用概统来理解蒙特卡洛模拟的结果，为什么是n-1（贝塞尔修正），作用：估计|模拟
+一元非线性方程解带余项的taylor定理、牛顿法、拟牛顿法（避免求导数）
+最小二乘法选主元、cholesky分解。条件化：范数
+分段多项式插值k阶均差
+数值微分richardson外推:在导数的近似中得到高阶精度的方法
+数值">
 
 
 
@@ -126,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/05/04/算法/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/26/numerical-methods/"/>
 
 
 
 
 
-  <title> 算法 | 唐相儒的博客 </title>
+  <title> numerical methods | 唐相儒的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +309,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/04/算法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/26/numerical-methods/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -312,7 +330,7 @@
             
             
               
-                算法
+                numerical methods
               
             
           </h1>
@@ -327,8 +345,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-04T19:32:39+08:00">
-                2017-05-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-26T17:16:01+08:00">
+                2017-12-26
               </time>
             
 
@@ -346,9 +364,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/05/04/算法/#comments" itemprop="discussionUrl">
+                <a href="/2017/12/26/numerical-methods/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/05/04/算法/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/12/26/numerical-methods/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,19 +392,14 @@
       
 
       
-        <p>北大版算法读书笔记</p>
-<a id="more"></a>
-<h1 id="分治策略和递归"><a href="#分治策略和递归" class="headerlink" title="分治策略和递归"></a>分治策略和递归</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>二分查找和二分归并排序：</p>
-<p>二分查找：从中位数开始判断，累加或者累减<br>二分归并排序：规模减半的子问题</p>
-<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p><a href="http://www.cnblogs.com/dongxiao-yang/p/4151730.html" target="_blank" rel="external">时间复杂度要求解递归方程</a>：使划分均匀</p>
-<p><a href="http://www.cnblogs.com/youxin/p/3284089.html" target="_blank" rel="external">MORE</a></p>
-<p>两类递归方程 T(n)<br>第一类：如hanoi。迭代、递归树、尝试</p>
-<p>第二类：如二分检索、二分归并排序。迭代、、递归树、主定理</p>
-<h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><p>减少子问题个数：寻找子问题之间的依赖关系</p>
-<p>减少递归里面的东西作为预处理</p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>首个元素作为划分标准，从后往前找一个小的j,再从前往后找一个大的i，i&lt;j交换它俩。重复直到ij相遇</p>
-<h3 id="选择问题"><a href="#选择问题" class="headerlink" title="选择问题"></a>选择问题</h3><p>就是排序</p>
-<h3 id="n-1次多项式"><a href="#n-1次多项式" class="headerlink" title="n-1次多项式"></a>n-1次多项式</h3><h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1>
+        <p>看完这本书才挺后悔，明显作者是数学家，写作口吻不是很好，并且年代有些久远</p>
+<h1 id="monte-carlo"><a href="#monte-carlo" class="headerlink" title="monte carlo"></a>monte carlo</h1><p>用概统来理解蒙特卡洛模拟的结果，为什么是n-1（贝塞尔修正），作用：估计|模拟</p>
+<h1 id="一元非线性方程解"><a href="#一元非线性方程解" class="headerlink" title="一元非线性方程解"></a>一元非线性方程解</h1><p>带余项的taylor定理、牛顿法、拟牛顿法（避免求导数）</p>
+<h1 id="最小二乘法"><a href="#最小二乘法" class="headerlink" title="最小二乘法"></a>最小二乘法</h1><p>选主元、cholesky分解。条件化：范数</p>
+<h1 id="分段多项式插值"><a href="#分段多项式插值" class="headerlink" title="分段多项式插值"></a>分段多项式插值</h1><p>k阶均差</p>
+<h1 id="数值微分"><a href="#数值微分" class="headerlink" title="数值微分"></a>数值微分</h1><p>richardson外推:在导数的近似中得到高阶精度的方法</p>
+<h1 id="数值微分-1"><a href="#数值微分-1" class="headerlink" title="数值微分"></a>数值微分</h1><p>newton-cotes公式、复合梯形法则、clenshaw-curtis求积公式</p>
+<h1 id="常微分方程组"><a href="#常微分方程组" class="headerlink" title="常微分方程组"></a>常微分方程组</h1>
       
     </div>
 
@@ -422,8 +435,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/05/02/读书笔记《cpp类与数据结构》/" rel="next" title="读书笔记《cpp类与数据结构》">
-                <i class="fa fa-chevron-left"></i> 读书笔记《cpp类与数据结构》
+              <a href="/2017/11/22/强化学习做关系抽取和文本分类/" rel="next" title="强化学习做关系抽取和文本分类">
+                <i class="fa fa-chevron-left"></i> 强化学习做关系抽取和文本分类
               </a>
             
           </div>
@@ -431,10 +444,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/05/13/昆曲/" rel="prev" title="昆曲">
-                昆曲 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -552,7 +561,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#分治策略和递归"><span class="nav-number">1.</span> <span class="nav-text">分治策略和递归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#是什么"><span class="nav-number">1.1.</span> <span class="nav-text">是什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#时间复杂度"><span class="nav-number">1.2.</span> <span class="nav-text">时间复杂度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">1.3.</span> <span class="nav-text">改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实例"><span class="nav-number">1.4.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#快速排序"><span class="nav-number">1.4.1.</span> <span class="nav-text">快速排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选择问题"><span class="nav-number">1.4.2.</span> <span class="nav-text">选择问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#n-1次多项式"><span class="nav-number">1.4.3.</span> <span class="nav-text">n-1次多项式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动态规划"><span class="nav-number">2.</span> <span class="nav-text">动态规划</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#monte-carlo"><span class="nav-number">1.</span> <span class="nav-text">monte carlo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一元非线性方程解"><span class="nav-number">2.</span> <span class="nav-text">一元非线性方程解</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最小二乘法"><span class="nav-number">3.</span> <span class="nav-text">最小二乘法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分段多项式插值"><span class="nav-number">4.</span> <span class="nav-text">分段多项式插值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数值微分"><span class="nav-number">5.</span> <span class="nav-text">数值微分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数值微分-1"><span class="nav-number">6.</span> <span class="nav-text">数值微分</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#常微分方程组"><span class="nav-number">7.</span> <span class="nav-text">常微分方程组</span></a></li></ol></div>
             
 
           </div>
@@ -689,9 +698,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/05/04/算法/';
-          this.page.identifier = '2017/05/04/算法/';
-          this.page.title = '算法';
+          this.page.url = 'http://yoursite.com/2017/12/26/numerical-methods/';
+          this.page.identifier = '2017/12/26/numerical-methods/';
+          this.page.title = 'numerical methods';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
