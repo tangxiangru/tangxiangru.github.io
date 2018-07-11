@@ -1,0 +1,946 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleb849f8ce9353f945.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="欢迎戳进" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="2018 aaisA 第n小的质数描述
+ 输入一个正整数n，求第n小的质数。
+输入
+ 一个不超过10000的正整数n。
+输出
+第n小的质数。
+样例输入
+10
+样例输出
+29
+B潜伏者描述
+R国和S国正陷入战火之中，双方都互派间谍，潜入对方内部，伺机行动。
+
+历经艰险后，潜伏于S国的R国间谍小C终于摸清了S国军用密码的编码规则：
+
+1、    S国军方内部欲发送的原信息经过加密后在网络上发送，原信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机试准备for 2019">
+<meta property="og:url" content="http://yoursite.com/2018/07/11/机试准备for-2019/index.html">
+<meta property="og:site_name" content="唐相儒的博客">
+<meta property="og:description" content="2018 aaisA 第n小的质数描述
+ 输入一个正整数n，求第n小的质数。
+输入
+ 一个不超过10000的正整数n。
+输出
+第n小的质数。
+样例输入
+10
+样例输出
+29
+B潜伏者描述
+R国和S国正陷入战火之中，双方都互派间谍，潜入对方内部，伺机行动。
+
+历经艰险后，潜伏于S国的R国间谍小C终于摸清了S国军用密码的编码规则：
+
+1、    S国军方内部欲发送的原信息经过加密后在网络上发送，原信息">
+<meta property="og:updated_time" content="2018-07-11T15:21:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="机试准备for 2019">
+<meta name="twitter:description" content="2018 aaisA 第n小的质数描述
+ 输入一个正整数n，求第n小的质数。
+输入
+ 一个不超过10000的正整数n。
+输出
+第n小的质数。
+样例输入
+10
+样例输出
+29
+B潜伏者描述
+R国和S国正陷入战火之中，双方都互派间谍，潜入对方内部，伺机行动。
+
+历经艰险后，潜伏于S国的R国间谍小C终于摸清了S国军用密码的编码规则：
+
+1、    S国军方内部欲发送的原信息经过加密后在网络上发送，原信息">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/07/11/机试准备for-2019/"/>
+
+
+
+
+
+  <title> 机试准备for 2019 | 唐相儒的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">唐相儒的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-ban"></i> <br />
+            
+            博客首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hand-peace-o"></i> <br />
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/目录" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sign-language"></i> <br />
+            
+            文章标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-asl-interpreting"></i> <br />
+            
+            team
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/11/机试准备for-2019/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                机试准备for 2019
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-11T23:13:04+08:00">
+                2018-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/07/11/机试准备for-2019/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/07/11/机试准备for-2019/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="2018-aais"><a href="#2018-aais" class="headerlink" title="2018 aais"></a>2018 aais</h1><h2 id="A-第n小的质数"><a href="#A-第n小的质数" class="headerlink" title="A 第n小的质数"></a>A 第n小的质数</h2><p>描述</p>
+<p> 输入一个正整数n，求第n小的质数。</p>
+<p>输入</p>
+<p> 一个不超过10000的正整数n。</p>
+<p>输出</p>
+<pre><code>第n小的质数。
+</code></pre><p>样例输入</p>
+<pre><code>10
+</code></pre><p>样例输出</p>
+<pre><code>29
+</code></pre><h2 id="B潜伏者"><a href="#B潜伏者" class="headerlink" title="B潜伏者"></a>B潜伏者</h2><p>描述</p>
+<pre><code>R国和S国正陷入战火之中，双方都互派间谍，潜入对方内部，伺机行动。
+
+历经艰险后，潜伏于S国的R国间谍小C终于摸清了S国军用密码的编码规则：
+
+1、    S国军方内部欲发送的原信息经过加密后在网络上发送，原信息的内容与加密后所的内容均由大写字母‘A’—‘Z’构成（无空格等其他字母）。
+
+2、    S国对于每个字母规定了对应的“密字”。加密的过程就是将原信息中的所有字母替换为其对应的“密字”。
+
+3、    每个字母只对应一个唯一的“密字”，不同的字母对应不同的“密字”。“密字”可以和原字母相同。
+
+例如，若规定‘A’的密字为‘A’，‘B’的密字为‘C’（其他字母及密字略），则原信息“ABA”被加密为“ACA”。
+
+现在，小C通过内线掌握了S国网络上发送的一条加密信息及其对应的原信息。小C希望能通过这条信息，破译S国的军用密码。小C的破译过程是这样的：扫描原信息，对于原信息中的字母x（代表任一大写字母），找到其在加密信息中的对应大写字母y，并认为在密码里y是x的密字。如此进行下去直到停止于如下的某个状态：
+
+1、    所有信息扫描完毕，‘A’—‘Z’所有26个字母在原信息中均出现过并获得了相应的“密字”。
+
+2、    所有信息扫描完毕，但发现存在某个（或某些）字母在原信息中没有出现。
+
+3、    扫描中发现掌握的信息里有明显的自相矛盾或错误（违反S过密码的编码规则）。例如某条信息“XYZ”被翻译为“ABA”就违反了“不同字母对应不同密字”的规则。
+
+在小C忙得头昏脑胀之际，R国司令部又发来电报，要求他翻译另外一条从S国刚刚截取到的加密信息。现在请你帮助小C：通过内线掌握的信息，尝试破译密码。然后利用破译的密码，翻译电报中的加密信息。 
+</code></pre><p>输入<br>    共3行，每行为一个长度在1到100之间的字符串。<br>    第1行为小C掌握的一条加密信息。<br>    第2行为第1行的加密信息所对应的原信息。<br>    第3行为R国司令部要求小C翻译的加密信息。<br>    输入数据保证所有字符串仅由大写字母‘A’—‘Z’构成，且第1行长度与第2行相等。<br>输出<br>    共1行。<br>    若破译密码停止时出现2，3两种情况，请你输出“Failed”（不含引号，注意首字母大写，其它小写）。<br>    否则请输出利用密码翻译电报中加密信息后得到的原信息。<br>样例输入</p>
+<pre><code>样例 #1：
+AA
+AB
+EOWIE
+
+样例 #2：
+QWERTYUIOPLKJHGFDSAZXCVBN
+ABCDEFGHIJKLMNOPQRSTUVWXY
+DSLIEWO
+
+样例 #3：
+MSRTZCJKPFLQYVAWBINXUEDGHOOILSMIJFRCOPPQCEUNYDUMPP
+YIZSDWAHLNOVFUCERKJXQMGTBPPKOIYKANZWPLLVWMQJFGQYLL
+FLSO
+</code></pre><p>样例输出</p>
+<pre><code>样例 #1：
+Failed
+
+样例#2：
+Failed
+
+样例#3：
+NOIP
+</code></pre><p>提示<br>    输入输出样例1说明：原信息中的字母‘A’和‘B’对应相同的密字，输出“Failed”。</p>
+<pre><code>输入输出样例2说明：字母‘Z’在原信息中没有出现，输出“Failed”。
+</code></pre><h2 id="C-逃离迷宫"><a href="#C-逃离迷宫" class="headerlink" title="C:逃离迷宫"></a>C:逃离迷宫</h2><p>描述</p>
+<pre><code>你在一个地下迷宫中找到了宝藏，但是也触发了迷宫机关，导致迷宫将在T分钟后坍塌，为此你需要在T分钟内逃离迷宫，你想知道你能不能逃离迷宫。迷宫是一个边长为m的正方形，其中&quot;S&quot;表示你所在的位置，&quot;E&quot;表示迷宫出口，&quot;.&quot;是可以随意走动的区域，&quot;#&quot;是不可穿行的墙壁，每次你可以耗费1分钟在区域间移动（上下左右四个方向）。
+</code></pre><p>输入<br>    输入包含多组数组，第一行是一个整数K（1 &lt;= K &lt;= 10)，表示有K组数据。接下来每组数组包含整数m(2&lt;=m&lt;=10)和整数T，m表示正方形迷宫的边长，T表示坍塌时间。其后是一个m*m的字符矩阵，包含字符”S”, “E”, “.”和”#”。<br>输出<br>    每组数据输出一行，输出“YES”或者”NO”，表示是否可以在坍塌之前逃离（也就是说移动次数是否可以不超过T）。<br>样例输入</p>
+<pre><code>2
+4 7 
+S...
+###.
+.#E.
+..#.    
+3 4
+S..
+..#
+.#E
+</code></pre><p>样例输出</p>
+<pre><code>YES
+NO
+</code></pre><h2 id="D-跑步"><a href="#D-跑步" class="headerlink" title="D:跑步"></a>D:跑步</h2><p>描述</p>
+<pre><code>奶牛们打算通过锻炼来培养自己的运动细胞，作为其中的一员，贝茜选择的运动方式是每天进行N(1 &lt;= N &lt;= 10,000)分钟的晨跑。在每分钟的开始，贝茜会选择下一分钟是用来跑步还是休息。 贝茜的体力限制了她跑步的距离。更具体地，如果贝茜选择在第i分钟内跑步，她可以在这一分钟内跑D_i(1 &lt;= D_i &lt;= 1,000)米，并且她的疲劳度会增加 1。不过，无论何时贝茜的疲劳度都不能超过M(1 &lt;= M &lt;= 500)。如果贝茜选择休息，那么她的疲劳度就会每分钟减少1，但她必须休息到疲劳度恢复到0为止。在疲劳度为0时休息的话，疲劳度不会再变动。晨跑开始时，贝茜的疲劳度为0。 还有，在N分钟的锻炼结束时，贝茜的疲劳度也必须恢复到0，否则她将没有足够的精力来对付这一整天中剩下的事情。 请你计算一下，贝茜最多能跑多少米。
+</code></pre><p>输入<br>    第1行: 2个用空格隔开的整数：N 和 M<br>    第2..N+1行: 第i+1为1个整数：D_i<br>输出<br>    第1行: 输出1个整数，表示在满足所有限制条件的情况下，贝茜能跑的最大 距离<br>样例输入</p>
+<pre><code>5 2
+5
+3
+4
+2
+10
+</code></pre><p>样例输出</p>
+<pre><code>9
+</code></pre><p>提示<br>    对于30%的数据，N &lt;= 50, M &lt;= 10</p>
+<h2 id="E-What-time-is-it"><a href="#E-What-time-is-it" class="headerlink" title="E:What time is it?"></a>E:What time is it?</h2><p>描述<br>    An accutron shows time with four digits, from 0000 to 2359. Every digit is represented by 3*3 characters, including ‘|’s, ‘_’s and blanks. When the LCD screen works well, the digits look like the following:</p>
+<pre><code> _     _  _     _  _  _  _  _ 
+| |  | _| _||_||_ |_   ||_||_|
+|_|  ||_  _|  | _||_|  ||_| _|
+
+
+
+There are two accutrons at hand. One shows the accurate time, and the other is 15 minutes late. For example, at 8:25am, the first accutron shows &apos;0825&apos;, while the second shows &apos;0810&apos;.
+
+Unfortunately, there is something wrong with the two LCD screens, namely some parts of the digits missed. Your task is to decide the accurate time, according to the fragmental digits showed on the two accutrons.
+</code></pre><p>输入<br>    The first line of the input is a single integer t (1 &lt;= t &lt;= 20), the number of test cases. Each case contains three lines, indicating the time on the accurate accutron and the time on the slow accutron, separated by a blank column. (Please refer to the Sample Input.)<br>输出<br>    For each input, print the accurate time with four digits if it can be ensured, or otherwise the string ‘Not Sure’.<br>样例输入</p>
+<pre><code>2
+    _  _  _      _     _ 
+  | _  _||       _   ||  
+  | _ |_   |   | _    |_|
+    _  _  _   _  _     _ 
+  ||_  _||       _|  ||  
+  | _ |_   |   ||     |_|
+</code></pre><p>样例输出</p>
+<pre><code>Not Sure
+0825
+</code></pre><h2 id="F-Sorting-It-All-Out"><a href="#F-Sorting-It-All-Out" class="headerlink" title="F:Sorting It All Out"></a>F:Sorting It All Out</h2><p>描述</p>
+<pre><code>An ascending sorted sequence of distinct values is one in which some form of a less-than operator is used to order the elements from smallest to largest. For example, the sorted sequence A, B, C, D implies that A &lt; B, B &lt; C and C &lt; D. in this problem, we will give you a set of relations of the form A &lt; B and ask you to determine whether a sorted order has been specified or not. 
+</code></pre><p>输入<br>    Input consists of multiple problem instances. Each instance starts with a line containing two positive integers n and m. the first value indicated the number of objects to sort, where 2 &lt;= n &lt;= 26. The objects to be sorted will be the first n characters of the uppercase alphabet. The second value m indicates the number of relations of the form A &lt; B which will be given in this problem instance. Next will be m lines, each containing one such relation consisting of three characters: an uppercase letter, the character “&lt;” and a second uppercase letter. No letter will be outside the range of the first n letters of the alphabet. Values of n = m = 0 indicate end of input.<br>输出<br>    For each problem instance, output consists of one line. This line should be one of the following three:</p>
+<pre><code>Sorted sequence determined after xxx relations: yyy...y.
+Sorted sequence cannot be determined.
+Inconsistency found after xxx relations.
+
+where xxx is the number of relations processed at the time either a sorted sequence is determined or an inconsistency is found, whichever comes first, and yyy...y is the sorted, ascending sequence.
+</code></pre><p>样例输入</p>
+<pre><code>4 6
+A&lt;B
+A&lt;C
+B&lt;C
+C&lt;D
+B&lt;D
+A&lt;B
+3 2
+A&lt;B
+B&lt;A
+26 1
+A&lt;Z
+0 0
+</code></pre><p>样例输出</p>
+<pre><code>Sorted sequence determined after 4 relations: ABCD.
+Inconsistency found after 2 relations.
+Sorted sequence cannot be determined.
+</code></pre><h2 id="G-Rails"><a href="#G-Rails" class="headerlink" title="G:Rails"></a>G:Rails</h2><p>描述<br>    There is a famous railway station in PopPush City. Country there is incredibly hilly. The station was built in last century. Unfortunately, funds were extremely limited that time. It was possible to establish only a surface track. Moreover, it turned out that the station could be only a dead-end one (see picture) and due to lack of available space it could have only one track.</p>
+<pre><code>The local tradition is that every train arriving from the direction A continues in the direction B with coaches reorganized in some way. Assume that the train arriving from the direction A has N &lt;= 1000 coaches numbered in increasing order 1, 2, ..., N. The chief for train reorganizations must know whether it is possible to marshal coaches continuing in the direction B so that their order will be a1, a2, ..., aN. Help him and write a program that decides whether it is possible to get the required order of coaches. You can assume that single coaches can be disconnected from the train before they enter the station and that they can move themselves until they are on the track in the direction B. You can also suppose that at any time there can be located as many coaches as necessary in the station. But once a coach has entered the station it cannot return to the track in the direction A and also once it has left the station in the direction B it cannot return back to the station.
+</code></pre><p>输入<br>    The input consists of blocks of lines. Each block except the last describes one train and possibly more requirements for its reorganization. In the first line of the block there is the integer N described above. In each of the next lines of the block there is a permutation of 1, 2, …, N. The last line of the block contains just 0.</p>
+<pre><code>The last block consists of just one line containing 0.
+</code></pre><p>输出<br>    The output contains the lines corresponding to the lines with permutations in the input. A line of the output contains Yes if it is possible to marshal the coaches in the order required on the corresponding line of the input. Otherwise it contains No. In addition, there is one empty line after the lines corresponding to one block of the input. There is no line in the output corresponding to the last ``null’’ block of the input.<br>样例输入</p>
+<pre><code>5
+1 2 3 4 5
+5 4 1 2 3
+0
+6
+6 5 4 3 2 1
+0
+0
+</code></pre><p>样例输出</p>
+<pre><code>Yes
+
+No
+
+Yes
+</code></pre><h2 id="H-The-Rotation-Game"><a href="#H-The-Rotation-Game" class="headerlink" title="H:The Rotation Game"></a>H:The Rotation Game</h2><p>描述<br>    The rotation game uses a # shaped board, which can hold 24 pieces of square blocks (see Fig.1). The blocks are marked with symbols 1, 2 and 3, with exactly 8 pieces of each kind.</p>
+<pre><code>Initially, the blocks are placed on the board randomly. Your task is to move the blocks so that the eight blocks placed in the center square have the same symbol marked. There is only one type of valid move, which is to rotate one of the four lines, each consisting of seven blocks. That is, six blocks in the line are moved towards the head by one block and the head block is moved to the end of the line. The eight possible moves are marked with capital letters A to H. Figure 1 illustrates two consecutive moves, move A and move C from some initial configuration.
+</code></pre><p>输入<br>    The input consists of no more than 30 test cases. Each test case has only one line that contains 24 numbers, which are the symbols of the blocks in the initial configuration. The rows of blocks are listed from top to bottom. For each row the blocks are listed from left to right. The numbers are separated by spaces. For example, the first test case in the sample input corresponds to the initial configuration in Fig.1. There are no blank lines between cases. There is a line containing a single <code>0&#39; after the last test case that ends the input.
+输出
+    For each test case, you must output two lines. The first line contains all the moves needed to reach the final configuration. Each move is a letter, ranging from</code>A’ to <code>H&#39;, and there should not be any spaces between the letters in the line. If no moves are needed, output</code>No moves needed’ instead. In the second line, you must output the symbol of the blocks in the center square after these moves. If there are several possible solutions, you must output the one that uses the least number of moves. If there is still more than one possible solution, you must output the solution that is smallest in dictionary order for the letters of the moves. There is no need to output blank lines between cases.<br>样例输入</p>
+<pre><code>1 1 1 1 3 2 3 2 3 1 3 2 2 3 1 2 2 2 3 1 2 1 3 3
+1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3
+0
+</code></pre><p>样例输出</p>
+<pre><code>AC
+2
+DDHH
+2
+</code></pre>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/07/04/socks5-Git代理/" rel="next" title="socks5-Git代理">
+                <i class="fa fa-chevron-left"></i> socks5-Git代理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
+               alt="唐相儒" />
+          <p class="site-author-name" itemprop="name">唐相儒</p>
+           
+              <p class="site-description motion-element" itemprop="description">Never Let Your Fear Decide Your Future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/目录">
+                <span class="site-state-item-count">65</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2018-aais"><span class="nav-number">1.</span> <span class="nav-text">2018 aais</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-第n小的质数"><span class="nav-number">1.1.</span> <span class="nav-text">A 第n小的质数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B潜伏者"><span class="nav-number">1.2.</span> <span class="nav-text">B潜伏者</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-逃离迷宫"><span class="nav-number">1.3.</span> <span class="nav-text">C:逃离迷宫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-跑步"><span class="nav-number">1.4.</span> <span class="nav-text">D:跑步</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-What-time-is-it"><span class="nav-number">1.5.</span> <span class="nav-text">E:What time is it?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Sorting-It-All-Out"><span class="nav-number">1.6.</span> <span class="nav-text">F:Sorting It All Out</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Rails"><span class="nav-number">1.7.</span> <span class="nav-text">G:Rails</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-The-Rotation-Game"><span class="nav-number">1.8.</span> <span class="nav-text">H:The Rotation Game</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐相儒</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2018/07/11/机试准备for-2019/';
+          this.page.identifier = '2018/07/11/机试准备for-2019/';
+          this.page.title = '机试准备for 2019';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+</body>
+</html>
