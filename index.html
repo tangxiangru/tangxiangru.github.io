@@ -292,6 +292,158 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/12/lawchallenge/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/10/12/lawchallenge/" itemprop="url">
+                  lawchallenge
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-12T13:05:23+08:00">
+                2018-10-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/12/lawchallenge/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2018/10/12/lawchallenge/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="汉王任务一罪名"><a href="#汉王任务一罪名" class="headerlink" title="汉王任务一罪名"></a>汉王任务一罪名</h1><p>预处理：分词、数值替换！！！！、tf-idf for SVM、wordembedding for CNN、数值上采样</p>
+<p>传统做法：9个svm(子采样)做投票</p>
+<p>cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，三类别就是000 0.3 00000.3 0000.3。这使得累加都是1</p>
+<p>第二种cnn,架构不一样</p>
+<p>三种模型做集成</p>
+<p>注意：attention很重要，dl优于传统，svm速度很快，重点：把差异大的模型继承是很好的做法</p>
+<h1 id="中电28所任务三刑期"><a href="#中电28所任务三刑期" class="headerlink" title="中电28所任务三刑期"></a>中电28所任务三刑期</h1><p>model1：dpcnn、model2：fmcnn</p>
+<p>早起multi task还行 后来就不行了</p>
+<h1 id="安徽省高院"><a href="#安徽省高院" class="headerlink" title="安徽省高院"></a>安徽省高院</h1><p>多分类，也是传统+dl融合的方式</p>
+<p>预处理：停用词、金额、重量、酒精浓度、地区、时间、当事人姓名都用不同的大写字母去代替，意思是这些命名实体对最后结果影响非常大</p>
+<p>传统：tf-idf做特征选择（10w），模型：线性svc、labelpowerset、rakelD</p>
+<p>三种方法来解决多标签：问题转化(lp)、改编算法、集成方法，来转化为单标签问题</p>
+<p>问题转化：二元关联、分类器链、标签powerset</p>
+<p>有个所用模型：。。。。。。。注意看ppt</p>
+<p>改编算法：knn的多标签版本mlknn</p>
+<p>集成：rakelo、rakeld：大标签集分成一定数目小标签集，使用label powerset训练相应的分类器，最后投票</p>
+<h1 id="西电"><a href="#西电" class="headerlink" title="西电"></a>西电</h1><p>样本少的类比设置高的权重</p>
+<p>jieba分词</p>
+<p>有没有易混淆的：抢劫、抢夺，加入要素维度，利用fine-tuning 训练易混淆模型：正则</p>
+<p>多模型融合：textcnn、textrnn</p>
+<p>小的技巧、数据分析、详细的实验记录（想好做哪些尝试）</p>
+<h2 id="达观数据"><a href="#达观数据" class="headerlink" title="达观数据"></a>达观数据</h2>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/03/Summarization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1680,143 +1832,6 @@ DDHH
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/20/五大正则化方法和七大优化策略/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/01/20/五大正则化方法和七大优化策略/" itemprop="url">
-                  五大正则化方法和七大优化策略
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-20T19:53:06+08:00">
-                2018-01-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/01/20/五大正则化方法和七大优化策略/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/01/20/五大正则化方法和七大优化策略/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>梯度下降是一种优化技术，它通过最小化代价函数的误差而决定参数的最优值，进而提升网络的性能。但它在处理高度非凸函数和搜索全局最小值时也存在很多局限性。</p>
-<p>正则化技术令参数数量多于输入数据量的网络避免产生过拟合现象。正则化通过避免训练完美拟合数据样本的系数而有助于算法的泛化。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/01/20/五大正则化方法和七大优化策略/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1866,7 +1881,7 @@ DDHH
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">68</span>
+                <span class="site-state-item-count">69</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
