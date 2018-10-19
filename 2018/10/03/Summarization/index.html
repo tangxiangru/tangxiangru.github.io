@@ -108,7 +108,7 @@
 <meta property="og:image" content="https://image.jiqizhixin.com/uploads/editor/fbf9eb1b-8a7c-4588-88e3-e3a74b8444a5/1526539880900.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/584241/201807/584241-20180725163200018-1933456892.png">
 <meta property="og:image" content="https://images2018.cnblogs.com/blog/584241/201807/584241-20180725135902556-111175071.png">
-<meta property="og:updated_time" content="2018-10-12T05:02:48.000Z">
+<meta property="og:updated_time" content="2018-10-15T02:17:07.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Summarization">
 <meta name="twitter:description" content="一些摘要paper的笔记">
@@ -500,14 +500,16 @@ LCSTS(word): Rouge-1:39.93/Rouge-2:33.08/Rouge-L:42.68
 </li>
 </ol>
 <p>抽取式和生成式方法可以作为两个独立步骤训练，也可以采取端到端的方式进行训练，分开训练时，抽取式部分直接将信息量较大的句子输出，生成式部分只接受部分原始句子作为输入；端到端训练时，抽取式方法对句子进行打分，生成式部分会在句子打分的基础上，更新对每个词的attention权值。在端到端训练时，生成式部分权值较大的词可能不在抽取式权值较大的句子里面，因此文章提出了不一致损失来约束该情况。</p>
-<p>超越了lead3…</p>
+<p>只超越了lead3…</p>
+<p>5.loss有4个部分，抽取、生成、coverage、inc（最重要）</p>
 <h2 id="Fast-Abstractive-Summarization-with-Reinforce-Selected-Sentence-Rewriting"><a href="#Fast-Abstractive-Summarization-with-Reinforce-Selected-Sentence-Rewriting" class="headerlink" title="Fast Abstractive Summarization with Reinforce-Selected Sentence Rewriting"></a>Fast Abstractive Summarization with Reinforce-Selected Sentence Rewriting</h2><p><img src="https://images2018.cnblogs.com/blog/584241/201807/584241-20180725135902556-111175071.png" alt=""></p>
 <p>1、用cnn做句子level编码</p>
 <p>2、把cnn的输出作为一个bilstm的输入，去学习一个Hierarchical的更强的句子表示</p>
-<p>3、Sentence Selection：用一个pointer作为抽取式，去抽重要句子</p>
-<p>4、Abstractor Network：改写器是 encoder-aligner-decoder + copynet</p>
+<p>3、Sentence Selection：用一个pointer作为抽取式，去抽重要句子（曾被选过，则为-无穷大）</p>
+<p>4、Abstractor Network：改写器是 encoder-aligner-decoder + copynet（就是get the point）</p>
 <p>快: parallel decoding</p>
 <p>5、强化学习仅调整Extractor参数，不调整Abstractor参数，避免生成的句子可读性差，同样使用Policy Gradient学习算法。直接用rouge作为reward。两次离散化</p>
+<p>6.几个trick：伪标签算rouge最大，extract部分用eoe表示让抽取停止，beam search抽句子（防止ngram重复太大）</p>
 <p>性能</p>
 <pre><code>CNN/Daily Mail: Rouge-1:40.88/Rouge-2:17.80/Rouge-L:38.54
 </code></pre><h2 id="Neural-Document-Summarization-by-Jointly-Learning-to-Score-and-Select-Sentences"><a href="#Neural-Document-Summarization-by-Jointly-Learning-to-Score-and-Select-Sentences" class="headerlink" title="Neural Document Summarization by Jointly Learning to Score and Select Sentences"></a>Neural Document Summarization by Jointly Learning to Score and Select Sentences</h2><p>又是将句子排序和选择联合在一个端到端模型里，这篇文章joint就在于把当前权重最大的句子的隐层状态作为decode下一个time step的输入，这样相当于同时拿文章信息和之前已经抽取句子的信息再次对其他句子进行attention操作，这样让抽取句子的信息起到一个抑制作用</p>
@@ -638,7 +640,7 @@ LCSTS(word): Rouge-1:39.93/Rouge-2:33.08/Rouge-L:42.68
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

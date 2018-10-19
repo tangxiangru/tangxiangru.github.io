@@ -105,7 +105,7 @@ cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，�
 第二种cnn,架构不一样
 三种模型做集成
 注意：attention很重要">
-<meta property="og:updated_time" content="2018-10-12T06:14:00.000Z">
+<meta property="og:updated_time" content="2018-10-12T08:26:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="lawchallenge">
 <meta name="twitter:description" content="汉王任务一罪名预处理：分词、数值替换！！！！、tf-idf for SVM、wordembedding for CNN、数值上采样
@@ -410,7 +410,22 @@ cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，�
 <p>有没有易混淆的：抢劫、抢夺，加入要素维度，利用fine-tuning 训练易混淆模型：正则</p>
 <p>多模型融合：textcnn、textrnn</p>
 <p>小的技巧、数据分析、详细的实验记录（想好做哪些尝试）</p>
-<h2 id="达观数据"><a href="#达观数据" class="headerlink" title="达观数据"></a>达观数据</h2>
+<h2 id="达观数据"><a href="#达观数据" class="headerlink" title="达观数据"></a>达观数据</h2><h2 id="ali"><a href="#ali" class="headerlink" title="ali"></a>ali</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>hir句子、离散特征用fm、法条embed</p>
+<p>法条预测：nilinear做一个相关性匹配、sigmoid loss</p>
+<p>罪名预测：attr classifier</p>
+<p>级联的方式：hard、soft</p>
+<p>三个loss</p>
+<p>刑期预测:先做分类再做回归，mae、huber loss(介于mae-mse之间)</p>
+<p>一个五个loss做multi task</p>
+<h3 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h3><p>elmo真的有效果</p>
+<p>找到一些性能比较相似的embed去融合，因为可能是不同角度去描述</p>
+<p>fewshot：人为设定属性</p>
+<p>bilinear做异构数据拉到同一个空间</p>
+<h2 id="国双"><a href="#国双" class="headerlink" title="国双"></a>国双</h2><p>任务1、2绝对是一起训练的</p>
+<p>业务规则特征就是一些数字的不同有不同意义</p>
+<p>用邴立东的ram，dpcnn，rcnn</p>
+<p>注意模型细节！！！不同结构非常重要</p>
+
       
     </div>
 
@@ -455,6 +470,10 @@ cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，�
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/18/GroupStudy-Classification-and-NN/" rel="prev" title="GroupStudy-Classification and NN">
+                GroupStudy-Classification and NN <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +552,7 @@ cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，�
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">69</span>
+                <span class="site-state-item-count">71</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -572,7 +591,7 @@ cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，�
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#汉王任务一罪名"><span class="nav-number">1.</span> <span class="nav-text">汉王任务一罪名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中电28所任务三刑期"><span class="nav-number">2.</span> <span class="nav-text">中电28所任务三刑期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安徽省高院"><span class="nav-number">3.</span> <span class="nav-text">安徽省高院</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#西电"><span class="nav-number">4.</span> <span class="nav-text">西电</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#达观数据"><span class="nav-number">4.1.</span> <span class="nav-text">达观数据</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#汉王任务一罪名"><span class="nav-number">1.</span> <span class="nav-text">汉王任务一罪名</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#中电28所任务三刑期"><span class="nav-number">2.</span> <span class="nav-text">中电28所任务三刑期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安徽省高院"><span class="nav-number">3.</span> <span class="nav-text">安徽省高院</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#西电"><span class="nav-number">4.</span> <span class="nav-text">西电</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#达观数据"><span class="nav-number">4.1.</span> <span class="nav-text">达观数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ali"><span class="nav-number">4.2.</span> <span class="nav-text">ali</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#模型"><span class="nav-number">4.2.1.</span> <span class="nav-text">模型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调优"><span class="nav-number">4.2.2.</span> <span class="nav-text">调优</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#国双"><span class="nav-number">4.3.</span> <span class="nav-text">国双</span></a></li></ol></li></ol></div>
             
 
           </div>
