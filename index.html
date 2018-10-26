@@ -795,8 +795,8 @@
 <p>Window classification（窗口（上下文）分类）</p>
 <p>2、Cross-entropy loss（交叉熵误差推导）、Max-margin loss</p>
 <p>Cross-entropy: H(p,q) = H(p)+KL(p||q)</p>
-<p>3、Back propagation for a single layer neural network<br>BP: applying the chain rule and reusing derivative calculations（单层神经网络、最大间隔损失和反向传播）</p>
-<h1 id="上课"><a href="#上课" class="headerlink" title="上课"></a>上课</h1><h2 id="2-课程概述"><a href="#2-课程概述" class="headerlink" title="2 课程概述"></a>2 课程概述</h2><p>什么是分类</p>
+<p>3、Back propagation for a single layer neural network<br>BP: applying the chain rule and reusing derivative calculations（单层神经网络、最大间隔损失(一种新的损失)和反向传播）</p>
+<h1 id="上课"><a href="#上课" class="headerlink" title="上课"></a>上课</h1><h2 id="2-Overview-Today课程概述"><a href="#2-Overview-Today课程概述" class="headerlink" title="2 Overview Today课程概述"></a>2 Overview Today课程概述</h2><p>什么是分类</p>
 <p>一般情况下我们会有一个训练模型用的样本数据集</p>
 <p>x是输入数据，比如：单词（所以或者向量）、上下文窗口、句子、文档</p>
 <p>通过“更新”词向量内容去做分类任务，更新的是一些真实的信号，这里的类别：比如类别：情感、命名实体、买/卖</p>
@@ -804,20 +804,29 @@
 <p>交叉啥和softmax的连接</p>
 <p>然后是nn，从这里开始开始这节课为什么叫deep learning and nlp</p>
 <p>对习题一、二都有帮助</p>
-<h2 id="3-分类任务的定义"><a href="#3-分类任务的定义" class="headerlink" title="3 分类任务的定义"></a>3 分类任务的定义</h2><p>有 输入 和 输出label（one-hot向量）</p>
+<p>我们今天会涉及到很多数学知识，也是第一次涉及到nn</p>
+<h2 id="3-Classifica6on-setup-and-notation-分类任务的定义"><a href="#3-Classifica6on-setup-and-notation-分类任务的定义" class="headerlink" title="3 Classifica6on setup and notation 分类任务的定义"></a>3 Classifica6on setup and notation 分类任务的定义</h2><p>看这个基本的定义和数学符号</p>
+<p>有 输入 和 输出label（one-hot向量）</p>
 <p>传统上认为是去找一个边界将数据集分开，比如说一个逻辑回归分类，要训练的就是W这个参数：使用比如逻辑回归分类2维词向量，得到线性决策边界。</p>
 <p>一般的ML方法：假设x是确定的，训练逻辑回归只修改参数W，值改变决策边界</p>
 <p>当然目的是最后预测x</p>
-<h2 id="4-sofrmax算法细节"><a href="#4-sofrmax算法细节" class="headerlink" title="4 sofrmax算法细节"></a>4 sofrmax算法细节</h2><p>总而言之，整理分为两步，y是类别，W的每一行为每一类的参数，该行每个去乘以每个x得到一个向量，再归一化，使得每个类相加=1</p>
+<h2 id="4-Classifica6on-intui6on"><a href="#4-Classifica6on-intui6on" class="headerlink" title="4 Classifica6on intui6on"></a>4 Classifica6on intui6on</h2><p>输出就是一个标签，但是比如机器翻译就是一个词</p>
+<p>分类是一个另类的回归</p>
+<p>i表示整个数据集，没有i表示一个数据</p>
+<h2 id="5-sofrmax算法细节"><a href="#5-sofrmax算法细节" class="headerlink" title="5 sofrmax算法细节"></a>5 sofrmax算法细节</h2><p>因为后面要求导 所以要清楚概念 softmax定义</p>
+<p>总而言之，整理分为两步，y是类别，W的每一行为每一类的参数，该行每个去乘以每个x得到一个向量，再归一化，使得每个类相加=1</p>
 <p>第一步：1、算第y类，就取权值矩阵W的第y行的每个元素乘以x的每个元素 之后累加.</p>
 <p>第二步：2.归一化得到softmax函数的概率</p>
-<h2 id="5-softmax和交叉熵误差"><a href="#5-softmax和交叉熵误差" class="headerlink" title="5 softmax和交叉熵误差"></a>5 softmax和交叉熵误差</h2><p>由于是分类任务，所以希望输出的是概率最大的类别（最大化正确类别的概率），即argmax，最大化正确类别y的概率。</p>
-<p>所以最大化概率==最大化对数概率==最小化对数概率的负数，就变为最小化为负log概率：</p>
+<h2 id="6-softmax和交叉熵误差"><a href="#6-softmax和交叉熵误差" class="headerlink" title="6 softmax和交叉熵误差"></a>6 softmax和交叉熵误差</h2><p>由于是分类任务，所以希望输出的是概率最大的类别（最大化正确类别的概率），即argmax，最大化正确类别y的概率。</p>
+<p>所以我们希望模型能够最大化概率==最大化对数概率==最小化对数概率的负数，就变为最小化为负log概率：</p>
 <p>（作用：映射到（0,1）区间内，而这些值的累和为1（满足概率的性质），那么我们就可以将它理解成概率，在最后选取输出结点的时候，我们就可以选取概率最大（也就是值对应最大的）结点，作为我们的预测目标）</p>
-<h2 id="6-为什么是交叉熵误差-交叉熵定义）"><a href="#6-为什么是交叉熵误差-交叉熵定义）" class="headerlink" title="6 为什么是交叉熵误差(交叉熵定义）"></a>6 为什么是交叉熵误差(交叉熵定义）</h2><p>其实这个损失函数等效于交叉熵：</p>
+<p>称之为交叉熵误差</p>
+<h2 id="7-为什么是交叉熵误差-交叉熵定义）"><a href="#7-为什么是交叉熵误差-交叉熵定义）" class="headerlink" title="7 为什么是交叉熵误差(交叉熵定义）"></a>7 为什么是交叉熵误差(交叉熵定义）</h2><p>其实这个损失函数等效于交叉熵：</p>
 <p>（公式推导）</p>
 <p>假设一个真实的概率分布为：正确为1，错误为0。所以类别是one-hot向量。</p>
 <p>由于p是一个one-hot向量，只有当左边是一个真实标签的负log概率。</p>
+<p>p是真实的事实，q是softmax之后计算的</p>
+<p>所以只有真实那一项非0，并不是求和复杂</p>
 <p>(SVM只选自己喜欢的男神，Softmax把所有备胎全部拉出来评分，最后还归一化一下)</p>
 <p>当我们对分类的Loss进行改进的时候，我们要通过梯度下降，每次优化一个step大小的梯度，这个时候我们就要求Loss对每个权重矩阵的偏导，然后应用链式法则。那么这个过程的第一步，就是对softmax求导传回去，不用着急，我后面会举例子非常详细的说明。在这个过程中，你会发现用了softmax函数之后，梯度求导过程非常非常方便！</p>
 <p>举个例子说明一下上面两个slide：</p>
@@ -825,57 +834,199 @@
 <p>然后求loss对每个权重矩阵的偏导，用链式法则</p>
 <p><img src="https://pic1.zhimg.com/80/v2-04abf86ef7717f69f33f3d7ed0099e1c_hd.png" alt=""></p>
 <p>直接真正结果那一维减1，把偏导回传就行</p>
-<h2 id="7-kl散度：最小化两个分布之间的kl散度"><a href="#7-kl散度：最小化两个分布之间的kl散度" class="headerlink" title="7 kl散度：最小化两个分布之间的kl散度"></a>7 kl散度：最小化两个分布之间的kl散度</h2><p>交叉熵可以重新写成熵和KL散度两个分布：H(p,q)=H(p)+D_KL</p>
+<p>所以交叉熵目的是最小化这两个分布的kl散度</p>
+<h2 id="8-kl散度：最小化两个分布之间的kl散度"><a href="#8-kl散度：最小化两个分布之间的kl散度" class="headerlink" title="8 kl散度：最小化两个分布之间的kl散度"></a>8 kl散度：最小化两个分布之间的kl散度</h2><p>交叉熵可以重新写成熵和KL散度两个分布：H(p,q)=H(p)+D_KL</p>
 <p>因为H（P）是0，如果在求梯度时没有贡献，最小化上面等式，就是最小化KL散度的p和q。</p>
 <p>KL散度不是一个分布，具有非对称性，但是是一种测量两个概率分布p和q差异的方法。</p>
 <p>在信息论中，D(P||Q)表示当用概率分布Q来拟合真实分布P时，产生的信息损耗，其中P表示真实分布，Q表示P的拟合分布。）</p>
-<h2 id="8-全数据集上的分类"><a href="#8-全数据集上的分类" class="headerlink" title="8 全数据集上的分类"></a>8 全数据集上的分类</h2><p>J=对所有正确类别的概率负对数求和</p>
-<p>（视频中，称这个图是ML学习过程中最重要的图之一。。）</p>
-<p>红线是test error，蓝线是training error，横轴是模型复杂度或迭代次数。直线是方差偏差均衡点。</p>
-<h2 id="9-正则化"><a href="#9-正则化" class="headerlink" title="9 正则化"></a>9 正则化</h2><p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合 </p>
+<h2 id="9-全数据集上的分类"><a href="#9-全数据集上的分类" class="headerlink" title="9 全数据集上的分类"></a>9 全数据集上的分类</h2><p>J=对所有正确类别的概率负对数求和</p>
+<p>所以最终我们是想最小化这个J</p>
+<p>接下来有很多公式推导</p>
+<h2 id="10-正则化"><a href="#10-正则化" class="headerlink" title="10 正则化"></a>10 正则化</h2><p>刚刚只是讨论了目标函数的前半部分，往往后面还有一个正则化项</p>
+<p>斯塔是参数，就是鼓励权重尽可能小，接近于0</p>
+<p>防止参数爆炸</p>
+<p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合 </p>
 <p>为了鼓励权重尽可能小，防止过拟合</p>
 <p>图很重要x是很多变量，y是误差，模型越强某时候会出现过拟合</p>
 <p>其实就是变得平滑</p>
 <p>添加正则项来防止过拟合是机器学习中很常见的方式。在此正则也无特殊之处：</p>
-<h2 id="9-细节-传统ml优化方法"><a href="#9-细节-传统ml优化方法" class="headerlink" title="9 细节:传统ml优化方法"></a>9 细节:传统ml优化方法</h2><p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合：</p>
-<h2 id="10-分类不同的词向量"><a href="#10-分类不同的词向量" class="headerlink" title="10 分类不同的词向量"></a>10 分类不同的词向量</h2><p>参数量=类别*词向量维度</p>
+<p>（视频中，称这个图是ML学习过程中最重要的图之一。。）</p>
+<p>红线是test error，蓝线是training error，横轴是模型复杂度或迭代次数。直线是方差偏差均衡点。</p>
+<h2 id="11-细节-传统ml优化方法"><a href="#11-细节-传统ml优化方法" class="headerlink" title="11 细节:传统ml优化方法"></a>11 细节:传统ml优化方法</h2><p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合：</p>
+<p>因为不止权重 还有词向量的维度</p>
+<p>比如300维*1w个词</p>
+<h2 id="12-分类不同的词向量"><a href="#12-分类不同的词向量" class="headerlink" title="12 分类不同的词向量"></a>12 分类不同的词向量</h2><p>参数量=类别*词向量维度</p>
 <p>由于词向量也要学习，可以反向传播到词向量</p>
 <p>将词向量作为总体目标函数的一部分来去训练</p>
-<h2 id="11-新练词向量使失去泛化"><a href="#11-新练词向量使失去泛化" class="headerlink" title="11 新练词向量使失去泛化"></a>11 新练词向量使失去泛化</h2><p>因为同时需要同时学习权值矩阵和词向量，所以基于词向量的分类问题参数拟合，还会造成re-training词向量失去泛化效果。 </p>
+<h2 id="13-新练词向量使失去泛化"><a href="#13-新练词向量使失去泛化" class="headerlink" title="13 新练词向量使失去泛化"></a>13 新练词向量使失去泛化</h2><p>因为同时需要同时学习权值矩阵和词向量，所以基于词向量的分类问题参数拟合，还会造成re-training词向量失去泛化效果。 </p>
 <p>比如：对电影评论数据情感分析训练逻辑回归单词在训练数据中有“TV” and “telly”，在测试数据中有“television”，在于训练词向量中他们是相似的单词。（来自于已经训练的词向量模型） </p>
-<p>当我们重新训练了词向量会发生什么？</p>
-<p>1）在训练集中的单词会被重新安排到合适的位置<br>2）在已经训练的词向量模型中但是不在训练集中的单词将保留在原来的位置<br>对于上例, “TV”和”telly”会被重新安排，而”television”则保留在原位，尴尬的事情就发生了： </p>
+<h2 id="14-当我们重新训练了词向量会发生什么？"><a href="#14-当我们重新训练了词向量会发生什么？" class="headerlink" title="14 当我们重新训练了词向量会发生什么？"></a>14 当我们重新训练了词向量会发生什么？</h2><p>1）在训练集中的单词会被重新安排到合适的位置<br>2）在已经训练的词向量模型中但是不在训练集中的单词将保留在原来的位置<br>对于上例, “TV”和”telly”会被重新安排，而”television”则保留在原位，尴尬的事情就发生了： </p>
 <p>训练数据中的数据运动了，预训练的词没有出现在训练数据中。这个例子说明，如果任务的语料非常小，则不必在任务语料上重新训练词向量，否则会导致词向量过拟合。</p>
-<p>于是在测试集上导致television被误分类。<br>这个例子说明： 启示：<br>当我们的训练数据集很小，我们不能训练词向量，会出现过拟合，失去泛化能力。<br>如果数据量很大，训练应该就会得到很好的词向量结果。</p>
-<h2 id="12-词向量相关术语"><a href="#12-词向量相关术语" class="headerlink" title="12 词向量相关术语"></a>12 词向量相关术语</h2><p>1、词向量矩阵L也叫lookup table（d <em> V维）。<br>2、词向量=词嵌入=词表示<br>3、主要方法有word2vec、Glove。(张乾 包慧语)<br>4、这样的就表示为词的特征。L=d</em>V  d维 V个词<br>5、新方向（课程后）：character models</p>
-<h2 id="13-Window-classification"><a href="#13-Window-classification" class="headerlink" title="13 Window classification"></a>13 Window classification</h2><p>这是一种根据上下文给单个单词分类的任务，可以用于消歧或命名实体分类。上下文Window的向量可以通过拼接所有窗口中的词向量得到：</p>
+<p>于是在测试集上导致television被误分类。</p>
+<h2 id="15-Take-home-message"><a href="#15-Take-home-message" class="headerlink" title="15 Take home message:"></a>15 Take home message:</h2><p>这个例子说明： 启示：<br>当我们的训练数据集很小，我们不能训练词向量，会出现过拟合，失去泛化能力。<br>如果数据量很大，训练应该就会得到很好的词向量结果。</p>
+<p>所以可以直接用google训练好的word2vec，如果测试集词少</p>
+<p>但是如果词多，就要重新训练</p>
+<h2 id="16-词向量相关术语"><a href="#16-词向量相关术语" class="headerlink" title="16 词向量相关术语"></a>16 词向量相关术语</h2><p>1、词向量矩阵L也叫lookup table（d * V维）。<br>2、词向量=词嵌入=词表示<br>3、主要方法有word2vec、Glove。(张乾 包慧语)</p>
+<p> Word vectors = word embeddings = word representations (mostly) </p>
+<p>4、这样的就表示为词的特征。L=d*V  d维 V个词<br>5、新方向（课程后）：character models</p>
+<h2 id="17-Window-classification"><a href="#17-Window-classification" class="headerlink" title="17 Window classification"></a>17 Window classification</h2><p>这是一种根据上下文给单个单词分类的任务，可以用于消歧或命名实体分类。上下文Window的向量可以通过拼接所有窗口中的词向量得到：</p>
 <p>这是一个列向量。</p>
 <p>1、分类一个单词很少去做。</p>
 <p>2、关注的问题就像：上下文出现的歧义。（消歧）</p>
+<h2 id="18-Window-classification"><a href="#18-Window-classification" class="headerlink" title="18 Window classification"></a>18 Window classification</h2><p>比如，以为一个四分类为例子：人名地面组织 非</p>
+<h2 id="19-Window-classifica6on"><a href="#19-Window-classifica6on" class="headerlink" title="19 Window classifica6on"></a>19 Window classifica6on</h2><p>这是当时第一个文本分类</p>
+<p>针对2.3.1中提到的问题，windows classification的思路为：将对一个单词进行分类的问题扩展到对其临近词和上下文窗口进行分类，就是对窗口中的单词打上标签同时把它前后的单词向量进行拼接然后训练一个分类器 </p>
 <p>3、想法：分类一个在上下文窗口中的词。（命名实体识别）</p>
 <p>4、在上下文中分类一个词很可能存在，比如：在窗口中平均每一个单词但是可能失去了位置信息。</p>
 <p>5、通过给中心词设置一个标签来训练softmax分类器，并把他周围的词向量连接起来。</p>
-<h2 id="14-Simplest-window-classifier-Softmax"><a href="#14-Simplest-window-classifier-Softmax" class="headerlink" title="14 Simplest window classifier: Softmax"></a>14 Simplest window classifier: Softmax</h2><p>step1.目的是预测P(y|x)，用softmax分类器</p>
+<p>本节向量是列向量</p>
+<p>x是5d维向量</p>
+<h2 id="20-Simplest-window-classifier-Softmax"><a href="#20-Simplest-window-classifier-Softmax" class="headerlink" title="20 Simplest window classifier: Softmax"></a>20 Simplest window classifier: Softmax</h2><p>5个词向量拼接放进softmax</p>
+<p>公式跟之前一样，yhat表示正确的</p>
+<p>step1.目的是预测P(y|x)，用softmax分类器</p>
 <p>step2.跟之前一样，使用交叉熵loss</p>
 <p>注意：softmax中的W*x就是交叉熵里的f_y_i</p>
 <p>怎么更新词向量呢？</p>
-<p>J对x求导，注意这里的x指的是窗口所有单词的词向量拼接向量</p>
+<h2 id="21-更新词向量"><a href="#21-更新词向量" class="headerlink" title="21 更新词向量"></a>21 更新词向量</h2><p>我们可以多次求导</p>
+<p>定义变量，</p>
+<p>yhat是归一化之后的得分输出</p>
+<p>t是onehot向量，目标分布</p>
+<p>f是一个矩阵乘法</p>
+<h2 id="22-更新词向量"><a href="#22-更新词向量" class="headerlink" title="22 更新词向量"></a>22 更新词向量</h2><p>J对x求导，注意这里的x指的是窗口所有单词的词向量拼接向量</p>
+<p>变量相乘， 提示1：仔细定义变量和跟踪它们的维度 </p>
+<p>链式法则， 提示2：懂得链式法则(chain rule)并且记住在哪些变量中含有其他变量 </p>
+<h2 id="23-更新词向量"><a href="#23-更新词向量" class="headerlink" title="23 更新词向量"></a>23 更新词向量</h2><p>变量相乘， 提示1：仔细定义变量和跟踪它们的维度 </p>
+<p>链式法则， 提示2：懂得链式法则(chain rule)并且记住在哪些变量中含有其他变量 </p>
+<p> 提示3：对于softmax中求导的部分：首先对当c=y(正确的类别）求导，然后对当（其他所有非正确类别）求导</p>
+<h2 id="24-更新词向量"><a href="#24-更新词向量" class="headerlink" title="24 更新词向量"></a>24 更新词向量</h2><p> 提示4：当你尝试对f中的一个元素求导时，试试能不能在最后获得一个梯度包含的所有的偏导数 </p>
+<p> 提示5：为了你之后的处理不会发疯，想象你所有的结果处理都是向量之间的操作，所以你应该定义一些新的，单索引结构的向量 </p>
+<p>谁是谁的参数，在链式法则里面，f_y即是y的也是x的函数</p>
+<p>分两种情况，c是正确的和错误的</p>
+<h2 id="25-更新词向量"><a href="#25-更新词向量" class="headerlink" title="25 更新词向量"></a>25 更新词向量</h2><p> 提示6：当你开始使用链式法则时，首先进行显示的求和（符号），然后再考虑偏导数，例如 or 的偏导数</p>
+<p>提示7：为了避免之后更复杂的函数（形式），确保知道变量的维度，同时将其简化为矩阵符号运算形式</p>
+<p>提示8：如果你觉得公式不清晰的话，把它写成完整的加和形式 </p>
+<p>正确的-1</p>
+<p>错误的不动</p>
 <p>step3。J对x求导，注意这里的x指的是窗口所有单词的词向量拼接向量。</p>
 <p>step4.于是就可以更新词向量了：</p>
-<p>step5.另一方面，对W求偏导数，将W和词向量的偏导数写到一起</p>
-<h2 id="15-Updating-concatenated-word-vectors"><a href="#15-Updating-concatenated-word-vectors" class="headerlink" title="15 Updating concatenated word vectors"></a>15 Updating concatenated word vectors</h2><p>接下来只需要求导就好了（对求导，注意这里的指的是窗口所有单词的词向量拼接向量。）。</p>
-<h2 id="16-Softmax-logistic-regression-alone-not-very-powerful（效果有限）"><a href="#16-Softmax-logistic-regression-alone-not-very-powerful（效果有限）" class="headerlink" title="16 Softmax (= logistic regression) alone not very powerful（效果有限）"></a>16 Softmax (= logistic regression) alone not very powerful（效果有限）</h2><p>softmax方法仅限于较小的数据集，能够提供一个勉强的线性分类决策边界。</p>
-<p>1、softmax只是在原始空间上得到一个线性分类边界。<br>2、小数据集上有一个好的效果。<br>3、大数据集效果有限。</p>
-<h2 id="17-Neural-Nets-for-the-Win"><a href="#17-Neural-Nets-for-the-Win" class="headerlink" title="17 Neural Nets for the Win!"></a>17 Neural Nets for the Win!</h2><p>于是我们使用神经网络</p>
+<h2 id="26-更新词向量"><a href="#26-更新词向量" class="headerlink" title="26 更新词向量"></a>26 更新词向量</h2><p>行向量装置，求和项变成内积</p>
+<p>求和项是一定可以重写成向量的</p>
+<h2 id="27-更新词向量"><a href="#27-更新词向量" class="headerlink" title="27 更新词向量"></a>27 更新词向量</h2><p>梯度的维度？5d</p>
+<p>注意：如果维度不相等，那就是有bug</p>
+<h2 id="28-Updating-concatenated-word-vectors"><a href="#28-Updating-concatenated-word-vectors" class="headerlink" title="28 Updating concatenated word vectors"></a>28 Updating concatenated word vectors</h2><p>接下来只需要求导就好了（对求导，注意这里的指的是窗口所有单词的词向量拼接向量。）。</p>
+<p>更新的计算词向量每个元素的梯度</p>
+<p>拆分window，变成每个词向量</p>
+<h2 id="29-更新词向量"><a href="#29-更新词向量" class="headerlink" title="29 更新词向量"></a>29 更新词向量</h2><p>step5.另一方面，对W求偏导数</p>
+<p>将W和词向量的偏导数写到一起</p>
+<p>现在缺少的是关于权重的偏导</p>
+<p>再加上刚刚词向量的偏导</p>
+<h2 id="30-实现的细节"><a href="#30-实现的细节" class="headerlink" title="30 实现的细节"></a>30 实现的细节</h2><p>有两个比较复杂度高的运算， 在softmax中有两个代价昂贵的运算: 矩阵运算 f = Wx 和 exp指数运算</p>
+<p>for不好，矩阵乘法更好</p>
+<p> 在做同样的数学运算时for循环永远没有矩阵运算有效</p>
+<p>基础知识小课堂:<br>在softmax中有两个代价昂贵的运算: 矩阵运算 f = Wx 和 exp指数运算<br>在做同样的数学运算时for循环永远没有矩阵运算有效,遍历词向量 VS 将它们拼接为一个大的矩阵 然后分别和softmax的权重矩阵相乘 </p>
+<h2 id="31-代码"><a href="#31-代码" class="headerlink" title="31 代码"></a>31 代码</h2><p>遍历词向量 VS 将它们拼接为一个大的矩阵 然后分别和softmax的权重矩阵相乘 </p>
+<p>遍历词向量，而不是拼接成一个大的 是不好的</p>
+<p>结果证明矩阵相乘更有效<br>矩阵运算更优雅更棒<br>应该更多的去测试你的代码速度</p>
+<h2 id="32-代码"><a href="#32-代码" class="headerlink" title="32 代码"></a>32 代码</h2><h2 id="33-Softmax-logistic-regression-alone-not-very-powerful（效果有限）"><a href="#33-Softmax-logistic-regression-alone-not-very-powerful（效果有限）" class="headerlink" title="33 Softmax (= logistic regression) alone not very powerful（效果有限）"></a>33 Softmax (= logistic regression) alone not very powerful（效果有限）</h2><p>softmax方法仅限于较小的数据集，能够提供一个勉强的线性分类决策边界。</p>
+<h2 id="34-Softmax-效果有限"><a href="#34-Softmax-效果有限" class="headerlink" title="34 Softmax 效果有限"></a>34 Softmax 效果有限</h2><p>1、softmax只是在原始空间上得到一个线性分类边界。<br>2、小数据集上有一个好的效果。<br>3、大数据集效果有限。</p>
+<h2 id="35-Neural-Nets-for-the-Win"><a href="#35-Neural-Nets-for-the-Win" class="headerlink" title="35 Neural Nets for the Win!"></a>35 Neural Nets for the Win!</h2><p>window classification在少量的数据上（正则化）效果会不错，在大量的数据上效果会有限，softmax仅仅给出线性决策边界举例： </p>
+<p> 但是神经网络能够提供非线性的决策边界： </p>
+<p>于是我们使用神经网络</p>
 <p>非线性好很多</p>
-<h2 id="18-Demystifying-neural-networks"><a href="#18-Demystifying-neural-networks" class="headerlink" title="18 Demystifying neural networks"></a>18 Demystifying neural networks</h2><h2 id="一些简单的介绍"><a href="#一些简单的介绍" class="headerlink" title="一些简单的介绍"></a>一些简单的介绍</h2><h2 id="每个神经元是一个二分类逻辑斯谛回归单元："><a href="#每个神经元是一个二分类逻辑斯谛回归单元：" class="headerlink" title="每个神经元是一个二分类逻辑斯谛回归单元："></a>每个神经元是一个二分类逻辑斯谛回归单元：</h2><h2 id="神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><a href="#神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：" class="headerlink" title="神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："></a>神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</h2><h2 id="我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么："><a href="#我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么：" class="headerlink" title="我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么："></a>我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么：</h2><h2 id="于是就得到了一个多层网络："><a href="#于是就得到了一个多层网络：" class="headerlink" title="于是就得到了一个多层网络："></a>于是就得到了一个多层网络：</h2><h2 id="为什么需要非线性"><a href="#为什么需要非线性" class="headerlink" title="为什么需要非线性"></a>为什么需要非线性</h2><p>因为线性系统所有层等效于一层：</p>
+<h2 id="36-转折"><a href="#36-转折" class="headerlink" title="36 转折"></a>36 转折</h2><p>从逻辑disi回归到nn</p>
+<h2 id="37-Demystifying-neural-networks"><a href="#37-Demystifying-neural-networks" class="headerlink" title="37 Demystifying neural networks"></a>37 Demystifying neural networks</h2><p>一些简单的介绍</p>
+<p>有输入 偏置 激活函数 输出</p>
+<p>如果你了解softmax的运行机制，那你就已经了解了一个基本的神经元的运行机制<br>例子：一个神经元就是一个基础的运算单位，拥有n(3)个输入和一个输出，参数是W, b</p>
+<p>每个神经元是一个二分类逻辑斯谛回归单元</p>
+<h2 id="38-每个神经元是一个二分类逻辑斯谛回归单元："><a href="#38-每个神经元是一个二分类逻辑斯谛回归单元：" class="headerlink" title="38 每个神经元是一个二分类逻辑斯谛回归单元："></a>38 每个神经元是一个二分类逻辑斯谛回归单元：</h2><p>一个神经网络等价于同时运行了很多逻辑回归单元，神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么</p>
+<p>基本上你可以把它看做成一个二元逻辑回归单元</p>
+<p>看内部结构</p>
+<p>有权重跟输入相乘，加上偏置</p>
+<p>激活函数，就是使之接近于1的非常高的概率</p>
+<p>这里是sigmoid，映射到0-1之间</p>
+<h2 id="39-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><a href="#39-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：" class="headerlink" title="39 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："></a>39 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</h2><p>把输入向量喂给这些小的逻辑回归函数和神经元，就有了输出</p>
+<p>然后我们就有了多层神经网络</p>
+<h2 id="40-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><a href="#40-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：" class="headerlink" title="40 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："></a>40 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</h2><p>  如果我们给一批逻辑回归函数一堆输入向量，我们就得到了一批输出向量… ,这些输出又可以作为其他逻辑回归函数的输入 </p>
+<p>我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么： </p>
+<h2 id="41-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><a href="#41-神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：" class="headerlink" title="41 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："></a>41 神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</h2><p>所以多层神经网络就是这样一些节点的连接</p>
+<h2 id="42-每一层的矩阵"><a href="#42-每一层的矩阵" class="headerlink" title="42 每一层的矩阵"></a>42 每一层的矩阵</h2><p>这些连接都可以用矩阵相乘的简单形式去描述</p>
+<p>神经网络中单层的矩阵符号表示<br>我们有激活函数： a1=</p>
+<p>a2=</p>
+<p>表示成矩阵符号形式: </p>
+<p>中间变量（链式法则的时候需要去表示）</p>
+<p> z=Wx+b</p>
+<p> a=f(z)</p>
+<p> w的行数是神经元个数，列数是输入x的维度</p>
+<p> f（z）也是个向量</p>
+<p>其中f应用的是element-wise规则(也就是点乘）:<br>f([z1,z2,z3])=[f(z1),f(z2),f(z3)]</p>
+<h2 id="43-为什么非线性"><a href="#43-为什么非线性" class="headerlink" title="43 为什么非线性"></a>43 为什么非线性</h2><p>为什么需要非线性的f?没有非线性函数，深度神经网络相对于线性变换价值不大,其他的层次会被编译压缩为单个的线性变换:,有了更多的层次，它们可以逼近更复杂的函数</p>
+<p>因为线性系统所有层等效于一层：</p>
 <p>而非线性模型可以捕捉很复杂的数据：</p>
-<h2 id="前向传播网络"><a href="#前向传播网络" class="headerlink" title="前向传播网络"></a>前向传播网络</h2><p>一个简单的网络：</p>
-<p>hankcs.com 2017-06-09 下午9.40.38.png</p>
+<p>(隐层越多，越拟合)</p>
+<h2 id="44-neural-net-window-classifier"><a href="#44-neural-net-window-classifier" class="headerlink" title="44 neural net window classifier"></a>44 neural net window classifier</h2><p>回到窗口分类器, 一个更牛的窗口分类器</p>
+<p> 单个（神经网络）层是一个线性层（函数）和非线性函数的组合 </p>
+<p>输入和输出之间就多了隐藏层</p>
+<p>定义一个单层神经网络</p>
+<p>输入x是多个词向量的拼接</p>
+<p>a是最终分类层的输入</p>
+<p>默认softmax分类器</p>
+<h2 id="45-A-Single-Layer-Neural-Network"><a href="#45-A-Single-Layer-Neural-Network" class="headerlink" title="45 A Single Layer Neural Network"></a>45 A Single Layer Neural Network</h2><h2 id="46-Feed-forward-Computa6on"><a href="#46-Feed-forward-Computa6on" class="headerlink" title="46 Feed-forward Computa6on"></a>46 Feed-forward Computa6on</h2><p>得到每个窗口，然后计算得分，使得中心词是ner位置的窗口能得到高分</p>
+<p>以简单三层神经网络为例： </p>
+<p>这种红点图经常在论文里看到，大致代表单元数；中间的空格分隔开一组神经元，比如隐藏层单元数为2 \times 4。U是隐藏层到class的权值矩阵： </p>
+<p>一个简单的网络：</p>
 <p>这种红点图经常在论文里看到，大致代表单元数；中间的空格分隔开一组神经元，比如隐藏层单元数为2×4</p>
 <p>U是隐藏层到class的权值矩阵，其中a是激活函数：</p>
-<h2 id="间隔最大化目标函数"><a href="#间隔最大化目标函数" class="headerlink" title="间隔最大化目标函数"></a>间隔最大化目标函数</h2><p>怎么设计目标函数呢，记sc代表误分类样本的得分，s表示正确分类样本的得分。则朴素的思路是最大化(s−s_c) 或最小化 (s_c−s)。但有种方法只计算s_c&gt;s⇒(s_c−s)&gt;0时的错误，也就是说我们只要求正确分类的得分高于错误分类的得分即可，并不要求错误分类的得分多么多么小。这得到间隔最大化目标函数：</p>
-
+<p>x是所有词的拼接</p>
+<p>维度：每个词4维，x是20维，隐藏层有8个单元，w维度是8行20列，U是列向量</p>
+<h2 id="47-extra-layer"><a href="#47-extra-layer" class="headerlink" title="47 extra layer"></a>47 extra layer</h2><p>隐藏层作用是学习不同输入词之间的非线性相互作用</p>
+<h2 id="48-The-max-margin-loss"><a href="#48-The-max-margin-loss" class="headerlink" title="48 The max-margin loss"></a>48 The max-margin loss</h2><p>怎么设计目标函数呢，记s_c代表误分类样本的得分，s表示正确分类样本的得分。则朴素的思路是最大化(s−s_c) 或最小化 (s_c−s)。但有种方法只计算s_c&gt;s⇒(s_c−s)&gt;0时的错误，也就是说我们只要求正确分类的得分高于错误分类的得分即可，并不要求错误分类的得分多么多么小。这得到间隔最大化目标函数, 可以调整其他参数使得该间隔为1：</p>
+<p>这实际上是将函数间隔转换为几何间隔，类似于svm</p>
+<p>很强大损失函数，比sofatx更rubest，</p>
+<p>本质是让正确窗口的得分更大，错误窗口得分更小，直到足够好（参数为1）</p>
+<p>sgd</p>
+<p>softmax只是分开了，这里是使得间隔更大</p>
+<p>另外，这个目标函数的好处是，随着训练的进行，可以忽略越来越多的实例，而只专注于那些难分类的实例。</p>
+<h2 id="49-Max-margin-Objec6ve-func6on"><a href="#49-Max-margin-Objec6ve-func6on" class="headerlink" title="49 Max-margin Objec6ve func6on"></a>49 Max-margin Objec6ve func6on</h2><p>错误是s_c（负样本），通常通过负采样算法得到负例。</p>
+<h2 id="50-Training-with-Backpropaga6on"><a href="#50-Training-with-Backpropaga6on" class="headerlink" title="50 Training with Backpropaga6on"></a>50 Training with Backpropaga6on</h2><p>J&gt;0</p>
+<p>随机初始化</p>
+<h2 id="51-Backpropagation"><a href="#51-Backpropagation" class="headerlink" title="51 Backpropagation"></a>51 Backpropagation</h2><p>这些参数U b W x</p>
+<p>s关于U的导数是a</p>
+<p>一些定义</p>
+<h2 id="52-Training-with-Backpropaga6on"><a href="#52-Training-with-Backpropaga6on" class="headerlink" title="52 Training with Backpropaga6on"></a>52 Training with Backpropaga6on</h2><p>把他们放在一起，就可以得到一个更复杂的矩阵表达</p>
+<p>w_ij只出现在隐层的第i个激活层</p>
+<p>看图，三维输入，两个隐层单元，一个最后的得分U</p>
+<p>如果去求W_23的导数，只有a2需要</p>
+<h2 id="53-Training-with-Backpropaga6on"><a href="#53-Training-with-Backpropaga6on" class="headerlink" title="53 Training with Backpropaga6on"></a>53 Training with Backpropaga6on</h2><p>意思就是，如果要求W_23，只用考虑a的第i个元素，不用考虑整个内积</p>
+<p>U是常量，把u拿出来</p>
+<p>第二行公式：把a_i换成f（z），设导数</p>
+<p>z_i定义在右边</p>
+<p>上面都是链式法则</p>
+<h2 id="54-Training-with-Backpropaga6on"><a href="#54-Training-with-Backpropaga6on" class="headerlink" title="54 Training with Backpropaga6on"></a>54 Training with Backpropaga6on</h2><p>现在对W_ij来做</p>
+<p>最后就有了表达式</p>
+<p>因为只用了下标i，所以简化记号，而x是输入</p>
+<h2 id="55-Training-with-Backpropaga6on"><a href="#55-Training-with-Backpropaga6on" class="headerlink" title="55 Training with Backpropaga6on"></a>55 Training with Backpropaga6on</h2><p>现在想得到整个式子的导数</p>
+<p>用derta来乘以x的转置，作为外积</p>
+<p>W是2*3维，derta二维，</p>
+<h2 id="56-Training-with-Backpropaga6on"><a href="#56-Training-with-Backpropaga6on" class="headerlink" title="56 Training with Backpropaga6on"></a>56 Training with Backpropaga6on</h2><p>求导最后一项是b_i</p>
+<p>导数就是derta</p>
+<h2 id="57-Training-with-Backpropaga6on"><a href="#57-Training-with-Backpropaga6on" class="headerlink" title="57 Training with Backpropaga6on"></a>57 Training with Backpropaga6on</h2><p>这就完成了，只需要求导和链式法则</p>
+<p>用更高层的值去算底层的导数</p>
+<h2 id="58-Training-with-Backpropaga6on"><a href="#58-Training-with-Backpropaga6on" class="headerlink" title="58 Training with Backpropaga6on"></a>58 Training with Backpropaga6on</h2><p>对得分求导，把词向量拼接</p>
+<p>对多个激活单元进行求导（比如右边公式的两个）</p>
+<p>就得到了derta乘以W_ij</p>
+<p>是与内积相关的</p>
+<p>反向传播是用之前计算的值的导数</p>
+<p>因为有求和，求和是内积的第j项，点乘在第一项后面。取出一类，作为一个列向量，然后做点乘得到答案</p>
+<p>并行计算所有参数的</p>
+<p>只更新当前窗口的词</p>
+<h2 id="59-Pu-ng-all-gradients-together"><a href="#59-Pu-ng-all-gradients-together" class="headerlink" title="59 Pu[ng all gradients together:"></a>59 Pu[ng all gradients together:</h2><p>结合一个x的参数变成整个，就是w转置乘以derta</p>
+<p>放在一起，max是目标函数，所有有灯饰，1或者0，正确和错误x x_c</p>
+<p>derta是第k层的误差</p>
+<p>δ(k)=f′(z(k))∘(W(k)Tδ(k+1)</p>
+<p>δ(k)=f′(z(k))∘(W(k)Tδ(k+1)</p>
+<p>算梯度：<br>相乘就行</p>
+<h2 id="60-Summary"><a href="#60-Summary" class="headerlink" title="60 Summary"></a>60 Summary</h2><p> 通过一个三层神经网络计算这个窗口向量的得分：s = score(museums in Paris are amazing) </p>
+<h2 id="间隔最大化目标函数"><a href="#间隔最大化目标函数" class="headerlink" title="间隔最大化目标函数"></a>间隔最大化目标函数</h2>
           
         
       
