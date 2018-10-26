@@ -89,22 +89,27 @@
 
 
 
-<meta name="description" content="This lecture introduced1、Classification
-Updating both the weight parameters and the word vectors
-Window classification, which is one basic idea behind the SENNA system (Collobert &amp;amp; Weston, JMLR 20">
+<meta name="description" content="This lecture introduced这节课介绍了根据上下文预测单词分类的问题，与常见神经网络课程套路不同，以间隔最大化为目标函数，推导了对权值矩阵和词向量的梯度；初步展示了与传统机器学习方法不一样的风格。
+（word Window classification就是对语义的vector做分类）
+1、Classification分类这个任务以及词向量在分类上的应用
+Updating both">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GroupStudy-Classification and NN">
 <meta property="og:url" content="http://yoursite.com/2018/10/18/GroupStudy-Classification-and-NN/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
-<meta property="og:description" content="This lecture introduced1、Classification
-Updating both the weight parameters and the word vectors
-Window classification, which is one basic idea behind the SENNA system (Collobert &amp;amp; Weston, JMLR 20">
-<meta property="og:updated_time" content="2018-10-18T00:53:04.000Z">
+<meta property="og:description" content="This lecture introduced这节课介绍了根据上下文预测单词分类的问题，与常见神经网络课程套路不同，以间隔最大化为目标函数，推导了对权值矩阵和词向量的梯度；初步展示了与传统机器学习方法不一样的风格。
+（word Window classification就是对语义的vector做分类）
+1、Classification分类这个任务以及词向量在分类上的应用
+Updating both">
+<meta property="og:image" content="https://pic1.zhimg.com/80/v2-04abf86ef7717f69f33f3d7ed0099e1c_hd.png">
+<meta property="og:updated_time" content="2018-10-26T02:41:02.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GroupStudy-Classification and NN">
-<meta name="twitter:description" content="This lecture introduced1、Classification
-Updating both the weight parameters and the word vectors
-Window classification, which is one basic idea behind the SENNA system (Collobert &amp;amp; Weston, JMLR 20">
+<meta name="twitter:description" content="This lecture introduced这节课介绍了根据上下文预测单词分类的问题，与常见神经网络课程套路不同，以间隔最大化为目标函数，推导了对权值矩阵和词向量的梯度；初步展示了与传统机器学习方法不一样的风格。
+（word Window classification就是对语义的vector做分类）
+1、Classification分类这个任务以及词向量在分类上的应用
+Updating both">
+<meta name="twitter:image" content="https://pic1.zhimg.com/80/v2-04abf86ef7717f69f33f3d7ed0099e1c_hd.png">
 
 
 
@@ -380,37 +385,93 @@ Window classification, which is one basic idea behind the SENNA system (Collober
       
 
       
-        <h1 id="This-lecture-introduced"><a href="#This-lecture-introduced" class="headerlink" title="This lecture introduced"></a>This lecture introduced</h1><p>1、Classification</p>
+        <h1 id="This-lecture-introduced"><a href="#This-lecture-introduced" class="headerlink" title="This lecture introduced"></a>This lecture introduced</h1><p>这节课介绍了根据上下文预测单词分类的问题，与常见神经网络课程套路不同，以间隔最大化为目标函数，推导了对权值矩阵和词向量的梯度；初步展示了与传统机器学习方法不一样的风格。</p>
+<p>（word Window classification就是对语义的vector做分类）</p>
+<p>1、Classification分类这个任务以及词向量在分类上的应用</p>
 <p>Updating both the weight parameters and the word vectors</p>
-<p>Window classification, which is one basic idea behind the SENNA system (Collobert &amp; Weston, JMLR 2011)</p>
-<p>2、Cross-entropy loss、Max-margin loss</p>
+<p>Window classification（窗口（上下文）分类）</p>
+<p>2、Cross-entropy loss（交叉熵误差推导）、Max-margin loss</p>
 <p>Cross-entropy: H(p,q) = H(p)+KL(p||q)</p>
-<p>3、Back propagation for a single layer neural network<br>BP: applying the chain rule and reusing derivative calculations</p>
-<h1 id="上课"><a href="#上课" class="headerlink" title="上课"></a>上课</h1><p>2 课程概述</p>
-<p>什么是分类</p>
-<p>通过“更新”词向量内容去做分类任务，更新的是一些真实的信号，比如sentiment</p>
+<p>3、Back propagation for a single layer neural network<br>BP: applying the chain rule and reusing derivative calculations（单层神经网络、最大间隔损失和反向传播）</p>
+<h1 id="上课"><a href="#上课" class="headerlink" title="上课"></a>上课</h1><h2 id="2-课程概述"><a href="#2-课程概述" class="headerlink" title="2 课程概述"></a>2 课程概述</h2><p>什么是分类</p>
+<p>一般情况下我们会有一个训练模型用的样本数据集</p>
+<p>x是输入数据，比如：单词（所以或者向量）、上下文窗口、句子、文档</p>
+<p>通过“更新”词向量内容去做分类任务，更新的是一些真实的信号，这里的类别：比如类别：情感、命名实体、买/卖</p>
 <p>词向量有个下游任务：窗口分类</p>
 <p>交叉啥和softmax的连接</p>
 <p>然后是nn，从这里开始开始这节课为什么叫deep learning and nlp</p>
 <p>对习题一、二都有帮助</p>
-<p>3 分类任务的定义</p>
-<p>有输入和输出label</p>
-<p>传统上认为是去找一个边界将数据集分开，比如说一个softmax，要训练的就是W这个参数</p>
-<p>4 softmax</p>
-<p>分为两步，y是类别，W的每一行为每一类的参数，该行每个去乘以每个x得到一个向量，再归一化，使得每个类相加=1</p>
-<p>5 由于交叉熵<br>由于是分类任务，所以希望输出的是概率最大的类别（最大化正确类别的概率），即argmax</p>
-<p>所以最大化概率==最大化对数概率==最小化对数概率的负数</p>
-<p>6 交叉熵定义</p>
-<p>kl散度：最小化两个分布之间的kl散度</p>
-<p>7 整体数据</p>
-<p>J=对所有正确类别的概率负对数求和</p>
-<p>8 正则化<br>为了鼓励权重尽可能小，防止过拟合</p>
+<h2 id="3-分类任务的定义"><a href="#3-分类任务的定义" class="headerlink" title="3 分类任务的定义"></a>3 分类任务的定义</h2><p>有 输入 和 输出label（one-hot向量）</p>
+<p>传统上认为是去找一个边界将数据集分开，比如说一个逻辑回归分类，要训练的就是W这个参数：使用比如逻辑回归分类2维词向量，得到线性决策边界。</p>
+<p>一般的ML方法：假设x是确定的，训练逻辑回归只修改参数W，值改变决策边界</p>
+<p>当然目的是最后预测x</p>
+<h2 id="4-sofrmax算法细节"><a href="#4-sofrmax算法细节" class="headerlink" title="4 sofrmax算法细节"></a>4 sofrmax算法细节</h2><p>总而言之，整理分为两步，y是类别，W的每一行为每一类的参数，该行每个去乘以每个x得到一个向量，再归一化，使得每个类相加=1</p>
+<p>第一步：1、算第y类，就取权值矩阵W的第y行的每个元素乘以x的每个元素 之后累加.</p>
+<p>第二步：2.归一化得到softmax函数的概率</p>
+<h2 id="5-softmax和交叉熵误差"><a href="#5-softmax和交叉熵误差" class="headerlink" title="5 softmax和交叉熵误差"></a>5 softmax和交叉熵误差</h2><p>由于是分类任务，所以希望输出的是概率最大的类别（最大化正确类别的概率），即argmax，最大化正确类别y的概率。</p>
+<p>所以最大化概率==最大化对数概率==最小化对数概率的负数，就变为最小化为负log概率：</p>
+<p>（作用：映射到（0,1）区间内，而这些值的累和为1（满足概率的性质），那么我们就可以将它理解成概率，在最后选取输出结点的时候，我们就可以选取概率最大（也就是值对应最大的）结点，作为我们的预测目标）</p>
+<h2 id="6-为什么是交叉熵误差-交叉熵定义）"><a href="#6-为什么是交叉熵误差-交叉熵定义）" class="headerlink" title="6 为什么是交叉熵误差(交叉熵定义）"></a>6 为什么是交叉熵误差(交叉熵定义）</h2><p>其实这个损失函数等效于交叉熵：</p>
+<p>（公式推导）</p>
+<p>假设一个真实的概率分布为：正确为1，错误为0。所以类别是one-hot向量。</p>
+<p>由于p是一个one-hot向量，只有当左边是一个真实标签的负log概率。</p>
+<p>(SVM只选自己喜欢的男神，Softmax把所有备胎全部拉出来评分，最后还归一化一下)</p>
+<p>当我们对分类的Loss进行改进的时候，我们要通过梯度下降，每次优化一个step大小的梯度，这个时候我们就要求Loss对每个权重矩阵的偏导，然后应用链式法则。那么这个过程的第一步，就是对softmax求导传回去，不用着急，我后面会举例子非常详细的说明。在这个过程中，你会发现用了softmax函数之后，梯度求导过程非常非常方便！</p>
+<p>举个例子说明一下上面两个slide：</p>
+<p>定义选到y_i的概率是P=（e^(f_y_i)）  /  求和e^j</p>
+<p>然后求loss对每个权重矩阵的偏导，用链式法则</p>
+<p><img src="https://pic1.zhimg.com/80/v2-04abf86ef7717f69f33f3d7ed0099e1c_hd.png" alt=""></p>
+<p>直接真正结果那一维减1，把偏导回传就行</p>
+<h2 id="7-kl散度：最小化两个分布之间的kl散度"><a href="#7-kl散度：最小化两个分布之间的kl散度" class="headerlink" title="7 kl散度：最小化两个分布之间的kl散度"></a>7 kl散度：最小化两个分布之间的kl散度</h2><p>交叉熵可以重新写成熵和KL散度两个分布：H(p,q)=H(p)+D_KL</p>
+<p>因为H（P）是0，如果在求梯度时没有贡献，最小化上面等式，就是最小化KL散度的p和q。</p>
+<p>KL散度不是一个分布，具有非对称性，但是是一种测量两个概率分布p和q差异的方法。</p>
+<p>在信息论中，D(P||Q)表示当用概率分布Q来拟合真实分布P时，产生的信息损耗，其中P表示真实分布，Q表示P的拟合分布。）</p>
+<h2 id="8-全数据集上的分类"><a href="#8-全数据集上的分类" class="headerlink" title="8 全数据集上的分类"></a>8 全数据集上的分类</h2><p>J=对所有正确类别的概率负对数求和</p>
+<p>（视频中，称这个图是ML学习过程中最重要的图之一。。）</p>
+<p>红线是test error，蓝线是training error，横轴是模型复杂度或迭代次数。直线是方差偏差均衡点。</p>
+<h2 id="9-正则化"><a href="#9-正则化" class="headerlink" title="9 正则化"></a>9 正则化</h2><p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合 </p>
+<p>为了鼓励权重尽可能小，防止过拟合</p>
 <p>图很重要x是很多变量，y是误差，模型越强某时候会出现过拟合</p>
 <p>其实就是变得平滑</p>
-<p>9 细节</p>
-<p>参数量=类别*词向量维度</p>
+<p>添加正则项来防止过拟合是机器学习中很常见的方式。在此正则也无特殊之处：</p>
+<h2 id="9-细节-传统ml优化方法"><a href="#9-细节-传统ml优化方法" class="headerlink" title="9 细节:传统ml优化方法"></a>9 细节:传统ml优化方法</h2><p>一般的ML问题中，参数由权值矩阵的列组成维度不会太大。而在词向量或其他深度学习中，需要同时学习权值矩阵和词向量。参数一多，就容易过拟合：</p>
+<h2 id="10-分类不同的词向量"><a href="#10-分类不同的词向量" class="headerlink" title="10 分类不同的词向量"></a>10 分类不同的词向量</h2><p>参数量=类别*词向量维度</p>
 <p>由于词向量也要学习，可以反向传播到词向量</p>
-<p>10 word-level情感分类<br>将词向量作为总体目标函数的一部分来去训练</p>
+<p>将词向量作为总体目标函数的一部分来去训练</p>
+<h2 id="11-新练词向量使失去泛化"><a href="#11-新练词向量使失去泛化" class="headerlink" title="11 新练词向量使失去泛化"></a>11 新练词向量使失去泛化</h2><p>因为同时需要同时学习权值矩阵和词向量，所以基于词向量的分类问题参数拟合，还会造成re-training词向量失去泛化效果。 </p>
+<p>比如：对电影评论数据情感分析训练逻辑回归单词在训练数据中有“TV” and “telly”，在测试数据中有“television”，在于训练词向量中他们是相似的单词。（来自于已经训练的词向量模型） </p>
+<p>当我们重新训练了词向量会发生什么？</p>
+<p>1）在训练集中的单词会被重新安排到合适的位置<br>2）在已经训练的词向量模型中但是不在训练集中的单词将保留在原来的位置<br>对于上例, “TV”和”telly”会被重新安排，而”television”则保留在原位，尴尬的事情就发生了： </p>
+<p>训练数据中的数据运动了，预训练的词没有出现在训练数据中。这个例子说明，如果任务的语料非常小，则不必在任务语料上重新训练词向量，否则会导致词向量过拟合。</p>
+<p>于是在测试集上导致television被误分类。<br>这个例子说明： 启示：<br>当我们的训练数据集很小，我们不能训练词向量，会出现过拟合，失去泛化能力。<br>如果数据量很大，训练应该就会得到很好的词向量结果。</p>
+<h2 id="12-词向量相关术语"><a href="#12-词向量相关术语" class="headerlink" title="12 词向量相关术语"></a>12 词向量相关术语</h2><p>1、词向量矩阵L也叫lookup table（d <em> V维）。<br>2、词向量=词嵌入=词表示<br>3、主要方法有word2vec、Glove。(张乾 包慧语)<br>4、这样的就表示为词的特征。L=d</em>V  d维 V个词<br>5、新方向（课程后）：character models</p>
+<h2 id="13-Window-classification"><a href="#13-Window-classification" class="headerlink" title="13 Window classification"></a>13 Window classification</h2><p>这是一种根据上下文给单个单词分类的任务，可以用于消歧或命名实体分类。上下文Window的向量可以通过拼接所有窗口中的词向量得到：</p>
+<p>这是一个列向量。</p>
+<p>1、分类一个单词很少去做。</p>
+<p>2、关注的问题就像：上下文出现的歧义。（消歧）</p>
+<p>3、想法：分类一个在上下文窗口中的词。（命名实体识别）</p>
+<p>4、在上下文中分类一个词很可能存在，比如：在窗口中平均每一个单词但是可能失去了位置信息。</p>
+<p>5、通过给中心词设置一个标签来训练softmax分类器，并把他周围的词向量连接起来。</p>
+<h2 id="14-Simplest-window-classifier-Softmax"><a href="#14-Simplest-window-classifier-Softmax" class="headerlink" title="14 Simplest window classifier: Softmax"></a>14 Simplest window classifier: Softmax</h2><p>step1.目的是预测P(y|x)，用softmax分类器</p>
+<p>step2.跟之前一样，使用交叉熵loss</p>
+<p>注意：softmax中的W*x就是交叉熵里的f_y_i</p>
+<p>怎么更新词向量呢？</p>
+<p>J对x求导，注意这里的x指的是窗口所有单词的词向量拼接向量</p>
+<p>step3。J对x求导，注意这里的x指的是窗口所有单词的词向量拼接向量。</p>
+<p>step4.于是就可以更新词向量了：</p>
+<p>step5.另一方面，对W求偏导数，将W和词向量的偏导数写到一起</p>
+<h2 id="15-Updating-concatenated-word-vectors"><a href="#15-Updating-concatenated-word-vectors" class="headerlink" title="15 Updating concatenated word vectors"></a>15 Updating concatenated word vectors</h2><p>接下来只需要求导就好了（对求导，注意这里的指的是窗口所有单词的词向量拼接向量。）。</p>
+<h2 id="16-Softmax-logistic-regression-alone-not-very-powerful（效果有限）"><a href="#16-Softmax-logistic-regression-alone-not-very-powerful（效果有限）" class="headerlink" title="16 Softmax (= logistic regression) alone not very powerful（效果有限）"></a>16 Softmax (= logistic regression) alone not very powerful（效果有限）</h2><p>softmax方法仅限于较小的数据集，能够提供一个勉强的线性分类决策边界。</p>
+<p>1、softmax只是在原始空间上得到一个线性分类边界。<br>2、小数据集上有一个好的效果。<br>3、大数据集效果有限。</p>
+<h2 id="17-Neural-Nets-for-the-Win"><a href="#17-Neural-Nets-for-the-Win" class="headerlink" title="17 Neural Nets for the Win!"></a>17 Neural Nets for the Win!</h2><p>于是我们使用神经网络</p>
+<p>非线性好很多</p>
+<h2 id="18-Demystifying-neural-networks"><a href="#18-Demystifying-neural-networks" class="headerlink" title="18 Demystifying neural networks"></a>18 Demystifying neural networks</h2><h2 id="一些简单的介绍"><a href="#一些简单的介绍" class="headerlink" title="一些简单的介绍"></a>一些简单的介绍</h2><h2 id="每个神经元是一个二分类逻辑斯谛回归单元："><a href="#每个神经元是一个二分类逻辑斯谛回归单元：" class="headerlink" title="每个神经元是一个二分类逻辑斯谛回归单元："></a>每个神经元是一个二分类逻辑斯谛回归单元：</h2><h2 id="神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><a href="#神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：" class="headerlink" title="神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："></a>神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</h2><h2 id="我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么："><a href="#我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么：" class="headerlink" title="我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么："></a>我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么：</h2><h2 id="于是就得到了一个多层网络："><a href="#于是就得到了一个多层网络：" class="headerlink" title="于是就得到了一个多层网络："></a>于是就得到了一个多层网络：</h2><h2 id="为什么需要非线性"><a href="#为什么需要非线性" class="headerlink" title="为什么需要非线性"></a>为什么需要非线性</h2><p>因为线性系统所有层等效于一层：</p>
+<p>而非线性模型可以捕捉很复杂的数据：</p>
+<h2 id="前向传播网络"><a href="#前向传播网络" class="headerlink" title="前向传播网络"></a>前向传播网络</h2><p>一个简单的网络：</p>
+<p>hankcs.com 2017-06-09 下午9.40.38.png</p>
+<p>这种红点图经常在论文里看到，大致代表单元数；中间的空格分隔开一组神经元，比如隐藏层单元数为2×4</p>
+<p>U是隐藏层到class的权值矩阵，其中a是激活函数：</p>
+<h2 id="间隔最大化目标函数"><a href="#间隔最大化目标函数" class="headerlink" title="间隔最大化目标函数"></a>间隔最大化目标函数</h2><p>怎么设计目标函数呢，记sc代表误分类样本的得分，s表示正确分类样本的得分。则朴素的思路是最大化(s−s_c) 或最小化 (s_c−s)。但有种方法只计算s_c&gt;s⇒(s_c−s)&gt;0时的错误，也就是说我们只要求正确分类的得分高于错误分类的得分即可，并不要求错误分类的得分多么多么小。这得到间隔最大化目标函数：</p>
 
       
     </div>
@@ -577,7 +638,7 @@ Window classification, which is one basic idea behind the SENNA system (Collober
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-lecture-introduced"><span class="nav-number">1.</span> <span class="nav-text">This lecture introduced</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上课"><span class="nav-number">2.</span> <span class="nav-text">上课</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#This-lecture-introduced"><span class="nav-number">1.</span> <span class="nav-text">This lecture introduced</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#上课"><span class="nav-number">2.</span> <span class="nav-text">上课</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-课程概述"><span class="nav-number">2.1.</span> <span class="nav-text">2 课程概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-分类任务的定义"><span class="nav-number">2.2.</span> <span class="nav-text">3 分类任务的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-sofrmax算法细节"><span class="nav-number">2.3.</span> <span class="nav-text">4 sofrmax算法细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-softmax和交叉熵误差"><span class="nav-number">2.4.</span> <span class="nav-text">5 softmax和交叉熵误差</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-为什么是交叉熵误差-交叉熵定义）"><span class="nav-number">2.5.</span> <span class="nav-text">6 为什么是交叉熵误差(交叉熵定义）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-kl散度：最小化两个分布之间的kl散度"><span class="nav-number">2.6.</span> <span class="nav-text">7 kl散度：最小化两个分布之间的kl散度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-全数据集上的分类"><span class="nav-number">2.7.</span> <span class="nav-text">8 全数据集上的分类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-正则化"><span class="nav-number">2.8.</span> <span class="nav-text">9 正则化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-细节-传统ml优化方法"><span class="nav-number">2.9.</span> <span class="nav-text">9 细节:传统ml优化方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10-分类不同的词向量"><span class="nav-number">2.10.</span> <span class="nav-text">10 分类不同的词向量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11-新练词向量使失去泛化"><span class="nav-number">2.11.</span> <span class="nav-text">11 新练词向量使失去泛化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-词向量相关术语"><span class="nav-number">2.12.</span> <span class="nav-text">12 词向量相关术语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-Window-classification"><span class="nav-number">2.13.</span> <span class="nav-text">13 Window classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-Simplest-window-classifier-Softmax"><span class="nav-number">2.14.</span> <span class="nav-text">14 Simplest window classifier: Softmax</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15-Updating-concatenated-word-vectors"><span class="nav-number">2.15.</span> <span class="nav-text">15 Updating concatenated word vectors</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16-Softmax-logistic-regression-alone-not-very-powerful（效果有限）"><span class="nav-number">2.16.</span> <span class="nav-text">16 Softmax (= logistic regression) alone not very powerful（效果有限）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17-Neural-Nets-for-the-Win"><span class="nav-number">2.17.</span> <span class="nav-text">17 Neural Nets for the Win!</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18-Demystifying-neural-networks"><span class="nav-number">2.18.</span> <span class="nav-text">18 Demystifying neural networks</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一些简单的介绍"><span class="nav-number">2.19.</span> <span class="nav-text">一些简单的介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#每个神经元是一个二分类逻辑斯谛回归单元："><span class="nav-number">2.20.</span> <span class="nav-text">每个神经元是一个二分类逻辑斯谛回归单元：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么："><span class="nav-number">2.21.</span> <span class="nav-text">神经网络同时运行多个逻辑斯谛回归，但不需要提前指定它们具体预测什么：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么："><span class="nav-number">2.22.</span> <span class="nav-text">我们把预测结果喂给下一级逻辑斯谛回归单元，由损失函数自动决定它们预测什么：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#于是就得到了一个多层网络："><span class="nav-number">2.23.</span> <span class="nav-text">于是就得到了一个多层网络：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#为什么需要非线性"><span class="nav-number">2.24.</span> <span class="nav-text">为什么需要非线性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前向传播网络"><span class="nav-number">2.25.</span> <span class="nav-text">前向传播网络</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间隔最大化目标函数"><span class="nav-number">2.26.</span> <span class="nav-text">间隔最大化目标函数</span></a></li></ol></li></ol></div>
             
 
           </div>
