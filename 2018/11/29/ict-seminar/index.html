@@ -89,16 +89,16 @@
 
 
 
-<meta name="description" content="对偶问题\KTT条件\凸优化">
+<meta name="description" content="Never Let Your Fear Decide Your Future">
 <meta property="og:type" content="article">
-<meta property="og:title" content="svm中三个基础问题">
-<meta property="og:url" content="http://yoursite.com/2017/07/21/svm中三个基础问题/index.html">
+<meta property="og:title" content="ict-seminar">
+<meta property="og:url" content="http://yoursite.com/2018/11/29/ict-seminar/index.html">
 <meta property="og:site_name" content="唐相儒的博客">
-<meta property="og:description" content="对偶问题\KTT条件\凸优化">
-<meta property="og:updated_time" content="2017-07-22T11:47:25.000Z">
+<meta property="og:description" content="Never Let Your Fear Decide Your Future">
+<meta property="og:updated_time" content="2018-11-28T18:08:17.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="svm中三个基础问题">
-<meta name="twitter:description" content="对偶问题\KTT条件\凸优化">
+<meta name="twitter:title" content="ict-seminar">
+<meta name="twitter:description" content="Never Let Your Fear Decide Your Future">
 
 
 
@@ -126,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/21/svm中三个基础问题/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/29/ict-seminar/"/>
 
 
 
 
 
-  <title> svm中三个基础问题 | 唐相儒的博客 </title>
+  <title> ict-seminar | 唐相儒的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -291,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/21/svm中三个基础问题/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/29/ict-seminar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="唐相儒">
@@ -312,7 +312,7 @@
             
             
               
-                svm中三个基础问题
+                ict-seminar
               
             
           </h1>
@@ -327,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-21T20:36:31+08:00">
-                2017-07-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-29T02:08:17+08:00">
+                2018-11-29
               </time>
             
 
@@ -346,9 +346,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/21/svm中三个基础问题/#comments" itemprop="discussionUrl">
+                <a href="/2018/11/29/ict-seminar/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/21/svm中三个基础问题/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2018/11/29/ict-seminar/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,23 +374,7 @@
       
 
       
-        <p>对偶问题\KTT条件\凸优化<br><a id="more"></a></p>
-<h1 id="什么是对偶问题"><a href="#什么是对偶问题" class="headerlink" title="什么是对偶问题"></a>什么是对偶问题</h1><p>任何一个求极大化的线性规划问题都有一个求极小化的线性规划问题与之对应，反之亦然，如果我们把其中一个叫原问题，则另一个就叫做它的对偶问题</p>
-<p>对称型和非对称型</p>
-<h1 id="最优化与KTT条件"><a href="#最优化与KTT条件" class="headerlink" title="最优化与KTT条件"></a>最优化与KTT条件</h1><p>最优化问题可以根据目标函数和约束条件的类型进行分类:</p>
-<p>1). 如果目标函数和约束条件都为变量的线性函数, 称该最优化问题为线性规划;</p>
-<p>2). 如果目标函数为变量的二次函数, 约束条件为变量的线性函数, 称该最优化问题为二次规划;</p>
-<p>3). 如果目标函数或者约束条件为变量的非线性函数, 称该最优化问题为非线性规划.</p>
-<p>KTT条件是指在满足一些有规则的条件下, 一个非线性规划(Nonlinear Programming)问题能有最优化解法的一个必要和充分条件. 这是一个广义化拉格朗日乘数的成果. 一般地, 一个最优化数学模型的列标准形式参考开头的式子, 所谓 Karush-Kuhn-Tucker 最优化条件，就是指上式的最优点x∗必须满足下面的条件:</p>
-<p>1). 约束条件满足gi(x∗)≤0,i=1,2,…,p, 以及,hj(x∗)=0,j=1,2,…,q</p>
-<p>2). ∇f(x∗)+∑i=1pμi∇gi(x∗)+∑j=1qλj∇hj(x∗)=0, 其中∇为梯度算子;</p>
-<p>3). λj≠0且不等式约束条件满足μi≥0,μigi(x∗)=0,i=1,2,…,p</p>
-<p>KKT条件第一项是说最优点x∗必须满足所有等式及不等式限制条件, 也就是说最优点必须是一个可行解, 这一点自然是毋庸置疑的. 第二项表明在最优点x∗, ∇f必须是∇g和∇h的线性組合, μ和λ都叫作拉格朗日乘子. 所不同的是不等式限制条件有方向性, 所以每一个μ都必须大于或等于零, 而等式限制条件没有方向性，所以λ没有符号的限制, 其符号要视等式限制条件的写法而定.</p>
-<h1 id="凸优化问题"><a href="#凸优化问题" class="headerlink" title="凸优化问题"></a>凸优化问题</h1><p>同时满足如下两个条件的优化问题称为凸优化：</p>
-<p>1）目标函数(objective fucntion)是凸函数；</p>
-<p>2）可行集合(feasible set)必须是凸集；</p>
-<p>即在凸集上寻找凸函数的全局最值的过程称为凸优化。</p>
-
+        
       
     </div>
 
@@ -426,8 +410,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/18/先验概率和后验概率/" rel="next" title="先验概率和后验概率">
-                <i class="fa fa-chevron-left"></i> 先验概率和后验概率
+              <a href="/2018/11/27/CCF-student/" rel="next" title="CCF-student">
+                <i class="fa fa-chevron-left"></i> CCF-student
               </a>
             
           </div>
@@ -436,8 +420,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/21/多种kernel对比/" rel="prev" title="多种kernel对比">
-                多种kernel对比 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/29/Stanford-seminar/" rel="prev" title="Stanford-seminar">
+                Stanford-seminar <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -492,17 +476,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
@@ -546,22 +521,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#什么是对偶问题"><span class="nav-number">1.</span> <span class="nav-text">什么是对偶问题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最优化与KTT条件"><span class="nav-number">2.</span> <span class="nav-text">最优化与KTT条件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#凸优化问题"><span class="nav-number">3.</span> <span class="nav-text">凸优化问题</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -693,9 +652,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/2017/07/21/svm中三个基础问题/';
-          this.page.identifier = '2017/07/21/svm中三个基础问题/';
-          this.page.title = 'svm中三个基础问题';
+          this.page.url = 'http://yoursite.com/2018/11/29/ict-seminar/';
+          this.page.identifier = '2018/11/29/ict-seminar/';
+          this.page.title = 'ict-seminar';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://.disqus.com/embed.js';
