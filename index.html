@@ -915,18 +915,14 @@
 
       
         
-          
-            <p>杂想<br><!-- --></p>
-<p>1.进组前一定要详细了解每个正式学生的工作方向，确实一个最有潜力和match的</p>
-<p>2.别人的idea永远是别人的，自己的才是自己的</p>
-<p>3.把事情想的太简单了，浮躁</p>
-<p>4.做research不是为了paper而paper</p>
-<p>5.读博士更重要是个人能力的提高，而不是越读越窄。同一个问题不同人来解决，效果是不一样的</p>
-<p>6.对于未来，肯定是有新的需求，要拥抱变化，但是做research解决问题的那一套是不太会变的</p>
-<p>7.灌水大家都心知肚明，安安心心踏踏实实的做工作，把work做漂亮一些，思考问题更深刻一些，透彻一些</p>
-<p>8.做实验正确思路是从底到上，从理论角度验证然后实验得到好的效果，而不是本末倒置。research的根本目的是认识世界，优化技术</p>
-
-          
+          <p>杂想<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/08/暑期实习失败原因/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1599,45 +1595,14 @@
 
       
         
-          
-            <h1 id="汉王任务一罪名"><a href="#汉王任务一罪名" class="headerlink" title="汉王任务一罪名"></a>汉王任务一罪名</h1><p>预处理：分词、数值替换！！！！、tf-idf for SVM、wordembedding for CNN、数值上采样</p>
-<p>传统做法：9个svm(子采样)做投票</p>
-<p>cnn多分类：如果单类别就是onehot，双类别就是0000.50000.5000，三类别就是000 0.3 00000.3 0000.3。这使得累加都是1</p>
-<p>第二种cnn,架构不一样</p>
-<p>三种模型做集成</p>
-<p>注意：attention很重要，dl优于传统，svm速度很快，重点：把差异大的模型继承是很好的做法</p>
-<h1 id="中电28所任务三刑期"><a href="#中电28所任务三刑期" class="headerlink" title="中电28所任务三刑期"></a>中电28所任务三刑期</h1><p>model1：dpcnn、model2：fmcnn</p>
-<p>早起multi task还行 后来就不行了</p>
-<h1 id="安徽省高院"><a href="#安徽省高院" class="headerlink" title="安徽省高院"></a>安徽省高院</h1><p>多分类，也是传统+dl融合的方式</p>
-<p>预处理：停用词、金额、重量、酒精浓度、地区、时间、当事人姓名都用不同的大写字母去代替，意思是这些命名实体对最后结果影响非常大</p>
-<p>传统：tf-idf做特征选择（10w），模型：线性svc、labelpowerset、rakelD</p>
-<p>三种方法来解决多标签：问题转化(lp)、改编算法、集成方法，来转化为单标签问题</p>
-<p>问题转化：二元关联、分类器链、标签powerset</p>
-<p>有个所用模型：。。。。。。。注意看ppt</p>
-<p>改编算法：knn的多标签版本mlknn</p>
-<p>集成：rakelo、rakeld：大标签集分成一定数目小标签集，使用label powerset训练相应的分类器，最后投票</p>
-<h1 id="西电"><a href="#西电" class="headerlink" title="西电"></a>西电</h1><p>样本少的类比设置高的权重</p>
-<p>jieba分词</p>
-<p>有没有易混淆的：抢劫、抢夺，加入要素维度，利用fine-tuning 训练易混淆模型：正则</p>
-<p>多模型融合：textcnn、textrnn</p>
-<p>小的技巧、数据分析、详细的实验记录（想好做哪些尝试）</p>
-<h2 id="达观数据"><a href="#达观数据" class="headerlink" title="达观数据"></a>达观数据</h2><h2 id="ali"><a href="#ali" class="headerlink" title="ali"></a>ali</h2><h3 id="模型"><a href="#模型" class="headerlink" title="模型"></a>模型</h3><p>hir句子、离散特征用fm、法条embed</p>
-<p>法条预测：nilinear做一个相关性匹配、sigmoid loss</p>
-<p>罪名预测：attr classifier</p>
-<p>级联的方式：hard、soft</p>
-<p>三个loss</p>
-<p>刑期预测:先做分类再做回归，mae、huber loss(介于mae-mse之间)</p>
-<p>一个五个loss做multi task</p>
-<h3 id="调优"><a href="#调优" class="headerlink" title="调优"></a>调优</h3><p>elmo真的有效果</p>
-<p>找到一些性能比较相似的embed去融合，因为可能是不同角度去描述</p>
-<p>fewshot：人为设定属性</p>
-<p>bilinear做异构数据拉到同一个空间</p>
-<h2 id="国双"><a href="#国双" class="headerlink" title="国双"></a>国双</h2><p>任务1、2绝对是一起训练的</p>
-<p>业务规则特征就是一些数字的不同有不同意义</p>
-<p>用邴立东的ram，dpcnn，rcnn</p>
-<p>注意模型细节！！！不同结构非常重要</p>
-
-          
+          <p>第一届法研杯<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/12/lawchallenge/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -655,25 +655,14 @@
 
       
         
-          
-            <p>2018第三学期</p>
-<h1 id="headline-generation新闻标题生成"><a href="#headline-generation新闻标题生成" class="headerlink" title="headline generation新闻标题生成"></a>headline generation新闻标题生成</h1><p>“Automatic headline generation is an important research area within text summarization and sentence compression. “</p>
-<h2 id="A-Neural-Attention-Model-for-Abstractive-Sentence-Summarization-2015"><a href="#A-Neural-Attention-Model-for-Abstractive-Sentence-Summarization-2015" class="headerlink" title="A Neural Attention Model for Abstractive Sentence Summarization 2015"></a><a href="http://www.baidu.com/link?url=zlmhmtAPv65gjZts_mZmiq7Z_3uHrebuWH6xCz-RjRXMSm8OL3sfgW7EasD-Kpm6&amp;wd=&amp;eqid=bcf6b97100002808000000035b485584" target="_blank" rel="external">A Neural Attention Model for Abstractive Sentence Summarization</a> 2015</h2><p>This paper wants to max P(y_i+1|x,y_c;θ), tries three encoder methods: Bag-of-Words，CNN, Attention-Based.And the decoder is NNLM.</p>
-<p><a href="https://github.com/facebookarchive/NAMAS" target="_blank" rel="external">code for ABS</a></p>
-<h2 id="Controlling-Output-Length-in-Neural-Encoder-Decoders-EMNLP2016"><a href="#Controlling-Output-Length-in-Neural-Encoder-Decoders-EMNLP2016" class="headerlink" title="Controlling Output Length in Neural Encoder-Decoders EMNLP2016"></a><a href="https://www.researchgate.net/publication/311990518_Controlling_Output_Length_in_Neural_Encoder-Decoders" target="_blank" rel="external">Controlling Output Length in Neural Encoder-Decoders</a> EMNLP2016</h2><p>Neural encoder-decoder models have demonstrated great promise in many sequence generation tasks, more important, this model is able to control the length of the summarization text by feeding to the Seq2seq base model a label that indicates the intended output length in addition to the source input </p>
-<p>是一种加label的idea,uses a mechanism to control the summary length by considering the length embedding vector as the input</p>
-<h2 id="Neural-Headline-Generation-on-Abstract-Meaning-Representation-EMNLP2016"><a href="#Neural-Headline-Generation-on-Abstract-Meaning-Representation-EMNLP2016" class="headerlink" title="Neural Headline Generation on Abstract Meaning Representation EMNLP2016"></a><a href="https://www.aclweb.org/anthology/D/D16/D16-1112.pdf" target="_blank" rel="external">Neural Headline Generation on Abstract Meaning Representation</a> EMNLP2016</h2><p>This paper utilize encoder-decoder neural networks for generating abstractive summaries. Abstract meaning representation is utilized to incorporate syntactic and semantic information of input sentence into the headline generation model.</p>
-<h2 id="Neural-Headline-Generation-with-Minimum-Risk-Training-2016"><a href="#Neural-Headline-Generation-with-Minimum-Risk-Training-2016" class="headerlink" title="Neural Headline Generation with Minimum Risk Training 2016"></a><a href="http://lanl.arxiv.org/abs/1604.01904" target="_blank" rel="external">Neural Headline Generation with Minimum Risk Training</a> 2016</h2><p>This paper proposes a minimum risk training method to directly optimize the evaluation metrics and the results show that optimizing for ROUGE improves the test performance.</p>
-<h2 id="Neural-Headline-Generation-with-Sentence-wise-Optimization-2016"><a href="#Neural-Headline-Generation-with-Sentence-wise-Optimization-2016" class="headerlink" title="Neural Headline Generation with Sentence-wise Optimization 2016"></a><a href="http://xueshu.baidu.com/s?wd=paperuri%3A%2845833b675ca67b06a9cf39bc722b938e%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Farxiv.org%2Fabs%2F1604.01904v2&amp;ie=utf-8&amp;sc_us=4196066435437625786" target="_blank" rel="external">Neural Headline Generation with Sentence-wise Optimization</a> 2016</h2><p>As traditional neural network utilizes maximum likelihood estimation for parameter optimization, it essentially constrains the expected training objective within word level rather than sentence level.To overcome these drawbacks, this paper employs minimum risk training strategy, which directly optimizes model parameters in sentence level with respect to evaluation metrics and leads to significant improvements for headline generation.</p>
-<h2 id="Abstractive-Sentence-Summarization-with-Attentive-Recurrent-Neural-Networks-2016"><a href="#Abstractive-Sentence-Summarization-with-Attentive-Recurrent-Neural-Networks-2016" class="headerlink" title="Abstractive Sentence Summarization with Attentive Recurrent Neural Networks 2016"></a><a href="http://www.researchgate.net/publication/305334286_Abstractive_Sentence_Summarization_with_Attentive_Recurrent_Neural_Networks" target="_blank" rel="external">Abstractive Sentence Summarization with Attentive Recurrent Neural Networks</a> 2016</h2><p>Seq2seq model with CNN encoder and attention mechanism has achieved good results on abstractive summarization from a single sentence, what’s more, the model has been extended to use recurrent neural network as decoder.This paper reaching a ROUGE-1 score of 35.51 on the Gigaword data. </p>
-<h2 id="Selective-Encoding-for-Abstractive-Sentence-Summarization-ACL2017"><a href="#Selective-Encoding-for-Abstractive-Sentence-Summarization-ACL2017" class="headerlink" title="Selective Encoding for Abstractive Sentence Summarization ACL2017"></a><a href="http://www.baidu.com/link?url=LFWfe-bk0O-O41q8biSjiNzHSinZKSCinXJFXNZoWa1CLh-z6ltivdaA7GSNDavC&amp;wd=&amp;eqid=c0a39878000139c4000000035b485e76" target="_blank" rel="external">Selective Encoding for Abstractive Sentence Summarization</a> ACL2017</h2><p>This paper is achieved by selectively encoding words as a process of distilling salient information（proposed selective gate to improve the attention in abstractive summarization）, using BiGRU encoders and GRU decoders with selective encoding. In fact, this paper pointed out that there are salient problems in the attention mechanism. Which means, there is no obvious alignment relationship between the source text and the target summary, and the encoder outputs contain noise for the attention.</p>
-<h2 id="From-Neural-Sentence-Summarization-to-Headline-Generation-A-Coarse-to-Fine-Approach-IJCAI2017"><a href="#From-Neural-Sentence-Summarization-to-Headline-Generation-A-Coarse-to-Fine-Approach-IJCAI2017" class="headerlink" title="From Neural Sentence Summarization to Headline Generation: A Coarse-to-Fine Approach IJCAI2017"></a><a href="http://www.researchgate.net/publication/318829385_From_Neural_Sentence_Summarization_to_Headline_Generation_A_Coarse-to-Fine_Approach" target="_blank" rel="external">From Neural Sentence Summarization to Headline Generation: A Coarse-to-Fine Approach</a> IJCAI2017</h2><p>This paper proposes a coarse-to-fine approach, which first identifies the important sentences of a document using document summarization techniques, and then exploits a multi-sentence summarization model with hierarchical attention to leverage the important sentences for headline generation.  </p>
-<h2 id="Learning-to-Explain-Ambiguous-Headlines-of-Online-News-IJCAI2018"><a href="#Learning-to-Explain-Ambiguous-Headlines-of-Online-News-IJCAI2018" class="headerlink" title="Learning to Explain Ambiguous Headlines of Online News IJCAI2018"></a>Learning to Explain Ambiguous Headlines of Online News IJCAI2018</h2><h1 id="table2docs-新闻生成"><a href="#table2docs-新闻生成" class="headerlink" title="table2docs 新闻生成"></a>table2docs 新闻生成</h1><h2 id="Content-Selection-for-Real-time-Sports-News-Construction-from-Commentary-Texts-INLG-2017"><a href="#Content-Selection-for-Real-time-Sports-News-Construction-from-Commentary-Texts-INLG-2017" class="headerlink" title="Content Selection for Real-time Sports News Construction from Commentary Texts INLG 2017"></a><a href="https://www.researchgate.net/publication/322587929_Content_Selection_for_Real-time_Sports_News_Construction_from_Commentary_Texts" target="_blank" rel="external">Content Selection for Real-time Sports News Construction from Commentary Texts</a> INLG 2017</h2><p>Rather than receiving every piece of text of a sports match before news construction, as in previous related work, they novelly verify the feasibility of a more challenging setting to generate news report on the fly by treating live text input as a stream. This paper designs scoring functions to address different requirements of the task and use stream substitution for sentence selection.</p>
-<h2 id="Towards-Automatic-Construction-of-News-Overview-Articles-by-News-Synthesis-2017"><a href="#Towards-Automatic-Construction-of-News-Overview-Articles-by-News-Synthesis-2017" class="headerlink" title="Towards Automatic Construction of News Overview Articles by News Synthesis 2017"></a><a href="http://www.aclweb.org/anthology/D/D17/D17-1223.pdf" target="_blank" rel="external">Towards Automatic Construction of News Overview Articles by News Synthesis</a> 2017</h2><p>This paper investigates a new task of automatically constructing an overview article from a given set of news articles about a news event. They propose a news synthesis approach to address this task based on passage segmentation, ranking, selection and merging. 还是多文档摘要</p>
-<h2 id="Table-to-text-Generation-by-Structure-aware-Seq2seq-Learning-AAAI2018"><a href="#Table-to-text-Generation-by-Structure-aware-Seq2seq-Learning-AAAI2018" class="headerlink" title="Table-to-text Generation by Structure-aware Seq2seq Learning AAAI2018"></a><a href="http://xueshu.baidu.com/s?wd=paperuri%3A%2855795f18fcb611b7b65a0df147c50885%29&amp;filter=sc_long_sign&amp;tn=SE_xueshusource_2kduw22v&amp;sc_vurl=http%3A%2F%2Farxiv.org%2Fabs%2F1711.09724&amp;ie=utf-8&amp;sc_us=8265564551966713063" target="_blank" rel="external">Table-to-text Generation by Structure-aware Seq2seq Learning AAAI2018</a></h2><p>To encode both the content and the structure of a table, this paper proposes a novel structure-aware seq2seq architecture which consists of field-gating encoder and description generator with dual attention. They introduce a modified LSTM that adds a field gate into the LSTM to incorporate the structured data. Further, they use a dual attention mechanism that combines attention of both the slot names and the actual slot content.</p>
-<p><a href="https://github.com/tyliupku/wiki2bio." target="_blank" rel="external">code</a></p>
-
-          
+          <p>2018第三学期<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/13/挑战杯-智能新闻/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -802,174 +791,14 @@
 
       
         
-          
-            <h1 id="2018-aais"><a href="#2018-aais" class="headerlink" title="2018 aais"></a>2018 aais</h1><h2 id="A-第n小的质数"><a href="#A-第n小的质数" class="headerlink" title="A 第n小的质数"></a>A 第n小的质数</h2><p>描述</p>
-<p> 输入一个正整数n，求第n小的质数。</p>
-<p>输入</p>
-<p> 一个不超过10000的正整数n。</p>
-<p>输出</p>
-<pre><code>第n小的质数。
-</code></pre><p>样例输入</p>
-<pre><code>10
-</code></pre><p>样例输出</p>
-<pre><code>29
-</code></pre><h2 id="B潜伏者"><a href="#B潜伏者" class="headerlink" title="B潜伏者"></a>B潜伏者</h2><p>描述</p>
-<pre><code>R国和S国正陷入战火之中，双方都互派间谍，潜入对方内部，伺机行动。
-
-历经艰险后，潜伏于S国的R国间谍小C终于摸清了S国军用密码的编码规则：
-
-1、    S国军方内部欲发送的原信息经过加密后在网络上发送，原信息的内容与加密后所的内容均由大写字母‘A’—‘Z’构成（无空格等其他字母）。
-
-2、    S国对于每个字母规定了对应的“密字”。加密的过程就是将原信息中的所有字母替换为其对应的“密字”。
-
-3、    每个字母只对应一个唯一的“密字”，不同的字母对应不同的“密字”。“密字”可以和原字母相同。
-
-例如，若规定‘A’的密字为‘A’，‘B’的密字为‘C’（其他字母及密字略），则原信息“ABA”被加密为“ACA”。
-
-现在，小C通过内线掌握了S国网络上发送的一条加密信息及其对应的原信息。小C希望能通过这条信息，破译S国的军用密码。小C的破译过程是这样的：扫描原信息，对于原信息中的字母x（代表任一大写字母），找到其在加密信息中的对应大写字母y，并认为在密码里y是x的密字。如此进行下去直到停止于如下的某个状态：
-
-1、    所有信息扫描完毕，‘A’—‘Z’所有26个字母在原信息中均出现过并获得了相应的“密字”。
-
-2、    所有信息扫描完毕，但发现存在某个（或某些）字母在原信息中没有出现。
-
-3、    扫描中发现掌握的信息里有明显的自相矛盾或错误（违反S过密码的编码规则）。例如某条信息“XYZ”被翻译为“ABA”就违反了“不同字母对应不同密字”的规则。
-
-在小C忙得头昏脑胀之际，R国司令部又发来电报，要求他翻译另外一条从S国刚刚截取到的加密信息。现在请你帮助小C：通过内线掌握的信息，尝试破译密码。然后利用破译的密码，翻译电报中的加密信息。 
-</code></pre><p>输入<br>    共3行，每行为一个长度在1到100之间的字符串。<br>    第1行为小C掌握的一条加密信息。<br>    第2行为第1行的加密信息所对应的原信息。<br>    第3行为R国司令部要求小C翻译的加密信息。<br>    输入数据保证所有字符串仅由大写字母‘A’—‘Z’构成，且第1行长度与第2行相等。<br>输出<br>    共1行。<br>    若破译密码停止时出现2，3两种情况，请你输出“Failed”（不含引号，注意首字母大写，其它小写）。<br>    否则请输出利用密码翻译电报中加密信息后得到的原信息。<br>样例输入</p>
-<pre><code>样例 #1：
-AA
-AB
-EOWIE
-
-样例 #2：
-QWERTYUIOPLKJHGFDSAZXCVBN
-ABCDEFGHIJKLMNOPQRSTUVWXY
-DSLIEWO
-
-样例 #3：
-MSRTZCJKPFLQYVAWBINXUEDGHOOILSMIJFRCOPPQCEUNYDUMPP
-YIZSDWAHLNOVFUCERKJXQMGTBPPKOIYKANZWPLLVWMQJFGQYLL
-FLSO
-</code></pre><p>样例输出</p>
-<pre><code>样例 #1：
-Failed
-
-样例#2：
-Failed
-
-样例#3：
-NOIP
-</code></pre><p>提示<br>    输入输出样例1说明：原信息中的字母‘A’和‘B’对应相同的密字，输出“Failed”。</p>
-<pre><code>输入输出样例2说明：字母‘Z’在原信息中没有出现，输出“Failed”。
-</code></pre><h2 id="C-逃离迷宫"><a href="#C-逃离迷宫" class="headerlink" title="C:逃离迷宫"></a>C:逃离迷宫</h2><p>描述</p>
-<pre><code>你在一个地下迷宫中找到了宝藏，但是也触发了迷宫机关，导致迷宫将在T分钟后坍塌，为此你需要在T分钟内逃离迷宫，你想知道你能不能逃离迷宫。迷宫是一个边长为m的正方形，其中&quot;S&quot;表示你所在的位置，&quot;E&quot;表示迷宫出口，&quot;.&quot;是可以随意走动的区域，&quot;#&quot;是不可穿行的墙壁，每次你可以耗费1分钟在区域间移动（上下左右四个方向）。
-</code></pre><p>输入<br>    输入包含多组数组，第一行是一个整数K（1 &lt;= K &lt;= 10)，表示有K组数据。接下来每组数组包含整数m(2&lt;=m&lt;=10)和整数T，m表示正方形迷宫的边长，T表示坍塌时间。其后是一个m*m的字符矩阵，包含字符”S”, “E”, “.”和”#”。<br>输出<br>    每组数据输出一行，输出“YES”或者”NO”，表示是否可以在坍塌之前逃离（也就是说移动次数是否可以不超过T）。<br>样例输入</p>
-<pre><code>2
-4 7 
-S...
-###.
-.#E.
-..#.    
-3 4
-S..
-..#
-.#E
-</code></pre><p>样例输出</p>
-<pre><code>YES
-NO
-</code></pre><h2 id="D-跑步"><a href="#D-跑步" class="headerlink" title="D:跑步"></a>D:跑步</h2><p>描述</p>
-<pre><code>奶牛们打算通过锻炼来培养自己的运动细胞，作为其中的一员，贝茜选择的运动方式是每天进行N(1 &lt;= N &lt;= 10,000)分钟的晨跑。在每分钟的开始，贝茜会选择下一分钟是用来跑步还是休息。 贝茜的体力限制了她跑步的距离。更具体地，如果贝茜选择在第i分钟内跑步，她可以在这一分钟内跑D_i(1 &lt;= D_i &lt;= 1,000)米，并且她的疲劳度会增加 1。不过，无论何时贝茜的疲劳度都不能超过M(1 &lt;= M &lt;= 500)。如果贝茜选择休息，那么她的疲劳度就会每分钟减少1，但她必须休息到疲劳度恢复到0为止。在疲劳度为0时休息的话，疲劳度不会再变动。晨跑开始时，贝茜的疲劳度为0。 还有，在N分钟的锻炼结束时，贝茜的疲劳度也必须恢复到0，否则她将没有足够的精力来对付这一整天中剩下的事情。 请你计算一下，贝茜最多能跑多少米。
-</code></pre><p>输入<br>    第1行: 2个用空格隔开的整数：N 和 M<br>    第2..N+1行: 第i+1为1个整数：D_i<br>输出<br>    第1行: 输出1个整数，表示在满足所有限制条件的情况下，贝茜能跑的最大 距离<br>样例输入</p>
-<pre><code>5 2
-5
-3
-4
-2
-10
-</code></pre><p>样例输出</p>
-<pre><code>9
-</code></pre><p>提示<br>    对于30%的数据，N &lt;= 50, M &lt;= 10</p>
-<h2 id="E-What-time-is-it"><a href="#E-What-time-is-it" class="headerlink" title="E:What time is it?"></a>E:What time is it?</h2><p>描述<br>    An accutron shows time with four digits, from 0000 to 2359. Every digit is represented by 3*3 characters, including ‘|’s, ‘_’s and blanks. When the LCD screen works well, the digits look like the following:</p>
-<pre><code> _     _  _     _  _  _  _  _ 
-| |  | _| _||_||_ |_   ||_||_|
-|_|  ||_  _|  | _||_|  ||_| _|
-
-
-
-There are two accutrons at hand. One shows the accurate time, and the other is 15 minutes late. For example, at 8:25am, the first accutron shows &apos;0825&apos;, while the second shows &apos;0810&apos;.
-
-Unfortunately, there is something wrong with the two LCD screens, namely some parts of the digits missed. Your task is to decide the accurate time, according to the fragmental digits showed on the two accutrons.
-</code></pre><p>输入<br>    The first line of the input is a single integer t (1 &lt;= t &lt;= 20), the number of test cases. Each case contains three lines, indicating the time on the accurate accutron and the time on the slow accutron, separated by a blank column. (Please refer to the Sample Input.)<br>输出<br>    For each input, print the accurate time with four digits if it can be ensured, or otherwise the string ‘Not Sure’.<br>样例输入</p>
-<pre><code>2
-    _  _  _      _     _ 
-  | _  _||       _   ||  
-  | _ |_   |   | _    |_|
-    _  _  _   _  _     _ 
-  ||_  _||       _|  ||  
-  | _ |_   |   ||     |_|
-</code></pre><p>样例输出</p>
-<pre><code>Not Sure
-0825
-</code></pre><h2 id="F-Sorting-It-All-Out"><a href="#F-Sorting-It-All-Out" class="headerlink" title="F:Sorting It All Out"></a>F:Sorting It All Out</h2><p>描述</p>
-<pre><code>An ascending sorted sequence of distinct values is one in which some form of a less-than operator is used to order the elements from smallest to largest. For example, the sorted sequence A, B, C, D implies that A &lt; B, B &lt; C and C &lt; D. in this problem, we will give you a set of relations of the form A &lt; B and ask you to determine whether a sorted order has been specified or not. 
-</code></pre><p>输入<br>    Input consists of multiple problem instances. Each instance starts with a line containing two positive integers n and m. the first value indicated the number of objects to sort, where 2 &lt;= n &lt;= 26. The objects to be sorted will be the first n characters of the uppercase alphabet. The second value m indicates the number of relations of the form A &lt; B which will be given in this problem instance. Next will be m lines, each containing one such relation consisting of three characters: an uppercase letter, the character “&lt;” and a second uppercase letter. No letter will be outside the range of the first n letters of the alphabet. Values of n = m = 0 indicate end of input.<br>输出<br>    For each problem instance, output consists of one line. This line should be one of the following three:</p>
-<pre><code>Sorted sequence determined after xxx relations: yyy...y.
-Sorted sequence cannot be determined.
-Inconsistency found after xxx relations.
-
-where xxx is the number of relations processed at the time either a sorted sequence is determined or an inconsistency is found, whichever comes first, and yyy...y is the sorted, ascending sequence.
-</code></pre><p>样例输入</p>
-<pre><code>4 6
-A&lt;B
-A&lt;C
-B&lt;C
-C&lt;D
-B&lt;D
-A&lt;B
-3 2
-A&lt;B
-B&lt;A
-26 1
-A&lt;Z
-0 0
-</code></pre><p>样例输出</p>
-<pre><code>Sorted sequence determined after 4 relations: ABCD.
-Inconsistency found after 2 relations.
-Sorted sequence cannot be determined.
-</code></pre><h2 id="G-Rails"><a href="#G-Rails" class="headerlink" title="G:Rails"></a>G:Rails</h2><p>描述<br>    There is a famous railway station in PopPush City. Country there is incredibly hilly. The station was built in last century. Unfortunately, funds were extremely limited that time. It was possible to establish only a surface track. Moreover, it turned out that the station could be only a dead-end one (see picture) and due to lack of available space it could have only one track.</p>
-<pre><code>The local tradition is that every train arriving from the direction A continues in the direction B with coaches reorganized in some way. Assume that the train arriving from the direction A has N &lt;= 1000 coaches numbered in increasing order 1, 2, ..., N. The chief for train reorganizations must know whether it is possible to marshal coaches continuing in the direction B so that their order will be a1, a2, ..., aN. Help him and write a program that decides whether it is possible to get the required order of coaches. You can assume that single coaches can be disconnected from the train before they enter the station and that they can move themselves until they are on the track in the direction B. You can also suppose that at any time there can be located as many coaches as necessary in the station. But once a coach has entered the station it cannot return to the track in the direction A and also once it has left the station in the direction B it cannot return back to the station.
-</code></pre><p>输入<br>    The input consists of blocks of lines. Each block except the last describes one train and possibly more requirements for its reorganization. In the first line of the block there is the integer N described above. In each of the next lines of the block there is a permutation of 1, 2, …, N. The last line of the block contains just 0.</p>
-<pre><code>The last block consists of just one line containing 0.
-</code></pre><p>输出<br>    The output contains the lines corresponding to the lines with permutations in the input. A line of the output contains Yes if it is possible to marshal the coaches in the order required on the corresponding line of the input. Otherwise it contains No. In addition, there is one empty line after the lines corresponding to one block of the input. There is no line in the output corresponding to the last ``null’’ block of the input.<br>样例输入</p>
-<pre><code>5
-1 2 3 4 5
-5 4 1 2 3
-0
-6
-6 5 4 3 2 1
-0
-0
-</code></pre><p>样例输出</p>
-<pre><code>Yes
-
-No
-
-Yes
-</code></pre><h2 id="H-The-Rotation-Game"><a href="#H-The-Rotation-Game" class="headerlink" title="H:The Rotation Game"></a>H:The Rotation Game</h2><p>描述<br>    The rotation game uses a # shaped board, which can hold 24 pieces of square blocks (see Fig.1). The blocks are marked with symbols 1, 2 and 3, with exactly 8 pieces of each kind.</p>
-<pre><code>Initially, the blocks are placed on the board randomly. Your task is to move the blocks so that the eight blocks placed in the center square have the same symbol marked. There is only one type of valid move, which is to rotate one of the four lines, each consisting of seven blocks. That is, six blocks in the line are moved towards the head by one block and the head block is moved to the end of the line. The eight possible moves are marked with capital letters A to H. Figure 1 illustrates two consecutive moves, move A and move C from some initial configuration.
-</code></pre><p>输入<br>    The input consists of no more than 30 test cases. Each test case has only one line that contains 24 numbers, which are the symbols of the blocks in the initial configuration. The rows of blocks are listed from top to bottom. For each row the blocks are listed from left to right. The numbers are separated by spaces. For example, the first test case in the sample input corresponds to the initial configuration in Fig.1. There are no blank lines between cases. There is a line containing a single <code>0&#39; after the last test case that ends the input.
-输出
-    For each test case, you must output two lines. The first line contains all the moves needed to reach the final configuration. Each move is a letter, ranging from</code>A’ to <code>H&#39;, and there should not be any spaces between the letters in the line. If no moves are needed, output</code>No moves needed’ instead. In the second line, you must output the symbol of the blocks in the center square after these moves. If there are several possible solutions, you must output the one that uses the least number of moves. If there is still more than one possible solution, you must output the solution that is smallest in dictionary order for the letters of the moves. There is no need to output blank lines between cases.<br>样例输入</p>
-<pre><code>1 1 1 1 3 2 3 2 3 1 3 2 2 3 1 2 2 2 3 1 2 1 3 3
-1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 3 3 3 3 3 3 3 3
-0
-</code></pre><p>样例输出</p>
-<pre><code>AC
-2
-DDHH
-2
-</code></pre>
-          
+          <p>北大2018机试<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/11/机试准备for-2019/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
