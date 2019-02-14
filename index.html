@@ -292,6 +292,328 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/14/install-pytorch-with-conda/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/02/14/install-pytorch-with-conda/" itemprop="url">
+                  install_pytorch_with_conda
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-14T23:17:45+08:00">
+                2019-02-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/02/14/install-pytorch-with-conda/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/02/14/install-pytorch-with-conda/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h1><ol>
+<li><a href="http://anaconda.com/download/" target="_blank" rel="external">http://anaconda.com/download/</a> 下载anaconda3</li>
+<li>放到 目录下，命令：bash Anaconda3-5.1.0-Linux-x86_64.sh</li>
+<li>echo ‘export PATH=”~/anaconda3/bin:$PATH”‘ &gt;&gt; ~/.bashrc</li>
+</ol>
+<p>source ~/.bashrc</p>
+<ol>
+<li><p>conda create –name python3 python=3.4<br>source activate python3</p>
+</li>
+<li><p>改为清华源<br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</a><br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</a><br>conda config –add channels <a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a><br>conda config –set show_channel_urls yes</p>
+</li>
+</ol>
+<p>cp ~/.condarc{,.bak}</p>
+<p>cat ~/.condarc.bak  </p>
+<p>vim ~/.condarc<br>修改为如下<br>channels:</p>
+<ul>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/</a></li>
+<li><a href="https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/msys2/</a><br>show_channel_urls: true<br>如上</li>
+</ul>
+<ol>
+<li>conda install <strong>*</strong></li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/30/Interpretable-Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/01/30/Interpretable-Machine-Learning/" itemprop="url">
+                  Interpretable-Machine-Learning
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-30T22:51:42+08:00">
+                2019-01-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/01/30/Interpretable-Machine-Learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/01/30/Interpretable-Machine-Learning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="area"><a href="#area" class="headerlink" title="area"></a>area</h1><h2 id="Machine-Learning-Auto-encoder"><a href="#Machine-Learning-Auto-encoder" class="headerlink" title="Machine Learning:Auto-encoder"></a>Machine Learning:Auto-encoder</h2><p>Oscar Li, Hao Liu, Chaofan Chen, Cynthia Rudin: Deep Learning for Case- Based Reasoning Through Prototypes: A Neural Network That Explains Its Predictions. AAAI 2018: 3530-3537</p>
+<h2 id="NLP："><a href="#NLP：" class="headerlink" title="NLP："></a>NLP：</h2><p>Hui Liu, Qingyu Yin, William Yang Wang: Towards Explainable NLP: A Generative Explanation Framework for Text Classification. CoRR abs/1811.00196 (2018)</p>
+<h2 id="Computer-Vision"><a href="#Computer-Vision" class="headerlink" title="Computer Vision"></a>Computer Vision</h2><p>Uncertainty Map:<br>Alex Kendall, Yarin Gal: What Uncertainties Do We Need in Bayesian Deep Learning for Computer Vision? NIPS 2017: 5580-5590</p>
+<p>Saliency Map：<br>Julius Adebayo, Justin Gilmer, Michael Muelly, Ian J. Goodfellow, Moritz Hardt, Been<br>Kim: Sanity Checks for Saliency Maps. NeurIPS 2018: 9525-9536</p>
+<h2 id="Game-Theory"><a href="#Game-Theory" class="headerlink" title="Game Theory"></a>Game Theory</h2><p>Shapley Additive Explanation<br>Scott M. Lundberg, Su-In Lee: A Unified Approach to Interpreting Model Predictions. NIPS 2017: 4768- 4777</p>
+<h1 id="Planning-and-Scheduling"><a href="#Planning-and-Scheduling" class="headerlink" title="Planning and Scheduling"></a>Planning and Scheduling</h1><p>XAI Plan:<br>Rita Borgo, Michael Cashmore, Daniele Magazzeni: Towards Providing Explanations for AI Planner Decisions. CoRR abs/1810.06338 (2018)</p>
+<p>Human-in-the-loop Planning:<br>Maria Fox, Derek Long, Daniele Magazzeni: Explainable Planning. CoRR abs/1709.10256 (2017)</p>
+<h1 id="Robo-cs"><a href="#Robo-cs" class="headerlink" title="Robo$cs"></a>Robo$cs</h1><p>Narration of Autonomous Robot Experience:<br>Stephanie Rosenthal, Sai P Selvaraj, and Manuela Veloso. Verbalization: Narration of autonomous robot experience. In IJCAI, pages 862–868. AAAI Press, 2016.</p>
+<p>From Decision Tree to human-friendly informationL:<br>Raymond Ka-Man Sheh: “Why Did You Do That?” Explainable Intelligent Robots. AAAI Workshops 2017</p>
+<h1 id="The-Need-to-Explain"><a href="#The-Need-to-Explain" class="headerlink" title="The Need to Explain"></a>The Need to Explain</h1><p>• User Acceptance &amp; Trust • Legal<br>• Conformance to ethical standards, fairness • Right to be informed<br>• Contestable decisions<br>• Explanatory Debugging • Flawed performance metrics<br>• Inadequate features • Distributional drift<br>• Increase Insightfulness • Informativeness<br>• Uncovering causality<br>[Lipton 2016, Ribeiro 2016, Weld and Bansal 2018]<br>[Goodman and Flaxman 2016, Wachter 2017] [Kulesza et al. 2014, Weld and Bansal 2018]</p>
+<h1 id="ACL-2018"><a href="#ACL-2018" class="headerlink" title="ACL 2018"></a>ACL 2018</h1><p>Unsupervised Discrete Sentence Representation Learning for Interpretable Neural Dialog Generation. Tiancheng Zhao, Kyusong Lee, Maxine Eskenazi.</p>
+<p> Word Embedding and WordNet Based Metaphor Identification and Interpretation. Rui Mao, Chenghua Lin, Frank Guerin.</p>
+<p> Interpretable and Compositional Relation Learning by Joint Training with an Autoencoder. Ryo Takahashi, Ran Tian, Kentaro Inui.</p>
+<p>Multimodal Language Analysis in the Wild: CMU-MOSEI Dataset and Interpretable Dynamic Fusion Graph. AmirAli Bagher Zadeh, Paul Pu Liang, Soujanya Poria, Erik Cambria, Louis-Philippe Morency.</p>
+<p>Automatic Estimation of Simultaneous Interpreter Performance. Craig Stewart, Nikolai Vogler, Junjie Hu, Jordan Boyd-Graber, Graham Neubig.</p>
+<h1 id="ACL-2017"><a href="#ACL-2017" class="headerlink" title="ACL 2017"></a>ACL 2017</h1><p>An Interpretable Knowledge Transfer Model for Knowledge Base Completion Qizhe Xie, Xuezhe Ma, Zihang Dai and Eduard Hovy</p>
+<p>Sarcasm SIGN: Interpreting Sarcasm with Sentiment Based Monolingual Machine Translation Lotem Peled and Roi Reichart</p>
+<p>Information-Theory Interpretation of the Skip-Gram Negative-Sampling Objective Function Oren Melamud and Jacob Goldberger</p>
+<h1 id="ICLR-2018"><a href="#ICLR-2018" class="headerlink" title="ICLR 2018"></a>ICLR 2018</h1><p>Hierarchical and Interpretable Skill Acquisition in Multi-task </p>
+<p>Reinforcement Learning<br>Interpretable Counting for Visual Question Answering</p>
+<h1 id="ICML-2018"><a href="#ICML-2018" class="headerlink" title="ICML 2018"></a>ICML 2018</h1><p>Varia onal Bayes and Beyond:Bayesian Inference for Big DataTamara Broderick (MIT)<br>Loca on: Victoria</p>
+<p>Learning to Explain: An Information Theoretic Perspective on Model Interpretation<br>Jianbo Chen, Le Song, Marn Wainwright, Michael Jordan</p>
+<p>Discovering Interpretable Representa ons for BothDeep Genera ve and Discrimina ve ModelsTameem Adel, Zoubin Ghahramani, Adrian Weller</p>
+<p>Programma cally Interpretable Reinforcement Learning<br>Abhinav Verma, Vijayaraghavan Murali, Rishabh Singh,Pushmeet Kohli, Swarat Chaudhuri</p>
+<p>Differentiable Abstract Interpreta on for Provably RobustNeural Networks<br>Ma hew Mirman, Timon Gehr, Mar n Veche</p>
+<p>Interpretability Beyond Feature A ribu on:Quan ta ve Tes ng with Concept Ac va on Vectors(TCAV)<br>Been Kim, Mar n Wa enberg, Jus n Gilmer, Carrie Cai,James Wexler, Fernanda B Viégas, Rory sayres</p>
+<p>oi-VAE: Output Interpretable VAEs for Nonlinear GroupFactor Analysis<br>Samuel Ainsworth, Nick J Fo , Adrian KC Lee, Emily Fox</p>
+<p>Fairness, Interpretability, and Explainability Federa on of Workshops</p>
+<h1 id="NeurIPS-2018"><a href="#NeurIPS-2018" class="headerlink" title="NeurIPS 2018"></a>NeurIPS 2018</h1><p>Towards Robust Interpretability with Self-Explaining Neural Networks</p>
+<p>Representer Point Selection for Explaining Deep Neural Networks<br>Explaining Deep Learning Models – A Bayesian Non-parametric Approach</p>
+<p>Interpreting Neural Network Judgments via Minimal, Stable, and Symbolic Corrections</p>
+<p>Neural Interaction Transparency (NIT): Disentangling Learned Interactions for Improved Interpretability</p>
+<p>Attacks Meet Interpretability: Attribute-steered Detection of Adversarial Samples</p>
+<p>Learning Conditioned Graph Structures for Interpretable Visual Question Answering</p>
+<p>Diminishing Returns Shape Constraints for Interpretability and Regularization</p>
+<p>Uncertainty-Aware Attention for Reliable Interpretation and Prediction</p>
+<h1 id="Integrated-Gradients"><a href="#Integrated-Gradients" class="headerlink" title="Integrated Gradients"></a>Integrated Gradients</h1><p>Axiomatic Attribution for Deep Networks</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/24/How-to-GOOGLE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -380,8 +702,12 @@
       
         
           
-            <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</div></pre></td></tr></table></figure>
+            <h1 id="step-1"><a href="#step-1" class="headerlink" title="step 1"></a>step 1</h1><p>你需要一个国外服务器（请自行购买及）</p>
+<h1 id="step-2"><a href="#step-2" class="headerlink" title="step 2"></a>step 2</h1><p>进入服务器输入以下命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/bbr.sh &amp;&amp; chmod +x bbr.sh &amp;&amp; bash bbr.sh</div></pre></td></tr></table></figure>
+<h1 id="step-3"><a href="#step-3" class="headerlink" title="step 3"></a>step 3</h1><p>你需要在github上搜索shadowsocksr，然后下载release，安装。点击服务器配置，填入你在step2完成后输出的信息</p>
+
           
         
       
@@ -1361,283 +1687,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/how-to-be-a-good-phd/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/10/20/how-to-be-a-good-phd/" itemprop="url">
-                  how to be a good phd
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-20T11:18:50+08:00">
-                2018-10-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/20/how-to-be-a-good-phd/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/20/how-to-be-a-good-phd/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>学生研讨会<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/20/how-to-be-a-good-phd/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/qintao-rl/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/10/19/qintao-rl/" itemprop="url">
-                  qintao-rl
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-19T17:12:33+08:00">
-                2018-10-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/19/qintao-rl/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/10/19/qintao-rl/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>强化学习-秦涛<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/19/qintao-rl/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1682,7 +1736,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">80</span>
+                <span class="site-state-item-count">82</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
