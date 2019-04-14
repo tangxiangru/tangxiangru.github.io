@@ -292,6 +292,162 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/14/aboutPretrained/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/04/14/aboutPretrained/" itemprop="url">
+                  aboutPretrained
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-14T18:55:40+08:00">
+                2019-04-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/04/14/aboutPretrained/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/04/14/aboutPretrained/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="feature-based：emlo"><a href="#feature-based：emlo" class="headerlink" title="feature based：emlo"></a>feature based：emlo</h1><p>得到上下文相关的embedd传递给下游任务</p>
+<h1 id="finetuning-based：gpt"><a href="#finetuning-based：gpt" class="headerlink" title="finetuning based：gpt"></a>finetuning based：gpt</h1><p>gpt用于下游任务对模型参数精调</p>
+<h1 id="bert会随着下游任务进行微调"><a href="#bert会随着下游任务进行微调" class="headerlink" title="bert会随着下游任务进行微调"></a>bert会随着下游任务进行微调</h1><p>bert base和bert large</p>
+<p>既可以feature也可以finetuning</p>
+<p>#对比bert和gpt</p>
+<ol>
+<li>bert时长和voc更大</li>
+<li>bert优化目标是mlm和nsp两个任务</li>
+<li>bert 的finetuning学习率根据task变化</li>
+</ol>
+<p>#对比bert和elmo</p>
+<p>1.bert使用了Transformer</p>
+<p>2.bert实现了真正的双向，elmo是将两个模型拼接在一起的，而bert是用masked Transformer，克服了自己看自己的问题</p>
+<p>bert优点：高效捕捉长距离依赖、捕捉真正双向信息</p>
+<p>bert缺点：每次挑选百分之15，很慢</p>
+<h1 id="未来：MT-DNN"><a href="#未来：MT-DNN" class="headerlink" title="未来：MT-DNN"></a>未来：MT-DNN</h1><p>finetuning是多任务的（无需大量标注数据）</p>
+<p>bert不能用于生成式任务：序列生成的问题是给定前n个词，生成后面词。但是bert是挡出前面和后面，然后来挖空。他就特点就是完全双向。</p>
+<p>bert启发是masked language model同时，也预测next Sentence （object function）</p>
+<p>language model+Transformer=bert（encoder）、gpt（Decoder）</p>
+<p>经典的Transformer是从左到右自回归顺序解码，在解码中加mask</p>
+<p>主要贡献是self Attention的提出，每个位置可以同步。在编码中没有mask，在解码中加。</p>
+<p>nli任务是是不是有关系，如果这两句子确实跟language model有关系。而分类就没啥意义。</p>
+<p>不管是bert 还是gpt肯定会对 task specific的任务有提升</p>
+<p>gpt启示是把语言模型当做无监督多任务学习器。</p>
+<p>低语料的文本生成上用language model会有用。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/06/NewFashionQA/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1607,142 +1763,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/暑期实习失败原因/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="唐相儒">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="唐相儒的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/11/08/暑期实习失败原因/" itemprop="url">
-                  暑期实习失败原因
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T16:47:27+08:00">
-                2018-11-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/11/08/暑期实习失败原因/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2018/11/08/暑期实习失败原因/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>杂想<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/08/暑期实习失败原因/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1792,7 +1812,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/目录">
-                <span class="site-state-item-count">83</span>
+                <span class="site-state-item-count">84</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
