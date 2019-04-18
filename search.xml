@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[可解释性inNLP]]></title>
+    <url>%2F2019%2F04%2F18%2F%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7inNLP%2F</url>
+    <content type="text"><![CDATA[&lt;!–more–&gt; 可解释性in NLP 1.什么方法没做 我们可以用到nlp 2.做到什么程度 哪些好哪些坏 3.就4.18讨论 concept net比较重要 4.就理论而言，不同方法之间的区别和联系 同一个方向内大部分方法都是有关系的，重在其中的联系 ig能用contribution的角度去量化它]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[aboutPretrained]]></title>
     <url>%2F2019%2F04%2F14%2FaboutPretrained%2F</url>
     <content type="text"><![CDATA[feature based：emlo得到上下文相关的embedd传递给下游任务 finetuning based：gptgpt用于下游任务对模型参数精调 bert会随着下游任务进行微调bert base和bert large 既可以feature也可以finetuning #对比bert和gpt bert时长和voc更大 bert优化目标是mlm和nsp两个任务 bert 的finetuning学习率根据task变化 #对比bert和elmo 1.bert使用了Transformer 2.bert实现了真正的双向，elmo是将两个模型拼接在一起的，而bert是用masked Transformer，克服了自己看自己的问题 bert优点：高效捕捉长距离依赖、捕捉真正双向信息 bert缺点：每次挑选百分之15，很慢 未来：MT-DNNfinetuning是多任务的（无需大量标注数据） bert不能用于生成式任务：序列生成的问题是给定前n个词，生成后面词。但是bert是挡出前面和后面，然后来挖空。他就特点就是完全双向。 bert启发是masked language model同时，也预测next Sentence （object function） language model+Transformer=bert（encoder）、gpt（Decoder） 经典的Transformer是从左到右自回归顺序解码，在解码中加mask 主要贡献是self Attention的提出，每个位置可以同步。在编码中没有mask，在解码中加。 nli任务是是不是有关系，如果这两句子确实跟language model有关系。而分类就没啥意义。 不管是bert 还是gpt肯定会对 task specific的任务有提升 gpt启示是把语言模型当做无监督多任务学习器。 低语料的文本生成上用language model会有用。]]></content>
