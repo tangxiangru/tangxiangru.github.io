@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[新服务器配置]]></title>
+    <url>%2F2019%2F04%2F25%2F%E6%96%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[wget https://github.com/zsh-users/zsh/archive/zsh-5.6.2.tar.gz -O /tmp/zsh-5.6.2.tar.gz \ &amp;&amp; tar zxvf /tmp/zsh-5.6.2.tar.gz \ &amp;&amp; cd /tmp/zsh-zsh-5.6.2/ \ &amp;&amp; ./configure –prefix=$HOME/.local \ &amp;&amp; make \ &amp;&amp; make install \ &amp;&amp; cd - wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O /tmp/install-oh-my-zsh.sh \ &amp;&amp; sed -i ‘/env zsh/d’ /tmp/install-oh-my-zsh.sh \ &amp;&amp; sed -i ‘s/chsh -s/sudo chsh -s/g’ /tmp/install-oh-my-zsh.sh \ &amp;&amp; sh /tmp/install-oh-my-zsh.sh \ &amp;&amp; rm -f /tmp/install-oh-my-zsh.sh \ &amp;&amp; wget https://raw.githubusercontent.com/oskarkrawczyk/honukai-iterm/master/honukai.zsh-theme -O ~/.oh-my-zsh/themes/honukai.zsh-theme \ &amp;&amp; sed -i.bak ‘/ZSH_THEME/s/\”.*\”/\”honukai\”/‘ ~/.zshrc wget https://raw.githubusercontent.com/hughplay/lightvim/master/install.sh -O - | sh git clone https://github.com/hughplay/tmux-config.git&amp;&amp; wget https://raw.githubusercontent.com/hughplay/env/master/scripts/centos/install-tmux.sh&amp;&amp; bash install-tmux.sh&amp;&amp; cd tmux-config/&amp;&amp; bash install.sh&amp;&amp; export PATH=$HOME/.local/bin/:$PATH ssh -N -D 7073 txr@cas]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[可解释性inNLP]]></title>
     <url>%2F2019%2F04%2F18%2F%E5%8F%AF%E8%A7%A3%E9%87%8A%E6%80%A7inNLP%2F</url>
     <content type="text"><![CDATA[&lt;!–more–&gt; 可解释性in NLP 1.什么方法没做 我们可以用到nlp 2.做到什么程度 哪些好哪些坏 3.就4.18讨论 concept net比较重要 4.就理论而言，不同方法之间的区别和联系 同一个方向内大部分方法都是有关系的，重在其中的联系 ig能用contribution的角度去量化它]]></content>
