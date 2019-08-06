@@ -1,0 +1,814 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="googleb849f8ce9353f945.html" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="欢迎戳进" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="天津大学的RL讲习班，分为九个章节">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tianjin U RL Seminar">
+<meta property="og:url" content="http://yoursite.com/2019/08/07/Tianjin-U-RL-Seminar/index.html">
+<meta property="og:site_name" content="唐相儒的博客">
+<meta property="og:description" content="天津大学的RL讲习班，分为九个章节">
+<meta property="og:updated_time" content="2019-08-06T20:27:02.305Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tianjin U RL Seminar">
+<meta name="twitter:description" content="天津大学的RL讲习班，分为九个章节">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/08/07/Tianjin-U-RL-Seminar/"/>
+
+
+
+
+
+  <title> Tianjin U RL Seminar | 唐相儒的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">唐相儒的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/首页" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-ban"></i> <br />
+            
+            博客首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-hand-peace-o"></i> <br />
+            
+            文章分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/目录" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            文章归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/标签" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-sign-language"></i> <br />
+            
+            文章标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-sitemap">
+          <a href="/sitemap.xml" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-map-o"></i> <br />
+            
+            导航
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-asl-interpreting"></i> <br />
+            
+            team
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/07/Tianjin-U-RL-Seminar/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐相儒">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="唐相儒的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tianjin U RL Seminar
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-07T04:23:54+08:00">
+                2019-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/07/Tianjin-U-RL-Seminar/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2019/08/07/Tianjin-U-RL-Seminar/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>天津大学的RL讲习班，分为九个章节<br><a id="more"></a></p>
+<h1 id="GCN"><a href="#GCN" class="headerlink" title="GCN"></a>GCN</h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>处理图类型的数据上遇到了问题</p>
+<p>特征矩阵：N*F的矩阵X，和结构矩阵A来作为输入</p>
+<p>传播规则A*X</p>
+<p>更新方式分为基于谱</p>
+<h2 id="spectral-based-GCN"><a href="#spectral-based-GCN" class="headerlink" title="spectral-based GCN"></a>spectral-based GCN</h2><p>基于谱图</p>
+<h3 id="laplacian-matrix"><a href="#laplacian-matrix" class="headerlink" title="laplacian matrix"></a>laplacian matrix</h3><p>节点的度矩阵：对角阵</p>
+<p>laplacian matrix 可以被定义为L=D-A</p>
+<p>进一步正则化：（带入D-A）</p>
+<p>特点：正交矩阵，所以可以进一步分解U^U</p>
+<p>为什么要用：可以和spectral domain进行对应</p>
+<h3 id="spectral-based-GCN-1"><a href="#spectral-based-GCN-1" class="headerlink" title="spectral-based GCN"></a>spectral-based GCN</h3><p>定义图上的傅里叶变化，定义的是x*g传播算法</p>
+<p>但是计算开销大，使用切比雪夫多项式近似表示</p>
+<p>所以最后x*g的卷积定义为 参数乘T乘L乘x的K个参数的式子累加</p>
+<h3 id="例子：空手道俱乐部"><a href="#例子：空手道俱乐部" class="headerlink" title="例子：空手道俱乐部"></a>例子：空手道俱乐部</h3><p>半监督学习，link prediction</p>
+<h2 id="spatial-based-GCN"><a href="#spatial-based-GCN" class="headerlink" title="spatial-based GCN"></a>spatial-based GCN</h2><p>邻居节点进行聚合</p>
+<h3 id="为什么"><a href="#为什么" class="headerlink" title="为什么"></a>为什么</h3><p>谱的GCN的缺点：领域相关、扰动敏感、大图难处理</p>
+<h3 id="inductive-leanring-amp-transductive-leanring"><a href="#inductive-leanring-amp-transductive-leanring" class="headerlink" title="inductive leanring &amp; transductive leanring"></a>inductive leanring &amp; transductive leanring</h3><p>不同阶的采样得到中心节点的表征向量，为每个节点都生成表征向量。</p>
+<p>inductive leanring：无监督学习</p>
+<p>transductive leanring</p>
+<h3 id="Embedding-test：graphSAGE"><a href="#Embedding-test：graphSAGE" class="headerlink" title="Embedding test：graphSAGE"></a>Embedding test：graphSAGE</h3><p>hash会对WL算法产生影响，所以用网络来学习代替hash函数</p>
+<p>对比的baseline是deep walk</p>
+<h3 id="LGCN"><a href="#LGCN" class="headerlink" title="LGCN"></a>LGCN</h3><p>邻居节点数量不定且无顺序，这篇把图结构的数据变成grid-like的数据</p>
+<p>数量不定且无顺序：k largest node select</p>
+<p>大图：subgraph training</p>
+<p>发在KDD 2018。图中节点的邻节点数目是不确定的，邻节点之间也没有任何顺序可言。这2点对GCN提出了很大的挑战。该文提出的LGCNs模型能够基于数值排序的方法自动选择固定数目的邻居节点作为GCN的输入特征，从而解决了上述2个难点并使用常规的卷积操作来进行图编码，并使用子图训练方法来使LGCNs能够适用于大图(large-scale graphs)训练。</p>
+<h1 id="marl"><a href="#marl" class="headerlink" title="marl"></a>marl</h1><h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>mdp的一些定义</p>
+<p>部分可观察的马尔科夫过程，完全合作的</p>
+<h2 id="coordination"><a href="#coordination" class="headerlink" title="coordination"></a>coordination</h2><p>maddpg</p>
+<p>集中式学习分布式执行</p>
+<p>第一篇，用attention做策略估计，条件估值</p>
+<p>第二篇，不同agent的联合信息</p>
+<p>足球：只用关注某些球员，而非全部</p>
+<p>maddpg不具有良好的泛化性</p>
+<h2 id="credit-assignment-in-marl"><a href="#credit-assignment-in-marl" class="headerlink" title="credit assignment in marl"></a>credit assignment in marl</h2><p>优化长期累积收益，agent只能收到局部信息。</p>
+<p>分为差异奖励和对q value（长期累积收益）分解</p>
+<h3 id="Value-Decomposition-Networks-For-Cooperative-Multi-Agent-Learning"><a href="#Value-Decomposition-Networks-For-Cooperative-Multi-Agent-Learning" class="headerlink" title="Value-Decomposition Networks For Cooperative Multi-Agent Learning"></a>Value-Decomposition Networks For Cooperative Multi-Agent Learning</h3><p>发现low level的架构在所有任务上都比high level好</p>
+<h3 id="Counterfactual-Multi-Agent-Policy-Gradients"><a href="#Counterfactual-Multi-Agent-Policy-Gradients" class="headerlink" title="Counterfactual Multi-Agent Policy Gradients"></a>Counterfactual Multi-Agent Policy Gradients</h3><p>差异奖励。构造baseline的方式，就是构造default action</p>
+<p>COMA学习一个集中式的critic，就是Q。当前策略下的动作分布依次去计算Q。相对于当前策略的优势。</p>
+<p>星际：分布式的微观管理。</p>
+<p>反事实思维（Counterfactual）</p>
+<h3 id="QMIX-Monotonic-Value-Function-Factorisation-for-Deep-Multi-Agent-Reinforcement-Learning"><a href="#QMIX-Monotonic-Value-Function-Factorisation-for-Deep-Multi-Agent-Reinforcement-Learning" class="headerlink" title="QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning"></a>QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning</h3><p>也是星际任务，Background：把 fully cooperative multi-agent task 多智体问题考虑成Dec-POMDP问题（部分可观察马尔可夫决策过程）。</p>
+<p>只是基于自身的历史信息，缺乏正取评估不是很准。所以用qmix放缩，只假设和qy成正相关。</p>
+<p>用Value Decomposition Networks（VDNs）值分解网络。</p>
+<p>QMIX：三个网络。但是 QMIX（因为要满足单调性）对式子充分但不必要。介于 IQL 与 centralised Q-learning （应该是动作空间相互耦合）之间，让这个函数随着每个智能体值函数有单调性。（核心）。不是线性加和得到q total。是mixing Network 中的参数必须限制为非负的，这样就可以逼近任意非负函数</p>
+<p>单调性使得分布式策略和总体策略是一致的啊。所以必须保证单调性。</p>
+<p>左边网络接收输入就是q，参数是通过hypernetwork产生的，从而保证参数非负。（激活函数单调）</p>
+<h1 id="exploration-in-rl"><a href="#exploration-in-rl" class="headerlink" title="exploration in rl"></a>exploration in rl</h1><p>Exploration是一件很重要同时也很困难的事情。与其他机器学习范式相比，RL通常只知道某个动作的能得多少分，却不知道该动作是不是最好的——这就是基于evaluate的强化学习与基于instruct的监督学习的根本区别。</p>
+<p>正因如此，RL的本质决定了它极其需要Exploration，我们需要通过不断地探索来发现更好的决策，或者至少证明当前的决策是最好的——所以Exploration-Exploitation成为了强化学习领域诸个Tradeoff中最出名的一个。</p>
+<p>Exploration是尝试新的东西，本质上是为了获取更多信息。各种Exploration方法的核心就是用尽可能少的代价获得尽可能有价值的信息。</p>
+<h2 id="count-based-exploration"><a href="#count-based-exploration" class="headerlink" title="count based exploration"></a>count based exploration</h2><h3 id="ICM好奇心机制"><a href="#ICM好奇心机制" class="headerlink" title="ICM好奇心机制"></a>ICM好奇心机制</h3><p>curiosity这种intrinsic reward是基于智能体对下一步预测与实际下一步状态差距来定义的。不过之前的文章提到这种定义会出现的一个问题，那就是当环境出现与智能体无关的随机性的时候，智能体会因为始终不能预测下一步的状态，而卡在相应的位置。这篇文章就解决了这个问题。</p>
+<p>反向模型来解决这个问题。关注随机性的部分就不能产生动作。inverse model更关注动作，其表示自然会不去包含与其无关的内容。通过求min（ahat和a）来迫使不去包含与其无关的内容。不希望考虑既不能被控制也不能影响智能体的部分。</p>
+<h3 id="RND：Random-Network-Distillation"><a href="#RND：Random-Network-Distillation" class="headerlink" title="RND：Random Network Distillation"></a>RND：Random Network Distillation</h3><p>好几种intrinsic reward的设计模式了，比如基于动力学模型预测误差的（Curiosity、ICM）；基于各种信息增益的（Empowerment、VIME），这里的方法又是一种新的设计模式。</p>
+<p>其设计的初衷主要还是基于对状态访问计数（count-based），但由于是高维连续空间，这个计数更多地可以看做是密度估计。如果类似的状态之前访问地少，那么说明这个状态比较新奇，那么就给予比较高的intrinsic reward。文章用了一个比较机智的方法来快速地估计某个状态是不是之前出现的比较少。</p>
+<p>同时使用intrinsic reward和extrinsic reward</p>
+<h2 id="Diversity-based-exploration"><a href="#Diversity-based-exploration" class="headerlink" title="Diversity-based exploration"></a>Diversity-based exploration</h2><p>第二类方法是基于多样性的方法。这类方法的思想是尽量让agent学到的策略和之前的策略尽量不同。今天介绍的这个方法就是基于这个思想。它同过给通常RL优化的loss额外的加上正则项，来迫使agent去寻找新的策略。这里的D是用来衡量策略之间的差距的一个距离，根据不同的算法，D的计算方式也各不相同。</p>
+<h3 id="Diversity-driven-exploration-strategy-for-DRL"><a href="#Diversity-driven-exploration-strategy-for-DRL" class="headerlink" title="Diversity-driven exploration strategy for DRL"></a>Diversity-driven exploration strategy for DRL</h3><h2 id="Hindsight-Experience-Replay"><a href="#Hindsight-Experience-Replay" class="headerlink" title="Hindsight Experience Replay"></a>Hindsight Experience Replay</h2><p>处理的是特殊的任务–多目标的任务。任务是将绿色的物体推到红色的小球所在的位置，小球的位置是随机生成的，每一个小球的位置就对应一个目标（goal），我们的任务是训练一个策略能够应对所有的这些目标。环境的reward是稀疏的，只有在完成目标时才能获得reward。</p>
+<p>我们先来看下multi-goal下的RL的一般做法。<br>在普通的RL设置下，我们选择一个动作，只需要根据当前的状态，但是在multi-goal的setting下，我们选择动作不光依赖当前的状态，还要依赖我们的目标。所以我们的Q函数和策略都加入了额外的一项来表示当前的目标</p>
+<h1 id="gan"><a href="#gan" class="headerlink" title="gan"></a>gan</h1><p>与其他生成式模型相比，GAN这种竞争的方式不再要求一个假设的数据分布，即不需要formulate p(x)，而是使用一种分布直接进行采样sampling，从而真正达到理论上可以完全逼近真实数据</p>
+<h2 id="cGAN"><a href="#cGAN" class="headerlink" title="cGAN"></a>cGAN</h2><p>对generator和discriminator都加了一个condition，使得数据集是有标签的</p>
+<h2 id="ACGAN-cGAN-SGAN"><a href="#ACGAN-cGAN-SGAN" class="headerlink" title="ACGAN = cGAN+SGAN"></a>ACGAN = cGAN+SGAN</h2><p>输出有分支，是否真假、标签。</p>
+<p>对于生成器来说有两个输入，一个是标签的分类数据c，另一个是随机数据z。</p>
+<p>对于判别器分别要判断数据源是否为真实数据的概率分布，以及数据源对于分类标签的概率分布。</p>
+<p>第一部分 L_S 是面向数据真实与否的代价函数，第二部分 L_C 则是数据分类准确性的代价函数。在优化过程中希望判别器D能否使得 L_C+L_S 尽可能最大，而生成器G使得 L_C-L_S 尽可能最大；简而言之是希望判别器能够尽可能区分真实数据和生成数据并且能有效对数据进行分类，对生成器来说希望生成数据被尽可能认为是真实数据且数据都能够被有效分类。</p>
+<h2 id="InfoGAN"><a href="#InfoGAN" class="headerlink" title="InfoGAN"></a>InfoGAN</h2><p>让网络学习到了可解释的特征表示。</p>
+<p>作者把原来的噪声输入分解成两部分：一是原来的z；二是由若干个latent variables拼接而成的latent code c，这些latent variables会有一个先验的概率分布，且可以是离散的或连续的，用于代表生成数据的不同特征维度，比如MNIST实验的latent variables就可以由一个取值范围为0-9的离散随机变量（用于表示数字）和两个连续的随机变量（分别用于表示倾斜度和粗细度）构成。</p>
+<p>作者从信息论中得到启发，提出了基于互信息（mutual information）的正则化项。c的作用是对生成数据的分布施加影响，于是需要对这两者的关系建模，</p>
+<h2 id="gail"><a href="#gail" class="headerlink" title="gail"></a>gail</h2><p>逆向强化学习：RL是通过agent不断与environment交互获取reward来进行策略的调整，最终得到一个optimal policy。但IRL计算量较大，在每一个内循环中都跑了一遍RL算法。 IRL不同之处在于，无法获取真实的reward函数，但是具有根据专家策略得到的一系列轨迹。假设专家策略是真实reward函数下的最优策略，IRL学习专家轨迹，反推出reward函数。</p>
+<p>挺难的，这里没听懂。</p>
+<h1 id="gan-in-nlp"><a href="#gan-in-nlp" class="headerlink" title="gan in nlp"></a>gan in nlp</h1><p>challenge：gan的问题，梯度不可回传，所以使用vae的mle。但这样training和inference的loss不一样。这样在优化目标的时候又有人提出一些rl的方法，但这样不是真实的评分，因为评分不一定足够好。同时，word level的reward是需要的。</p>
+<h2 id="seqgan"><a href="#seqgan" class="headerlink" title="seqgan"></a>seqgan</h2><p>首先如何解决离散数据梯度无法回传给Generator的问题：将Generator的优化转化为最大化rewards，然后利用policy gredient优化Generator就可以了。</p>
+<p>其次seqGAN作者还指出Discriminator只能对完整的句子进行判断，而无法判断部分句子的好坏，而实际上一个句子并不是全部都很差，而仅仅其中部分不好而已：当解码到t时，即对后面T-t个timestep采用蒙特卡洛搜索搜索出N条路径，将这N条路径分别和已经decode的结果组成N条完整输出，然后将D网络对应奖励的平均值作为reward.因为当t=T时无法再向后探索路径，所以直接以完整decode结果的奖励作为reward。蒙特卡洛搜索是指在选择下一个节点的时候用蒙特卡洛采样的方式，而蒙特卡洛采样是指根据当前输出词表的置信度随机采样。</p>
+<h2 id="dpgan"><a href="#dpgan" class="headerlink" title="dpgan"></a>dpgan</h2><h2 id="sentigan"><a href="#sentigan" class="headerlink" title="sentigan"></a>sentigan</h2><h2 id="rankgan"><a href="#rankgan" class="headerlink" title="rankgan"></a>rankgan</h2><h2 id="leakgan"><a href="#leakgan" class="headerlink" title="leakgan"></a>leakgan</h2><p>长文本生成和稀疏信息的问题</p>
+<p>稀疏信息是每次只给一个reward。图片是梯度连续的，图片的每个pixel都是有梯度的，但是句子只有十几个，远远小于连续的数据。即序列生成过程中缺乏一些关于序列结构的中间信息的反馈。所以用层级强化学习，包括 Manager 模块和 Worker 模块。</p>
+<p>判别器会在中间时间步泄露一些提取的特征给生成器，生成器则利用这个额外信息指导序列的生成。</p>
+<h2 id="improved-adversarial-image-caption"><a href="#improved-adversarial-image-caption" class="headerlink" title="improved adversarial image caption"></a>improved adversarial image caption</h2><h2 id="stack-gan"><a href="#stack-gan" class="headerlink" title="stack gan"></a>stack gan</h2>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/25/jupyter/" rel="next" title="jupyter">
+                <i class="fa fa-chevron-left"></i> jupyter
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://ooo.0o0.ooo/2017/07/01/59575381605d5.png"
+               alt="唐相儒" />
+          <p class="site-author-name" itemprop="name">唐相儒</p>
+           
+              <p class="site-description motion-element" itemprop="description">Never Let Your Fear Decide Your Future</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/目录">
+                <span class="site-state-item-count">88</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCN"><span class="nav-number">1.</span> <span class="nav-text">GCN</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spectral-based-GCN"><span class="nav-number">1.2.</span> <span class="nav-text">spectral-based GCN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#laplacian-matrix"><span class="nav-number">1.2.1.</span> <span class="nav-text">laplacian matrix</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#spectral-based-GCN-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">spectral-based GCN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#例子：空手道俱乐部"><span class="nav-number">1.2.3.</span> <span class="nav-text">例子：空手道俱乐部</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spatial-based-GCN"><span class="nav-number">1.3.</span> <span class="nav-text">spatial-based GCN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么"><span class="nav-number">1.3.1.</span> <span class="nav-text">为什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#inductive-leanring-amp-transductive-leanring"><span class="nav-number">1.3.2.</span> <span class="nav-text">inductive leanring & transductive leanring</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Embedding-test：graphSAGE"><span class="nav-number">1.3.3.</span> <span class="nav-text">Embedding test：graphSAGE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LGCN"><span class="nav-number">1.3.4.</span> <span class="nav-text">LGCN</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#marl"><span class="nav-number">2.</span> <span class="nav-text">marl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#background"><span class="nav-number">2.1.</span> <span class="nav-text">background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#coordination"><span class="nav-number">2.2.</span> <span class="nav-text">coordination</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#credit-assignment-in-marl"><span class="nav-number">2.3.</span> <span class="nav-text">credit assignment in marl</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-Decomposition-Networks-For-Cooperative-Multi-Agent-Learning"><span class="nav-number">2.3.1.</span> <span class="nav-text">Value-Decomposition Networks For Cooperative Multi-Agent Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Counterfactual-Multi-Agent-Policy-Gradients"><span class="nav-number">2.3.2.</span> <span class="nav-text">Counterfactual Multi-Agent Policy Gradients</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#QMIX-Monotonic-Value-Function-Factorisation-for-Deep-Multi-Agent-Reinforcement-Learning"><span class="nav-number">2.3.3.</span> <span class="nav-text">QMIX: Monotonic Value Function Factorisation for Deep Multi-Agent Reinforcement Learning</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#exploration-in-rl"><span class="nav-number">3.</span> <span class="nav-text">exploration in rl</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#count-based-exploration"><span class="nav-number">3.1.</span> <span class="nav-text">count based exploration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ICM好奇心机制"><span class="nav-number">3.1.1.</span> <span class="nav-text">ICM好奇心机制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RND：Random-Network-Distillation"><span class="nav-number">3.1.2.</span> <span class="nav-text">RND：Random Network Distillation</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Diversity-based-exploration"><span class="nav-number">3.2.</span> <span class="nav-text">Diversity-based exploration</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Diversity-driven-exploration-strategy-for-DRL"><span class="nav-number">3.2.1.</span> <span class="nav-text">Diversity-driven exploration strategy for DRL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hindsight-Experience-Replay"><span class="nav-number">3.3.</span> <span class="nav-text">Hindsight Experience Replay</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gan"><span class="nav-number">4.</span> <span class="nav-text">gan</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#cGAN"><span class="nav-number">4.1.</span> <span class="nav-text">cGAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ACGAN-cGAN-SGAN"><span class="nav-number">4.2.</span> <span class="nav-text">ACGAN = cGAN+SGAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#InfoGAN"><span class="nav-number">4.3.</span> <span class="nav-text">InfoGAN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#gail"><span class="nav-number">4.4.</span> <span class="nav-text">gail</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#gan-in-nlp"><span class="nav-number">5.</span> <span class="nav-text">gan in nlp</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#seqgan"><span class="nav-number">5.1.</span> <span class="nav-text">seqgan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dpgan"><span class="nav-number">5.2.</span> <span class="nav-text">dpgan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#sentigan"><span class="nav-number">5.3.</span> <span class="nav-text">sentigan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rankgan"><span class="nav-number">5.4.</span> <span class="nav-text">rankgan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leakgan"><span class="nav-number">5.5.</span> <span class="nav-text">leakgan</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#improved-adversarial-image-caption"><span class="nav-number">5.6.</span> <span class="nav-text">improved adversarial image caption</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#stack-gan"><span class="nav-number">5.7.</span> <span class="nav-text">stack gan</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐相儒</span>
+</div>
+
+
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2019/08/07/Tianjin-U-RL-Seminar/';
+          this.page.identifier = '2019/08/07/Tianjin-U-RL-Seminar/';
+          this.page.title = 'Tianjin U RL Seminar';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+
+<script type="text/javascript" color="176,23,31" opacity='1' zIndex="-1" count="66" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+
+<!-- 背景动画 -->
+<script type="text/javascript" src="/js/src/particle.js"></script>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
