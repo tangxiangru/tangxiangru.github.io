@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[远程服务器配置]]></title>
+    <url>%2F2019%2F12%2F17%2F%E8%BF%9C%E7%A8%8B%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%85%8D%E7%BD%AE%2F</url>
+    <content type="text"><![CDATA[jupyterstep1: ssh -N -L 8888:localhost:8888 txr@ssh.mlbrainstorm.club -p 6000 8888为jupyter端口号 step2:jupyter notebook –port 8888 step3:本地浏览器 localhost:8888]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[SATNet]]></title>
     <url>%2F2019%2F08%2F25%2FSATNet%2F</url>
     <content type="text"><![CDATA[SATNet: Bridging deep learning and logical reasoning using a differentiable satisfiability solver ICML 2019 总结：深度神经网络中的逻辑推理一直是很难的问题。他们提供了一个层，可以在深层网络中实现逻辑问题的结构和解决方案。 具体而言，SATNet是一个layer，可以在深层网络中实现对约束和解决逻辑问题的 端到端训练。并且SATNet也是一种可微分（平滑的），用于最大可满足性问题（MAXSAT）的求解器。SATNet也使用快速坐标下降方法来求解与MAXSAT问题相关的半定规划问题（SDP）。 需要注意的是，这项工作不是学习如何找到SAT任务的解决方案，而是要从样本中学习出这个游戏的约束条件和解决思路。也不是用多步骤的方式使用DL和SAT，因为这样做需要事先了解任务约束条件，此外，当前的SAT求解器不能接受概率输入。任务定义：MAXSAT是SAT求解的优化变体。 他们将SAT问题视为析取的合取（比如：即我们使用合取正规形式），因此如果子句中的至少一个变量为真，则子句为真。 实验 实验证明整合SATNet到神经网络中, 我们的模型能学到任务的逻辑结构。具体来说，他们： 1、使用single-bit监督方式学习到了奇偶校验功能（这是神经网络的传统任务）。2、学习到了如何玩9×9数独游戏。3、解决“视觉数独”问题，将数独问题的图像映射到相关的逻辑解决方法。 SATNet不仅可以简单地解决数独（这很容易），而且可以从未解决和解决的谜题中学习数独的约束条件和解决方案。 这里，SATNet的参数是子句矩阵S，它是随机初始化的。 SATNet在训练和测试集中都达到了几乎完美的准确度。 当置换（permute）数独问题以删除所有结构信息和位置，SATNet仍然可以学习逻辑，但ConvNet完全失败了。他们还组建了一个MNIST版本的数独来测试端到端的学习能力。 为此，他们首先将ConvNet应用于每个数字，将输出提供给SATNet层，将其连接到损失，并以端到端的方式训练它们。]]></content>
